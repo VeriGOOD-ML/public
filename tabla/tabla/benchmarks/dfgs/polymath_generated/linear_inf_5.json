@@ -1,0 +1,268 @@
+[
+    {
+        "id": 0,
+        "parents": [],
+        "dataType": null,
+        "children": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+        ],
+        "dfg_node_name": "source",
+        "operation": "source"
+    },
+    {
+        "id": 1,
+        "parents": [
+            21
+        ],
+        "dataType": null,
+        "children": [],
+        "dfg_node_name": "source",
+        "operation": "sink"
+    },
+    {
+        "id": 3,
+        "parents": [
+            0
+        ],
+        "dataType": "input",
+        "children": [
+            13
+        ],
+        "dfg_node_name": "x/x(0,)",
+        "operation": "x(0,)"
+    },
+    {
+        "id": 4,
+        "parents": [
+            0
+        ],
+        "dataType": "input",
+        "children": [
+            14
+        ],
+        "dfg_node_name": "x/x(1,)",
+        "operation": "x(1,)"
+    },
+    {
+        "id": 5,
+        "parents": [
+            0
+        ],
+        "dataType": "input",
+        "children": [
+            15
+        ],
+        "dfg_node_name": "x/x(2,)",
+        "operation": "x(2,)"
+    },
+    {
+        "id": 6,
+        "parents": [
+            0
+        ],
+        "dataType": "input",
+        "children": [
+            16
+        ],
+        "dfg_node_name": "x/x(3,)",
+        "operation": "x(3,)"
+    },
+    {
+        "id": 7,
+        "parents": [
+            0
+        ],
+        "dataType": "input",
+        "children": [
+            17
+        ],
+        "dfg_node_name": "x/x(4,)",
+        "operation": "x(4,)"
+    },
+    {
+        "id": 8,
+        "parents": [
+            0
+        ],
+        "dataType": "state",
+        "children": [
+            13
+        ],
+        "dfg_node_name": "w/w(0,)",
+        "operation": "w(0,)"
+    },
+    {
+        "id": 9,
+        "parents": [
+            0
+        ],
+        "dataType": "state",
+        "children": [
+            14
+        ],
+        "dfg_node_name": "w/w(1,)",
+        "operation": "w(1,)"
+    },
+    {
+        "id": 10,
+        "parents": [
+            0
+        ],
+        "dataType": "state",
+        "children": [
+            15
+        ],
+        "dfg_node_name": "w/w(2,)",
+        "operation": "w(2,)"
+    },
+    {
+        "id": 11,
+        "parents": [
+            0
+        ],
+        "dataType": "state",
+        "children": [
+            16
+        ],
+        "dfg_node_name": "w/w(3,)",
+        "operation": "w(3,)"
+    },
+    {
+        "id": 12,
+        "parents": [
+            0
+        ],
+        "dataType": "state",
+        "children": [
+            17
+        ],
+        "dfg_node_name": "w/w(4,)",
+        "operation": "w(4,)"
+    },
+    {
+        "id": 13,
+        "parents": [
+            3,
+            8
+        ],
+        "dataType": null,
+        "children": [
+            18
+        ],
+        "dfg_node_name": "x*w/x*w(0,)",
+        "operation": "*"
+    },
+    {
+        "id": 14,
+        "parents": [
+            4,
+            9
+        ],
+        "dataType": null,
+        "children": [
+            18
+        ],
+        "dfg_node_name": "x*w/x*w(1,)",
+        "operation": "*"
+    },
+    {
+        "id": 15,
+        "parents": [
+            5,
+            10
+        ],
+        "dataType": null,
+        "children": [
+            19
+        ],
+        "dfg_node_name": "x*w/x*w(2,)",
+        "operation": "*"
+    },
+    {
+        "id": 16,
+        "parents": [
+            6,
+            11
+        ],
+        "dataType": null,
+        "children": [
+            19
+        ],
+        "dfg_node_name": "x*w/x*w(3,)",
+        "operation": "*"
+    },
+    {
+        "id": 17,
+        "parents": [
+            7,
+            12
+        ],
+        "dataType": null,
+        "children": [
+            20
+        ],
+        "dfg_node_name": "x*w/x*w(4,)",
+        "operation": "*"
+    },
+    {
+        "id": 18,
+        "parents": [
+            13,
+            14
+        ],
+        "dataType": null,
+        "children": [
+            20
+        ],
+        "dfg_node_name": "4aeda360ed3b4db7ab32bb1761941da4/4aeda360ed3b4db7ab32bb1761941da4(5,)",
+        "operation": "+"
+    },
+    {
+        "id": 19,
+        "parents": [
+            15,
+            16
+        ],
+        "dataType": null,
+        "children": [
+            21
+        ],
+        "dfg_node_name": "4aeda360ed3b4db7ab32bb1761941da4/4aeda360ed3b4db7ab32bb1761941da4(6,)",
+        "operation": "+"
+    },
+    {
+        "id": 20,
+        "parents": [
+            17,
+            18
+        ],
+        "dataType": null,
+        "children": [
+            21
+        ],
+        "dfg_node_name": "4aeda360ed3b4db7ab32bb1761941da4/4aeda360ed3b4db7ab32bb1761941da4(7,)",
+        "operation": "+"
+    },
+    {
+        "id": 21,
+        "parents": [
+            19,
+            20
+        ],
+        "dataType": "output",
+        "children": [
+            1
+        ],
+        "dfg_node_name": "y/y(8,)",
+        "operation": "+"
+    }
+]

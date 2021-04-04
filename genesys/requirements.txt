@@ -1,0 +1,6 @@
+sympy
+numpy
+networkx
+graphviz
+pygraphviz
+jsonschema

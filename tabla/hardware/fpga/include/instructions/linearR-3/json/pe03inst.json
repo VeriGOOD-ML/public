@@ -1,0 +1,64 @@
+[
+  {
+    "dests": [
+      {
+        "dest_index": 0,
+        "dest_nid": "NI"
+      },
+      {
+        "dest_index": "00",
+        "dest_nid": "NB"
+      },
+      {
+        "dest_index": "20",
+        "dest_nid": "NN"
+      }
+    ],
+    "op": "-",
+    "srcs": [
+      {
+        "src_index": "00",
+        "src_nid": "NB"
+      },
+      {
+        "src_index": "0",
+        "src_nid": "ND"
+      },
+      {
+        "src_index": "0",
+        "src_nid": "NL"
+      }
+    ]
+  },
+  {
+    "dests": [
+      {
+        "dest_index": "10",
+        "dest_nid": "NB"
+      },
+      {
+        "dest_index": "0",
+        "dest_nid": "NL"
+      },
+      {
+        "dest_index": "0",
+        "dest_nid": "NL"
+      }
+    ],
+    "op": "pass",
+    "srcs": [
+      {
+        "src_index": 0,
+        "src_nid": "NI"
+      },
+      {
+        "src_index": "0",
+        "src_nid": "NL"
+      },
+      {
+        "src_index": "0",
+        "src_nid": "NL"
+      }
+    ]
+  }
+]

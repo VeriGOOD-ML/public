@@ -1,0 +1,40 @@
+onnx.utils.extract_model:Ñ
+m
+resnetv15_pool0_fwd
+resnetv15_stage1_batchnorm1_fwdresnetv15_stage1__plus0resnetv15_stage1__plus0"Add&Extracted from {mxnet_converted_model}Z-
+resnetv15_pool0_fwd
+
+
+@
+8
+8Z9
+resnetv15_stage1_batchnorm1_fwd
+
+
+@
+8
+8b1
+resnetv15_stage1__plus0
+
+
+@
+8
+8j-
+resnetv15_pool0_fwd
+
+
+@
+8
+8j9
+resnetv15_stage1_batchnorm1_fwd
+
+
+@
+8
+8j1
+resnetv15_stage1__plus0
+
+
+@
+8
+8B

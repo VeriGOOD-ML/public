@@ -1,0 +1,8 @@
+graphviz
+matplotlib
+networkx
+python-rapidjson
+tqdm
+pytools
+numpy
+pytest

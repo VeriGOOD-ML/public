@@ -1,0 +1,77 @@
+# SA_LOOP 1, 0, num_oc_tiles # OC
+# GENADDR LOW, X, LD, WBUF, 0, wt_oc_stride
+# GENADDR LOW, X, LD, OBUF, 0, output_oc_stride
+# SA_LOOP 2, 1, num_n_tiles # N
+# GENADDR LOW, X, LD, IBUF, 1, input_n_stride
+# GENADDR LOW, X, LD, OBUF, 1, output_n_stride
+# GENADDR LOW, X, ST, OBUF, 1, output_n_stride
+# SA_LOOP 3, 2, num_ic_tiles # IC
+# GENADDR LOW, X, LD, WBUF, 2, wt_ic_stride
+# GENADDR LOW, X, LD, IBUF, 2, input_ic_stride [N, H, W, C]
+# SA_LOOP 4, 3, num_kh_tiles # KH
+# GENADDR LOW, X, LD, WBUF, 3, wt_kh_stride
+# GENADDR LOW, X, LD, IBUF, 3, wt_kh_stride
+# SA_LOOP 6, 5, num_oh_tiles # OH
+# GENADDR LOW, X, LD, IBUF, 5, output_oh_stride + (stride*dtype)
+# GENADDR LOW, X, LD, OBUF, 5, output_oh_stride
+# GENADDR LOW, X, ST, OBUF, 5, output_oh_stride
+# SA_LOOP 5, 4, num_kw_tiles # KW
+# GENADDR LOW, X, LD, WBUF, 4, wt_kw_stride
+# GENADDR LOW, X, LD, IBUF, 4, wt_kw_stride
+# SA_LOOP 7, 6, num_ow_tiles # OW
+# GENADDR LOW, X, LD, IBUF, 6, output_ow_stride + (stride*dtype)
+# GENADDR LOW, X, LD, OBUF, 6, output_ow_stride
+# GENADDR LOW, X, ST, OBUF, 6, output_ow_stride
+# SA_LOOP 8, 7, N_TILE_SIZE # N
+# GENADDR LOW, X, LD, IBUF, 7, ih*iw*ic
+# SA_LOOP 9, 8, KH_TILE_SIZE # KH
+# GENADDR LOW, X, LD, IBUF, 8, ic*iw
+
+# SA_LOOP 11, 10, OH_TILE_SIZE # OH
+# GENADDR LOW, X, LD, IBUF, 10, conv_stride_y*ic*iw
+# SA_LOOP 10, 9, KW_TILE_SIZE # KW
+# GENADDR LOW, X, LD, IBUF, 9, ic
+# SA_LOOP 12, 11, OH_TILE_SIZE # OH
+# SA_LOOP 13, 12, IC_TILE_SIZE/REQ_SIZE #
+# GENADDR LOW, X, LD, IBUF, 12, N
+# LD NS, X, IBUF, 12, 1
+# GENADDR LOW, X, LD, IBUF, 11, conv_stride_x*ic
+# SA_LOOP 8, 13, int(np.ceil(wt_tile_size/(N_ROWS*M_COLS)))
+#     # GENADDR LOW, X, LD, WBUF, 13, (N_ROWS*M_COLS)
+#     # LD NS, X, WBUF, 13, 1
+# SA_LOOP 8, 14, int(np.ceil(otpt_tile_size/(M_COLS)))
+#     # GENADDR LOW, X, LD, OBUF, 14, (M_COLS)
+#     # LD NS, X, OBUF, 14, 1
+# SA_LOOP 8, 15, OC_TILE_SIZE # OC/M_COLS
+#     # W_BASE_ADDR = oc*IC_TILE_SIZE*KH_TILE_SIZE*KW_TILE_SIZE/N_ROWS
+#     # GENADDR LOW, X, RD, WBUF, 15, IC_TILE_SIZE*KH_TILE_SIZE*KW_TILE_SIZE/N_ROWS
+#     # GENADDR LOW, X, RD, OBUF, 15, 1
+# SA_LOOP 9, 16, N_TILE_SIZE # N
+#         # GENADDR LOW, X, RD, IBUF, 16, IH_TILE_SIZE*IW_TILE_SIZE*IC_TILE_SIZE/N_ROWS
+#         # GENADDR LOW, X, RD, OBUF, 16, OH_TILE_SIZE*OW_TILE_SIZE*OC_TILE_SIZE/M_COLS
+# SA_LOOP 10, 17, IC_TILE_SIZE/N_ROWS # IC
+#             # W_BASE_ADDR += ic*KH_TILE_SIZE*KW_TILE_SIZE
+#             # GENADDR LOW, X, RD, WBUF, 17, KH_TILE_SIZE*KW_TILE_SIZE
+#             # GENADDR LOW, X, RD, IBUF, 17, 1
+# SA_LOOP 11, 18, KH_TILE_SIZE # KH
+#                 # GENADDR LOW, X, RD, WBUF, 18, KW_TILE_SIZE
+#                 # GENADDR LOW, X, RD, IBUF, 18, IC_TILE_SIZE*IW_TILE_SIZE/N_ROWS
+# SA_LOOP 13, 20, OH_TILE_SIZE # OH
+#                         # GENADDR LOW, X, RD, IBUF, 13, CONV_STRIDE*IC_TILE_SIZE*IW_TILE_SIZE/N_ROWS
+#                         # GENADDR LOW, X, RD, OBUF, 13, OW_TILE_SIZE*OC_TILE_SIZE/M_COLS
+
+# SA_LOOP 12, 19, KW_TILE_SIZE # KW
+
+                                    #                     # GENADDR LOW, X, RD, WBUF, 19, 1
+                                    #                     # GENADDR LOW, X, RD, IBUF, 19, IC_TILE_SIZE/N_ROWS
+
+# SA_LOOP 14, 21, OW_TILE_SIZE # OW
+
+                                    #                             # GENADDR LOW, X, RD, IBUF, 14, CONV_STRIDE*IC_TILE_SIZE/N_ROWS
+                                    #                             # GENADDR LOW, X, RD, OBUF, 14, OC_TILE_SIZE/M_COLS
+                                    #                             O_tile[n, oc, x, y] += I_tile[n, ic, stride*x + kh, stride*y + kw] * W_tile[oc, ic, kh, kw]
+                                    #                             # GENADDR LOW, X, WR, OBUF, 14, OC_TILE_SIZE/M_COLS
+                                #                         # GENADDR LOW, X, WR, OBUF, 13, OW_TILE_SIZE*OC_TILE_SIZE/M_COLS
+                                #     # GENADDR LOW, X, WR, OBUF, 9, OH_TILE_SIZE*OW_TILE_SIZE*OC_TILE_SIZE/M_COLS
+                                # # GENADDR LOW, X, WR, OBUF, 8, IC_TILE_SIZE*KH_TILE_SIZE*KW_TILE_SIZE/N_ROWS
+

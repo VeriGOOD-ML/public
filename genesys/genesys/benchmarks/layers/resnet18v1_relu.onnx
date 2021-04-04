@@ -1,0 +1,27 @@
+onnx.utils.extract_model:º
+J
+resnetv15_batchnorm0_fwdresnetv15_relu0_fwdresnetv15_relu0_fwd"Relu&Extracted from {mxnet_converted_model}Z2
+resnetv15_batchnorm0_fwd
+
+
+@
+p
+pb-
+resnetv15_relu0_fwd
+
+
+@
+p
+pj2
+resnetv15_batchnorm0_fwd
+
+
+@
+p
+pj-
+resnetv15_relu0_fwd
+
+
+@
+p
+pB

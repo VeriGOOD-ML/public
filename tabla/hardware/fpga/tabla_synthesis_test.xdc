@@ -1,0 +1,1 @@
+create_clock -name clk -period 8.00  [get_ports ACLK]

@@ -1,0 +1,118 @@
+# Configure("init", "systolic_array")
+
+# Configure("init", "WBUF")
+BASEADDR LOW, NS, X, WBUF, X, base_addr_UNSET
+BASEADDR HIGH, NS, X, WBUF, X, base_addr_UNSET
+
+# Configure("init", "IBUF")
+BASEADDR LOW, NS, X, IBUF, X, base_addr_UNSET
+BASEADDR HIGH, NS, X, IBUF, X, base_addr_UNSET
+
+# Configure("init", "BBUF")
+BASEADDR LOW, NS, X, BBUF, X, base_addr_UNSET
+BASEADDR HIGH, NS, X, BBUF, X, base_addr_UNSET
+
+# Configure("init", "OBUF")
+BASEADDR LOW, NS, X, OBUF, X, base_addr_UNSET
+BASEADDR HIGH, NS, X, OBUF, X, base_addr_UNSET
+
+##### START SETUP FOR BASE #####
+SA_LOOP 1, 0, num_iters_UNSET
+GENADDR LOW, X, LD, WBUF, 0, stride_UNSET
+SA_LOOP 2, 1, num_iters_UNSET
+GENADDR LOW, X, LD, IBUF, 1, stride_UNSET
+SA_LOOP 3, 2, num_iters_UNSET
+GENADDR LOW, X, ST, OBUF, 2, stride_UNSET
+SA_LOOP 1, 3, num_iters_UNSET
+GENADDR LOW, X, LD, BBUF, 3, stride_UNSET
+
+##### START TILE LOOPS #####
+
+SA_LOOP 1, 4, num_iters_UNSET
+GENADDR LOW, X, LD, WBUF, 4, stride_UNSET
+LD NS, X, namespace_UNSET, 4, request_size_UNSET
+
+SA_LOOP 1, 5, num_iters_UNSET
+GENADDR LOW, X, LD, IBUF, 5, stride_UNSET
+LD NS, X, namespace_UNSET, 5, request_size_UNSET
+
+SA_LOOP 1, 6, num_iters_UNSET
+GENADDR LOW, X, ST, OBUF, 6, stride_UNSET
+ST NS, X, namespace_UNSET, 6, request_size_UNSET
+
+SA_LOOP 1, 7, num_iters_UNSET
+GENADDR LOW, X, LD, BBUF, 7, stride_UNSET
+LD NS, X, namespace_UNSET, 7, request_size_UNSET
+
+# START DATA LOOPS WBUF
+SA_LOOP 1, 8, num_iters_UNSET # OC
+GENADDR LOW, X, RD, WBUF, 8, wt_oc_stride
+GENADDR LOW, X, RD, OBUF, 8, output_oc_stride
+GENADDR LOW, X, WR, OBUF, 8, output_oc_stride
+
+SA_LOOP 2, 9, num_iters_UNSET # KH
+GENADDR LOW, X, RD, WBUF, 9, wt_kh_stride
+GENADDR LOW, X, RD, IBUF, 9, wt_kh_stride
+
+SA_LOOP 3, 10, num_iters_UNSET # KW
+GENADDR LOW, X, RD, WBUF, 10, wt_kw_stride
+GENADDR LOW, X, RD, IBUF, 10, wt_kw_stride
+
+
+SA_LOOP 4, 11, num_iters_UNSET # IC
+GENADDR LOW, X, RD, WBUF, 11, wt_ic_stride
+GENADDR LOW, X, RD, IBUF, 11, input_ic_stride
+
+SA_LOOP 5, 12, num_iters_UNSET # N
+GENADDR LOW, X, RD, IBUF, 12, input_n_stride
+GENADDR LOW, X, RD, OBUF, 12, output_n_stride
+GENADDR LOW, X, WR, OBUF, 12, output_n_stride
+
+SA_LOOP 6, 13, num_iters_UNSET # OH
+GENADDR LOW, X, RD, IBUF, 13, output_oh_stride + (stride*dtype)
+GENADDR LOW, X, RD, OBUF, 13, output_oh_stride
+GENADDR LOW, X, WR, OBUF, 13, output_oh_stride
+
+SA_LOOP 7, 14, num_iters_UNSET # OW
+
+
+
+SA_LOOP 1, 8, num_iters_UNSET
+GENADDR LOW, X, RD, WBUF, 8, stride_UNSET
+SA_LOOP 2, 12, num_iters_UNSET
+GENADDR LOW, X, RD, WBUF, 12, stride_UNSET
+SA_LOOP 3, 16, num_iters_UNSET
+GENADDR LOW, X, RD, WBUF, 16, stride_UNSET
+SA_LOOP 4, 20, num_iters_UNSET
+GENADDR LOW, X, RD, WBUF, 20, stride_UNSET
+
+# START DATA LOOPS IBUF
+SA_LOOP 1, 9, num_iters_UNSET
+GENADDR LOW, X, RD, IBUF, 9, stride_UNSET
+SA_LOOP 2, 13, num_iters_UNSET
+GENADDR LOW, X, RD, IBUF, 13, stride_UNSET
+SA_LOOP 3, 17, num_iters_UNSET
+GENADDR LOW, X, RD, IBUF, 17, stride_UNSET
+SA_LOOP 4, 21, num_iters_UNSET
+GENADDR LOW, X, RD, IBUF, 21, stride_UNSET
+
+
+SA_LOOP 1, 10, num_iters_UNSET
+GENADDR LOW, X, WR, OBUF, 10, stride_UNSET
+SA_LOOP 2, 14, num_iters_UNSET
+GENADDR LOW, X, WR, OBUF, 14, stride_UNSET
+SA_LOOP 3, 18, num_iters_UNSET
+GENADDR LOW, X, WR, OBUF, 18, stride_UNSET
+SA_LOOP 4, 22, num_iters_UNSET
+GENADDR LOW, X, WR, OBUF, 22, stride_UNSET
+SA_LOOP 1, 11, num_iters_UNSET
+GENADDR LOW, X, RD, BBUF, 11, stride_UNSET
+
+
+# systolic_array deinit
+INSTR_ARRAY_GROUP SYSTOLIC_ARRAY, START, group_num_UNSET, loop_id_UNSET, num_instr_UNSET
+INSTR_ARRAY_GROUP SYSTOLIC_ARRAY, END, group_num_UNSET, loop_id_UNSET, num_instr_UNSET
+BASEADDR LOW, INST_MEM, X, 0, X, base_addr_UNSET
+BASEADDR HIGH, INST_MEM, X, 0, X, base_addr_UNSET
+LD INST_MEM, X, 0, loop_id_UNSET, request_size_UNSET
+BLOCK_END X, 0

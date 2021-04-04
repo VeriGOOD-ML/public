@@ -1,0 +1,3185 @@
+{
+    "graph": {
+        "node_id": 1,
+        "name": "Genesys",
+        "node_type": "ComputeNode",
+        "node_color": "#BFBFFF",
+        "attributes": {
+            "dimensions": [
+                1
+            ]
+        },
+        "capabilities": [],
+        "codelets": [],
+        "subgraph": {
+            "nodes": [
+                {
+                    "node_id": 7,
+                    "name": "VMEM",
+                    "node_type": "StorageNode",
+                    "node_color": "#7FFFFF",
+                    "attributes": {
+                        "read_bw": 128,
+                        "write_bw": 128,
+                        "access_type": "RAM",
+                        "size": 64,
+                        "input_ports": 2,
+                        "output_ports": 2,
+                        "buffering_scheme": 1,
+                        "latency": 1
+                    },
+                    "subgraph": {
+                        "nodes": [],
+                        "edges": []
+                    }
+                },
+                {
+                    "node_id": 8,
+                    "name": "IMM",
+                    "node_type": "StorageNode",
+                    "node_color": "#7FFFFF",
+                    "attributes": {
+                        "read_bw": 128,
+                        "write_bw": 128,
+                        "access_type": "RAM",
+                        "size": 8,
+                        "input_ports": 2,
+                        "output_ports": 2,
+                        "buffering_scheme": 1,
+                        "latency": 1
+                    },
+                    "subgraph": {
+                        "nodes": [],
+                        "edges": []
+                    }
+                },
+                {
+                    "node_id": 9,
+                    "name": "inMEM",
+                    "node_type": "StorageNode",
+                    "node_color": "#7FFFFF",
+                    "attributes": {
+                        "read_bw": 128,
+                        "write_bw": 128,
+                        "access_type": "RAM",
+                        "size": 16,
+                        "input_ports": 2,
+                        "output_ports": 2,
+                        "buffering_scheme": 1,
+                        "latency": 1
+                    },
+                    "subgraph": {
+                        "nodes": [],
+                        "edges": []
+                    }
+                },
+                {
+                    "node_id": 10,
+                    "name": "DRAM",
+                    "node_type": "StorageNode",
+                    "node_color": "#7FFFFF",
+                    "attributes": {
+                        "read_bw": 512,
+                        "write_bw": 512,
+                        "access_type": "RAM",
+                        "size": -1,
+                        "input_ports": 1,
+                        "output_ports": 1,
+                        "buffering_scheme": 1,
+                        "latency": 1
+                    },
+                    "subgraph": {
+                        "nodes": [],
+                        "edges": []
+                    }
+                },
+                {
+                    "node_id": 12,
+                    "name": "SIMD",
+                    "node_type": "ComputeNode",
+                    "node_color": "#BFBFFF",
+                    "attributes": {
+                        "dimensions": [
+                            32
+                        ]
+                    },
+                    "capabilities": [
+                        {
+                            "op_name": "ADD",
+                            "opcode": 0,
+                            "opcode_bin": "00000000",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "fields": [
+                                {
+                                    "name": "dest",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src2",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "SUB",
+                            "opcode": 1,
+                            "opcode_bin": "00000001",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "dest",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src2",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "MUL",
+                            "opcode": 2,
+                            "opcode_bin": "00000010",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "dest",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src2",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "MACC",
+                            "opcode": 3,
+                            "opcode_bin": "00000011",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "dest",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src2",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "DIV",
+                            "opcode": 4,
+                            "opcode_bin": "00000100",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "dest",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src2",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "MAX",
+                            "opcode": 5,
+                            "opcode_bin": "00000101",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "dest",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src2",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "MIN",
+                            "opcode": 7,
+                            "opcode_bin": "00000111",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "dest",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src2",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "RSHIFT",
+                            "opcode": 8,
+                            "opcode_bin": "00001000",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "dest",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src2",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "LSHIFT",
+                            "opcode": 9,
+                            "opcode_bin": "00001001",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "dest",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src2",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "MOVE",
+                            "opcode": 10,
+                            "opcode_bin": "00001010",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "dest",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src2",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "COND_MOVE_TRUE",
+                            "opcode": 11,
+                            "opcode_bin": "00001011",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "dest",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src2",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "COND_MOVE_FALSE",
+                            "opcode": 12,
+                            "opcode_bin": "00001100",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "dest",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src2",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "NOT",
+                            "opcode": 13,
+                            "opcode_bin": "00001101",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "dest",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src2",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "AND",
+                            "opcode": 14,
+                            "opcode_bin": "00001110",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "dest",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src2",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "OR",
+                            "opcode": 15,
+                            "opcode_bin": "00001111",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "dest",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src2",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "FXP32_FXP16",
+                            "opcode": 48,
+                            "opcode_bin": "00110000",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "dest",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP16"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "fraction_pt",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "FXP32_FXP8",
+                            "opcode": 49,
+                            "opcode_bin": "00110001",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "dest",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "fraction_pt",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "FXP16_FXP32",
+                            "opcode": 50,
+                            "opcode_bin": "00110010",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "dest",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP16"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "fraction_pt",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "FXP8_FXP32",
+                            "opcode": 51,
+                            "opcode_bin": "00110011",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "dest",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "fraction_pt",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "FP32_FP16",
+                            "opcode": 52,
+                            "opcode_bin": "00110100",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "dest",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FP16"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "fraction_pt",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "FP16_FP32",
+                            "opcode": 53,
+                            "opcode_bin": "00110101",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "dest",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FP16"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "fraction_pt",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "RELU",
+                            "opcode": 16,
+                            "opcode_bin": "00010000",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "dest",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "null",
+                                    "bitwidth": 8,
+                                    "dtypes": []
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "LEAKY_RELU",
+                            "opcode": 17,
+                            "opcode_bin": "00010001",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "dest",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "null",
+                                    "bitwidth": 8,
+                                    "dtypes": []
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "SIGMOID",
+                            "opcode": 18,
+                            "opcode_bin": "00010010",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "dest",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "null",
+                                    "bitwidth": 8,
+                                    "dtypes": []
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "TANH",
+                            "opcode": 19,
+                            "opcode_bin": "00010011",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "dest",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "null",
+                                    "bitwidth": 8,
+                                    "dtypes": []
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "EXP",
+                            "opcode": 20,
+                            "opcode_bin": "00010100",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "dest",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "null",
+                                    "bitwidth": 8,
+                                    "dtypes": []
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "LN",
+                            "opcode": 21,
+                            "opcode_bin": "00010101",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "dest",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "null",
+                                    "bitwidth": 8,
+                                    "dtypes": []
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "SQRT",
+                            "opcode": 22,
+                            "opcode_bin": "00010110",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "dest",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "null",
+                                    "bitwidth": 8,
+                                    "dtypes": []
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "INV_SQRT",
+                            "opcode": 23,
+                            "opcode_bin": "00010111",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "dest",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "null",
+                                    "bitwidth": 8,
+                                    "dtypes": []
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "LOG2",
+                            "opcode": 24,
+                            "opcode_bin": "00011000",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "dest",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "null",
+                                    "bitwidth": 8,
+                                    "dtypes": []
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "EQUAL",
+                            "opcode": 32,
+                            "opcode_bin": "00100000",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "dest",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src2",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "NEQ",
+                            "opcode": 33,
+                            "opcode_bin": "00100001",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "dest",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src2",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "GT",
+                            "opcode": 34,
+                            "opcode_bin": "00100010",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "dest",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src2",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "GTE",
+                            "opcode": 35,
+                            "opcode_bin": "00100011",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "dest",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src2",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "LT",
+                            "opcode": 36,
+                            "opcode_bin": "00100100",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "dest",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src2",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "LTE",
+                            "opcode": 37,
+                            "opcode_bin": "00100101",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "dest",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "src2",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8",
+                                        "FXP16",
+                                        "FXP32",
+                                        "FP16",
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "FXP32",
+                            "opcode": 64,
+                            "opcode_bin": "01000000",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "null",
+                                    "bitwidth": 16,
+                                    "dtypes": []
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "FXP16",
+                            "opcode": 65,
+                            "opcode_bin": "01000001",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "null",
+                                    "bitwidth": 16,
+                                    "dtypes": []
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP16"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "FXP8",
+                            "opcode": 66,
+                            "opcode_bin": "01000010",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "null",
+                                    "bitwidth": 16,
+                                    "dtypes": []
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FXP8"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "FP32",
+                            "opcode": 67,
+                            "opcode_bin": "01000011",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "null",
+                                    "bitwidth": 16,
+                                    "dtypes": []
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FP32"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "FP16",
+                            "opcode": 68,
+                            "opcode_bin": "01000100",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "null",
+                                    "bitwidth": 16,
+                                    "dtypes": []
+                                },
+                                {
+                                    "name": "src1",
+                                    "bitwidth": 8,
+                                    "dtypes": [
+                                        "FP16"
+                                    ],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "LOCK",
+                            "opcode": 80,
+                            "opcode_bin": "01010000",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "ns0",
+                                    "bitwidth": 5,
+                                    "dtypes": [],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "null",
+                                    "bitwidth": 3,
+                                    "dtypes": []
+                                },
+                                {
+                                    "name": "ns1",
+                                    "bitwidth": 5,
+                                    "dtypes": [],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "null",
+                                    "bitwidth": 3,
+                                    "dtypes": []
+                                },
+                                {
+                                    "name": "ns2",
+                                    "bitwidth": 5,
+                                    "dtypes": [],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "null",
+                                    "bitwidth": 3,
+                                    "dtypes": []
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "UNLOCK",
+                            "opcode": 81,
+                            "opcode_bin": "01010001",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "ns0",
+                                    "bitwidth": 5,
+                                    "dtypes": [],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "null",
+                                    "bitwidth": 3,
+                                    "dtypes": []
+                                },
+                                {
+                                    "name": "ns1",
+                                    "bitwidth": 5,
+                                    "dtypes": [],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "null",
+                                    "bitwidth": 3,
+                                    "dtypes": []
+                                },
+                                {
+                                    "name": "ns2",
+                                    "bitwidth": 5,
+                                    "dtypes": [],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "null",
+                                    "bitwidth": 3,
+                                    "dtypes": []
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "SHORT_LOOP",
+                            "opcode": 112,
+                            "opcode_bin": "01110000",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "num_instr1",
+                                    "bitwidth": 12,
+                                    "dtypes": []
+                                },
+                                {
+                                    "name": "num_instr2",
+                                    "bitwidth": 12,
+                                    "dtypes": []
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "LONG_LOOP_INST",
+                            "opcode": 113,
+                            "opcode_bin": "01110001",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "num_instr",
+                                    "bitwidth": 24,
+                                    "dtypes": []
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "LONG_LOOP_ITER",
+                            "opcode": 114,
+                            "opcode_bin": "01110010",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "num_iters",
+                                    "bitwidth": 24,
+                                    "dtypes": []
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "BASE_SIGNEXT",
+                            "opcode": 96,
+                            "opcode_bin": "01100000",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "src",
+                                    "bitwidth": 8,
+                                    "dtypes": [],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "iter_value",
+                                    "bitwidth": 16,
+                                    "dtypes": []
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "BASE_LOW",
+                            "opcode": 97,
+                            "opcode_bin": "01100001",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "src",
+                                    "bitwidth": 8,
+                                    "dtypes": [],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "iter_value",
+                                    "bitwidth": 16,
+                                    "dtypes": []
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "BASE_HIGH",
+                            "opcode": 98,
+                            "opcode_bin": "01100010",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "src",
+                                    "bitwidth": 8,
+                                    "dtypes": [],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "iter_value",
+                                    "bitwidth": 16,
+                                    "dtypes": []
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "BASE_ZERO_FILL",
+                            "opcode": 99,
+                            "opcode_bin": "01100011",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "src",
+                                    "bitwidth": 8,
+                                    "dtypes": [],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "iter_value",
+                                    "bitwidth": 16,
+                                    "dtypes": []
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "STRIDE_SIGNEXT",
+                            "opcode": 100,
+                            "opcode_bin": "01100100",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "src",
+                                    "bitwidth": 8,
+                                    "dtypes": [],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "iter_value",
+                                    "bitwidth": 16,
+                                    "dtypes": []
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "STRIDE_LOW",
+                            "opcode": 101,
+                            "opcode_bin": "01100101",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "src",
+                                    "bitwidth": 8,
+                                    "dtypes": [],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "iter_value",
+                                    "bitwidth": 16,
+                                    "dtypes": []
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "STRIDE_HIGH",
+                            "opcode": 102,
+                            "opcode_bin": "01100110",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "src",
+                                    "bitwidth": 8,
+                                    "dtypes": [],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "iter_value",
+                                    "bitwidth": 16,
+                                    "dtypes": []
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "STRIDE_ZEROFILL",
+                            "opcode": 103,
+                            "opcode_bin": "01100111",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "src",
+                                    "bitwidth": 8,
+                                    "dtypes": [],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "iter_value",
+                                    "bitwidth": 16,
+                                    "dtypes": []
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "SET_IMMMEDIATE_LOW",
+                            "opcode": 104,
+                            "opcode_bin": "01101000",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "src",
+                                    "bitwidth": 8,
+                                    "dtypes": [],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "iter_value",
+                                    "bitwidth": 16,
+                                    "dtypes": []
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "SET_IMMMEDIATE_HIGH",
+                            "opcode": 105,
+                            "opcode_bin": "01101001",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "src",
+                                    "bitwidth": 8,
+                                    "dtypes": [],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "iter_value",
+                                    "bitwidth": 16,
+                                    "dtypes": []
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "IMM_SIGN_EXTEND",
+                            "opcode": 106,
+                            "opcode_bin": "01101010",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "src",
+                                    "bitwidth": 8,
+                                    "dtypes": [],
+                                    "possible_values": [
+                                        "OBUF",
+                                        "IBUF",
+                                        "VMEM",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "iter_value",
+                                    "bitwidth": 16,
+                                    "dtypes": []
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "START_PERMUTE",
+                            "opcode": 128,
+                            "opcode_bin": "10000000",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "null",
+                                    "bitwidth": 24,
+                                    "dtypes": []
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "LOOP_INDEX",
+                            "opcode": 129,
+                            "opcode_bin": "10000001",
+                            "target": "SIMD",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "loop_order",
+                                    "bitwidth": 5,
+                                    "dtypes": []
+                                },
+                                {
+                                    "name": "loop_index",
+                                    "bitwidth": 3,
+                                    "dtypes": []
+                                },
+                                {
+                                    "name": "num_iters",
+                                    "bitwidth": 16,
+                                    "dtypes": []
+                                }
+                            ]
+                        }
+                    ],
+                    "codelets": [],
+                    "subgraph": {
+                        "nodes": [],
+                        "edges": []
+                    }
+                },
+                {
+                    "node_id": 2,
+                    "name": "systolic_array",
+                    "node_type": "ComputeNode",
+                    "node_color": "#BFBFFF",
+                    "attributes": {
+                        "dimensions": [
+                            1
+                        ]
+                    },
+                    "capabilities": [
+                        {
+                            "op_name": "SA_LOOP",
+                            "opcode": 9,
+                            "opcode_bin": "1001",
+                            "target": "systolic_array",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "loop_level",
+                                    "bitwidth": 6,
+                                    "dtypes": []
+                                },
+                                {
+                                    "name": "loop_id",
+                                    "bitwidth": 6,
+                                    "dtypes": []
+                                },
+                                {
+                                    "name": "num_iters",
+                                    "bitwidth": 16,
+                                    "dtypes": []
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "INSTR_ARRAY_GROUP",
+                            "opcode": 10,
+                            "opcode_bin": "1010",
+                            "target": "systolic_array",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "sa_simd",
+                                    "bitwidth": 1,
+                                    "dtypes": [],
+                                    "possible_values": [
+                                        "SYSTOLIC_ARRAY",
+                                        "SIMD"
+                                    ]
+                                },
+                                {
+                                    "name": "start_end",
+                                    "bitwidth": 1,
+                                    "dtypes": [],
+                                    "possible_values": [
+                                        "START",
+                                        "END"
+                                    ]
+                                },
+                                {
+                                    "name": "group_num",
+                                    "bitwidth": 4,
+                                    "dtypes": []
+                                },
+                                {
+                                    "name": "loop_id",
+                                    "bitwidth": 6,
+                                    "dtypes": []
+                                },
+                                {
+                                    "name": "num_instr",
+                                    "bitwidth": 16,
+                                    "dtypes": []
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "block_end",
+                            "opcode": 11,
+                            "opcode_bin": "1011",
+                            "target": "systolic_array",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "null",
+                                    "bitwidth": 12,
+                                    "dtypes": []
+                                },
+                                {
+                                    "name": "last",
+                                    "bitwidth": 16,
+                                    "dtypes": []
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "GENADDR",
+                            "opcode": 12,
+                            "opcode_bin": "1100",
+                            "target": "systolic_array",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "low_high",
+                                    "bitwidth": 1,
+                                    "dtypes": [],
+                                    "possible_values": [
+                                        "LOW",
+                                        "HIGH"
+                                    ]
+                                },
+                                {
+                                    "name": "null",
+                                    "bitwidth": 1,
+                                    "dtypes": []
+                                },
+                                {
+                                    "name": "ld_st",
+                                    "bitwidth": 2,
+                                    "dtypes": [],
+                                    "possible_values": [
+                                        "LD",
+                                        "ST"
+                                    ]
+                                },
+                                {
+                                    "name": "namespace",
+                                    "bitwidth": 2,
+                                    "dtypes": [],
+                                    "possible_values": [
+                                        "WBUF",
+                                        "IBUF",
+                                        "OBUF",
+                                        "BBUF"
+                                    ]
+                                },
+                                {
+                                    "name": "loop_id",
+                                    "bitwidth": 6,
+                                    "dtypes": []
+                                },
+                                {
+                                    "name": "stride",
+                                    "bitwidth": 16,
+                                    "dtypes": []
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "BASEADDR",
+                            "opcode": 13,
+                            "opcode_bin": "1101",
+                            "target": "systolic_array",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "low_high",
+                                    "bitwidth": 1,
+                                    "dtypes": []
+                                },
+                                {
+                                    "name": "namespace_or_imm",
+                                    "bitwidth": 1,
+                                    "dtypes": [],
+                                    "possible_values": [
+                                        "NS",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "null",
+                                    "bitwidth": 1,
+                                    "dtypes": []
+                                },
+                                {
+                                    "name": "namespace",
+                                    "bitwidth": 2,
+                                    "dtypes": [],
+                                    "possible_values": [
+                                        "WBUF",
+                                        "IBUF",
+                                        "OBUF",
+                                        "BBUF"
+                                    ]
+                                },
+                                {
+                                    "name": "null",
+                                    "bitwidth": 6,
+                                    "dtypes": []
+                                },
+                                {
+                                    "name": "base_addr",
+                                    "bitwidth": 16,
+                                    "dtypes": []
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "LD",
+                            "opcode": 28,
+                            "opcode_bin": "11100",
+                            "target": "systolic_array",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "namespace_or_imm",
+                                    "bitwidth": 1,
+                                    "dtypes": [],
+                                    "possible_values": [
+                                        "NS",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "null",
+                                    "bitwidth": 2,
+                                    "dtypes": []
+                                },
+                                {
+                                    "name": "namespace",
+                                    "bitwidth": 2,
+                                    "dtypes": [],
+                                    "possible_values": [
+                                        "WBUF",
+                                        "IBUF",
+                                        "OBUF",
+                                        "BBUF"
+                                    ]
+                                },
+                                {
+                                    "name": "loop_id",
+                                    "bitwidth": 6,
+                                    "dtypes": []
+                                },
+                                {
+                                    "name": "request_size",
+                                    "bitwidth": 16,
+                                    "dtypes": []
+                                }
+                            ]
+                        },
+                        {
+                            "op_name": "ST",
+                            "opcode": 29,
+                            "opcode_bin": "11101",
+                            "target": "systolic_array",
+                            "latency": 1,
+                            "operands": [
+                                {
+                                    "name": "namespace_or_imm",
+                                    "bitwidth": 1,
+                                    "dtypes": [],
+                                    "possible_values": [
+                                        "NS",
+                                        "IMM"
+                                    ]
+                                },
+                                {
+                                    "name": "null",
+                                    "bitwidth": 2,
+                                    "dtypes": []
+                                },
+                                {
+                                    "name": "namespace",
+                                    "bitwidth": 2,
+                                    "dtypes": [],
+                                    "possible_values": [
+                                        "WBUF",
+                                        "IBUF",
+                                        "OBUF",
+                                        "BBUF"
+                                    ]
+                                },
+                                {
+                                    "name": "loop_id",
+                                    "bitwidth": 6,
+                                    "dtypes": []
+                                },
+                                {
+                                    "name": "request_size",
+                                    "bitwidth": 16,
+                                    "dtypes": []
+                                }
+                            ]
+                        }
+                    ],
+                    "codelets": [],
+                    "subgraph": {
+                        "nodes": [
+                            {
+                                "node_id": 3,
+                                "name": "IBUF",
+                                "node_type": "StorageNode",
+                                "node_color": "#7FFFFF",
+                                "attributes": {
+                                    "read_bw": 128,
+                                    "write_bw": 128,
+                                    "access_type": "RAM",
+                                    "size": 32,
+                                    "input_ports": 2,
+                                    "output_ports": 2,
+                                    "buffering_scheme": 1,
+                                    "latency": 1
+                                },
+                                "subgraph": {
+                                    "nodes": [],
+                                    "edges": []
+                                }
+                            },
+                            {
+                                "node_id": 4,
+                                "name": "WBUF",
+                                "node_type": "StorageNode",
+                                "node_color": "#7FFFFF",
+                                "attributes": {
+                                    "read_bw": 128,
+                                    "write_bw": 128,
+                                    "access_type": "RAM",
+                                    "size": 64,
+                                    "input_ports": 2,
+                                    "output_ports": 2,
+                                    "buffering_scheme": 1,
+                                    "latency": 1
+                                },
+                                "subgraph": {
+                                    "nodes": [],
+                                    "edges": []
+                                }
+                            },
+                            {
+                                "node_id": 5,
+                                "name": "BBUF",
+                                "node_type": "StorageNode",
+                                "node_color": "#7FFFFF",
+                                "attributes": {
+                                    "read_bw": 128,
+                                    "write_bw": 128,
+                                    "access_type": "RAM",
+                                    "size": 8,
+                                    "input_ports": 2,
+                                    "output_ports": 2,
+                                    "buffering_scheme": 1,
+                                    "latency": 1
+                                },
+                                "subgraph": {
+                                    "nodes": [],
+                                    "edges": []
+                                }
+                            },
+                            {
+                                "node_id": 6,
+                                "name": "OBUF",
+                                "node_type": "StorageNode",
+                                "node_color": "#7FFFFF",
+                                "attributes": {
+                                    "read_bw": 128,
+                                    "write_bw": 128,
+                                    "access_type": "RAM",
+                                    "size": 128,
+                                    "input_ports": 2,
+                                    "output_ports": 2,
+                                    "buffering_scheme": 1,
+                                    "latency": 1
+                                },
+                                "subgraph": {
+                                    "nodes": [],
+                                    "edges": []
+                                }
+                            },
+                            {
+                                "node_id": 11,
+                                "name": "pe_array",
+                                "node_type": "ComputeNode",
+                                "node_color": "#BFBFFF",
+                                "attributes": {
+                                    "dimensions": [
+                                        32,
+                                        32
+                                    ]
+                                },
+                                "capabilities": [],
+                                "codelets": [],
+                                "subgraph": {
+                                    "nodes": [],
+                                    "edges": []
+                                }
+                            }
+                        ],
+                        "edges": [
+                            {
+                                "src": 3,
+                                "dst": 11,
+                                "attributes": []
+                            },
+                            {
+                                "src": 4,
+                                "dst": 11,
+                                "attributes": []
+                            },
+                            {
+                                "src": 5,
+                                "dst": 11,
+                                "attributes": []
+                            },
+                            {
+                                "src": 6,
+                                "dst": 11,
+                                "attributes": []
+                            },
+                            {
+                                "src": 11,
+                                "dst": 6,
+                                "attributes": []
+                            }
+                        ]
+                    }
+                }
+            ],
+            "edges": [
+                {
+                    "src": 7,
+                    "dst": 12,
+                    "attributes": []
+                },
+                {
+                    "src": 12,
+                    "dst": 7,
+                    "attributes": []
+                },
+                {
+                    "src": 8,
+                    "dst": 12,
+                    "attributes": []
+                },
+                {
+                    "src": 12,
+                    "dst": 8,
+                    "attributes": []
+                },
+                {
+                    "src": 12,
+                    "dst": 10,
+                    "attributes": []
+                },
+                {
+                    "src": 10,
+                    "dst": 12,
+                    "attributes": []
+                },
+                {
+                    "src": 6,
+                    "dst": 12,
+                    "attributes": []
+                }
+            ]
+        }
+    }
+}

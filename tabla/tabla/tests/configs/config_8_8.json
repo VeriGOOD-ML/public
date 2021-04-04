@@ -1,0 +1,14 @@
+{
+    "num_pes": 64,
+    "pes_per_pu": 8,
+    "namespace_size": 8192,
+    "namespace_interim_size": 8192,
+    "op_bit": 3,
+    "ns_bit": 3,
+    "index_bit": 8,
+    "nn_nb_bit": 1,
+    "hex": true,
+    "num_axi": 4,
+    "num_lanes": 16,
+    "pes_per_lane": 4
+}

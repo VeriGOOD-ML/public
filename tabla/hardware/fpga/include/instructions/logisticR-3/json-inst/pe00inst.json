@@ -1,0 +1,219 @@
+[
+  {
+    "dests": [
+      {
+        "dest_index": "0",
+        "dest_nid": "NI"
+      },
+      {
+        "dest_index": "0",
+        "dest_nid": "NL"
+      },
+      {
+        "dest_index": "0",
+        "dest_nid": "NL"
+      }
+    ],
+    "op": "*",
+    "srcs": [
+      {
+        "src_index": "0",
+        "src_nid": "NW"
+      },
+      {
+        "src_index": "0",
+        "src_nid": "ND"
+      },
+      {
+        "src_index": "0",
+        "src_nid": "NL"
+      }
+    ]
+  },
+  {
+    "dests": [
+      {
+        "dest_index": "1",
+        "dest_nid": "NI"
+      },
+      {
+        "dest_index": "0",
+        "dest_nid": "NL"
+      },
+      {
+        "dest_index": "0",
+        "dest_nid": "NL"
+      }
+    ],
+    "op": "+",
+    "srcs": [
+      {
+        "src_index": "0",
+        "src_nid": "NI"
+      },
+      {
+        "src_index": "10",
+        "src_nid": "NN"
+      },
+      {
+        "src_index": "0",
+        "src_nid": "NL"
+      }
+    ]
+  },
+  {
+    "dests": [
+      {
+        "dest_index": "2",
+        "dest_nid": "NI"
+      },
+      {
+        "dest_index": "0",
+        "dest_nid": "NL"
+      },
+      {
+        "dest_index": "0",
+        "dest_nid": "NL"
+      }
+    ],
+    "op": "+",
+    "srcs": [
+      {
+        "src_index": "20",
+        "src_nid": "NB"
+      },
+      {
+        "src_index": "1",
+        "src_nid": "NI"
+      },
+      {
+        "src_index": "0",
+        "src_nid": "NL"
+      }
+    ]
+  },
+  {
+    "dests": [
+      {
+        "dest_index": "30",
+        "dest_nid": "NB"
+      },
+      {
+        "dest_index": "0",
+        "dest_nid": "NL"
+      },
+      {
+        "dest_index": "0",
+        "dest_nid": "NL"
+      }
+    ],
+    "op": "sigmoid",
+    "srcs": [
+      {
+        "src_index": "2",
+        "src_nid": "NI"
+      },
+      {
+        "src_index": "0",
+        "src_nid": "NL"
+      },
+      {
+        "src_index": "0",
+        "src_nid": "NL"
+      }
+    ]
+  },
+  {
+    "dests": [
+      {
+        "dest_index": "3",
+        "dest_nid": "NI"
+      },
+      {
+        "dest_index": "0",
+        "dest_nid": "NL"
+      },
+      {
+        "dest_index": "0",
+        "dest_nid": "NL"
+      }
+    ],
+    "op": "*",
+    "srcs": [
+      {
+        "src_index": "30",
+        "src_nid": "NB"
+      },
+      {
+        "src_index": "0",
+        "src_nid": "ND"
+      },
+      {
+        "src_index": "0",
+        "src_nid": "NL"
+      }
+    ]
+  },
+  {
+    "dests": [
+      {
+        "dest_index": "4",
+        "dest_nid": "NI"
+      },
+      {
+        "dest_index": "0",
+        "dest_nid": "NL"
+      },
+      {
+        "dest_index": "0",
+        "dest_nid": "NL"
+      }
+    ],
+    "op": "*",
+    "srcs": [
+      {
+        "src_index": "0",
+        "src_nid": "NM"
+      },
+      {
+        "src_index": "3",
+        "src_nid": "NI"
+      },
+      {
+        "src_index": "0",
+        "src_nid": "NL"
+      }
+    ]
+  },
+  {
+    "dests": [
+      {
+        "dest_index": "0",
+        "dest_nid": "NW"
+      },
+      {
+        "dest_index": "0",
+        "dest_nid": "NL"
+      },
+      {
+        "dest_index": "0",
+        "dest_nid": "NL"
+      }
+    ],
+    "op": "-",
+    "srcs": [
+      {
+        "src_index": "0",
+        "src_nid": "NW"
+      },
+      {
+        "src_index": "4",
+        "src_nid": "NI"
+      },
+      {
+        "src_index": "0",
+        "src_nid": "NL"
+      }
+    ]
+  }
+]
