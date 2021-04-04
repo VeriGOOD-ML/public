@@ -1,0 +1,87 @@
+INSTR_ARRAY_GROUP SYSTOLIC_ARRAY, START, group_num_UNSET, loop_id_UNSET, num_instr_UNSET
+# Instruction Memory
+BASEADDR LOW, INST_MEM, X, 0, X, base_addr_UNSET
+BASEADDR HIGH, INST_MEM, X, 0, X, base_addr_UNSET
+LD INST_MEM, X, 0, loop_id_UNSET, request_size_UNSET
+
+# Set base address for input/output tensors in DRAM
+BASEADDR LOW, NS, X, WBUF, X, base_addr_UNSET
+BASEADDR HIGH, NS, X, WBUF, X, base_addr_UNSET
+BASEADDR LOW, NS, X, IBUF, X, base_addr_UNSET
+BASEADDR HIGH, NS, X, IBUF, X, base_addr_UNSET
+BASEADDR LOW, NS, X, BBUF, X, base_addr_UNSET
+BASEADDR HIGH, NS, X, BBUF, X, base_addr_UNSET
+BASEADDR LOW, NS, X, OBUF, X, base_addr_UNSET
+BASEADDR HIGH, NS, X, OBUF, X, base_addr_UNSET
+
+##### SET BASE ADDRESSES FOR EACH TILE IN EACH DIM #####
+
+SA_LOOP 1, 0, num_oc_tiles # OC
+GENADDR LOW, X, LD, WBUF, 0, wt_oc_stride
+GENADDR LOW, X, LD, OBUF, 0, output_oc_stride
+GENADDR LOW, X, ST, OBUF, 0, output_oc_stride
+
+SA_LOOP 2, 1, num_n_tiles # N
+GENADDR LOW, X, LD, IBUF, 1, input_n_stride
+GENADDR LOW, X, LD, OBUF, 1, output_n_stride
+GENADDR LOW, X, ST, OBUF, 1, output_n_stride
+
+SA_LOOP 3, 2, num_ic_tiles # IC
+GENADDR LOW, X, LD, WBUF, 2, wt_ic_stride
+GENADDR LOW, X, LD, IBUF, 2, input_ic_stride
+
+SA_LOOP 4, 3, num_kh_tiles # KH
+GENADDR LOW, X, LD, WBUF, 3, wt_kh_stride
+GENADDR LOW, X, LD, IBUF, 3, wt_kh_stride
+
+SA_LOOP 5, 4, num_kw_tiles # KW
+GENADDR LOW, X, LD, WBUF, 4, wt_kw_stride
+GENADDR LOW, X, LD, IBUF, 4, wt_kw_stride
+
+SA_LOOP 6, 5, num_oh_tiles # OH
+GENADDR LOW, X, LD, IBUF, 5, output_oh_stride + (stride*dtype)
+GENADDR LOW, X, LD, OBUF, 5, output_oh_stride
+GENADDR LOW, X, ST, OBUF, 5, output_oh_stride
+
+SA_LOOP 7, 6, num_ow_tiles # OW
+GENADDR LOW, X, LD, IBUF, 6, output_ow_stride + (stride*dtype)
+GENADDR LOW, X, LD, OBUF, 6, output_ow_stride
+GENADDR LOW, X, ST, OBUF, 6, output_ow_stride
+
+# SEND TILE DATA TO SYS_ARRAY
+
+SA_LOOP 8, 7, oc_tile_size/req_size # OC
+GENADDR LOW, X, LD, WBUF, 0, wt_oc_stride
+GENADDR LOW, X, LD, OBUF, 0, output_oc_stride
+GENADDR LOW, X, ST, OBUF, 0, output_oc_stride
+
+SA_LOOP 9, 8, num_n_tiles # N
+GENADDR LOW, X, LD, IBUF, 1, input_n_stride
+GENADDR LOW, X, LD, OBUF, 1, output_n_stride
+GENADDR LOW, X, ST, OBUF, 1, output_n_stride
+
+SA_LOOP 10, 9, num_ic_tiles # IC
+GENADDR LOW, X, LD, WBUF, 2, wt_ic_stride
+GENADDR LOW, X, LD, IBUF, 2, input_ic_stride
+
+SA_LOOP 11, 10, num_kh_tiles # KH
+GENADDR LOW, X, LD, WBUF, 3, wt_kh_stride
+GENADDR LOW, X, LD, IBUF, 3, wt_kh_stride
+
+SA_LOOP 12, 11, num_kw_tiles # KW
+GENADDR LOW, X, LD, WBUF, 4, wt_kw_stride
+GENADDR LOW, X, LD, IBUF, 4, wt_kw_stride
+
+SA_LOOP 13, 12, num_oh_tiles # OH
+GENADDR LOW, X, LD, IBUF, 5, output_oh_stride + (stride*dtype)
+GENADDR LOW, X, LD, OBUF, 5, output_oh_stride
+GENADDR LOW, X, ST, OBUF, 5, output_oh_stride
+
+SA_LOOP 14, 13, num_ow_tiles # OW
+GENADDR LOW, X, LD, IBUF, 6, output_ow_stride + (stride*dtype)
+GENADDR LOW, X, LD, OBUF, 6, output_ow_stride
+GENADDR LOW, X, ST, OBUF, 6, output_ow_stride
+
+
+INSTR_ARRAY_GROUP SYSTOLIC_ARRAY, END, group_num_UNSET, loop_id_UNSET, num_instr_UNSET
+BLOCK_END X, 0

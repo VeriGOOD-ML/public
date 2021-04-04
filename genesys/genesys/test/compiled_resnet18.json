@@ -1,0 +1,3722 @@
+{
+  "mode": "inference",
+  "program": [
+    {
+      "operation": "conv_bias",
+      "instance_id": 1,
+      "iterable_dimensions": {
+        "OC": 64,
+        "N": 1,
+        "IC": 32,
+        "KH": 7,
+        "KW": 7,
+        "OH": 112,
+        "OW": 112
+      },
+      "operation_parameters": {
+        "stride": 2
+      },
+      "inputs": [
+        {
+          "name": "data",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "N": 1,
+            "IH": 224,
+            "IW": 224,
+            "IC": 32
+          },
+          "data_path": [
+            "DRAM",
+            "IBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 1,
+              "IH": 229,
+              "IW": 229,
+              "IC": 32
+            },
+            "IBUF": {
+              "N": 1,
+              "IH": 7,
+              "IW": 7,
+              "IC": 32
+            },
+            "pe_array": {
+              "N": 1,
+              "IH": 1,
+              "IW": 1,
+              "IC": 32
+            }
+          }
+        },
+        {
+          "name": "weight",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "KH": 7,
+            "KW": 7,
+            "OC": 64,
+            "IC": 32
+          },
+          "data_path": [
+            "DRAM",
+            "WBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "KH": 7,
+              "KW": 7,
+              "OC": 64,
+              "IC": 32
+            },
+            "WBUF": {
+              "KH": 7,
+              "KW": 7,
+              "OC": 32,
+              "IC": 32
+            },
+            "pe_array": {
+              "KH": 1,
+              "KW": 1,
+              "OC": 32,
+              "IC": 32
+            }
+          }
+        },
+        {
+          "name": "bias",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "OC": 64
+          },
+          "data_path": [
+            "DRAM",
+            "BBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "OC": 64
+            },
+            "BBUF": {
+              "OC": 32
+            },
+            "pe_array": {
+              "OC": 32
+            }
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "out",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "N": 1,
+            "OH": 112,
+            "OW": 112,
+            "OC": 64
+          },
+          "data_path": [
+            "DRAM",
+            "OBUF",
+            "pe_array",
+            "OBUF",
+            "DRAM"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 1,
+              "OH": 112,
+              "OW": 112,
+              "OC": 64
+            },
+            "OBUF": {
+              "N": 1,
+              "OH": 1,
+              "OW": 1,
+              "OC": 32
+            },
+            "pe_array": {
+              "N": 1,
+              "OH": 1,
+              "OW": 1,
+              "OC": 32
+            }
+          }
+        }
+      ],
+      "tiling_factors": {
+        "0": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 1,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 1,
+          "loop0": 1
+        },
+        "1": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 112,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 112,
+          "loop0": 2
+        },
+        "2": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 1,
+          "loop3": 7,
+          "loop4": 7,
+          "loop6": 1,
+          "loop0": 1
+        }
+      }
+    },
+    {
+      "operation": "conv_bias",
+      "instance_id": 2,
+      "iterable_dimensions": {
+        "OC": 64,
+        "N": 1,
+        "IC": 64,
+        "KH": 3,
+        "KW": 3,
+        "OH": 56,
+        "OW": 56
+      },
+      "operation_parameters": {
+        "stride": 1
+      },
+      "inputs": [
+        {
+          "name": "data",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "N": 1,
+            "IH": 56,
+            "IW": 56,
+            "IC": 64
+          },
+          "data_path": [
+            "DRAM",
+            "IBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 1,
+              "IH": 58,
+              "IW": 58,
+              "IC": 64
+            },
+            "IBUF": {
+              "N": 1,
+              "IH": 3,
+              "IW": 3,
+              "IC": 64
+            },
+            "pe_array": {
+              "N": 1,
+              "IH": 1,
+              "IW": 1,
+              "IC": 32
+            }
+          }
+        },
+        {
+          "name": "weight",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "KH": 3,
+            "KW": 3,
+            "OC": 64,
+            "IC": 64
+          },
+          "data_path": [
+            "DRAM",
+            "WBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "KH": 3,
+              "KW": 3,
+              "OC": 64,
+              "IC": 64
+            },
+            "WBUF": {
+              "KH": 3,
+              "KW": 3,
+              "OC": 32,
+              "IC": 64
+            },
+            "pe_array": {
+              "KH": 1,
+              "KW": 1,
+              "OC": 32,
+              "IC": 32
+            }
+          }
+        },
+        {
+          "name": "bias",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "OC": 64
+          },
+          "data_path": [
+            "DRAM",
+            "BBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "OC": 64
+            },
+            "BBUF": {
+              "OC": 32
+            },
+            "pe_array": {
+              "OC": 32
+            }
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "out",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "N": 1,
+            "OH": 56,
+            "OW": 56,
+            "OC": 64
+          },
+          "data_path": [
+            "DRAM",
+            "OBUF",
+            "pe_array",
+            "OBUF",
+            "DRAM"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 1,
+              "OH": 56,
+              "OW": 56,
+              "OC": 64
+            },
+            "OBUF": {
+              "N": 1,
+              "OH": 1,
+              "OW": 1,
+              "OC": 32
+            },
+            "pe_array": {
+              "N": 1,
+              "OH": 1,
+              "OW": 1,
+              "OC": 32
+            }
+          }
+        }
+      ],
+      "tiling_factors": {
+        "0": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 1,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 1,
+          "loop0": 1
+        },
+        "1": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 56,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 56,
+          "loop0": 2
+        },
+        "2": {
+          "loop1": 1,
+          "loop2": 2,
+          "loop5": 1,
+          "loop3": 3,
+          "loop4": 3,
+          "loop6": 1,
+          "loop0": 1
+        }
+      }
+    },
+    {
+      "operation": "conv_bias",
+      "instance_id": 3,
+      "iterable_dimensions": {
+        "OC": 64,
+        "N": 1,
+        "IC": 64,
+        "KH": 3,
+        "KW": 3,
+        "OH": 56,
+        "OW": 56
+      },
+      "operation_parameters": {
+        "stride": 1
+      },
+      "inputs": [
+        {
+          "name": "data",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "N": 1,
+            "IH": 56,
+            "IW": 56,
+            "IC": 64
+          },
+          "data_path": [
+            "DRAM",
+            "IBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 1,
+              "IH": 58,
+              "IW": 58,
+              "IC": 64
+            },
+            "IBUF": {
+              "N": 1,
+              "IH": 3,
+              "IW": 3,
+              "IC": 64
+            },
+            "pe_array": {
+              "N": 1,
+              "IH": 1,
+              "IW": 1,
+              "IC": 32
+            }
+          }
+        },
+        {
+          "name": "weight",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "KH": 3,
+            "KW": 3,
+            "OC": 64,
+            "IC": 64
+          },
+          "data_path": [
+            "DRAM",
+            "WBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "KH": 3,
+              "KW": 3,
+              "OC": 64,
+              "IC": 64
+            },
+            "WBUF": {
+              "KH": 3,
+              "KW": 3,
+              "OC": 32,
+              "IC": 64
+            },
+            "pe_array": {
+              "KH": 1,
+              "KW": 1,
+              "OC": 32,
+              "IC": 32
+            }
+          }
+        },
+        {
+          "name": "bias",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "OC": 64
+          },
+          "data_path": [
+            "DRAM",
+            "BBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "OC": 64
+            },
+            "BBUF": {
+              "OC": 32
+            },
+            "pe_array": {
+              "OC": 32
+            }
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "out",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "N": 1,
+            "OH": 56,
+            "OW": 56,
+            "OC": 64
+          },
+          "data_path": [
+            "DRAM",
+            "OBUF",
+            "pe_array",
+            "OBUF",
+            "DRAM"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 1,
+              "OH": 56,
+              "OW": 56,
+              "OC": 64
+            },
+            "OBUF": {
+              "N": 1,
+              "OH": 1,
+              "OW": 1,
+              "OC": 32
+            },
+            "pe_array": {
+              "N": 1,
+              "OH": 1,
+              "OW": 1,
+              "OC": 32
+            }
+          }
+        }
+      ],
+      "tiling_factors": {
+        "0": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 1,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 1,
+          "loop0": 1
+        },
+        "1": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 56,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 56,
+          "loop0": 2
+        },
+        "2": {
+          "loop1": 1,
+          "loop2": 2,
+          "loop5": 1,
+          "loop3": 3,
+          "loop4": 3,
+          "loop6": 1,
+          "loop0": 1
+        }
+      }
+    },
+    {
+      "operation": "conv_bias",
+      "instance_id": 4,
+      "iterable_dimensions": {
+        "OC": 64,
+        "N": 1,
+        "IC": 64,
+        "KH": 3,
+        "KW": 3,
+        "OH": 56,
+        "OW": 56
+      },
+      "operation_parameters": {
+        "stride": 1
+      },
+      "inputs": [
+        {
+          "name": "data",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "N": 1,
+            "IH": 56,
+            "IW": 56,
+            "IC": 64
+          },
+          "data_path": [
+            "DRAM",
+            "IBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 1,
+              "IH": 58,
+              "IW": 58,
+              "IC": 64
+            },
+            "IBUF": {
+              "N": 1,
+              "IH": 3,
+              "IW": 3,
+              "IC": 64
+            },
+            "pe_array": {
+              "N": 1,
+              "IH": 1,
+              "IW": 1,
+              "IC": 32
+            }
+          }
+        },
+        {
+          "name": "weight",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "KH": 3,
+            "KW": 3,
+            "OC": 64,
+            "IC": 64
+          },
+          "data_path": [
+            "DRAM",
+            "WBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "KH": 3,
+              "KW": 3,
+              "OC": 64,
+              "IC": 64
+            },
+            "WBUF": {
+              "KH": 3,
+              "KW": 3,
+              "OC": 32,
+              "IC": 64
+            },
+            "pe_array": {
+              "KH": 1,
+              "KW": 1,
+              "OC": 32,
+              "IC": 32
+            }
+          }
+        },
+        {
+          "name": "bias",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "OC": 64
+          },
+          "data_path": [
+            "DRAM",
+            "BBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "OC": 64
+            },
+            "BBUF": {
+              "OC": 32
+            },
+            "pe_array": {
+              "OC": 32
+            }
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "out",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "N": 1,
+            "OH": 56,
+            "OW": 56,
+            "OC": 64
+          },
+          "data_path": [
+            "DRAM",
+            "OBUF",
+            "pe_array",
+            "OBUF",
+            "DRAM"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 1,
+              "OH": 56,
+              "OW": 56,
+              "OC": 64
+            },
+            "OBUF": {
+              "N": 1,
+              "OH": 1,
+              "OW": 1,
+              "OC": 32
+            },
+            "pe_array": {
+              "N": 1,
+              "OH": 1,
+              "OW": 1,
+              "OC": 32
+            }
+          }
+        }
+      ],
+      "tiling_factors": {
+        "0": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 1,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 1,
+          "loop0": 1
+        },
+        "1": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 56,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 56,
+          "loop0": 2
+        },
+        "2": {
+          "loop1": 1,
+          "loop2": 2,
+          "loop5": 1,
+          "loop3": 3,
+          "loop4": 3,
+          "loop6": 1,
+          "loop0": 1
+        }
+      }
+    },
+    {
+      "operation": "conv_bias",
+      "instance_id": 5,
+      "iterable_dimensions": {
+        "OC": 64,
+        "N": 1,
+        "IC": 64,
+        "KH": 3,
+        "KW": 3,
+        "OH": 56,
+        "OW": 56
+      },
+      "operation_parameters": {
+        "stride": 1
+      },
+      "inputs": [
+        {
+          "name": "data",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "N": 1,
+            "IH": 56,
+            "IW": 56,
+            "IC": 64
+          },
+          "data_path": [
+            "DRAM",
+            "IBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 1,
+              "IH": 58,
+              "IW": 58,
+              "IC": 64
+            },
+            "IBUF": {
+              "N": 1,
+              "IH": 3,
+              "IW": 3,
+              "IC": 64
+            },
+            "pe_array": {
+              "N": 1,
+              "IH": 1,
+              "IW": 1,
+              "IC": 32
+            }
+          }
+        },
+        {
+          "name": "weight",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "KH": 3,
+            "KW": 3,
+            "OC": 64,
+            "IC": 64
+          },
+          "data_path": [
+            "DRAM",
+            "WBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "KH": 3,
+              "KW": 3,
+              "OC": 64,
+              "IC": 64
+            },
+            "WBUF": {
+              "KH": 3,
+              "KW": 3,
+              "OC": 32,
+              "IC": 64
+            },
+            "pe_array": {
+              "KH": 1,
+              "KW": 1,
+              "OC": 32,
+              "IC": 32
+            }
+          }
+        },
+        {
+          "name": "bias",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "OC": 64
+          },
+          "data_path": [
+            "DRAM",
+            "BBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "OC": 64
+            },
+            "BBUF": {
+              "OC": 32
+            },
+            "pe_array": {
+              "OC": 32
+            }
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "out",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "N": 1,
+            "OH": 56,
+            "OW": 56,
+            "OC": 64
+          },
+          "data_path": [
+            "DRAM",
+            "OBUF",
+            "pe_array",
+            "OBUF",
+            "DRAM"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 1,
+              "OH": 56,
+              "OW": 56,
+              "OC": 64
+            },
+            "OBUF": {
+              "N": 1,
+              "OH": 1,
+              "OW": 1,
+              "OC": 32
+            },
+            "pe_array": {
+              "N": 1,
+              "OH": 1,
+              "OW": 1,
+              "OC": 32
+            }
+          }
+        }
+      ],
+      "tiling_factors": {
+        "0": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 1,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 1,
+          "loop0": 1
+        },
+        "1": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 56,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 56,
+          "loop0": 2
+        },
+        "2": {
+          "loop1": 1,
+          "loop2": 2,
+          "loop5": 1,
+          "loop3": 3,
+          "loop4": 3,
+          "loop6": 1,
+          "loop0": 1
+        }
+      }
+    },
+    {
+      "operation": "conv_bias",
+      "instance_id": 6,
+      "iterable_dimensions": {
+        "OC": 128,
+        "N": 1,
+        "IC": 64,
+        "KH": 3,
+        "KW": 3,
+        "OH": 28,
+        "OW": 28
+      },
+      "operation_parameters": {
+        "stride": 2
+      },
+      "inputs": [
+        {
+          "name": "data",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "N": 1,
+            "IH": 56,
+            "IW": 56,
+            "IC": 64
+          },
+          "data_path": [
+            "DRAM",
+            "IBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 1,
+              "IH": 57,
+              "IW": 57,
+              "IC": 64
+            },
+            "IBUF": {
+              "N": 1,
+              "IH": 3,
+              "IW": 3,
+              "IC": 64
+            },
+            "pe_array": {
+              "N": 1,
+              "IH": 1,
+              "IW": 1,
+              "IC": 32
+            }
+          }
+        },
+        {
+          "name": "weight",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "KH": 3,
+            "KW": 3,
+            "OC": 128,
+            "IC": 64
+          },
+          "data_path": [
+            "DRAM",
+            "WBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "KH": 3,
+              "KW": 3,
+              "OC": 128,
+              "IC": 64
+            },
+            "WBUF": {
+              "KH": 3,
+              "KW": 3,
+              "OC": 32,
+              "IC": 64
+            },
+            "pe_array": {
+              "KH": 1,
+              "KW": 1,
+              "OC": 32,
+              "IC": 32
+            }
+          }
+        },
+        {
+          "name": "bias",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "OC": 128
+          },
+          "data_path": [
+            "DRAM",
+            "BBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "OC": 128
+            },
+            "BBUF": {
+              "OC": 32
+            },
+            "pe_array": {
+              "OC": 32
+            }
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "out",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "N": 1,
+            "OH": 28,
+            "OW": 28,
+            "OC": 128
+          },
+          "data_path": [
+            "DRAM",
+            "OBUF",
+            "pe_array",
+            "OBUF",
+            "DRAM"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 1,
+              "OH": 28,
+              "OW": 28,
+              "OC": 128
+            },
+            "OBUF": {
+              "N": 1,
+              "OH": 1,
+              "OW": 1,
+              "OC": 32
+            },
+            "pe_array": {
+              "N": 1,
+              "OH": 1,
+              "OW": 1,
+              "OC": 32
+            }
+          }
+        }
+      ],
+      "tiling_factors": {
+        "0": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 1,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 1,
+          "loop0": 1
+        },
+        "1": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 28,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 28,
+          "loop0": 4
+        },
+        "2": {
+          "loop1": 1,
+          "loop2": 2,
+          "loop5": 1,
+          "loop3": 3,
+          "loop4": 3,
+          "loop6": 1,
+          "loop0": 1
+        }
+      }
+    },
+    {
+      "operation": "conv_bias",
+      "instance_id": 7,
+      "iterable_dimensions": {
+        "OC": 128,
+        "N": 1,
+        "IC": 128,
+        "KH": 3,
+        "KW": 3,
+        "OH": 28,
+        "OW": 28
+      },
+      "operation_parameters": {
+        "stride": 1
+      },
+      "inputs": [
+        {
+          "name": "data",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "N": 1,
+            "IH": 28,
+            "IW": 28,
+            "IC": 128
+          },
+          "data_path": [
+            "DRAM",
+            "IBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 1,
+              "IH": 30,
+              "IW": 30,
+              "IC": 128
+            },
+            "IBUF": {
+              "N": 1,
+              "IH": 3,
+              "IW": 3,
+              "IC": 128
+            },
+            "pe_array": {
+              "N": 1,
+              "IH": 1,
+              "IW": 1,
+              "IC": 32
+            }
+          }
+        },
+        {
+          "name": "weight",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "KH": 3,
+            "KW": 3,
+            "OC": 128,
+            "IC": 128
+          },
+          "data_path": [
+            "DRAM",
+            "WBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "KH": 3,
+              "KW": 3,
+              "OC": 128,
+              "IC": 128
+            },
+            "WBUF": {
+              "KH": 3,
+              "KW": 3,
+              "OC": 32,
+              "IC": 128
+            },
+            "pe_array": {
+              "KH": 1,
+              "KW": 1,
+              "OC": 32,
+              "IC": 32
+            }
+          }
+        },
+        {
+          "name": "bias",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "OC": 128
+          },
+          "data_path": [
+            "DRAM",
+            "BBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "OC": 128
+            },
+            "BBUF": {
+              "OC": 32
+            },
+            "pe_array": {
+              "OC": 32
+            }
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "out",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "N": 1,
+            "OH": 28,
+            "OW": 28,
+            "OC": 128
+          },
+          "data_path": [
+            "DRAM",
+            "OBUF",
+            "pe_array",
+            "OBUF",
+            "DRAM"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 1,
+              "OH": 28,
+              "OW": 28,
+              "OC": 128
+            },
+            "OBUF": {
+              "N": 1,
+              "OH": 1,
+              "OW": 1,
+              "OC": 32
+            },
+            "pe_array": {
+              "N": 1,
+              "OH": 1,
+              "OW": 1,
+              "OC": 32
+            }
+          }
+        }
+      ],
+      "tiling_factors": {
+        "0": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 1,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 1,
+          "loop0": 1
+        },
+        "1": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 28,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 28,
+          "loop0": 4
+        },
+        "2": {
+          "loop1": 1,
+          "loop2": 4,
+          "loop5": 1,
+          "loop3": 3,
+          "loop4": 3,
+          "loop6": 1,
+          "loop0": 1
+        }
+      }
+    },
+    {
+      "operation": "conv_bias",
+      "instance_id": 8,
+      "iterable_dimensions": {
+        "OC": 128,
+        "N": 1,
+        "IC": 64,
+        "KH": 1,
+        "KW": 1,
+        "OH": 28,
+        "OW": 28
+      },
+      "operation_parameters": {
+        "stride": 2
+      },
+      "inputs": [
+        {
+          "name": "data",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "N": 1,
+            "IH": 56,
+            "IW": 56,
+            "IC": 64
+          },
+          "data_path": [
+            "DRAM",
+            "IBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 1,
+              "IH": 55,
+              "IW": 55,
+              "IC": 64
+            },
+            "IBUF": {
+              "N": 1,
+              "IH": 1,
+              "IW": 1,
+              "IC": 64
+            },
+            "pe_array": {
+              "N": 1,
+              "IH": 1,
+              "IW": 1,
+              "IC": 32
+            }
+          }
+        },
+        {
+          "name": "weight",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "KH": 1,
+            "KW": 1,
+            "OC": 128,
+            "IC": 64
+          },
+          "data_path": [
+            "DRAM",
+            "WBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "KH": 1,
+              "KW": 1,
+              "OC": 128,
+              "IC": 64
+            },
+            "WBUF": {
+              "KH": 1,
+              "KW": 1,
+              "OC": 32,
+              "IC": 64
+            },
+            "pe_array": {
+              "KH": 1,
+              "KW": 1,
+              "OC": 32,
+              "IC": 32
+            }
+          }
+        },
+        {
+          "name": "bias",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "OC": 128
+          },
+          "data_path": [
+            "DRAM",
+            "BBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "OC": 128
+            },
+            "BBUF": {
+              "OC": 32
+            },
+            "pe_array": {
+              "OC": 32
+            }
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "out",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "N": 1,
+            "OH": 28,
+            "OW": 28,
+            "OC": 128
+          },
+          "data_path": [
+            "DRAM",
+            "OBUF",
+            "pe_array",
+            "OBUF",
+            "DRAM"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 1,
+              "OH": 28,
+              "OW": 28,
+              "OC": 128
+            },
+            "OBUF": {
+              "N": 1,
+              "OH": 1,
+              "OW": 1,
+              "OC": 32
+            },
+            "pe_array": {
+              "N": 1,
+              "OH": 1,
+              "OW": 1,
+              "OC": 32
+            }
+          }
+        }
+      ],
+      "tiling_factors": {
+        "0": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 1,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 1,
+          "loop0": 1
+        },
+        "1": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 28,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 28,
+          "loop0": 4
+        },
+        "2": {
+          "loop1": 1,
+          "loop2": 2,
+          "loop5": 1,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 1,
+          "loop0": 1
+        }
+      }
+    },
+    {
+      "operation": "conv_bias",
+      "instance_id": 9,
+      "iterable_dimensions": {
+        "OC": 128,
+        "N": 1,
+        "IC": 128,
+        "KH": 3,
+        "KW": 3,
+        "OH": 28,
+        "OW": 28
+      },
+      "operation_parameters": {
+        "stride": 1
+      },
+      "inputs": [
+        {
+          "name": "data",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "N": 1,
+            "IH": 28,
+            "IW": 28,
+            "IC": 128
+          },
+          "data_path": [
+            "DRAM",
+            "IBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 1,
+              "IH": 30,
+              "IW": 30,
+              "IC": 128
+            },
+            "IBUF": {
+              "N": 1,
+              "IH": 3,
+              "IW": 3,
+              "IC": 128
+            },
+            "pe_array": {
+              "N": 1,
+              "IH": 1,
+              "IW": 1,
+              "IC": 32
+            }
+          }
+        },
+        {
+          "name": "weight",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "KH": 3,
+            "KW": 3,
+            "OC": 128,
+            "IC": 128
+          },
+          "data_path": [
+            "DRAM",
+            "WBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "KH": 3,
+              "KW": 3,
+              "OC": 128,
+              "IC": 128
+            },
+            "WBUF": {
+              "KH": 3,
+              "KW": 3,
+              "OC": 32,
+              "IC": 128
+            },
+            "pe_array": {
+              "KH": 1,
+              "KW": 1,
+              "OC": 32,
+              "IC": 32
+            }
+          }
+        },
+        {
+          "name": "bias",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "OC": 128
+          },
+          "data_path": [
+            "DRAM",
+            "BBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "OC": 128
+            },
+            "BBUF": {
+              "OC": 32
+            },
+            "pe_array": {
+              "OC": 32
+            }
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "out",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "N": 1,
+            "OH": 28,
+            "OW": 28,
+            "OC": 128
+          },
+          "data_path": [
+            "DRAM",
+            "OBUF",
+            "pe_array",
+            "OBUF",
+            "DRAM"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 1,
+              "OH": 28,
+              "OW": 28,
+              "OC": 128
+            },
+            "OBUF": {
+              "N": 1,
+              "OH": 1,
+              "OW": 1,
+              "OC": 32
+            },
+            "pe_array": {
+              "N": 1,
+              "OH": 1,
+              "OW": 1,
+              "OC": 32
+            }
+          }
+        }
+      ],
+      "tiling_factors": {
+        "0": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 1,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 1,
+          "loop0": 1
+        },
+        "1": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 28,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 28,
+          "loop0": 4
+        },
+        "2": {
+          "loop1": 1,
+          "loop2": 4,
+          "loop5": 1,
+          "loop3": 3,
+          "loop4": 3,
+          "loop6": 1,
+          "loop0": 1
+        }
+      }
+    },
+    {
+      "operation": "conv_bias",
+      "instance_id": 10,
+      "iterable_dimensions": {
+        "OC": 128,
+        "N": 1,
+        "IC": 128,
+        "KH": 3,
+        "KW": 3,
+        "OH": 28,
+        "OW": 28
+      },
+      "operation_parameters": {
+        "stride": 1
+      },
+      "inputs": [
+        {
+          "name": "data",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "N": 1,
+            "IH": 28,
+            "IW": 28,
+            "IC": 128
+          },
+          "data_path": [
+            "DRAM",
+            "IBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 1,
+              "IH": 30,
+              "IW": 30,
+              "IC": 128
+            },
+            "IBUF": {
+              "N": 1,
+              "IH": 3,
+              "IW": 3,
+              "IC": 128
+            },
+            "pe_array": {
+              "N": 1,
+              "IH": 1,
+              "IW": 1,
+              "IC": 32
+            }
+          }
+        },
+        {
+          "name": "weight",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "KH": 3,
+            "KW": 3,
+            "OC": 128,
+            "IC": 128
+          },
+          "data_path": [
+            "DRAM",
+            "WBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "KH": 3,
+              "KW": 3,
+              "OC": 128,
+              "IC": 128
+            },
+            "WBUF": {
+              "KH": 3,
+              "KW": 3,
+              "OC": 32,
+              "IC": 128
+            },
+            "pe_array": {
+              "KH": 1,
+              "KW": 1,
+              "OC": 32,
+              "IC": 32
+            }
+          }
+        },
+        {
+          "name": "bias",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "OC": 128
+          },
+          "data_path": [
+            "DRAM",
+            "BBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "OC": 128
+            },
+            "BBUF": {
+              "OC": 32
+            },
+            "pe_array": {
+              "OC": 32
+            }
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "out",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "N": 1,
+            "OH": 28,
+            "OW": 28,
+            "OC": 128
+          },
+          "data_path": [
+            "DRAM",
+            "OBUF",
+            "pe_array",
+            "OBUF",
+            "DRAM"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 1,
+              "OH": 28,
+              "OW": 28,
+              "OC": 128
+            },
+            "OBUF": {
+              "N": 1,
+              "OH": 1,
+              "OW": 1,
+              "OC": 32
+            },
+            "pe_array": {
+              "N": 1,
+              "OH": 1,
+              "OW": 1,
+              "OC": 32
+            }
+          }
+        }
+      ],
+      "tiling_factors": {
+        "0": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 1,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 1,
+          "loop0": 1
+        },
+        "1": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 28,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 28,
+          "loop0": 4
+        },
+        "2": {
+          "loop1": 1,
+          "loop2": 4,
+          "loop5": 1,
+          "loop3": 3,
+          "loop4": 3,
+          "loop6": 1,
+          "loop0": 1
+        }
+      }
+    },
+    {
+      "operation": "conv_bias",
+      "instance_id": 11,
+      "iterable_dimensions": {
+        "OC": 256,
+        "N": 1,
+        "IC": 128,
+        "KH": 3,
+        "KW": 3,
+        "OH": 14,
+        "OW": 14
+      },
+      "operation_parameters": {
+        "stride": 2
+      },
+      "inputs": [
+        {
+          "name": "data",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "N": 1,
+            "IH": 28,
+            "IW": 28,
+            "IC": 128
+          },
+          "data_path": [
+            "DRAM",
+            "IBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 1,
+              "IH": 29,
+              "IW": 29,
+              "IC": 128
+            },
+            "IBUF": {
+              "N": 1,
+              "IH": 3,
+              "IW": 3,
+              "IC": 128
+            },
+            "pe_array": {
+              "N": 1,
+              "IH": 1,
+              "IW": 1,
+              "IC": 32
+            }
+          }
+        },
+        {
+          "name": "weight",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "KH": 3,
+            "KW": 3,
+            "OC": 256,
+            "IC": 128
+          },
+          "data_path": [
+            "DRAM",
+            "WBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "KH": 3,
+              "KW": 3,
+              "OC": 256,
+              "IC": 128
+            },
+            "WBUF": {
+              "KH": 3,
+              "KW": 3,
+              "OC": 32,
+              "IC": 128
+            },
+            "pe_array": {
+              "KH": 1,
+              "KW": 1,
+              "OC": 32,
+              "IC": 32
+            }
+          }
+        },
+        {
+          "name": "bias",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "OC": 256
+          },
+          "data_path": [
+            "DRAM",
+            "BBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "OC": 256
+            },
+            "BBUF": {
+              "OC": 32
+            },
+            "pe_array": {
+              "OC": 32
+            }
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "out",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "N": 1,
+            "OH": 14,
+            "OW": 14,
+            "OC": 256
+          },
+          "data_path": [
+            "DRAM",
+            "OBUF",
+            "pe_array",
+            "OBUF",
+            "DRAM"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 1,
+              "OH": 14,
+              "OW": 14,
+              "OC": 256
+            },
+            "OBUF": {
+              "N": 1,
+              "OH": 1,
+              "OW": 1,
+              "OC": 32
+            },
+            "pe_array": {
+              "N": 1,
+              "OH": 1,
+              "OW": 1,
+              "OC": 32
+            }
+          }
+        }
+      ],
+      "tiling_factors": {
+        "0": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 1,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 1,
+          "loop0": 1
+        },
+        "1": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 14,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 14,
+          "loop0": 8
+        },
+        "2": {
+          "loop1": 1,
+          "loop2": 4,
+          "loop5": 1,
+          "loop3": 3,
+          "loop4": 3,
+          "loop6": 1,
+          "loop0": 1
+        }
+      }
+    },
+    {
+      "operation": "conv_bias",
+      "instance_id": 12,
+      "iterable_dimensions": {
+        "OC": 256,
+        "N": 1,
+        "IC": 256,
+        "KH": 3,
+        "KW": 3,
+        "OH": 14,
+        "OW": 14
+      },
+      "operation_parameters": {
+        "stride": 1
+      },
+      "inputs": [
+        {
+          "name": "data",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "N": 1,
+            "IH": 14,
+            "IW": 14,
+            "IC": 256
+          },
+          "data_path": [
+            "DRAM",
+            "IBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 1,
+              "IH": 16,
+              "IW": 16,
+              "IC": 256
+            },
+            "IBUF": {
+              "N": 1,
+              "IH": 3,
+              "IW": 3,
+              "IC": 256
+            },
+            "pe_array": {
+              "N": 1,
+              "IH": 1,
+              "IW": 1,
+              "IC": 32
+            }
+          }
+        },
+        {
+          "name": "weight",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "KH": 3,
+            "KW": 3,
+            "OC": 256,
+            "IC": 256
+          },
+          "data_path": [
+            "DRAM",
+            "WBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "KH": 3,
+              "KW": 3,
+              "OC": 256,
+              "IC": 256
+            },
+            "WBUF": {
+              "KH": 3,
+              "KW": 3,
+              "OC": 32,
+              "IC": 256
+            },
+            "pe_array": {
+              "KH": 1,
+              "KW": 1,
+              "OC": 32,
+              "IC": 32
+            }
+          }
+        },
+        {
+          "name": "bias",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "OC": 256
+          },
+          "data_path": [
+            "DRAM",
+            "BBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "OC": 256
+            },
+            "BBUF": {
+              "OC": 32
+            },
+            "pe_array": {
+              "OC": 32
+            }
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "out",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "N": 1,
+            "OH": 14,
+            "OW": 14,
+            "OC": 256
+          },
+          "data_path": [
+            "DRAM",
+            "OBUF",
+            "pe_array",
+            "OBUF",
+            "DRAM"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 1,
+              "OH": 14,
+              "OW": 14,
+              "OC": 256
+            },
+            "OBUF": {
+              "N": 1,
+              "OH": 1,
+              "OW": 1,
+              "OC": 32
+            },
+            "pe_array": {
+              "N": 1,
+              "OH": 1,
+              "OW": 1,
+              "OC": 32
+            }
+          }
+        }
+      ],
+      "tiling_factors": {
+        "0": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 1,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 1,
+          "loop0": 1
+        },
+        "1": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 14,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 14,
+          "loop0": 8
+        },
+        "2": {
+          "loop1": 1,
+          "loop2": 8,
+          "loop5": 1,
+          "loop3": 3,
+          "loop4": 3,
+          "loop6": 1,
+          "loop0": 1
+        }
+      }
+    },
+    {
+      "operation": "conv_bias",
+      "instance_id": 13,
+      "iterable_dimensions": {
+        "OC": 256,
+        "N": 1,
+        "IC": 128,
+        "KH": 1,
+        "KW": 1,
+        "OH": 14,
+        "OW": 14
+      },
+      "operation_parameters": {
+        "stride": 2
+      },
+      "inputs": [
+        {
+          "name": "data",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "N": 1,
+            "IH": 28,
+            "IW": 28,
+            "IC": 128
+          },
+          "data_path": [
+            "DRAM",
+            "IBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 1,
+              "IH": 27,
+              "IW": 27,
+              "IC": 128
+            },
+            "IBUF": {
+              "N": 1,
+              "IH": 1,
+              "IW": 1,
+              "IC": 128
+            },
+            "pe_array": {
+              "N": 1,
+              "IH": 1,
+              "IW": 1,
+              "IC": 32
+            }
+          }
+        },
+        {
+          "name": "weight",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "KH": 1,
+            "KW": 1,
+            "OC": 256,
+            "IC": 128
+          },
+          "data_path": [
+            "DRAM",
+            "WBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "KH": 1,
+              "KW": 1,
+              "OC": 256,
+              "IC": 128
+            },
+            "WBUF": {
+              "KH": 1,
+              "KW": 1,
+              "OC": 32,
+              "IC": 128
+            },
+            "pe_array": {
+              "KH": 1,
+              "KW": 1,
+              "OC": 32,
+              "IC": 32
+            }
+          }
+        },
+        {
+          "name": "bias",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "OC": 256
+          },
+          "data_path": [
+            "DRAM",
+            "BBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "OC": 256
+            },
+            "BBUF": {
+              "OC": 32
+            },
+            "pe_array": {
+              "OC": 32
+            }
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "out",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "N": 1,
+            "OH": 14,
+            "OW": 14,
+            "OC": 256
+          },
+          "data_path": [
+            "DRAM",
+            "OBUF",
+            "pe_array",
+            "OBUF",
+            "DRAM"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 1,
+              "OH": 14,
+              "OW": 14,
+              "OC": 256
+            },
+            "OBUF": {
+              "N": 1,
+              "OH": 1,
+              "OW": 1,
+              "OC": 32
+            },
+            "pe_array": {
+              "N": 1,
+              "OH": 1,
+              "OW": 1,
+              "OC": 32
+            }
+          }
+        }
+      ],
+      "tiling_factors": {
+        "0": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 1,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 1,
+          "loop0": 1
+        },
+        "1": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 14,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 14,
+          "loop0": 8
+        },
+        "2": {
+          "loop1": 1,
+          "loop2": 4,
+          "loop5": 1,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 1,
+          "loop0": 1
+        }
+      }
+    },
+    {
+      "operation": "conv_bias",
+      "instance_id": 14,
+      "iterable_dimensions": {
+        "OC": 256,
+        "N": 1,
+        "IC": 256,
+        "KH": 3,
+        "KW": 3,
+        "OH": 14,
+        "OW": 14
+      },
+      "operation_parameters": {
+        "stride": 1
+      },
+      "inputs": [
+        {
+          "name": "data",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "N": 1,
+            "IH": 14,
+            "IW": 14,
+            "IC": 256
+          },
+          "data_path": [
+            "DRAM",
+            "IBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 1,
+              "IH": 16,
+              "IW": 16,
+              "IC": 256
+            },
+            "IBUF": {
+              "N": 1,
+              "IH": 3,
+              "IW": 3,
+              "IC": 256
+            },
+            "pe_array": {
+              "N": 1,
+              "IH": 1,
+              "IW": 1,
+              "IC": 32
+            }
+          }
+        },
+        {
+          "name": "weight",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "KH": 3,
+            "KW": 3,
+            "OC": 256,
+            "IC": 256
+          },
+          "data_path": [
+            "DRAM",
+            "WBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "KH": 3,
+              "KW": 3,
+              "OC": 256,
+              "IC": 256
+            },
+            "WBUF": {
+              "KH": 3,
+              "KW": 3,
+              "OC": 32,
+              "IC": 256
+            },
+            "pe_array": {
+              "KH": 1,
+              "KW": 1,
+              "OC": 32,
+              "IC": 32
+            }
+          }
+        },
+        {
+          "name": "bias",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "OC": 256
+          },
+          "data_path": [
+            "DRAM",
+            "BBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "OC": 256
+            },
+            "BBUF": {
+              "OC": 32
+            },
+            "pe_array": {
+              "OC": 32
+            }
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "out",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "N": 1,
+            "OH": 14,
+            "OW": 14,
+            "OC": 256
+          },
+          "data_path": [
+            "DRAM",
+            "OBUF",
+            "pe_array",
+            "OBUF",
+            "DRAM"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 1,
+              "OH": 14,
+              "OW": 14,
+              "OC": 256
+            },
+            "OBUF": {
+              "N": 1,
+              "OH": 1,
+              "OW": 1,
+              "OC": 32
+            },
+            "pe_array": {
+              "N": 1,
+              "OH": 1,
+              "OW": 1,
+              "OC": 32
+            }
+          }
+        }
+      ],
+      "tiling_factors": {
+        "0": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 1,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 1,
+          "loop0": 1
+        },
+        "1": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 14,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 14,
+          "loop0": 8
+        },
+        "2": {
+          "loop1": 1,
+          "loop2": 8,
+          "loop5": 1,
+          "loop3": 3,
+          "loop4": 3,
+          "loop6": 1,
+          "loop0": 1
+        }
+      }
+    },
+    {
+      "operation": "conv_bias",
+      "instance_id": 15,
+      "iterable_dimensions": {
+        "OC": 256,
+        "N": 1,
+        "IC": 256,
+        "KH": 3,
+        "KW": 3,
+        "OH": 14,
+        "OW": 14
+      },
+      "operation_parameters": {
+        "stride": 1
+      },
+      "inputs": [
+        {
+          "name": "data",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "N": 1,
+            "IH": 14,
+            "IW": 14,
+            "IC": 256
+          },
+          "data_path": [
+            "DRAM",
+            "IBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 1,
+              "IH": 16,
+              "IW": 16,
+              "IC": 256
+            },
+            "IBUF": {
+              "N": 1,
+              "IH": 3,
+              "IW": 3,
+              "IC": 256
+            },
+            "pe_array": {
+              "N": 1,
+              "IH": 1,
+              "IW": 1,
+              "IC": 32
+            }
+          }
+        },
+        {
+          "name": "weight",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "KH": 3,
+            "KW": 3,
+            "OC": 256,
+            "IC": 256
+          },
+          "data_path": [
+            "DRAM",
+            "WBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "KH": 3,
+              "KW": 3,
+              "OC": 256,
+              "IC": 256
+            },
+            "WBUF": {
+              "KH": 3,
+              "KW": 3,
+              "OC": 32,
+              "IC": 256
+            },
+            "pe_array": {
+              "KH": 1,
+              "KW": 1,
+              "OC": 32,
+              "IC": 32
+            }
+          }
+        },
+        {
+          "name": "bias",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "OC": 256
+          },
+          "data_path": [
+            "DRAM",
+            "BBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "OC": 256
+            },
+            "BBUF": {
+              "OC": 32
+            },
+            "pe_array": {
+              "OC": 32
+            }
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "out",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "N": 1,
+            "OH": 14,
+            "OW": 14,
+            "OC": 256
+          },
+          "data_path": [
+            "DRAM",
+            "OBUF",
+            "pe_array",
+            "OBUF",
+            "DRAM"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 1,
+              "OH": 14,
+              "OW": 14,
+              "OC": 256
+            },
+            "OBUF": {
+              "N": 1,
+              "OH": 1,
+              "OW": 1,
+              "OC": 32
+            },
+            "pe_array": {
+              "N": 1,
+              "OH": 1,
+              "OW": 1,
+              "OC": 32
+            }
+          }
+        }
+      ],
+      "tiling_factors": {
+        "0": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 1,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 1,
+          "loop0": 1
+        },
+        "1": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 14,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 14,
+          "loop0": 8
+        },
+        "2": {
+          "loop1": 1,
+          "loop2": 8,
+          "loop5": 1,
+          "loop3": 3,
+          "loop4": 3,
+          "loop6": 1,
+          "loop0": 1
+        }
+      }
+    },
+    {
+      "operation": "conv_bias",
+      "instance_id": 16,
+      "iterable_dimensions": {
+        "OC": 512,
+        "N": 1,
+        "IC": 256,
+        "KH": 3,
+        "KW": 3,
+        "OH": 7,
+        "OW": 7
+      },
+      "operation_parameters": {
+        "stride": 2
+      },
+      "inputs": [
+        {
+          "name": "data",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "N": 1,
+            "IH": 14,
+            "IW": 14,
+            "IC": 256
+          },
+          "data_path": [
+            "DRAM",
+            "IBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 1,
+              "IH": 15,
+              "IW": 15,
+              "IC": 256
+            },
+            "IBUF": {
+              "N": 1,
+              "IH": 3,
+              "IW": 3,
+              "IC": 256
+            },
+            "pe_array": {
+              "N": 1,
+              "IH": 1,
+              "IW": 1,
+              "IC": 32
+            }
+          }
+        },
+        {
+          "name": "weight",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "KH": 3,
+            "KW": 3,
+            "OC": 512,
+            "IC": 256
+          },
+          "data_path": [
+            "DRAM",
+            "WBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "KH": 3,
+              "KW": 3,
+              "OC": 512,
+              "IC": 256
+            },
+            "WBUF": {
+              "KH": 3,
+              "KW": 3,
+              "OC": 32,
+              "IC": 256
+            },
+            "pe_array": {
+              "KH": 1,
+              "KW": 1,
+              "OC": 32,
+              "IC": 32
+            }
+          }
+        },
+        {
+          "name": "bias",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "OC": 512
+          },
+          "data_path": [
+            "DRAM",
+            "BBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "OC": 512
+            },
+            "BBUF": {
+              "OC": 32
+            },
+            "pe_array": {
+              "OC": 32
+            }
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "out",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "N": 1,
+            "OH": 7,
+            "OW": 7,
+            "OC": 512
+          },
+          "data_path": [
+            "DRAM",
+            "OBUF",
+            "pe_array",
+            "OBUF",
+            "DRAM"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 1,
+              "OH": 7,
+              "OW": 7,
+              "OC": 512
+            },
+            "OBUF": {
+              "N": 1,
+              "OH": 1,
+              "OW": 1,
+              "OC": 32
+            },
+            "pe_array": {
+              "N": 1,
+              "OH": 1,
+              "OW": 1,
+              "OC": 32
+            }
+          }
+        }
+      ],
+      "tiling_factors": {
+        "0": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 1,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 1,
+          "loop0": 1
+        },
+        "1": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 7,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 7,
+          "loop0": 16
+        },
+        "2": {
+          "loop1": 1,
+          "loop2": 8,
+          "loop5": 1,
+          "loop3": 3,
+          "loop4": 3,
+          "loop6": 1,
+          "loop0": 1
+        }
+      }
+    },
+    {
+      "operation": "conv_bias",
+      "instance_id": 17,
+      "iterable_dimensions": {
+        "OC": 512,
+        "N": 1,
+        "IC": 512,
+        "KH": 3,
+        "KW": 3,
+        "OH": 7,
+        "OW": 7
+      },
+      "operation_parameters": {
+        "stride": 1
+      },
+      "inputs": [
+        {
+          "name": "data",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "N": 1,
+            "IH": 7,
+            "IW": 7,
+            "IC": 512
+          },
+          "data_path": [
+            "DRAM",
+            "IBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 1,
+              "IH": 9,
+              "IW": 9,
+              "IC": 512
+            },
+            "IBUF": {
+              "N": 1,
+              "IH": 3,
+              "IW": 3,
+              "IC": 512
+            },
+            "pe_array": {
+              "N": 1,
+              "IH": 1,
+              "IW": 1,
+              "IC": 32
+            }
+          }
+        },
+        {
+          "name": "weight",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "KH": 3,
+            "KW": 3,
+            "OC": 512,
+            "IC": 512
+          },
+          "data_path": [
+            "DRAM",
+            "WBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "KH": 3,
+              "KW": 3,
+              "OC": 512,
+              "IC": 512
+            },
+            "WBUF": {
+              "KH": 3,
+              "KW": 3,
+              "OC": 32,
+              "IC": 512
+            },
+            "pe_array": {
+              "KH": 1,
+              "KW": 1,
+              "OC": 32,
+              "IC": 32
+            }
+          }
+        },
+        {
+          "name": "bias",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "OC": 512
+          },
+          "data_path": [
+            "DRAM",
+            "BBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "OC": 512
+            },
+            "BBUF": {
+              "OC": 32
+            },
+            "pe_array": {
+              "OC": 32
+            }
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "out",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "N": 1,
+            "OH": 7,
+            "OW": 7,
+            "OC": 512
+          },
+          "data_path": [
+            "DRAM",
+            "OBUF",
+            "pe_array",
+            "OBUF",
+            "DRAM"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 1,
+              "OH": 7,
+              "OW": 7,
+              "OC": 512
+            },
+            "OBUF": {
+              "N": 1,
+              "OH": 1,
+              "OW": 1,
+              "OC": 32
+            },
+            "pe_array": {
+              "N": 1,
+              "OH": 1,
+              "OW": 1,
+              "OC": 32
+            }
+          }
+        }
+      ],
+      "tiling_factors": {
+        "0": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 1,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 1,
+          "loop0": 1
+        },
+        "1": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 7,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 7,
+          "loop0": 16
+        },
+        "2": {
+          "loop1": 1,
+          "loop2": 16,
+          "loop5": 1,
+          "loop3": 3,
+          "loop4": 3,
+          "loop6": 1,
+          "loop0": 1
+        }
+      }
+    },
+    {
+      "operation": "conv_bias",
+      "instance_id": 18,
+      "iterable_dimensions": {
+        "OC": 512,
+        "N": 1,
+        "IC": 256,
+        "KH": 1,
+        "KW": 1,
+        "OH": 7,
+        "OW": 7
+      },
+      "operation_parameters": {
+        "stride": 2
+      },
+      "inputs": [
+        {
+          "name": "data",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "N": 1,
+            "IH": 14,
+            "IW": 14,
+            "IC": 256
+          },
+          "data_path": [
+            "DRAM",
+            "IBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 1,
+              "IH": 13,
+              "IW": 13,
+              "IC": 256
+            },
+            "IBUF": {
+              "N": 1,
+              "IH": 1,
+              "IW": 1,
+              "IC": 256
+            },
+            "pe_array": {
+              "N": 1,
+              "IH": 1,
+              "IW": 1,
+              "IC": 32
+            }
+          }
+        },
+        {
+          "name": "weight",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "KH": 1,
+            "KW": 1,
+            "OC": 512,
+            "IC": 256
+          },
+          "data_path": [
+            "DRAM",
+            "WBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "KH": 1,
+              "KW": 1,
+              "OC": 512,
+              "IC": 256
+            },
+            "WBUF": {
+              "KH": 1,
+              "KW": 1,
+              "OC": 32,
+              "IC": 256
+            },
+            "pe_array": {
+              "KH": 1,
+              "KW": 1,
+              "OC": 32,
+              "IC": 32
+            }
+          }
+        },
+        {
+          "name": "bias",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "OC": 512
+          },
+          "data_path": [
+            "DRAM",
+            "BBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "OC": 512
+            },
+            "BBUF": {
+              "OC": 32
+            },
+            "pe_array": {
+              "OC": 32
+            }
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "out",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "N": 1,
+            "OH": 7,
+            "OW": 7,
+            "OC": 512
+          },
+          "data_path": [
+            "DRAM",
+            "OBUF",
+            "pe_array",
+            "OBUF",
+            "DRAM"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 1,
+              "OH": 7,
+              "OW": 7,
+              "OC": 512
+            },
+            "OBUF": {
+              "N": 1,
+              "OH": 1,
+              "OW": 1,
+              "OC": 32
+            },
+            "pe_array": {
+              "N": 1,
+              "OH": 1,
+              "OW": 1,
+              "OC": 32
+            }
+          }
+        }
+      ],
+      "tiling_factors": {
+        "0": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 1,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 1,
+          "loop0": 1
+        },
+        "1": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 7,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 7,
+          "loop0": 16
+        },
+        "2": {
+          "loop1": 1,
+          "loop2": 8,
+          "loop5": 1,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 1,
+          "loop0": 1
+        }
+      }
+    },
+    {
+      "operation": "conv_bias",
+      "instance_id": 19,
+      "iterable_dimensions": {
+        "OC": 512,
+        "N": 1,
+        "IC": 512,
+        "KH": 3,
+        "KW": 3,
+        "OH": 7,
+        "OW": 7
+      },
+      "operation_parameters": {
+        "stride": 1
+      },
+      "inputs": [
+        {
+          "name": "data",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "N": 1,
+            "IH": 7,
+            "IW": 7,
+            "IC": 512
+          },
+          "data_path": [
+            "DRAM",
+            "IBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 1,
+              "IH": 9,
+              "IW": 9,
+              "IC": 512
+            },
+            "IBUF": {
+              "N": 1,
+              "IH": 3,
+              "IW": 3,
+              "IC": 512
+            },
+            "pe_array": {
+              "N": 1,
+              "IH": 1,
+              "IW": 1,
+              "IC": 32
+            }
+          }
+        },
+        {
+          "name": "weight",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "KH": 3,
+            "KW": 3,
+            "OC": 512,
+            "IC": 512
+          },
+          "data_path": [
+            "DRAM",
+            "WBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "KH": 3,
+              "KW": 3,
+              "OC": 512,
+              "IC": 512
+            },
+            "WBUF": {
+              "KH": 3,
+              "KW": 3,
+              "OC": 32,
+              "IC": 512
+            },
+            "pe_array": {
+              "KH": 1,
+              "KW": 1,
+              "OC": 32,
+              "IC": 32
+            }
+          }
+        },
+        {
+          "name": "bias",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "OC": 512
+          },
+          "data_path": [
+            "DRAM",
+            "BBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "OC": 512
+            },
+            "BBUF": {
+              "OC": 32
+            },
+            "pe_array": {
+              "OC": 32
+            }
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "out",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "N": 1,
+            "OH": 7,
+            "OW": 7,
+            "OC": 512
+          },
+          "data_path": [
+            "DRAM",
+            "OBUF",
+            "pe_array",
+            "OBUF",
+            "DRAM"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 1,
+              "OH": 7,
+              "OW": 7,
+              "OC": 512
+            },
+            "OBUF": {
+              "N": 1,
+              "OH": 1,
+              "OW": 1,
+              "OC": 32
+            },
+            "pe_array": {
+              "N": 1,
+              "OH": 1,
+              "OW": 1,
+              "OC": 32
+            }
+          }
+        }
+      ],
+      "tiling_factors": {
+        "0": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 1,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 1,
+          "loop0": 1
+        },
+        "1": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 7,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 7,
+          "loop0": 16
+        },
+        "2": {
+          "loop1": 1,
+          "loop2": 16,
+          "loop5": 1,
+          "loop3": 3,
+          "loop4": 3,
+          "loop6": 1,
+          "loop0": 1
+        }
+      }
+    },
+    {
+      "operation": "conv_bias",
+      "instance_id": 20,
+      "iterable_dimensions": {
+        "OC": 512,
+        "N": 1,
+        "IC": 512,
+        "KH": 3,
+        "KW": 3,
+        "OH": 7,
+        "OW": 7
+      },
+      "operation_parameters": {
+        "stride": 1
+      },
+      "inputs": [
+        {
+          "name": "data",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "N": 1,
+            "IH": 7,
+            "IW": 7,
+            "IC": 512
+          },
+          "data_path": [
+            "DRAM",
+            "IBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 1,
+              "IH": 9,
+              "IW": 9,
+              "IC": 512
+            },
+            "IBUF": {
+              "N": 1,
+              "IH": 3,
+              "IW": 3,
+              "IC": 512
+            },
+            "pe_array": {
+              "N": 1,
+              "IH": 1,
+              "IW": 1,
+              "IC": 32
+            }
+          }
+        },
+        {
+          "name": "weight",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "KH": 3,
+            "KW": 3,
+            "OC": 512,
+            "IC": 512
+          },
+          "data_path": [
+            "DRAM",
+            "WBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "KH": 3,
+              "KW": 3,
+              "OC": 512,
+              "IC": 512
+            },
+            "WBUF": {
+              "KH": 3,
+              "KW": 3,
+              "OC": 32,
+              "IC": 512
+            },
+            "pe_array": {
+              "KH": 1,
+              "KW": 1,
+              "OC": 32,
+              "IC": 32
+            }
+          }
+        },
+        {
+          "name": "bias",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "OC": 512
+          },
+          "data_path": [
+            "DRAM",
+            "BBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "OC": 512
+            },
+            "BBUF": {
+              "OC": 32
+            },
+            "pe_array": {
+              "OC": 32
+            }
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "out",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "N": 1,
+            "OH": 7,
+            "OW": 7,
+            "OC": 512
+          },
+          "data_path": [
+            "DRAM",
+            "OBUF",
+            "pe_array",
+            "OBUF",
+            "DRAM"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 1,
+              "OH": 7,
+              "OW": 7,
+              "OC": 512
+            },
+            "OBUF": {
+              "N": 1,
+              "OH": 1,
+              "OW": 1,
+              "OC": 32
+            },
+            "pe_array": {
+              "N": 1,
+              "OH": 1,
+              "OW": 1,
+              "OC": 32
+            }
+          }
+        }
+      ],
+      "tiling_factors": {
+        "0": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 1,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 1,
+          "loop0": 1
+        },
+        "1": {
+          "loop1": 1,
+          "loop2": 1,
+          "loop5": 7,
+          "loop3": 1,
+          "loop4": 1,
+          "loop6": 7,
+          "loop0": 16
+        },
+        "2": {
+          "loop1": 1,
+          "loop2": 16,
+          "loop5": 1,
+          "loop3": 3,
+          "loop4": 3,
+          "loop6": 1,
+          "loop0": 1
+        }
+      }
+    },
+    {
+      "operation": "gemm",
+      "instance_id": 21,
+      "iterable_dimensions": {
+        "P": 1024,
+        "N": 512,
+        "M": 1
+      },
+      "operation_parameters": {},
+      "inputs": [
+        {
+          "name": "data",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "M": 1,
+            "N": 512
+          },
+          "data_path": [
+            "DRAM",
+            "IBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "M": 1,
+              "N": 512
+            },
+            "IBUF": {
+              "M": 1,
+              "N": 512
+            },
+            "pe_array": {
+              "M": 1,
+              "N": 32
+            }
+          }
+        },
+        {
+          "name": "weight",
+          "dtype": "FXP8",
+          "shape_symbols": {
+            "N": 512,
+            "P": 1024
+          },
+          "data_path": [
+            "DRAM",
+            "WBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "N": 512,
+              "P": 1024
+            },
+            "WBUF": {
+              "N": 512,
+              "P": 32
+            },
+            "pe_array": {
+              "N": 32,
+              "P": 32
+            }
+          }
+        },
+        {
+          "name": "bias",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "P": 1024
+          },
+          "data_path": [
+            "DRAM",
+            "BBUF",
+            "pe_array"
+          ],
+          "tiling": {
+            "DRAM": {
+              "P": 1024
+            },
+            "BBUF": {
+              "P": 32
+            },
+            "pe_array": {
+              "P": 32
+            }
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "out",
+          "dtype": "FXP32",
+          "shape_symbols": {
+            "M": 1,
+            "P": 1024
+          },
+          "data_path": [
+            "DRAM",
+            "OBUF",
+            "pe_array",
+            "OBUF",
+            "DRAM"
+          ],
+          "tiling": {
+            "DRAM": {
+              "M": 1,
+              "P": 1024
+            },
+            "OBUF": {
+              "M": 1,
+              "P": 32
+            },
+            "pe_array": {
+              "M": 1,
+              "P": 32
+            }
+          }
+        }
+      ],
+      "tiling_factors": {
+        "0": {
+          "loop2": 1,
+          "loop1": 1,
+          "loop0": 1
+        },
+        "1": {
+          "loop2": 1,
+          "loop1": 1,
+          "loop0": 32
+        },
+        "2": {
+          "loop2": 1,
+          "loop1": 16,
+          "loop0": 1
+        }
+      }
+    }
+  ]
+}

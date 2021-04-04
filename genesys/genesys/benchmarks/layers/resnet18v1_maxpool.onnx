@@ -1,0 +1,30 @@
+onnx.utils.extract_model:ë
+„
+resnetv15_relu0_fwdresnetv15_pool0_fwdresnetv15_pool0_fwd"MaxPool*
+kernel_shape@@ *
+pads@@@@ *
+strides@@ &Extracted from {mxnet_converted_model}Z-
+resnetv15_relu0_fwd
+
+
+@
+p
+pb-
+resnetv15_pool0_fwd
+
+
+@
+8
+8j-
+resnetv15_relu0_fwd
+
+
+@
+p
+pj-
+resnetv15_pool0_fwd
+
+
+@
+8
+8B

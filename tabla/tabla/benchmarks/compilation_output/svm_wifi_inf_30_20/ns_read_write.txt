@@ -1,0 +1,256 @@
+PE0:
+	NI0 (DIFFERENT DATA IDS for PUGB2, pass, NI0: (1238 --> 1791)): 209  ---->  211
+At least 0/1 (0.0%), namespace slots
+
+PE1:
+	NI0 (DIFFERENT DATA IDS for PENB, ALU, +, NI0: (1766 --> 1332)): 48  ---->  50
+	NI1 (DIFFERENT DATA IDS for PENB, NI2, +, NI1: (1785 --> 1578)): 49  ---->  51
+	NI2 (DIFFERENT DATA IDS for PENB, ALU, +, NI2: (1775 --> 1571)): 40  ---->  49
+	NI3 (DIFFERENT DATA IDS for NI5, PEGB2, +, NI3: (652 --> 1690)): 35  ---->  43
+	NI4 (DIFFERENT DATA IDS for NI0, PEGB4, +, NI4: (653 --> 1747)): 36  ---->  45
+	NI5 (): 30  ---->  35
+At least 0/6 (0.0%), namespace slots
+
+PE2:
+	NI0 (DIFFERENT DATA IDS for PEGB6, pass, NI0: (738 --> 802)): 33  ---->  35
+	NI1 (): 31  ---->  34
+	NI2 (): 34  ---->  36
+At least 0/3 (0.0%), namespace slots
+
+PE3:
+	NI0 (): 30  ---->  32
+	NI1 (): 31  ---->  33
+At least 0/2 (0.0%), namespace slots
+
+PE4:
+	NI0 (): 27  ---->  30
+	NI1 (): 28  ---->  31
+	NI2 (): 29  ---->  32
+At least 0/3 (0.0%), namespace slots
+
+PE6:
+	NI0 (DIFFERENT DATA IDS for PEGB4, pass, NI0: (801 --> 740)): 31  ---->  33
+	NI1 (): 29  ---->  32
+At least 0/2 (0.0%), namespace slots
+
+PE8:
+	NI0 (DIFFERENT DATA IDS for PUGB3, pass, NI0: (1390 --> 1428)): 275  ---->  277
+	NI1 (DIFFERENT DATA IDS for PUNB, pass, NI1: (1183 --> 644)): 164  ---->  172
+At least 0/2 (0.0%), namespace slots
+
+PE9:
+	NI0 (DIFFERENT DATA IDS for PENB, ALU, +, NI0: (1771 --> 1393)): 109  ---->  112
+	NI1 (DIFFERENT DATA IDS for PENB, PEGB2, +, NI1: (1721 --> 1767)): 95  ---->  100
+	NI2 (DIFFERENT DATA IDS for NI14, PEGB2, +, NI2: (860 --> 1676)): 96  ---->  104
+	NI3 (DIFFERENT DATA IDS for PENB, ALU, +, NI3: (861 --> 1296)): 98  ---->  105
+	NI4 (DIFFERENT DATA IDS for PENB, NI0, +, NI4: (863 --> 1733)): 99  ---->  102
+	NI5 (DIFFERENT DATA IDS for PEGB2, NI7, +, NI5: (921 --> 1760)): 37  ---->  86
+	NI6 (DIFFERENT DATA IDS for PENB, ALU, +, NI6: (1741 --> 1593)): 40  ---->  90
+	NI7 (DIFFERENT DATA IDS for PENB, ALU, +, NI7: (922 --> 1594)): 42  ---->  87
+	NI8 (DIFFERENT DATA IDS for PENB, NI11, +, NI8: (1661 --> 1663)): 77  ---->  85
+	NI9 (DIFFERENT DATA IDS for ALU, NI10, +, NI9: (675 --> 1619)): 55  ---->  101
+	NI10 (DIFFERENT DATA IDS for PENB, ALU, +, NI10: (1643 --> 1662)): 73  ---->  76
+	NI11 (DIFFERENT DATA IDS for PENB, pass, NI11: (796 --> 797)): 74  ---->  77
+	NI12 (): 60  ---->  88
+	NI13 (): 68  ---->  89
+	NI14 (): 76  ---->  96
+At least 0/15 (0.0%), namespace slots
+
+PE10:
+	NI0 (DIFFERENT DATA IDS for PENB, NI2, +, NI0: (1626 --> 1653)): 50  ---->  56
+	NI1 (DIFFERENT DATA IDS for PENB, pass, NI1: (1761 --> 1594)): 54  ---->  57
+	NI2 (DIFFERENT DATA IDS for PENB, NI3, +, NI2: (1645 --> 1638)): 55  ---->  58
+	NI3 (DIFFERENT DATA IDS for PENB, NI0, +, NI3: (1634 --> 1657)): 56  ---->  59
+	NI4 (): 42  ---->  44
+At least 0/5 (0.0%), namespace slots
+
+PE11:
+	NI0 (DIFFERENT DATA IDS for PEGB4, ALU, +, NI0: (1038 --> 1730)): 35  ---->  37
+	NI1 (): 31  ---->  33
+At least 0/2 (0.0%), namespace slots
+
+PE13:
+	NI0 (DIFFERENT DATA IDS for PEGB7, pass, NI0: (981 --> 1040)): 31  ---->  33
+	NI1 (): 29  ---->  32
+	NI2 (): 32  ---->  34
+At least 0/3 (0.0%), namespace slots
+
+PE15:
+	NI0 (): 27  ---->  30
+	NI1 (): 28  ---->  31
+	NI2 (): 29  ---->  32
+At least 0/3 (0.0%), namespace slots
+
+PE16:
+	NI0 (DIFFERENT DATA IDS for PUGB3, pass, NI0: (1542 --> 1580)): 280  ---->  284
+	NI1 (DIFFERENT DATA IDS for PUNB, pass, NI1: (823 --> 884)): 207  ---->  213
+At least 0/2 (0.0%), namespace slots
+
+PE17:
+	NI0 (second write, pass to self): 110  ---->  110
+	NI1 (DIFFERENT DATA IDS for PEGB5, PENB, +, NI1: (1769 --> 1735)): 106  ---->  109
+	NI2 (DIFFERENT DATA IDS for NI4, PENB, +, NI2: (1788 --> 1773)): 107  ---->  111
+	NI3 (DIFFERENT DATA IDS for NI11, ALU, +, NI3: (1782 --> 1677)): 90  ---->  112
+	NI4 (DIFFERENT DATA IDS for ALU, PEGB6, +, NI4: (1746 --> 1770)): 40  ---->  107
+	NI5 (second write, pass to self): 108  ---->  108
+	NI6 (DIFFERENT DATA IDS for PENB, NI8, +, NI6: (1666 --> 1667)): 79  ---->  89
+	NI7 (DIFFERENT DATA IDS for PEGB2, pass, NI7: (1665 --> 1591)): 81  ---->  88
+	NI8 (DIFFERENT DATA IDS for PENB, NI5, +, NI8: (1037 --> 1693)): 82  ---->  92
+	NI9 (DIFFERENT DATA IDS for ALU, NI7, +, NI9: (1616 --> 1654)): 68  ---->  78
+	NI10 (): 59  ---->  91
+	NI11 (): 77  ---->  90
+At least 0/12 (0.0%), namespace slots
+
+PE18:
+	NI0 (second write, pass to self): 43  ---->  43
+	NI1 (DIFFERENT DATA IDS for PEGB0, ALU, +, NI1: (1159 --> 1590)): 41  ---->  44
+	NI2 (): 42  ---->  45
+	NI3 (): 44  ---->  50
+At least 0/4 (0.0%), namespace slots
+
+PE19:
+	NI0 (): 30  ---->  32
+	NI1 (): 31  ---->  33
+At least 0/2 (0.0%), namespace slots
+
+PE20:
+	NI0 (DIFFERENT DATA IDS for PEGB6, pass, NI0: (1161 --> 1220)): 31  ---->  33
+	NI1 (): 29  ---->  32
+	NI2 (): 32  ---->  36
+At least 0/3 (0.0%), namespace slots
+
+PE22:
+	NI0 (): 27  ---->  30
+	NI1 (): 28  ---->  31
+At least 0/2 (0.0%), namespace slots
+
+PE23:
+	NI0 (DIFFERENT DATA IDS for PEGB3, NI1, +, NI0: (1074 --> 1232)): 4  ---->  97
+	NI1 (DIFFERENT DATA IDS for NI7, ALU, +, NI1: (1459 --> 1468)): 87  ---->  105
+	NI2 (DIFFERENT DATA IDS for NI18, ALU, +, NI2: (1383 --> 1392)): 67  ---->  101
+	NI3 (second write, pass to self): 94  ---->  94
+	NI4 (DIFFERENT DATA IDS for PEGB0, ALU, +, NI4: (1458 --> 1476)): 92  ---->  95
+	NI5 (DIFFERENT DATA IDS for PEGB0, pass, NI5: (1456 --> 1027)): 93  ---->  96
+	NI6 (DIFFERENT DATA IDS for PEGB1, NI12, +, NI6: (895 --> 1592)): 32  ---->  103
+	NI7 (DIFFERENT DATA IDS for ALU, NI4, +, NI7: (1464 --> 1483)): 95  ---->  99
+	NI8 (): 11  ---->  71
+	NI9 (DIFFERENT DATA IDS for PEGB1, NI4, +, NI9: (1086 --> 1497)): 29  ---->  77
+	NI10 (): 14  ---->  72
+	NI11 (DIFFERENT DATA IDS for PEGB0, pass, NI11: (1021 --> 1022)): 60  ---->  63
+	NI12 (DIFFERENT DATA IDS for PEGB1, NI15, +, NI12: (955 --> 1668)): 37  ---->  104
+	NI13 (DIFFERENT DATA IDS for PEGB1, NI7, +, NI13: (1094 --> 1649)): 35  ---->  102
+	NI14 (): 22  ---->  73
+	NI15 (DIFFERENT DATA IDS for ALU, NI7, +, NI15: (1015 --> 1369)): 52  ---->  98
+	NI16 (): 25  ---->  74
+	NI17 (): 34  ---->  100
+	NI18 (DIFFERENT DATA IDS for ALU, NI7, +, NI18: (1255 --> 1388)): 62  ---->  67
+At least 0/19 (0.0%), namespace slots
+
+PE24:
+	NI0 (DIFFERENT DATA IDS for PUNB, pass, NI0: (1694 --> 1713)): 240  ---->  242
+At least 0/1 (0.0%), namespace slots
+
+PE25:
+	NI0 (DIFFERENT DATA IDS for NI6, PEGB2, +, NI0: (1233 --> 1260)): 196  ---->  211
+	NI1 (DIFFERENT DATA IDS for PENB, ALU, +, NI1: (1484 --> 1697)): 208  ---->  212
+	NI2 (DIFFERENT DATA IDS for PENB, ALU, +, NI2: (1702 --> 1716)): 210  ---->  213
+	NI3 (DIFFERENT DATA IDS for ALU, NI2, +, NI3: (1270 --> 1279)): 42  ---->  206
+	NI4 (): 10  ---->  190
+	NI5 (DIFFERENT DATA IDS for PENB, ALU, +, NI5: (1358 --> 1364)): 71  ---->  183
+	NI6 (): 18  ---->  196
+	NI7 (DIFFERENT DATA IDS for PENB, NI12, +, NI7: (1384 --> 1421)): 85  ---->  184
+	NI8 (DIFFERENT DATA IDS for PENB, NI14, +, NI8: (1650 --> 1669)): 178  ---->  188
+	NI9 (): 62  ---->  200
+	NI10 (): 68  ---->  191
+	NI11 (DIFFERENT DATA IDS for PENB, ALU, +, NI11: (1422 --> 1454)): 95  ---->  185
+	NI12 (DIFFERENT DATA IDS for PENB, NI17, +, NI12: (1471 --> 1473)): 109  ---->  186
+	NI13 (): 78  ---->  197
+	NI14 (DIFFERENT DATA IDS for PENB, pass, NI14: (1216 --> 1157)): 175  ---->  178
+	NI15 (DIFFERENT DATA IDS for PENB, ALU, +, NI15: (1472 --> 1478)): 111  ---->  187
+	NI16 (DIFFERENT DATA IDS for PENB, NI14, +, NI16: (1428 --> 1651)): 174  ---->  177
+	NI17 (DIFFERENT DATA IDS for ALU, NI16, +, NI17: (1631 --> 1656)): 177  ---->  205
+	NI18 (): 102  ---->  201
+	NI19 (): 108  ---->  192
+	NI20 (DIFFERENT DATA IDS for PENB, pass, NI20: (1215 --> 1156)): 167  ---->  171
+	NI21 (DIFFERENT DATA IDS for ALU, NI8, +, NI21: (1095 --> 1637)): 169  ---->  204
+	NI22 (): 118  ---->  198
+	NI23 (): 124  ---->  202
+	NI24 (): 130  ---->  193
+	NI25 (): 160  ---->  203
+At least 0/26 (0.0%), namespace slots
+
+PE26:
+	NI0 (DIFFERENT DATA IDS for PENB, NI1, +, NI0: (1372 --> 1488)): 9  ---->  11
+	NI1 (DIFFERENT DATA IDS for PENB, NI3, +, NI1: (1254 --> 1486)): 7  ---->  9
+	NI2 (): 2  ---->  6
+	NI3 (): 3  ---->  7
+At least 0/4 (0.0%), namespace slots
+
+PE32:
+	NI0 (DIFFERENT DATA IDS for PUGB7, pass, NI0: (1297 --> 1316)): 175  ---->  177
+At least 0/1 (0.0%), namespace slots
+
+PE33:
+	NI0 (DIFFERENT DATA IDS for NI5, ALU, +, NI0: (1340 --> 1353)): 33  ---->  118
+	NI1 (DIFFERENT DATA IDS for PENB, NI4, +, NI1: (1462 --> 1752)): 115  ---->  129
+	NI2 (DIFFERENT DATA IDS for NI8, ALU, +, NI2: (1492 --> 1505)): 76  ---->  120
+	NI3 (DIFFERENT DATA IDS for NI1, PENB, +, NI3: (1740 --> 1467)): 109  ---->  119
+	NI4 (DIFFERENT DATA IDS for PENB, ALU, +, NI4: (1748 --> 1790)): 117  ---->  130
+	NI5 (DIFFERENT DATA IDS for PENB, NI4, +, NI5: (1029 --> 1520)): 103  ---->  110
+	NI6 (DIFFERENT DATA IDS for PENB, NI5, +, NI6: (1350 --> 1514)): 91  ---->  94
+	NI7 (): 61  ---->  95
+	NI8 (second write, pass to self): 106  ---->  106
+	NI9 (): 82  ---->  97
+At least 0/10 (0.0%), namespace slots
+
+PE40:
+	NI0 (DIFFERENT DATA IDS for PUGB2, pass, NI0: (1430 --> 1468)): 127  ---->  129
+At least 0/1 (0.0%), namespace slots
+
+PE41:
+	NI0 (DIFFERENT DATA IDS for PENB, ALU, +, NI0: (1778 --> 1354)): 94  ---->  100
+	NI1 (DIFFERENT DATA IDS for NI4, ALU, +, NI1: (1287 --> 1297)): 19  ---->  97
+	NI2 (DIFFERENT DATA IDS for PENB, NI4, +, NI2: (1429 --> 1506)): 95  ---->  105
+	NI3 (DIFFERENT DATA IDS for PENB, ALU, +, NI3: (1532 --> 1237)): 82  ---->  92
+	NI4 (DIFFERENT DATA IDS for PENB, NI0, +, NI4: (1533 --> 1503)): 88  ---->  95
+	NI5 (): 25  ---->  87
+	NI6 (): 33  ---->  79
+	NI7 (): 41  ---->  96
+	NI8 (DIFFERENT DATA IDS for PENB, pass, NI8: (910 --> 1030)): 73  ---->  76
+	NI9 (DIFFERENT DATA IDS for ALU, NI4, +, NI9: (1538 --> 1540)): 75  ---->  80
+At least 0/10 (0.0%), namespace slots
+
+PE48:
+	NI0 (DIFFERENT DATA IDS for PUGB2, pass, NI0: (1582 --> 1620)): 92  ---->  94
+At least 0/1 (0.0%), namespace slots
+
+PE49:
+	NI0 (DIFFERENT DATA IDS for PENB, NI1, +, NI0: (1426 --> 1544)): 66  ---->  69
+	NI1 (DIFFERENT DATA IDS for PENB, ALU, +, NI1: (1419 --> 1541)): 60  ---->  66
+	NI2 (DIFFERENT DATA IDS for PENB, ALU, +, NI2: (1551 --> 1234)): 49  ---->  61
+	NI3 (DIFFERENT DATA IDS for PENB, NI0, +, NI3: (1310 --> 1387)): 55  ---->  62
+	NI4 (): 8  ---->  53
+	NI5 (): 14  ---->  57
+	NI6 (DIFFERENT DATA IDS for PENB, NI3, +, NI6: (791 --> 1552)): 43  ---->  46
+	NI7 (): 26  ---->  54
+	NI8 (DIFFERENT DATA IDS for ALU, NI6, +, NI8: (1557 --> 1559)): 46  ---->  58
+At least 0/9 (0.0%), namespace slots
+
+PE56:
+	NI0 (DIFFERENT DATA IDS for PUGB0, pass, NI0: (1677 --> 1753)): 105  ---->  107
+At least 0/1 (0.0%), namespace slots
+
+PE57:
+	NI0 (DIFFERENT DATA IDS for ALU, NI1, +, NI0: (1560 --> 1450)): 78  ---->  81
+	NI1 (DIFFERENT DATA IDS for PENB, NI3, +, NI1: (1554 --> 1448)): 74  ---->  78
+	NI2 (DIFFERENT DATA IDS for PENB, NI0, +, NI2: (1313 --> 1563)): 76  ---->  80
+	NI3 (DIFFERENT DATA IDS for PENB, NI0, +, NI3: (1331 --> 1444)): 70  ---->  74
+	NI4 (DIFFERENT DATA IDS for PENB, pass, NI4: (1569 --> 1269)): 64  ---->  66
+	NI5 (second write, pass to self): 77  ---->  77
+	NI6 (DIFFERENT DATA IDS for PENB, pass, NI6: (792 --> 912)): 57  ---->  61
+	NI7 (): 47  ---->  79
+	NI8 (): 53  ---->  60
+At least 0/9 (0.0%), namespace slots
+
+
+Average unused namespace: 0.0%

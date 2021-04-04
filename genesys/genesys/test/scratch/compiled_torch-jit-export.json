@@ -1,0 +1,850 @@
+[
+    {
+        "id": "conv2d_bias0",
+        "capability": "conv2d_bias",
+        "executions": 1,
+        "input_dimensions": [
+            [
+                "n",
+                "ic",
+                "h",
+                "w"
+            ],
+            [
+                "oc",
+                "ic",
+                "kh",
+                "kw"
+            ],
+            [
+                "oc"
+            ]
+        ],
+        "output_dimensions": [
+            "n",
+            "oc",
+            "oh",
+            "ow"
+        ],
+        "loop_order": [
+            "oc",
+            "kh",
+            "kw",
+            "ic",
+            "n",
+            "h",
+            "w"
+        ],
+        "dim_values": {
+            "n": 1,
+            "ic": 1,
+            "h": 32,
+            "w": 32,
+            "oc": 6,
+            "kh": 5,
+            "kw": 5,
+            "oh": 28,
+            "ow": 28
+        },
+        "tiling": {
+            "n": [
+                1,
+                1
+            ],
+            "ic": [
+                3,
+                2
+            ],
+            "h": [
+                1,
+                5
+            ],
+            "w": [
+                1,
+                1
+            ],
+            "oc": [
+                32,
+                1
+            ],
+            "kh": [
+                32,
+                1
+            ],
+            "kw": [
+                1,
+                5
+            ]
+        },
+        "input_dtypes": [
+            "fxp32",
+            "fxp32",
+            "fxp32"
+        ],
+        "output_dtypes": [
+            "fxp32"
+        ],
+        "input_locations": [
+            "DRAM",
+            "DRAM",
+            "DRAM"
+        ],
+        "output_locations": [
+            "OBUF"
+        ],
+        "op_params": {
+            "stride": 1,
+            "pad": 0
+        }
+    },
+    {
+        "id": "tanh0",
+        "capability": "tanh",
+        "executions": 1,
+        "input_dimensions": [
+            [
+                "d0",
+                "d1",
+                "d2",
+                "d3"
+            ]
+        ],
+        "output_dimensions": [
+            "d0",
+            "d1",
+            "d2",
+            "d3"
+        ],
+        "loop_order": [
+            "d0",
+            "d1",
+            "d2",
+            "d3"
+        ],
+        "dim_values": {
+            "d0": 1,
+            "d1": 6,
+            "d2": 28,
+            "d3": 28
+        },
+        "tiling": {
+            "d0": [
+                7,
+                4
+            ],
+            "d1": [
+                1,
+                6
+            ],
+            "d2": [
+                1,
+                1
+            ],
+            "d3": [
+                1,
+                28
+            ]
+        },
+        "input_dtypes": [
+            "fxp32"
+        ],
+        "output_dtypes": [
+            "fxp32"
+        ],
+        "input_locations": [
+            "DRAM"
+        ],
+        "output_locations": [
+            "OBUF"
+        ],
+        "op_params": {}
+    },
+    {
+        "id": "avg_pool0",
+        "capability": "avg_pool",
+        "executions": 1,
+        "input_dimensions": [
+            [
+                "n",
+                "c",
+                "ih",
+                "iw"
+            ]
+        ],
+        "output_dimensions": [
+            "n",
+            "c",
+            "oh",
+            "ow"
+        ],
+        "loop_order": [
+            "n",
+            "c",
+            "ih",
+            "iw"
+        ],
+        "dim_values": {
+            "n": 1,
+            "c": 6,
+            "ih": 28,
+            "iw": 28,
+            "oh": 14,
+            "ow": 14
+        },
+        "tiling": {
+            "n": [
+                1,
+                1
+            ],
+            "c": [
+                7,
+                4
+            ],
+            "ih": [
+                1,
+                28
+            ],
+            "iw": [
+                1,
+                6
+            ]
+        },
+        "input_dtypes": [
+            "fxp32"
+        ],
+        "output_dtypes": [
+            "fxp32"
+        ],
+        "input_locations": [
+            "DRAM"
+        ],
+        "output_locations": [
+            "OBUF"
+        ],
+        "op_params": {
+            "stride": [
+                2,
+                2
+            ],
+            "kh": 2,
+            "kw": 2,
+            "pad": [
+                0,
+                0
+            ]
+        }
+    },
+    {
+        "id": "conv2d_bias0",
+        "capability": "conv2d_bias",
+        "executions": 1,
+        "input_dimensions": [
+            [
+                "n",
+                "ic",
+                "h",
+                "w"
+            ],
+            [
+                "oc",
+                "ic",
+                "kh",
+                "kw"
+            ],
+            [
+                "oc"
+            ]
+        ],
+        "output_dimensions": [
+            "n",
+            "oc",
+            "oh",
+            "ow"
+        ],
+        "loop_order": [
+            "oc",
+            "kh",
+            "kw",
+            "ic",
+            "n",
+            "h",
+            "w"
+        ],
+        "dim_values": {
+            "n": 1,
+            "ic": 6,
+            "h": 14,
+            "w": 14,
+            "oc": 16,
+            "kh": 5,
+            "kw": 5,
+            "oh": 10,
+            "ow": 10
+        },
+        "tiling": {
+            "n": [
+                1,
+                1
+            ],
+            "ic": [
+                4,
+                4
+            ],
+            "h": [
+                5,
+                1
+            ],
+            "w": [
+                1,
+                6
+            ],
+            "oc": [
+                1,
+                14
+            ],
+            "kh": [
+                1,
+                14
+            ],
+            "kw": [
+                1,
+                5
+            ]
+        },
+        "input_dtypes": [
+            "fxp32",
+            "fxp32",
+            "fxp32"
+        ],
+        "output_dtypes": [
+            "fxp32"
+        ],
+        "input_locations": [
+            "DRAM",
+            "DRAM",
+            "DRAM"
+        ],
+        "output_locations": [
+            "OBUF"
+        ],
+        "op_params": {
+            "stride": 1,
+            "pad": 0
+        }
+    },
+    {
+        "id": "tanh0",
+        "capability": "tanh",
+        "executions": 1,
+        "input_dimensions": [
+            [
+                "d0",
+                "d1",
+                "d2",
+                "d3"
+            ]
+        ],
+        "output_dimensions": [
+            "d0",
+            "d1",
+            "d2",
+            "d3"
+        ],
+        "loop_order": [
+            "d0",
+            "d1",
+            "d2",
+            "d3"
+        ],
+        "dim_values": {
+            "d0": 1,
+            "d1": 16,
+            "d2": 10,
+            "d3": 10
+        },
+        "tiling": {
+            "d0": [
+                2,
+                5
+            ],
+            "d1": [
+                1,
+                16
+            ],
+            "d2": [
+                1,
+                1
+            ],
+            "d3": [
+                1,
+                10
+            ]
+        },
+        "input_dtypes": [
+            "fxp32"
+        ],
+        "output_dtypes": [
+            "fxp32"
+        ],
+        "input_locations": [
+            "DRAM"
+        ],
+        "output_locations": [
+            "OBUF"
+        ],
+        "op_params": {}
+    },
+    {
+        "id": "avg_pool0",
+        "capability": "avg_pool",
+        "executions": 1,
+        "input_dimensions": [
+            [
+                "n",
+                "c",
+                "ih",
+                "iw"
+            ]
+        ],
+        "output_dimensions": [
+            "n",
+            "c",
+            "oh",
+            "ow"
+        ],
+        "loop_order": [
+            "n",
+            "c",
+            "ih",
+            "iw"
+        ],
+        "dim_values": {
+            "n": 1,
+            "c": 16,
+            "ih": 10,
+            "iw": 10,
+            "oh": 5,
+            "ow": 5
+        },
+        "tiling": {
+            "n": [
+                1,
+                1
+            ],
+            "c": [
+                2,
+                5
+            ],
+            "ih": [
+                1,
+                10
+            ],
+            "iw": [
+                1,
+                16
+            ]
+        },
+        "input_dtypes": [
+            "fxp32"
+        ],
+        "output_dtypes": [
+            "fxp32"
+        ],
+        "input_locations": [
+            "DRAM"
+        ],
+        "output_locations": [
+            "OBUF"
+        ],
+        "op_params": {
+            "stride": [
+                2,
+                2
+            ],
+            "kh": 2,
+            "kw": 2,
+            "pad": [
+                0,
+                0
+            ]
+        }
+    },
+    {
+        "id": "conv2d_bias0",
+        "capability": "conv2d_bias",
+        "executions": 1,
+        "input_dimensions": [
+            [
+                "n",
+                "ic",
+                "h",
+                "w"
+            ],
+            [
+                "oc",
+                "ic",
+                "kh",
+                "kw"
+            ],
+            [
+                "oc"
+            ]
+        ],
+        "output_dimensions": [
+            "n",
+            "oc",
+            "oh",
+            "ow"
+        ],
+        "loop_order": [
+            "oc",
+            "kh",
+            "kw",
+            "ic",
+            "n",
+            "h",
+            "w"
+        ],
+        "dim_values": {
+            "n": 1,
+            "ic": 16,
+            "h": 5,
+            "w": 5,
+            "oc": 120,
+            "kh": 5,
+            "kw": 5,
+            "oh": 1,
+            "ow": 1
+        },
+        "tiling": {
+            "n": [
+                1,
+                1
+            ],
+            "ic": [
+                10,
+                12
+            ],
+            "h": [
+                1,
+                5
+            ],
+            "w": [
+                1,
+                16
+            ],
+            "oc": [
+                1,
+                5
+            ],
+            "kh": [
+                1,
+                5
+            ],
+            "kw": [
+                1,
+                5
+            ]
+        },
+        "input_dtypes": [
+            "fxp32",
+            "fxp32",
+            "fxp32"
+        ],
+        "output_dtypes": [
+            "fxp32"
+        ],
+        "input_locations": [
+            "DRAM",
+            "DRAM",
+            "DRAM"
+        ],
+        "output_locations": [
+            "OBUF"
+        ],
+        "op_params": {
+            "stride": 1,
+            "pad": 0
+        }
+    },
+    {
+        "id": "tanh0",
+        "capability": "tanh",
+        "executions": 1,
+        "input_dimensions": [
+            [
+                "d0",
+                "d1",
+                "d2",
+                "d3"
+            ]
+        ],
+        "output_dimensions": [
+            "d0",
+            "d1",
+            "d2",
+            "d3"
+        ],
+        "loop_order": [
+            "d0",
+            "d1",
+            "d2",
+            "d3"
+        ],
+        "dim_values": {
+            "d0": 1,
+            "d1": 120,
+            "d2": 1,
+            "d3": 1
+        },
+        "tiling": {
+            "d0": [
+                1,
+                1
+            ],
+            "d1": [
+                10,
+                12
+            ],
+            "d2": [
+                1,
+                1
+            ],
+            "d3": [
+                1,
+                1
+            ]
+        },
+        "input_dtypes": [
+            "fxp32"
+        ],
+        "output_dtypes": [
+            "fxp32"
+        ],
+        "input_locations": [
+            "DRAM"
+        ],
+        "output_locations": [
+            "OBUF"
+        ],
+        "op_params": {}
+    },
+    {
+        "id": "gemm0",
+        "capability": "gemm",
+        "executions": 1,
+        "input_dimensions": [
+            [
+                "M",
+                "N"
+            ],
+            [
+                "P",
+                "N"
+            ],
+            [
+                "P"
+            ]
+        ],
+        "output_dimensions": [
+            "M",
+            "P"
+        ],
+        "loop_order": [
+            "M",
+            "N",
+            "P"
+        ],
+        "dim_values": {
+            "M": 1,
+            "N": 120,
+            "P": 84
+        },
+        "tiling": {
+            "M": [
+                42,
+                2
+            ],
+            "N": [
+                1,
+                120
+            ],
+            "P": [
+                1,
+                1
+            ]
+        },
+        "input_dtypes": [
+            "fxp32",
+            "fxp32",
+            "fxp32"
+        ],
+        "output_dtypes": [
+            "fxp32"
+        ],
+        "input_locations": [
+            "DRAM",
+            "DRAM",
+            "DRAM"
+        ],
+        "output_locations": [
+            "OBUF"
+        ],
+        "op_params": {}
+    },
+    {
+        "id": "tanh0",
+        "capability": "tanh",
+        "executions": 1,
+        "input_dimensions": [
+            [
+                "d0",
+                "d1"
+            ]
+        ],
+        "output_dimensions": [
+            "d0",
+            "d1"
+        ],
+        "loop_order": [
+            "d0",
+            "d1"
+        ],
+        "dim_values": {
+            "d0": 1,
+            "d1": 84
+        },
+        "tiling": {
+            "d0": [
+                42,
+                2
+            ],
+            "d1": [
+                1,
+                1
+            ]
+        },
+        "input_dtypes": [
+            "fxp32"
+        ],
+        "output_dtypes": [
+            "fxp32"
+        ],
+        "input_locations": [
+            "DRAM"
+        ],
+        "output_locations": [
+            "OBUF"
+        ],
+        "op_params": {}
+    },
+    {
+        "id": "gemm0",
+        "capability": "gemm",
+        "executions": 1,
+        "input_dimensions": [
+            [
+                "M",
+                "N"
+            ],
+            [
+                "P",
+                "N"
+            ],
+            [
+                "P"
+            ]
+        ],
+        "output_dimensions": [
+            "M",
+            "P"
+        ],
+        "loop_order": [
+            "M",
+            "N",
+            "P"
+        ],
+        "dim_values": {
+            "M": 1,
+            "N": 84,
+            "P": 10
+        },
+        "tiling": {
+            "M": [
+                2,
+                5
+            ],
+            "N": [
+                1,
+                84
+            ],
+            "P": [
+                1,
+                1
+            ]
+        },
+        "input_dtypes": [
+            "fxp32",
+            "fxp32",
+            "fxp32"
+        ],
+        "output_dtypes": [
+            "fxp32"
+        ],
+        "input_locations": [
+            "DRAM",
+            "DRAM",
+            "DRAM"
+        ],
+        "output_locations": [
+            "OBUF"
+        ],
+        "op_params": {}
+    },
+    {
+        "id": "softmax0",
+        "capability": "softmax",
+        "executions": 1,
+        "input_dimensions": [
+            [
+                "n",
+                "c"
+            ]
+        ],
+        "output_dimensions": [
+            "n",
+            "c"
+        ],
+        "loop_order": [
+            "n",
+            "c"
+        ],
+        "dim_values": {
+            "n": 1,
+            "c": 10
+        },
+        "tiling": {
+            "n": [
+                1,
+                1
+            ],
+            "c": [
+                2,
+                5
+            ]
+        },
+        "input_dtypes": [
+            "fxp32"
+        ],
+        "output_dtypes": [
+            "fxp32"
+        ],
+        "input_locations": [
+            "DRAM"
+        ],
+        "output_locations": [
+            "OBUF"
+        ],
+        "op_params": {}
+    }
+]

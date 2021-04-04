@@ -1,0 +1,186 @@
+`timescale 1ns/1ps
+`include "log.vh"
+//TODO : Read request for AXI
+module read_if_control
+#(
+// ******************************************************************
+// PARAMETERS
+// ******************************************************************
+    parameter integer CTRL_BUF_ADDR_WIDTH   = 12,
+    parameter integer CTRL_BUF_MAX_ADDR     = 19,
+    parameter integer NUM_DATA              = 16,
+    parameter integer NUM_PE                = 64,
+    parameter integer NAMESPACE_WIDTH       = 2,
+    parameter         CTRL_BUF_INIT         = "hw-imp/include/mem-inst-rom.txt"
+// ******************************************************************
+) (
+// ******************************************************************
+// IO
+// ******************************************************************
+    input  wire                             ACLK,
+    input  wire                             ARESETN,
+    input  wire                             start,
+    input  wire                             RD_BUF_EMPTY,
+    output wire                             RD_BUF_POP,
+    output wire                             SHIFTER_RD_EN,
+    output wire                             DATA_IO_DIR,
+    input  wire                             EOI,
+    input  wire                             EOC,
+    output wire [CTRL_PE_WIDTH-1:0]         CTRL_PE,
+    output wire [SHIFTER_CTRL_WIDTH-1:0]    SHIFT
+// ******************************************************************
+);
+
+// ******************************************************************
+// Localparams
+// ******************************************************************
+    localparam integer NUM_OPS              = 4;
+    localparam integer OP_CODE_WIDTH        = `C_LOG_2 (NUM_OPS);
+    localparam integer OP_READ              = 0;
+    localparam integer OP_SHIFT             = 1;
+    localparam integer OP_WFI               = 2;
+    localparam integer OP_WRITE             = 3;
+
+    localparam integer CTRL_PE_WIDTH        = (`C_LOG_2(NUM_PE/NUM_DATA) + 1) 
+                                              * NUM_DATA + NAMESPACE_WIDTH;
+    localparam integer SHIFTER_CTRL_WIDTH   = `C_LOG_2(NUM_DATA);
+    localparam integer CTRL_BUF_DATA_WIDTH  = CTRL_PE_WIDTH + 
+                                              SHIFTER_CTRL_WIDTH +
+                                              OP_CODE_WIDTH;
+
+    localparam integer NUM_STATES           = 8;
+    localparam integer STATE_WIDTH          = `C_LOG_2 (NUM_STATES);
+
+    localparam integer STATE_IDLE           = 0;
+
+    localparam integer WEIGHT_READ          = 1;
+    localparam integer WEIGHT_READ_WAIT     = 2;
+
+    localparam integer DATA_READ            = 3;
+    localparam integer DATA_READ_WAIT       = 4;
+
+    localparam integer STATE_COMPUTE        = 5;
+
+    localparam integer WEIGHT_WRITE         = 6;
+    localparam integer WEIGHT_WRITE_WAIT    = 7;
+// ******************************************************************
+
+// ******************************************************************
+// Local wires and regs
+// ******************************************************************
+    wire [CTRL_BUF_DATA_WIDTH-1:0]  ctrl_buf_data_out;
+    wire                            ctrl_buf_data_valid;
+    reg  [CTRL_BUF_ADDR_WIDTH-1:0]  ctrl_buf_addr;
+    reg                             ctrl_buf_read_en;
+
+    wire [CTRL_PE_WIDTH-1:0]        ctrl_pe;
+    wire [OP_CODE_WIDTH-1:0]        ctrl_op_code;
+    wire [SHIFTER_CTRL_WIDTH-1:0]   ctrl_shifter;
+
+    reg  [STATE_WIDTH-1:0]  state;
+    reg  [STATE_WIDTH-1:0]  next_state;
+// ******************************************************************
+
+// ******************************************************************
+// Read/Write State Machine
+// ******************************************************************
+  always @( * )
+  begin : DATA_RD_FSM
+
+    next_state = state;
+    ctrl_buf_read_en = 1'b0;
+
+    case (state)
+
+      STATE_IDLE : begin
+        if (!RD_BUF_EMPTY)
+        begin
+          next_state = DATA_READ;
+          ctrl_buf_read_en = 1'b1;
+        end
+      end
+
+      DATA_READ : begin
+        if (ctrl_op_code == OP_WFI)
+        begin
+          next_state = STATE_COMPUTE;
+        end
+        else if (RD_BUF_EMPTY)
+        begin
+          next_state = STATE_IDLE;
+        end
+        else
+        begin
+          ctrl_buf_read_en = 1'b1;
+        end
+        //IF LAST INSTRUCTION: 
+        //GO TO IDLE, RESTART
+      end
+
+      STATE_COMPUTE : begin
+        if (EOC)
+        begin
+          next_state = DATA_READ;
+        end
+        else if (EOI)
+        begin
+          //ctrl_buf_read_en = 1'b1;
+          next_state = STATE_IDLE;
+        end
+      end
+
+      default : begin
+        next_state  = STATE_IDLE;
+      end
+
+    endcase
+
+  end
+
+  always @(posedge ACLK)
+  begin
+      if (ARESETN)
+          state <= next_state;
+      else
+          state <= STATE_IDLE;
+  end
+// ******************************************************************
+
+// ******************************************************************
+// DATA Read Control Buffer - Control signals
+// ******************************************************************
+  ROM #(
+    .DATA_WIDTH     ( CTRL_BUF_DATA_WIDTH   ),
+    .INIT           ( CTRL_BUF_INIT         ),
+    .ADDR_WIDTH     ( CTRL_BUF_ADDR_WIDTH   ),
+    .TYPE           ( "BLOCK"               )
+  ) u_ctrl_buf (
+    .CLK            ( ACLK                  ),
+    .RESET          ( !ARESETN              ),
+    .ADDRESS        ( ctrl_buf_addr         ),
+    .ENABLE         ( ctrl_buf_read_en      ),
+    .DATA_OUT       ( ctrl_buf_data_out     ),
+    .DATA_OUT_VALID ( ctrl_buf_data_valid   )
+  );
+
+  always @(posedge ACLK)
+  begin
+    //if (!ARESETN || ctrl_buf_addr == CTRL_BUF_MAX_ADDR-1)
+    if (!ARESETN || state == STATE_IDLE || state == STATE_COMPUTE)
+    begin
+      ctrl_buf_addr <= 0;
+    end
+    //else if (ARESETN && state == DATA_READ)
+    else if (ARESETN && ctrl_buf_read_en)
+    begin
+      ctrl_buf_addr <= ctrl_buf_addr + 1'b1;
+    end
+  end
+    
+  assign {CTRL_PE, ctrl_op_code, SHIFT} = ctrl_buf_data_out;
+  assign SHIFTER_RD_EN = (ctrl_op_code == OP_SHIFT) && ctrl_buf_data_valid;
+  assign RD_BUF_POP = (ctrl_op_code == OP_READ) && ctrl_buf_data_valid && !RD_BUF_EMPTY;
+  assign DATA_IO_DIR = state == STATE_COMPUTE;
+// ******************************************************************
+
+endmodule

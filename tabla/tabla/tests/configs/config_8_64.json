@@ -1,0 +1,17 @@
+{
+    "num_pes": 512,
+    "pes_per_pu": 64,
+    "num_pus": 8,
+    "namespace_size": 4096,
+    "namespace_interim_size": 4096,
+    "op_bit": 3,
+    "ns_bit": 3,
+    "index_bit": 8,
+    "nn_nb_bit": 1,
+    "hex": true,
+    "num_axi": 4,
+    "num_lanes": 16,
+    "pes_per_lane": 4,
+    "input_bitwidth": 16,
+    "interim_bitwidth": 32
+}

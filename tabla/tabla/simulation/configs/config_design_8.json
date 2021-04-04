@@ -1,0 +1,6 @@
+{
+    "num_pus": 4,
+    "pes_per_pu": 16,
+    "input_bitwidth": 8,
+    "interim_bitwidth": 16
+}

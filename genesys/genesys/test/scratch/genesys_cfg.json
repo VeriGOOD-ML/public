@@ -1,0 +1,115 @@
+{
+	"compute" : {
+		"pe_array" : {
+		"dimensions" : [32, 32],
+		"primitives": [
+				{
+					"name": "conv",
+					"input_dimension_names": [["n", "ic", "h", "w"], ["oc", "ic", "kh", "kw"]],
+					"output_dimension_names": ["n", "oc", "oh", "ow"],
+					"input_dtypes": ["fxp32", "fxp32"],
+					"output_dtypes": ["fxp32"],
+					"input_components": ["IBUF", "WBUF"],
+					"output_components": ["OBUF"],
+					"op_params": {
+						"stride": 2,
+						"pad": 1,
+						"dataflow": "ws"
+					}
+
+			},
+			{
+				"name": "fc",
+				"input_dimension_names": [["M", "N"], ["N", "P"]],
+				"output_dimension_names": ["M", "P"],
+				"input_dtypes": ["fxp32", "fxp32"],
+				"output_dtypes": ["fxp32"],
+				"input_components": ["IBUF", "WBUF"],
+				"output_components": ["OBUF"],
+				"op_params": {}
+
+			}
+		]
+
+		},
+		"SIMD" : {
+			"dimensions" : [32],
+			"primitives": []
+		}
+	},
+	"storage" : {
+		"IBUF" : {
+			"read_bw" : 128,
+			"write_bw" : 128,
+			"access_type" : "RAM",
+			"size" : 32,
+			"latency" : 1,
+			"input_ports": 2,
+			"output_ports": 2
+		},
+		"WBUF" : {
+			"read_bw" : 128,
+			"write_bw" : 128,
+			"access_type" : "RAM",
+			"size" : 64,
+			"latency" : 1,
+			"input_ports": 2,
+			"output_ports": 2
+		},
+		"BBUF" : {
+			"read_bw" : 128,
+			"write_bw" : 128,
+			"access_type" : "RAM",
+			"size" : 8,
+			"latency" : 1,
+			"input_ports": 2,
+			"output_ports": 2
+		},
+		"OBUF" : {
+			"read_bw" : 128,
+			"write_bw" : 128,
+			"access_type" : "RAM",
+			"size" : 128,
+			"latency" : 1,
+			"input_ports": 2,
+			"output_ports": 2
+		},
+		"VMEM" : {
+			"read_bw" : 128,
+			"write_bw" : 128,
+			"access_type" : "RAM",
+			"size" : 64,
+			"latency" : 1,
+			"input_ports": 2,
+			"output_ports": 2
+		},
+		"IMM" : {
+			"read_bw" : 128,
+			"write_bw" : 128,
+			"access_type" : "RAM",
+			"size" : 8,
+			"latency" : 1,
+			"input_ports": 2,
+			"output_ports": 2
+		},
+		"inMEM" : {
+			"read_bw" : 128,
+			"write_bw" : 128,
+			"access_type" : "RAM",
+			"size" : 16,
+			"latency" : 1,
+			"input_ports": 2,
+			"output_ports": 2
+		},
+		"DRAM" : {
+			"read_bw" : 512,
+			"write_bw" : 512,
+			"access_type" : "RAM",
+			"size" : 1000000,
+			"latency" : 1,
+			"input_ports": 1,
+			"output_ports": 1
+		}
+	},
+	"communication" : {}
+}

@@ -1,0 +1,211 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Architecture Description Schema",
+  "description": "A schema for describing an architecture description graph",
+  "definitions": {
+    "dimensions": {
+      "type": "array",
+      "items": [
+        {
+          "type": "number"
+        }
+      ]
+    },
+    "dimension_names": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "operand": {
+      "type": "object",
+      "properties": {
+        "node_id": {"type": "string"},
+        "dtype": {"type": "string"},
+        "dimensions": {"$ref": "#/definitions/dimensions"}
+      }
+    },
+    "capability": {
+      "type":  "object",
+      "properties": {
+        "op_name": {"type": "string"},
+        "latency": {"type": "integer"},
+        "is_atomic": {"type": "boolean"},
+        "input_dimension_names": {
+          "type": "array",
+          "items": [
+            {
+              "$ref": "#/definitions/dimension_names"
+            }
+          ]
+        },
+        "output_dimension_names": {
+          "type": "array",
+          "items": [
+            {
+              "$ref": "#/definitions/dimension_names"
+            }
+          ]
+        },
+        "input_components": {
+          "type": "array",
+          "items": [
+            {
+                "type": "string"
+            }
+          ]
+        },
+        "output_components": {
+          "type": "array",
+          "items": [
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "input_dtypes": {
+          "type": "array",
+          "items": [
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "output_dtypes": {
+          "type": "array",
+          "items": [
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "subcapabilities": {
+          "type": "array",
+          "items": [
+            {
+              "$ref": "#/definitions/capability"
+            }
+          ]
+        }
+      }
+    },
+    "attributes": {
+      "type": "array",
+      "items": [{
+        "type": "object",
+        "properties": {
+          "key": {"type": "string"},
+          "value": {"type": ["number", "string"]}
+        }
+      }
+      ]
+    },
+    "edge": {
+      "description": "Edge definition corresponding to node ids, with format [src, dst]",
+      "type": "object",
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/attributes"
+        },
+        "src": {
+          "type": "number"
+        },
+        "dst": {
+          "type": "number"
+        }
+      }
+    },
+    "storage_node": {
+      "type": "object",
+      "properties": {
+        "capacity": {"type": "number"},
+        "read_bw": {"type": "number"},
+        "write_bw": {"type": "number"},
+        "buff_scheme": {"type": "string"},
+        "latency": {"type": "integer"},
+        "input_ports": {"type": "integer"},
+        "output_ports": {"type": "integer"},
+        "access_type": {"type": "string", "enum": ["FIFO", "RAM"]}
+      }
+    },
+    "compute_node": {
+      "type": "object",
+      "properties": {
+        "dimensions": {
+          "type": "array",
+          "items": [
+            { "type": "integer" }
+          ]
+        },
+        "capabilities": {
+          "type": "array",
+          "items": [
+            {
+              "$ref": "#/definitions/capability"
+            }
+          ]
+        }
+      }
+    },
+    "communication_node": {
+      "type": "object",
+      "properties": {
+        "comm_type": {"type": "string"},
+        "latency": {"type": "integer"},
+        "bandwidth": {"type": "number"}
+      }
+    },
+    "node": {
+      "description": "Node and node ids in the graph",
+      "type": "object",
+      "properties": {
+        "node_id": {"type": "number"},
+        "name": {"type": "string"},
+        "node_type": {
+          "type": "string",
+          "enum": ["ComputeNode", "StorageNode", "CommunicationNode"]
+        },
+        "type_attributes": {
+          "oneOf": [
+          {
+            "$ref": "#/definitions/compute_node"
+          },
+          {
+            "$ref": "#/definitions/storage_node"
+          },
+          {
+            "$ref": "#/definitions/communication_node"
+          }
+        ]
+        },
+        "attributes": {"$ref":  "#/definitions/attributes" },
+        "subgraph": {"type": "object",
+          "properties": {
+            "nodes": {
+              "type": "array",
+              "items":  [
+                {
+                  "$ref":  "#/definitions/node"
+                }
+              ]
+            },
+            "edges": {
+              "type": "array",
+              "items":  [
+                {
+                  "$ref":  "#/definitions/edge"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "type": "object",
+  "properties": {
+    "graph": {"$ref":  "#/definitions/node"}
+  }
+}

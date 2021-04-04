@@ -1,0 +1,5 @@
+## Tabla Software Simulator
+
+Run:
+
+$ python tablasim.py -d ../tests/dfg_json_files/linear100.json -c config.json -n ../tests/linear100/linear100_input_data.txt -w ../tests/linear100/linear100_input_weights.txt -m ../tests/meta.txt

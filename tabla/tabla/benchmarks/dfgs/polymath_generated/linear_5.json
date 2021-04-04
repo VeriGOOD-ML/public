@@ -1,0 +1,524 @@
+[
+    {
+        "id": 0,
+        "parents": [],
+        "dataType": null,
+        "children": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+        ],
+        "dfg_node_name": "source",
+        "operation": "source"
+    },
+    {
+        "id": 1,
+        "parents": [
+            35,
+            36,
+            37,
+            38,
+            39
+        ],
+        "dataType": null,
+        "children": [],
+        "dfg_node_name": "source",
+        "operation": "sink"
+    },
+    {
+        "id": 3,
+        "parents": [
+            0
+        ],
+        "dataType": "param",
+        "children": [
+            30,
+            31,
+            32,
+            33,
+            34
+        ],
+        "dfg_node_name": "mu",
+        "operation": "mu"
+    },
+    {
+        "id": 4,
+        "parents": [
+            0
+        ],
+        "dataType": "input",
+        "children": [
+            15,
+            25
+        ],
+        "dfg_node_name": "x/x(0,)",
+        "operation": "x(0,)"
+    },
+    {
+        "id": 5,
+        "parents": [
+            0
+        ],
+        "dataType": "input",
+        "children": [
+            16,
+            26
+        ],
+        "dfg_node_name": "x/x(1,)",
+        "operation": "x(1,)"
+    },
+    {
+        "id": 6,
+        "parents": [
+            0
+        ],
+        "dataType": "input",
+        "children": [
+            17,
+            27
+        ],
+        "dfg_node_name": "x/x(2,)",
+        "operation": "x(2,)"
+    },
+    {
+        "id": 7,
+        "parents": [
+            0
+        ],
+        "dataType": "input",
+        "children": [
+            18,
+            28
+        ],
+        "dfg_node_name": "x/x(3,)",
+        "operation": "x(3,)"
+    },
+    {
+        "id": 8,
+        "parents": [
+            0
+        ],
+        "dataType": "input",
+        "children": [
+            19,
+            29
+        ],
+        "dfg_node_name": "x/x(4,)",
+        "operation": "x(4,)"
+    },
+    {
+        "id": 9,
+        "parents": [
+            0
+        ],
+        "dataType": "input",
+        "children": [
+            24
+        ],
+        "dfg_node_name": "y",
+        "operation": "y"
+    },
+    {
+        "id": 10,
+        "parents": [
+            0
+        ],
+        "dataType": "state",
+        "children": [
+            15,
+            35
+        ],
+        "dfg_node_name": "w/w(0,)",
+        "operation": "w(0,)"
+    },
+    {
+        "id": 11,
+        "parents": [
+            0
+        ],
+        "dataType": "state",
+        "children": [
+            16,
+            36
+        ],
+        "dfg_node_name": "w/w(1,)",
+        "operation": "w(1,)"
+    },
+    {
+        "id": 12,
+        "parents": [
+            0
+        ],
+        "dataType": "state",
+        "children": [
+            17,
+            37
+        ],
+        "dfg_node_name": "w/w(2,)",
+        "operation": "w(2,)"
+    },
+    {
+        "id": 13,
+        "parents": [
+            0
+        ],
+        "dataType": "state",
+        "children": [
+            18,
+            38
+        ],
+        "dfg_node_name": "w/w(3,)",
+        "operation": "w(3,)"
+    },
+    {
+        "id": 14,
+        "parents": [
+            0
+        ],
+        "dataType": "state",
+        "children": [
+            19,
+            39
+        ],
+        "dfg_node_name": "w/w(4,)",
+        "operation": "w(4,)"
+    },
+    {
+        "id": 15,
+        "parents": [
+            4,
+            10
+        ],
+        "dataType": null,
+        "children": [
+            20
+        ],
+        "dfg_node_name": "664172cc1c404d039c23dc061bffad75/664172cc1c404d039c23dc061bffad75(0,)",
+        "operation": "*"
+    },
+    {
+        "id": 16,
+        "parents": [
+            5,
+            11
+        ],
+        "dataType": null,
+        "children": [
+            20
+        ],
+        "dfg_node_name": "664172cc1c404d039c23dc061bffad75/664172cc1c404d039c23dc061bffad75(1,)",
+        "operation": "*"
+    },
+    {
+        "id": 17,
+        "parents": [
+            6,
+            12
+        ],
+        "dataType": null,
+        "children": [
+            21
+        ],
+        "dfg_node_name": "664172cc1c404d039c23dc061bffad75/664172cc1c404d039c23dc061bffad75(2,)",
+        "operation": "*"
+    },
+    {
+        "id": 18,
+        "parents": [
+            7,
+            13
+        ],
+        "dataType": null,
+        "children": [
+            21
+        ],
+        "dfg_node_name": "664172cc1c404d039c23dc061bffad75/664172cc1c404d039c23dc061bffad75(3,)",
+        "operation": "*"
+    },
+    {
+        "id": 19,
+        "parents": [
+            8,
+            14
+        ],
+        "dataType": null,
+        "children": [
+            22
+        ],
+        "dfg_node_name": "664172cc1c404d039c23dc061bffad75/664172cc1c404d039c23dc061bffad75(4,)",
+        "operation": "*"
+    },
+    {
+        "id": 20,
+        "parents": [
+            15,
+            16
+        ],
+        "dataType": null,
+        "children": [
+            22
+        ],
+        "dfg_node_name": "h/h(5,)",
+        "operation": "+"
+    },
+    {
+        "id": 21,
+        "parents": [
+            17,
+            18
+        ],
+        "dataType": null,
+        "children": [
+            23
+        ],
+        "dfg_node_name": "h/h(6,)",
+        "operation": "+"
+    },
+    {
+        "id": 22,
+        "parents": [
+            19,
+            20
+        ],
+        "dataType": null,
+        "children": [
+            23
+        ],
+        "dfg_node_name": "h/h(7,)",
+        "operation": "+"
+    },
+    {
+        "id": 23,
+        "parents": [
+            21,
+            22
+        ],
+        "dataType": null,
+        "children": [
+            24
+        ],
+        "dfg_node_name": "h/h(8,)",
+        "operation": "+"
+    },
+    {
+        "id": 24,
+        "parents": [
+            23,
+            9
+        ],
+        "dataType": null,
+        "children": [
+            25,
+            26,
+            27,
+            28,
+            29
+        ],
+        "dfg_node_name": "h-y",
+        "operation": "-"
+    },
+    {
+        "id": 25,
+        "parents": [
+            24,
+            4
+        ],
+        "dataType": null,
+        "children": [
+            30
+        ],
+        "dfg_node_name": "d*x/d*x(0,)",
+        "operation": "*"
+    },
+    {
+        "id": 26,
+        "parents": [
+            24,
+            5
+        ],
+        "dataType": null,
+        "children": [
+            31
+        ],
+        "dfg_node_name": "d*x/d*x(1,)",
+        "operation": "*"
+    },
+    {
+        "id": 27,
+        "parents": [
+            24,
+            6
+        ],
+        "dataType": null,
+        "children": [
+            32
+        ],
+        "dfg_node_name": "d*x/d*x(2,)",
+        "operation": "*"
+    },
+    {
+        "id": 28,
+        "parents": [
+            24,
+            7
+        ],
+        "dataType": null,
+        "children": [
+            33
+        ],
+        "dfg_node_name": "d*x/d*x(3,)",
+        "operation": "*"
+    },
+    {
+        "id": 29,
+        "parents": [
+            24,
+            8
+        ],
+        "dataType": null,
+        "children": [
+            34
+        ],
+        "dfg_node_name": "d*x/d*x(4,)",
+        "operation": "*"
+    },
+    {
+        "id": 30,
+        "parents": [
+            3,
+            25
+        ],
+        "dataType": null,
+        "children": [
+            35
+        ],
+        "dfg_node_name": "3f4ee452575c4a6387482c854f847dd5/3f4ee452575c4a6387482c854f847dd5(0,)",
+        "operation": "*"
+    },
+    {
+        "id": 31,
+        "parents": [
+            3,
+            26
+        ],
+        "dataType": null,
+        "children": [
+            36
+        ],
+        "dfg_node_name": "3f4ee452575c4a6387482c854f847dd5/3f4ee452575c4a6387482c854f847dd5(1,)",
+        "operation": "*"
+    },
+    {
+        "id": 32,
+        "parents": [
+            3,
+            27
+        ],
+        "dataType": null,
+        "children": [
+            37
+        ],
+        "dfg_node_name": "3f4ee452575c4a6387482c854f847dd5/3f4ee452575c4a6387482c854f847dd5(2,)",
+        "operation": "*"
+    },
+    {
+        "id": 33,
+        "parents": [
+            3,
+            28
+        ],
+        "dataType": null,
+        "children": [
+            38
+        ],
+        "dfg_node_name": "3f4ee452575c4a6387482c854f847dd5/3f4ee452575c4a6387482c854f847dd5(3,)",
+        "operation": "*"
+    },
+    {
+        "id": 34,
+        "parents": [
+            3,
+            29
+        ],
+        "dataType": null,
+        "children": [
+            39
+        ],
+        "dfg_node_name": "3f4ee452575c4a6387482c854f847dd5/3f4ee452575c4a6387482c854f847dd5(4,)",
+        "operation": "*"
+    },
+    {
+        "id": 35,
+        "parents": [
+            10,
+            30
+        ],
+        "dataType": "state",
+        "children": [
+            1
+        ],
+        "dfg_node_name": "8902f190ef994f89af8044b385a24b71/8902f190ef994f89af8044b385a24b71(0,)",
+        "operation": "-"
+    },
+    {
+        "id": 36,
+        "parents": [
+            11,
+            31
+        ],
+        "dataType": "state",
+        "children": [
+            1
+        ],
+        "dfg_node_name": "8902f190ef994f89af8044b385a24b71/8902f190ef994f89af8044b385a24b71(1,)",
+        "operation": "-"
+    },
+    {
+        "id": 37,
+        "parents": [
+            12,
+            32
+        ],
+        "dataType": "state",
+        "children": [
+            1
+        ],
+        "dfg_node_name": "8902f190ef994f89af8044b385a24b71/8902f190ef994f89af8044b385a24b71(2,)",
+        "operation": "-"
+    },
+    {
+        "id": 38,
+        "parents": [
+            13,
+            33
+        ],
+        "dataType": "state",
+        "children": [
+            1
+        ],
+        "dfg_node_name": "8902f190ef994f89af8044b385a24b71/8902f190ef994f89af8044b385a24b71(3,)",
+        "operation": "-"
+    },
+    {
+        "id": 39,
+        "parents": [
+            14,
+            34
+        ],
+        "dataType": "state",
+        "children": [
+            1
+        ],
+        "dfg_node_name": "8902f190ef994f89af8044b385a24b71/8902f190ef994f89af8044b385a24b71(4,)",
+        "operation": "-"
+    }
+]

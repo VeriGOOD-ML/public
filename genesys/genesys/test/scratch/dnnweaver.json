@@ -1,0 +1,2473 @@
+{
+    "graph": {
+        "node_id": 1,
+        "name": "DnnWeaver",
+        "node_type": "ComputeNode",
+        "compute_node": {
+            "capabilities": []
+        },
+        "attributes": [
+            {
+                "key": "in_degree",
+                "value": 0
+            },
+            {
+                "key": "out_degree",
+                "value": 0
+            },
+            {
+                "key": "name",
+                "value": "DnnWeaver"
+            },
+            {
+                "key": "node_color",
+                "value": "#BFBFFF"
+            }
+        ],
+        "subgraph": {
+            "nodes": [
+                {
+                    "node_id": 2,
+                    "name": "SystolicArray",
+                    "node_type": "ComputeNode",
+                    "compute_node": {
+                        "capabilities": []
+                    },
+                    "attributes": [
+                        {
+                            "key": "in_degree",
+                            "value": 0
+                        },
+                        {
+                            "key": "out_degree",
+                            "value": 0
+                        },
+                        {
+                            "key": "name",
+                            "value": "SystolicArray"
+                        },
+                        {
+                            "key": "node_color",
+                            "value": "#BFBFFF"
+                        }
+                    ],
+                    "subgraph": {
+                        "nodes": [
+                            {
+                                "node_id": 3,
+                                "name": "IBUF",
+                                "node_type": "StorageNode",
+                                "storage_node": {
+                                    "capacity": 128,
+                                    "read_bw": 32,
+                                    "write_bw": 32,
+                                    "access_type": "RAM"
+                                },
+                                "attributes": [
+                                    {
+                                        "key": "in_degree",
+                                        "value": 1
+                                    },
+                                    {
+                                        "key": "out_degree",
+                                        "value": 1
+                                    },
+                                    {
+                                        "key": "name",
+                                        "value": "IBUF"
+                                    },
+                                    {
+                                        "key": "node_color",
+                                        "value": "#7FFFFF"
+                                    }
+                                ],
+                                "subgraph": {
+                                    "nodes": [],
+                                    "edges": []
+                                }
+                            },
+                            {
+                                "node_id": 4,
+                                "name": "BBUF",
+                                "node_type": "StorageNode",
+                                "storage_node": {
+                                    "capacity": 128,
+                                    "read_bw": 32,
+                                    "write_bw": 32,
+                                    "access_type": "RAM"
+                                },
+                                "attributes": [
+                                    {
+                                        "key": "in_degree",
+                                        "value": 1
+                                    },
+                                    {
+                                        "key": "out_degree",
+                                        "value": 1
+                                    },
+                                    {
+                                        "key": "name",
+                                        "value": "BBUF"
+                                    },
+                                    {
+                                        "key": "node_color",
+                                        "value": "#7FFFFF"
+                                    }
+                                ],
+                                "subgraph": {
+                                    "nodes": [],
+                                    "edges": []
+                                }
+                            },
+                            {
+                                "node_id": 5,
+                                "name": "WBUF",
+                                "node_type": "StorageNode",
+                                "storage_node": {
+                                    "capacity": 128,
+                                    "read_bw": 32,
+                                    "write_bw": 32,
+                                    "access_type": "RAM"
+                                },
+                                "attributes": [
+                                    {
+                                        "key": "in_degree",
+                                        "value": 1
+                                    },
+                                    {
+                                        "key": "out_degree",
+                                        "value": 1
+                                    },
+                                    {
+                                        "key": "name",
+                                        "value": "WBUF"
+                                    },
+                                    {
+                                        "key": "node_color",
+                                        "value": "#7FFFFF"
+                                    }
+                                ],
+                                "subgraph": {
+                                    "nodes": [],
+                                    "edges": []
+                                }
+                            },
+                            {
+                                "node_id": 6,
+                                "name": "OBUF",
+                                "node_type": "StorageNode",
+                                "storage_node": {
+                                    "capacity": 128,
+                                    "read_bw": 32,
+                                    "write_bw": 32,
+                                    "access_type": "RAM"
+                                },
+                                "attributes": [
+                                    {
+                                        "key": "in_degree",
+                                        "value": 2
+                                    },
+                                    {
+                                        "key": "out_degree",
+                                        "value": 3
+                                    },
+                                    {
+                                        "key": "name",
+                                        "value": "OBUF"
+                                    },
+                                    {
+                                        "key": "node_color",
+                                        "value": "#7FFFFF"
+                                    }
+                                ],
+                                "subgraph": {
+                                    "nodes": [],
+                                    "edges": []
+                                }
+                            },
+                            {
+                                "node_id": 7,
+                                "name": "PEArray",
+                                "node_type": "ComputeNode",
+                                "compute_node": {
+                                    "capabilities": [
+                                        {
+                                            "op_name": "MatrixMatrixMul",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "ifmap",
+                                                    "src": [
+                                                        "IBUF"
+                                                    ],
+                                                    "dimensions": [
+                                                        "b",
+                                                        "x"
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "weight",
+                                                    "src": [
+                                                        "WBUF"
+                                                    ],
+                                                    "dimensions": [
+                                                        "x",
+                                                        "y"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [],
+                                            "subcapabilities": []
+                                        }
+                                    ]
+                                },
+                                "attributes": [
+                                    {
+                                        "key": "in_degree",
+                                        "value": 4
+                                    },
+                                    {
+                                        "key": "out_degree",
+                                        "value": 1
+                                    },
+                                    {
+                                        "key": "name",
+                                        "value": "PEArray"
+                                    },
+                                    {
+                                        "key": "node_color",
+                                        "value": "#BFBFFF"
+                                    },
+                                    {
+                                        "key": "width",
+                                        "value": 32
+                                    },
+                                    {
+                                        "key": "height",
+                                        "value": 32
+                                    }
+                                ],
+                                "subgraph": {
+                                    "nodes": [],
+                                    "edges": []
+                                }
+                            }
+                        ],
+                        "edges": [
+                            {
+                                "src": 3,
+                                "dst": 7,
+                                "attributes": [
+                                    {
+                                        "key": "latency",
+                                        "value": 1
+                                    },
+                                    {
+                                        "key": "bw",
+                                        "value": 32
+                                    }
+                                ]
+                            },
+                            {
+                                "src": 5,
+                                "dst": 7,
+                                "attributes": [
+                                    {
+                                        "key": "latency",
+                                        "value": 1
+                                    },
+                                    {
+                                        "key": "bw",
+                                        "value": 32
+                                    }
+                                ]
+                            },
+                            {
+                                "src": 4,
+                                "dst": 7,
+                                "attributes": [
+                                    {
+                                        "key": "latency",
+                                        "value": 1
+                                    },
+                                    {
+                                        "key": "bw",
+                                        "value": 32
+                                    }
+                                ]
+                            },
+                            {
+                                "src": 6,
+                                "dst": 7,
+                                "attributes": [
+                                    {
+                                        "key": "latency",
+                                        "value": 1
+                                    },
+                                    {
+                                        "key": "bw",
+                                        "value": 32
+                                    }
+                                ]
+                            },
+                            {
+                                "src": 7,
+                                "dst": 6,
+                                "attributes": [
+                                    {
+                                        "key": "latency",
+                                        "value": 1
+                                    },
+                                    {
+                                        "key": "bw",
+                                        "value": 32
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "node_id": 8,
+                    "name": "SIMDArray",
+                    "node_type": "ComputeNode",
+                    "compute_node": {
+                        "capabilities": []
+                    },
+                    "attributes": [
+                        {
+                            "key": "in_degree",
+                            "value": 0
+                        },
+                        {
+                            "key": "out_degree",
+                            "value": 0
+                        },
+                        {
+                            "key": "name",
+                            "value": "SIMDArray"
+                        },
+                        {
+                            "key": "node_color",
+                            "value": "#BFBFFF"
+                        }
+                    ],
+                    "subgraph": {
+                        "nodes": [
+                            {
+                                "node_id": 9,
+                                "name": "ALUArray",
+                                "node_type": "ComputeNode",
+                                "compute_node": {
+                                    "capabilities": [
+                                        {
+                                            "op_name": "ADD",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "op2",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "SUB",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "op2",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "MUL",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "op2",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "MACC",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "op2",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "DIV",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "op2",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "MAX",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "op2",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "MIN",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "op2",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "RSHIFT",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "op2",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "LSHIFT",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "op2",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "MOVE",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "op2",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "COND_MOVE",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "op2",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "RELU",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "LEAKY_RELU",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "SIGMOID",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "TANH",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "EXP",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "LN",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "SQRT",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "INV_SQRT",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "LOG2",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "EQUAL",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "op2",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "NEQ",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "op2",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "GT",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "op2",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "GTE",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "op2",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "LT",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "op2",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "LTE",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "op2",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "FXP32_FXP16",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "op2",
+                                                    "src": [
+                                                        "IMM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "FXP32_FXP8",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "op2",
+                                                    "src": [
+                                                        "IMM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "FXP16_FXP32",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "op2",
+                                                    "src": [
+                                                        "IMM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "FXP8_FXP32",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "op2",
+                                                    "src": [
+                                                        "IMM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "FP32_FP16",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "op2",
+                                                    "src": [
+                                                        "IMM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "FP16_FP32",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "op2",
+                                                    "src": [
+                                                        "IMM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "FXP32",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "IMM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "FXP16",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "IMM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "FXP8",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "IMM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "FP32",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "IMM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "FP16",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "IMM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "LOCK",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "op2",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "UNLOCK",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "op2",
+                                                    "src": [
+                                                        "OBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "BASE_SIGNEXT",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "CONST"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "BASE_LOW",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "CONST"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "BASE_HIGH",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "CONST"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "BASE_ZERO_FILL",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "CONST"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "STRIDE_SIGNEXT",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "CONST"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "STRIDE_LOW",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "CONST"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "STRIDE_HIGH",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "CONST"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "STRIDE_ZEROFILL",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "CONST"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "SHORT_LOOP",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "CONST"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "LONG_LOOP_INST",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "CONST"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        },
+                                        {
+                                            "op_name": "LONG_LOOP_ITER",
+                                            "latency": 0,
+                                            "input_nodes": [
+                                                {
+                                                    "name": "op1",
+                                                    "src": [
+                                                        "CONST"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "output_nodes": [
+                                                {
+                                                    "name": "op_dst",
+                                                    "dst": [
+                                                        "IBUF",
+                                                        "VMEM",
+                                                        "IMM",
+                                                        "EXTMEM"
+                                                    ],
+                                                    "dimensions": [
+                                                        "w"
+                                                    ]
+                                                }
+                                            ],
+                                            "subcapabilities": []
+                                        }
+                                    ]
+                                },
+                                "attributes": [
+                                    {
+                                        "key": "in_degree",
+                                        "value": 2
+                                    },
+                                    {
+                                        "key": "out_degree",
+                                        "value": 1
+                                    },
+                                    {
+                                        "key": "name",
+                                        "value": "ALUArray"
+                                    },
+                                    {
+                                        "key": "node_color",
+                                        "value": "#BFBFFF"
+                                    },
+                                    {
+                                        "key": "width",
+                                        "value": 32
+                                    }
+                                ],
+                                "subgraph": {
+                                    "nodes": [],
+                                    "edges": []
+                                }
+                            },
+                            {
+                                "node_id": 10,
+                                "name": "VectorRF",
+                                "node_type": "StorageNode",
+                                "storage_node": {
+                                    "capacity": 32,
+                                    "read_bw": 32,
+                                    "write_bw": 32,
+                                    "access_type": "FIFO"
+                                },
+                                "attributes": [
+                                    {
+                                        "key": "in_degree",
+                                        "value": 2
+                                    },
+                                    {
+                                        "key": "out_degree",
+                                        "value": 2
+                                    },
+                                    {
+                                        "key": "name",
+                                        "value": "VectorRF"
+                                    },
+                                    {
+                                        "key": "node_color",
+                                        "value": "#7FFFFF"
+                                    },
+                                    {
+                                        "key": "size",
+                                        "value": 32
+                                    }
+                                ],
+                                "subgraph": {
+                                    "nodes": [],
+                                    "edges": []
+                                }
+                            }
+                        ],
+                        "edges": [
+                            {
+                                "src": 10,
+                                "dst": 9,
+                                "attributes": [
+                                    {
+                                        "key": "latency",
+                                        "value": 1
+                                    },
+                                    {
+                                        "key": "bw",
+                                        "value": 32
+                                    }
+                                ]
+                            },
+                            {
+                                "src": 9,
+                                "dst": 10,
+                                "attributes": [
+                                    {
+                                        "key": "latency",
+                                        "value": 1
+                                    },
+                                    {
+                                        "key": "bw",
+                                        "value": 32
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "node_id": 11,
+                    "name": "Bus",
+                    "node_type": "CommunicationNode",
+                    "communication_node": {
+                        "comm_type": "bus",
+                        "bw": 128,
+                        "latency": 1
+                    },
+                    "attributes": [
+                        {
+                            "key": "in_degree",
+                            "value": 3
+                        },
+                        {
+                            "key": "out_degree",
+                            "value": 6
+                        },
+                        {
+                            "key": "name",
+                            "value": "Bus"
+                        },
+                        {
+                            "key": "node_color",
+                            "value": "#BFFFBF"
+                        }
+                    ],
+                    "subgraph": {
+                        "nodes": [],
+                        "edges": []
+                    }
+                },
+                {
+                    "node_id": 12,
+                    "name": "ExternalMem",
+                    "node_type": "StorageNode",
+                    "storage_node": {
+                        "capacity": 1024,
+                        "read_bw": 32,
+                        "write_bw": 32,
+                        "access_type": "RAM"
+                    },
+                    "attributes": [
+                        {
+                            "key": "in_degree",
+                            "value": 1
+                        },
+                        {
+                            "key": "out_degree",
+                            "value": 1
+                        },
+                        {
+                            "key": "name",
+                            "value": "ExternalMem"
+                        },
+                        {
+                            "key": "node_color",
+                            "value": "#7FFFFF"
+                        }
+                    ],
+                    "subgraph": {
+                        "nodes": [],
+                        "edges": []
+                    }
+                }
+            ],
+            "edges": [
+                {
+                    "src": 6,
+                    "dst": 9,
+                    "attributes": [
+                        {
+                            "key": "latency",
+                            "value": 1
+                        },
+                        {
+                            "key": "bw",
+                            "value": 32
+                        }
+                    ]
+                },
+                {
+                    "src": 11,
+                    "dst": 6,
+                    "attributes": [
+                        {
+                            "key": "latency",
+                            "value": 1
+                        },
+                        {
+                            "key": "bw",
+                            "value": 32
+                        }
+                    ]
+                },
+                {
+                    "src": 6,
+                    "dst": 11,
+                    "attributes": [
+                        {
+                            "key": "latency",
+                            "value": 1
+                        },
+                        {
+                            "key": "bw",
+                            "value": 32
+                        }
+                    ]
+                },
+                {
+                    "src": 11,
+                    "dst": 5,
+                    "attributes": [
+                        {
+                            "key": "latency",
+                            "value": 1
+                        },
+                        {
+                            "key": "bw",
+                            "value": 32
+                        }
+                    ]
+                },
+                {
+                    "src": 11,
+                    "dst": 3,
+                    "attributes": [
+                        {
+                            "key": "latency",
+                            "value": 1
+                        },
+                        {
+                            "key": "bw",
+                            "value": 32
+                        }
+                    ]
+                },
+                {
+                    "src": 11,
+                    "dst": 4,
+                    "attributes": [
+                        {
+                            "key": "latency",
+                            "value": 1
+                        },
+                        {
+                            "key": "bw",
+                            "value": 32
+                        }
+                    ]
+                },
+                {
+                    "src": 12,
+                    "dst": 11,
+                    "attributes": [
+                        {
+                            "key": "latency",
+                            "value": 1
+                        },
+                        {
+                            "key": "bw",
+                            "value": 32
+                        }
+                    ]
+                },
+                {
+                    "src": 11,
+                    "dst": 12,
+                    "attributes": [
+                        {
+                            "key": "latency",
+                            "value": 1
+                        },
+                        {
+                            "key": "bw",
+                            "value": 32
+                        }
+                    ]
+                },
+                {
+                    "src": 11,
+                    "dst": 10,
+                    "attributes": []
+                },
+                {
+                    "src": 10,
+                    "dst": 11,
+                    "attributes": []
+                }
+            ]
+        }
+    }
+}

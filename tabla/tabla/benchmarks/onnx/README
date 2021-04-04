@@ -1,0 +1,21 @@
+Commands to run:
+
+
+1. Run the tensorflow scripts
+
+python *_tf.py
+
+
+2. Convert ckpt file to onnx
+
+backprop:
+
+python -m tf2onnx.convert --checkpoint model.ckpt.meta --output backprop351-1000-40.onnx --inputs x:0,y:0 --outputs w_1:0,w_2:0
+
+SVM:
+
+python -m tf2onnx.convert --checkpoint model.ckpt.meta --output svm200.onnx --inputs x:0,y:0 --outputs update:0
+
+Recommender:
+
+python -m tf2onnx.convert --checkpoint model.ckpt.meta --output recommender73066.onnx --inputs x_1:0,x_2:0,r_1:0,y_1:0,r_2:0,y_2:0,w_1:0,w_2:0 --outputs w_1:0,w_2:0

@@ -1,0 +1,39 @@
+{
+	"ops" :
+		[
+			{
+				"name": "conv",
+				"component_target": "systolic_array",
+				"input_dimension_names": [["n", "ic", "h", "w"], ["oc", "ic", "kh", "kw"]],
+				"output_dimensions_names": ["n", "oc", "oh", "ow"],
+				"dimension_values": {"n": 1, "ic": 3, "h": 224, "w": 224, "oc": 64, "kh": 7, "kw": 7},
+				"tiling": {"n": 8, "ic": 32, "h": 16, "w": 16, "kh": 3, "kw": 3, "oc": 16},
+				"loop_order": ["n", "ic", "oc", "kh", "kw", "h", "w"],
+				"input_dtypes": ["fxp32", "fxp32"],
+				"output_dtype": "fxp32",
+				"input_components": ["IBUF", "WBUF"],
+				"output_components": ["OBUF"],
+				"op_params": {
+					"stride": 2,
+					"pad": 1,
+					"dataflow": "ws"
+				}
+
+			},
+			{
+				"name": "fc",
+				"component_target": "systolic_array",
+				"input_dimension_names": [["M", "N"], ["N", "P"]],
+				"output_dimensions_names": ["M", "P"],
+				"dimension_values": {"M": 512, "N": 1000, "P": 1},
+				"tiling": {"M": 32, "N": 32, "P": 1},
+				"loop_order": ["M", "N", "P"],
+				"input_dtypes": ["fxp32", "fxp32"],
+				"output_dtype": "fxp32",
+				"input_components": ["IBUF", "WBUF"],
+				"output_components": ["OBUF"],
+				"op_params": {}
+
+			}
+		]
+}

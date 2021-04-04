@@ -1,0 +1,266 @@
+{
+    "Genesys": {
+        "compute": [
+            {
+                "name": "SIMD",
+                "dimensions": [
+                    32
+                ],
+                "capabilities": []
+            },
+            {
+                "name": "pe_array",
+                "dimensions": [
+                    32,
+                    32
+                ],
+                "capabilities": [
+                    {
+                        "name": "conv",
+                        "inputs": {
+                            "input_1": {
+                                "dimensions":
+                                 [,                                   "input_1": [
+                                "n",
+                                "ic",
+                                "h",
+                                "w"]
+                                "dtype": ""
+                            ],
+
+                            }
+                        ],
+                        "input_dimension_names": {
+                            "input_1": [
+                                "n",
+                                "ic",
+                                "h",
+                                "w"
+                            ],
+                            "input_2": [
+                                "oc",
+                                "ic",
+                                "kh",
+                                "kw"
+                            ]
+                        },
+                        "output_dimension_names": {
+                            "output_1": ["n",
+                            "oc",
+                            "oh",
+                            "ow"]
+                        },
+                        "input_dtypes": [
+                            "fxp32",
+                            "fxp32"
+                        ],
+                        "input_components": [
+                            "IBUF",
+                            "WBUF"
+                        ],
+                        "output_dtypes": [
+                            "fxp32"
+                        ],
+                        "output_components": [
+                            "OBUF"
+                        ],
+                        "op_params": {
+                            "stride": 2,
+                            "pad": 1,
+                            "dataflow": "ws"
+                        },
+                        "latency": 0,
+                        "subcapabilities": []
+                    },
+                    {
+                        "name": "fc",
+                        "input_dimension_names": [
+                            [
+                                "M",
+                                "N"
+                            ],
+                            [
+                                "N",
+                                "P"
+                            ]
+                        ],
+                        "output_dimension_names": [
+                            "M",
+                            "P"
+                        ],
+                        "input_dtypes": [
+                            "fxp32",
+                            "fxp32"
+                        ],
+                        "input_components": [
+                            "IBUF",
+                            "WBUF"
+                        ],
+                        "output_dtypes": [
+                            "fxp32"
+                        ],
+                        "output_components": [
+                            "OBUF"
+                        ],
+                        "op_params": {},
+                        "latency": 0,
+                        "subcapabilities": []
+                    }
+                ]
+            },
+            {
+                "name": "systolic_array",
+                "dimensions": [
+                    1
+                ],
+                "capabilities": []
+            }
+        ],
+        "storage": [
+            {
+                "name": "VMEM",
+                "read_bw": 128,
+                "write_bw": 128,
+                "access_type": "RAM",
+                "size": 64,
+                "input_ports": 2,
+                "output_ports": 2,
+                "buffering_scheme": 1,
+                "latency": 1
+            },
+            {
+                "name": "IMM",
+                "read_bw": 128,
+                "write_bw": 128,
+                "access_type": "RAM",
+                "size": 8,
+                "input_ports": 2,
+                "output_ports": 2,
+                "buffering_scheme": 1,
+                "latency": 1
+            },
+            {
+                "name": "inMEM",
+                "read_bw": 128,
+                "write_bw": 128,
+                "access_type": "RAM",
+                "size": 16,
+                "input_ports": 2,
+                "output_ports": 2,
+                "buffering_scheme": 1,
+                "latency": 1
+            },
+            {
+                "name": "IF/ID",
+                "read_bw": 128,
+                "write_bw": 128,
+                "access_type": "FIFO",
+                "size": 64,
+                "input_ports": 2,
+                "output_ports": 2,
+                "buffering_scheme": 1,
+                "latency": 1
+            },
+            {
+                "name": "ID/AG",
+                "read_bw": 128,
+                "write_bw": 128,
+                "access_type": "FIFO",
+                "size": 64,
+                "input_ports": 2,
+                "output_ports": 2,
+                "buffering_scheme": 1,
+                "latency": 1
+            },
+            {
+                "name": "AG/DR",
+                "read_bw": 128,
+                "write_bw": 128,
+                "access_type": "FIFO",
+                "size": 64,
+                "input_ports": 2,
+                "output_ports": 2,
+                "buffering_scheme": 1,
+                "latency": 1
+            },
+            {
+                "name": "DR/EX",
+                "read_bw": 128,
+                "write_bw": 128,
+                "access_type": "FIFO",
+                "size": 64,
+                "input_ports": 2,
+                "output_ports": 2,
+                "buffering_scheme": 1,
+                "latency": 1
+            },
+            {
+                "name": "EX/WB",
+                "read_bw": 128,
+                "write_bw": 128,
+                "access_type": "FIFO",
+                "size": 64,
+                "input_ports": 2,
+                "output_ports": 2,
+                "buffering_scheme": 1,
+                "latency": 1
+            },
+            {
+                "name": "DRAM",
+                "read_bw": 512,
+                "write_bw": 512,
+                "access_type": "RAM",
+                "size": -1,
+                "input_ports": 1,
+                "output_ports": 1,
+                "buffering_scheme": 1,
+                "latency": 1
+            },
+            {
+                "name": "IBUF",
+                "read_bw": 128,
+                "write_bw": 128,
+                "access_type": "RAM",
+                "size": 32,
+                "input_ports": 2,
+                "output_ports": 2,
+                "buffering_scheme": 1,
+                "latency": 1
+            },
+            {
+                "name": "WBUF",
+                "read_bw": 128,
+                "write_bw": 128,
+                "access_type": "RAM",
+                "size": 64,
+                "input_ports": 2,
+                "output_ports": 2,
+                "buffering_scheme": 1,
+                "latency": 1
+            },
+            {
+                "name": "BBUF",
+                "read_bw": 128,
+                "write_bw": 128,
+                "access_type": "RAM",
+                "size": 8,
+                "input_ports": 2,
+                "output_ports": 2,
+                "buffering_scheme": 1,
+                "latency": 1
+            },
+            {
+                "name": "OBUF",
+                "read_bw": 128,
+                "write_bw": 128,
+                "access_type": "RAM",
+                "size": 128,
+                "input_ports": 2,
+                "output_ports": 2,
+                "buffering_scheme": 1,
+                "latency": 1
+            }
+        ],
+        "communication": []
+    }
+}

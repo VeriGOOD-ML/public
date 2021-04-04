@@ -1,0 +1,21 @@
+Total compute Instructions:	3202
+Total mem Instructions:	14
+Total number of inputs:	20
+Max NI Utilization:	26
+Max ND Utilization:	1
+Max NW Utilization:	32
+Calc:
+	Op code: 5
+	Op1 total: 8
+	Op1 index: 5
+	Op2 total: 8
+	Op2 index: 5
+	NI Total: 6
+	NI index: 5
+	NS Total: 6
+	NS Index: 5
+	Nieghbors: 2
+	PEGB: 4
+	PUGB: 4
+Total bitwidth size: 43
+

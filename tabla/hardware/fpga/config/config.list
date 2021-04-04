@@ -1,0 +1,11 @@
+NUM_PE_VALID 4
+INDEX_INST 3
+INDEX_DATA 1
+INDEX_WEIGHT 1
+INDEX_META 1
+INDEX_INTERIM 2
+INDEX_IN_INST 8
+MEM_INST_INIT "hw-imp/include/instructions/linear-3/mem-inst/memInst.txt"
+COMPUTE_INST_INIT "hw-imp/include/instructions/linear-3/compute-inst/"
+META_DATA_FILE "hw-imp/include/instructions/linear-3/meta.txt"
+WEIGHT_CTRL_INIT "hw-imp/include/instructions/linear-3/mem-inst/weightInst.txt"

@@ -1,0 +1,1002 @@
+[
+    {
+        "id": 0,
+        "parents": [],
+        "dataType": null,
+        "children": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24
+        ],
+        "operation": "source"
+    },
+    {
+        "id": 1,
+        "parents": [
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74
+        ],
+        "dataType": null,
+        "children": [],
+        "operation": "sink"
+    },
+    {
+        "id": 3,
+        "parents": [
+            0
+        ],
+        "dataType": "param",
+        "children": [
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64
+        ],
+        "operation": "mu",
+        "computed": 1
+    },
+    {
+        "id": 4,
+        "parents": [
+            0
+        ],
+        "dataType": "input",
+        "children": [
+            25,
+            45
+        ],
+        "operation": "x(0,)",
+        "computed": 1
+    },
+    {
+        "id": 5,
+        "parents": [
+            0
+        ],
+        "dataType": "input",
+        "children": [
+            26,
+            46
+        ],
+        "operation": "x(1,)",
+        "computed": -3
+    },
+    {
+        "id": 6,
+        "parents": [
+            0
+        ],
+        "dataType": "input",
+        "children": [
+            27,
+            47
+        ],
+        "operation": "x(2,)",
+        "computed": -1
+    },
+    {
+        "id": 7,
+        "parents": [
+            0
+        ],
+        "dataType": "input",
+        "children": [
+            28,
+            48
+        ],
+        "operation": "x(3,)",
+        "computed": -2
+    },
+    {
+        "id": 8,
+        "parents": [
+            0
+        ],
+        "dataType": "input",
+        "children": [
+            29,
+            49
+        ],
+        "operation": "x(4,)",
+        "computed": -3
+    },
+    {
+        "id": 9,
+        "parents": [
+            0
+        ],
+        "dataType": "input",
+        "children": [
+            30,
+            50
+        ],
+        "operation": "x(5,)",
+        "computed": 2
+    },
+    {
+        "id": 10,
+        "parents": [
+            0
+        ],
+        "dataType": "input",
+        "children": [
+            31,
+            51
+        ],
+        "operation": "x(6,)",
+        "computed": 0
+    },
+    {
+        "id": 11,
+        "parents": [
+            0
+        ],
+        "dataType": "input",
+        "children": [
+            32,
+            52
+        ],
+        "operation": "x(7,)",
+        "computed": -3
+    },
+    {
+        "id": 12,
+        "parents": [
+            0
+        ],
+        "dataType": "input",
+        "children": [
+            33,
+            53
+        ],
+        "operation": "x(8,)",
+        "computed": 0
+    },
+    {
+        "id": 13,
+        "parents": [
+            0
+        ],
+        "dataType": "input",
+        "children": [
+            34,
+            54
+        ],
+        "operation": "x(9,)",
+        "computed": 0
+    },
+    {
+        "id": 14,
+        "parents": [
+            0
+        ],
+        "dataType": "input",
+        "children": [
+            44
+        ],
+        "operation": "y",
+        "computed": 1
+    },
+    {
+        "id": 15,
+        "parents": [
+            0
+        ],
+        "dataType": "state",
+        "children": [
+            25,
+            65
+        ],
+        "operation": "w(0,)",
+        "computed": -2
+    },
+    {
+        "id": 16,
+        "parents": [
+            0
+        ],
+        "dataType": "state",
+        "children": [
+            26,
+            66
+        ],
+        "operation": "w(1,)",
+        "computed": 1
+    },
+    {
+        "id": 17,
+        "parents": [
+            0
+        ],
+        "dataType": "state",
+        "children": [
+            27,
+            67
+        ],
+        "operation": "w(2,)",
+        "computed": -1
+    },
+    {
+        "id": 18,
+        "parents": [
+            0
+        ],
+        "dataType": "state",
+        "children": [
+            28,
+            68
+        ],
+        "operation": "w(3,)",
+        "computed": 2
+    },
+    {
+        "id": 19,
+        "parents": [
+            0
+        ],
+        "dataType": "state",
+        "children": [
+            29,
+            69
+        ],
+        "operation": "w(4,)",
+        "computed": -1
+    },
+    {
+        "id": 20,
+        "parents": [
+            0
+        ],
+        "dataType": "state",
+        "children": [
+            30,
+            70
+        ],
+        "operation": "w(5,)",
+        "computed": 2
+    },
+    {
+        "id": 21,
+        "parents": [
+            0
+        ],
+        "dataType": "state",
+        "children": [
+            31,
+            71
+        ],
+        "operation": "w(6,)",
+        "computed": -2
+    },
+    {
+        "id": 22,
+        "parents": [
+            0
+        ],
+        "dataType": "state",
+        "children": [
+            32,
+            72
+        ],
+        "operation": "w(7,)",
+        "computed": 1
+    },
+    {
+        "id": 23,
+        "parents": [
+            0
+        ],
+        "dataType": "state",
+        "children": [
+            33,
+            73
+        ],
+        "operation": "w(8,)",
+        "computed": 2
+    },
+    {
+        "id": 24,
+        "parents": [
+            0
+        ],
+        "dataType": "state",
+        "children": [
+            34,
+            74
+        ],
+        "operation": "w(9,)",
+        "computed": 1
+    },
+    {
+        "id": 25,
+        "parents": [
+            4,
+            15
+        ],
+        "dataType": null,
+        "children": [
+            35
+        ],
+        "operation": "*",
+        "computed": -2
+    },
+    {
+        "id": 26,
+        "parents": [
+            5,
+            16
+        ],
+        "dataType": null,
+        "children": [
+            35
+        ],
+        "operation": "*",
+        "computed": -3
+    },
+    {
+        "id": 27,
+        "parents": [
+            6,
+            17
+        ],
+        "dataType": null,
+        "children": [
+            36
+        ],
+        "operation": "*",
+        "computed": 1
+    },
+    {
+        "id": 28,
+        "parents": [
+            7,
+            18
+        ],
+        "dataType": null,
+        "children": [
+            37
+        ],
+        "operation": "*",
+        "computed": -4
+    },
+    {
+        "id": 29,
+        "parents": [
+            8,
+            19
+        ],
+        "dataType": null,
+        "children": [
+            37
+        ],
+        "operation": "*",
+        "computed": 3
+    },
+    {
+        "id": 30,
+        "parents": [
+            9,
+            20
+        ],
+        "dataType": null,
+        "children": [
+            39
+        ],
+        "operation": "*",
+        "computed": 4
+    },
+    {
+        "id": 31,
+        "parents": [
+            10,
+            21
+        ],
+        "dataType": null,
+        "children": [
+            39
+        ],
+        "operation": "*",
+        "computed": 0
+    },
+    {
+        "id": 32,
+        "parents": [
+            11,
+            22
+        ],
+        "dataType": null,
+        "children": [
+            40
+        ],
+        "operation": "*",
+        "computed": -3
+    },
+    {
+        "id": 33,
+        "parents": [
+            12,
+            23
+        ],
+        "dataType": null,
+        "children": [
+            41
+        ],
+        "operation": "*",
+        "computed": 0
+    },
+    {
+        "id": 34,
+        "parents": [
+            13,
+            24
+        ],
+        "dataType": null,
+        "children": [
+            41
+        ],
+        "operation": "*",
+        "computed": 0
+    },
+    {
+        "id": 35,
+        "parents": [
+            25,
+            26
+        ],
+        "dataType": null,
+        "children": [
+            36
+        ],
+        "operation": "+",
+        "computed": -5
+    },
+    {
+        "id": 36,
+        "parents": [
+            35,
+            27
+        ],
+        "dataType": null,
+        "children": [
+            38
+        ],
+        "operation": "+",
+        "computed": -4
+    },
+    {
+        "id": 37,
+        "parents": [
+            28,
+            29
+        ],
+        "dataType": null,
+        "children": [
+            38
+        ],
+        "operation": "+",
+        "computed": -1
+    },
+    {
+        "id": 38,
+        "parents": [
+            36,
+            37
+        ],
+        "dataType": null,
+        "children": [
+            43
+        ],
+        "operation": "+",
+        "computed": -5
+    },
+    {
+        "id": 39,
+        "parents": [
+            30,
+            31
+        ],
+        "dataType": null,
+        "children": [
+            40
+        ],
+        "operation": "+",
+        "computed": 4
+    },
+    {
+        "id": 40,
+        "parents": [
+            39,
+            32
+        ],
+        "dataType": null,
+        "children": [
+            42
+        ],
+        "operation": "+",
+        "computed": 1
+    },
+    {
+        "id": 41,
+        "parents": [
+            33,
+            34
+        ],
+        "dataType": null,
+        "children": [
+            42
+        ],
+        "operation": "+",
+        "computed": 0
+    },
+    {
+        "id": 42,
+        "parents": [
+            40,
+            41
+        ],
+        "dataType": null,
+        "children": [
+            43
+        ],
+        "operation": "+",
+        "computed": 1
+    },
+    {
+        "id": 43,
+        "parents": [
+            38,
+            42
+        ],
+        "dataType": null,
+        "children": [
+            44
+        ],
+        "operation": "+",
+        "computed": -4
+    },
+    {
+        "id": 44,
+        "parents": [
+            43,
+            14
+        ],
+        "dataType": null,
+        "children": [
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54
+        ],
+        "operation": "-",
+        "computed": -5
+    },
+    {
+        "id": 45,
+        "parents": [
+            44,
+            4
+        ],
+        "dataType": null,
+        "children": [
+            55
+        ],
+        "operation": "*",
+        "computed": -5
+    },
+    {
+        "id": 46,
+        "parents": [
+            44,
+            5
+        ],
+        "dataType": null,
+        "children": [
+            56
+        ],
+        "operation": "*",
+        "computed": 15
+    },
+    {
+        "id": 47,
+        "parents": [
+            44,
+            6
+        ],
+        "dataType": null,
+        "children": [
+            57
+        ],
+        "operation": "*",
+        "computed": 5
+    },
+    {
+        "id": 48,
+        "parents": [
+            44,
+            7
+        ],
+        "dataType": null,
+        "children": [
+            58
+        ],
+        "operation": "*",
+        "computed": 10
+    },
+    {
+        "id": 49,
+        "parents": [
+            44,
+            8
+        ],
+        "dataType": null,
+        "children": [
+            59
+        ],
+        "operation": "*",
+        "computed": 15
+    },
+    {
+        "id": 50,
+        "parents": [
+            44,
+            9
+        ],
+        "dataType": null,
+        "children": [
+            60
+        ],
+        "operation": "*",
+        "computed": -10
+    },
+    {
+        "id": 51,
+        "parents": [
+            44,
+            10
+        ],
+        "dataType": null,
+        "children": [
+            61
+        ],
+        "operation": "*",
+        "computed": 0
+    },
+    {
+        "id": 52,
+        "parents": [
+            44,
+            11
+        ],
+        "dataType": null,
+        "children": [
+            62
+        ],
+        "operation": "*",
+        "computed": 15
+    },
+    {
+        "id": 53,
+        "parents": [
+            44,
+            12
+        ],
+        "dataType": null,
+        "children": [
+            63
+        ],
+        "operation": "*",
+        "computed": 0
+    },
+    {
+        "id": 54,
+        "parents": [
+            44,
+            13
+        ],
+        "dataType": null,
+        "children": [
+            64
+        ],
+        "operation": "*",
+        "computed": 0
+    },
+    {
+        "id": 55,
+        "parents": [
+            3,
+            45
+        ],
+        "dataType": null,
+        "children": [
+            65
+        ],
+        "operation": "*",
+        "computed": -5
+    },
+    {
+        "id": 56,
+        "parents": [
+            3,
+            46
+        ],
+        "dataType": null,
+        "children": [
+            66
+        ],
+        "operation": "*",
+        "computed": 15
+    },
+    {
+        "id": 57,
+        "parents": [
+            3,
+            47
+        ],
+        "dataType": null,
+        "children": [
+            67
+        ],
+        "operation": "*",
+        "computed": 5
+    },
+    {
+        "id": 58,
+        "parents": [
+            3,
+            48
+        ],
+        "dataType": null,
+        "children": [
+            68
+        ],
+        "operation": "*",
+        "computed": 10
+    },
+    {
+        "id": 59,
+        "parents": [
+            3,
+            49
+        ],
+        "dataType": null,
+        "children": [
+            69
+        ],
+        "operation": "*",
+        "computed": 15
+    },
+    {
+        "id": 60,
+        "parents": [
+            3,
+            50
+        ],
+        "dataType": null,
+        "children": [
+            70
+        ],
+        "operation": "*",
+        "computed": -10
+    },
+    {
+        "id": 61,
+        "parents": [
+            3,
+            51
+        ],
+        "dataType": null,
+        "children": [
+            71
+        ],
+        "operation": "*",
+        "computed": 0
+    },
+    {
+        "id": 62,
+        "parents": [
+            3,
+            52
+        ],
+        "dataType": null,
+        "children": [
+            72
+        ],
+        "operation": "*",
+        "computed": 15
+    },
+    {
+        "id": 63,
+        "parents": [
+            3,
+            53
+        ],
+        "dataType": null,
+        "children": [
+            73
+        ],
+        "operation": "*",
+        "computed": 0
+    },
+    {
+        "id": 64,
+        "parents": [
+            3,
+            54
+        ],
+        "dataType": null,
+        "children": [
+            74
+        ],
+        "operation": "*",
+        "computed": 0
+    },
+    {
+        "id": 65,
+        "parents": [
+            15,
+            55
+        ],
+        "dataType": "state",
+        "children": [
+            1
+        ],
+        "operation": "-",
+        "computed": 3
+    },
+    {
+        "id": 66,
+        "parents": [
+            16,
+            56
+        ],
+        "dataType": "state",
+        "children": [
+            1
+        ],
+        "operation": "-",
+        "computed": -14
+    },
+    {
+        "id": 67,
+        "parents": [
+            17,
+            57
+        ],
+        "dataType": "state",
+        "children": [
+            1
+        ],
+        "operation": "-",
+        "computed": -6
+    },
+    {
+        "id": 68,
+        "parents": [
+            18,
+            58
+        ],
+        "dataType": "state",
+        "children": [
+            1
+        ],
+        "operation": "-",
+        "computed": -8
+    },
+    {
+        "id": 69,
+        "parents": [
+            19,
+            59
+        ],
+        "dataType": "state",
+        "children": [
+            1
+        ],
+        "operation": "-",
+        "computed": -16
+    },
+    {
+        "id": 70,
+        "parents": [
+            20,
+            60
+        ],
+        "dataType": "state",
+        "children": [
+            1
+        ],
+        "operation": "-",
+        "computed": 12
+    },
+    {
+        "id": 71,
+        "parents": [
+            21,
+            61
+        ],
+        "dataType": "state",
+        "children": [
+            1
+        ],
+        "operation": "-",
+        "computed": -2
+    },
+    {
+        "id": 72,
+        "parents": [
+            22,
+            62
+        ],
+        "dataType": "state",
+        "children": [
+            1
+        ],
+        "operation": "-",
+        "computed": -14
+    },
+    {
+        "id": 73,
+        "parents": [
+            23,
+            63
+        ],
+        "dataType": "state",
+        "children": [
+            1
+        ],
+        "operation": "-",
+        "computed": 2
+    },
+    {
+        "id": 74,
+        "parents": [
+            24,
+            64
+        ],
+        "dataType": "state",
+        "children": [
+            1
+        ],
+        "operation": "-",
+        "computed": 1
+    }
+]
