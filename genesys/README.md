@@ -12,7 +12,7 @@ The following dependencies must be met by your system:
 
 ### Step 1: Clone the VeriGOOD-ML source code
   ```console
-  $ git clone https://github.com/VeriGOOD-ML/public
+  $ git clone --recurse-submodules https://github.com/VeriGOOD-ML/public
   $ cd public/genesys
   ```
 
