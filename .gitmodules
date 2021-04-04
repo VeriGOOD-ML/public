@@ -1,0 +1,3 @@
+[submodule "polymath"]
+	path = polymath
+	url = https://github.com/he-actlab/polymath
