@@ -18,7 +18,7 @@ Our approach is based on the following components:
 * Using the _sr_-DFG, we propose three core target engines:
     * The TABLA platform for non-DNN algorithms can be customized to perform training and inference for a variety of machine learning algorithms, including linear regression, logistic regression, support vector machines, recommender systems, and backpropagation.
     * The GeneSys platform us3es a systolic array centric approach that forms the core convolution engine for implementing DNN algorithms, and can be customized to run a range of standard DNN topologies.
-    * Acciline is a non-template-based framework for synthesizing small ML algorithms, creating efficient Verilog-based implementations by directly synthesizing the _sr_-DFG.
+    * Axiline is a non-template-based framework for synthesizing small ML algorithms, creating efficient Verilog-based implementations by directly synthesizing the _sr_-DFG.
 
 
 ## Inputs
@@ -36,4 +36,4 @@ Installation and usage instructions are found in the following links:
 
 * [TABLA](tabla)
 * [GeneSys](genesys)
-* [Acciline](acciline)
+* [Axiline](axiline)
