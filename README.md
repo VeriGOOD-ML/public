@@ -3,14 +3,7 @@
 
 # VeriGOOD-ML: Verilog Generator, Optimized for Designs for Machine Learning
 
-The objective of the VeriGOOD-ML project is to translate an ONNX description of an ML
-algorithm to Verilog hardware, and to demonstrate the implementation of the hardware to GDSII.
-The project is therefore designed to produce the following outcomes:
-* Open-source software for a no-human-in-the-loop, Verilog-based compiler for RTML
-hardware.
-* Hardware in the form of a test chip for a chiplet-based ecosystem, taking the output of the
-Verilog generator to GDSII layout for a chip that will be fabricated, packaged, tested, and
-characterized.
+The objective of the VeriGOOD-ML project is to develop open-source Verilog-based compiler for RTML hardware.  The software in this repo translates an ONNX description of an ML algorithm to Verilog hardware, with no human in the loop. 
 
 Our approach is based on the following components:
 * _PolyMath_: [PolyMath](https://github.com/he-actlab/polymath) is a compilation stack for multi-acceleration, and uses a recursively-defined intermediate representation allowing simultaneous access to all levels of operation granularity, called an _sr_-DFG. The flexible nature of the _sr_-DFG allows for straightforward translation to different types of Verilog implementation. The PolyMath framework also includes a translator from the [ONNX](https://github.com/onnx/onnx) format to _sr_-DFG format, which enables high-level ML models to be compiled to different Verilog hardware.
