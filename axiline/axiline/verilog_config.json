@@ -1,0 +1,6 @@
+{
+  "algo": "svm",
+  "input_bitwidth": 8,
+  "internal_bitwidth": 16,
+  "param_list": {"mu:0":"16'b1"},
+}
