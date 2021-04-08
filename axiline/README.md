@@ -10,7 +10,7 @@ The following dependencies must be met by your system:
 ### Step 1: Clone the VeriGOOD-ML source code
   ```console
   $ git clone --recurse-submodules https://github.com/VeriGOOD-ML/public
-  $ cd public/genesys
+  $ cd public/axiline
   ```
 
 
@@ -24,7 +24,7 @@ $ python -m pip install pip --upgrade
 ```
 
 ### Step 3: Install Axiline
-If you already have a working installation of Python 3.7 or Python 3.8, the easiest way to install GeneSys is:
+If you already have a working installation of Python 3.7 or Python 3.8, the way to install Axiline is:
 ```console
 $ pip install -e .
 ```
