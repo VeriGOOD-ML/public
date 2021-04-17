@@ -31,5 +31,5 @@ $ pip install -e .
 
 ### Step 4: Compile a benchmark using Axiline
 ```console
-$ python axiline/axiline/run_benchmark.py --benchmark <benchmark_name/onnx_directory> --congig <config_directory><optional>  --output <output_path>
+$ python axiline/axiline/run_benchmark.py --benchmark <benchmark_name/onnx_directory>  --output <path_to_output> --config(optional) <path_to_config.json> --dimension(optional) <benchmark_dimension>
 ```
