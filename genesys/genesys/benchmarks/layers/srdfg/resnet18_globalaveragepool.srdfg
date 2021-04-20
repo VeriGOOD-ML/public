@@ -1,75 +1,81 @@
 
-¥189output""Ä"":
-	root_name2189∏:,
-uid%2 a041ea637b6845ea97b4fdf039864242∏:
-write_count∏:
-type_modifier2output∏Bpolymath.srdfg.nodes.output
-õ188input""Ä"":
-	root_name2188∏:
+¿189output""Ä"":
+type_modifier2output¿:,
+uid%2 81289eaec97e47838e9a5916a4f1f7fc¿:
+	root_name2189¿:
+write_count¿Bpolymath.srdfg.nodes.outputHêûß·P∞»¶·
+ß188input""Ä"":,
+uid%2 636e0a294c5743c5b7b2eda3e0dad131¿:
 type_modifier
-2input∏:,
-uid%2 c00a4770748d4fedb7161ed8aaf4f140∏Bpolymath.srdfg.nodes.input
-À
-õ188input""Ä"":
+2input¿:
+	root_name2188¿Bpolymath.srdfg.nodes.inputH¿õß·P∞»¶·
+Õ
+ß188input""Ä"":
 type_modifier
-2input∏:
-	root_name2188∏:,
-uid%2 c00a4770748d4fedb7161ed8aaf4f140∏Bpolymath.srdfg.nodes.input
-¥189output""Ä"":,
-uid%2 a041ea637b6845ea97b4fdf039864242∏:
-type_modifier2output∏:
-	root_name2189∏:
-write_count∏Bpolymath.srdfg.nodes.output
-á b75dcb15d7bc48148e279fa8b800b396index2∏2∏:6
+2input¿:
+	root_name2188¿:,
+uid%2 636e0a294c5743c5b7b2eda3e0dad131¿Bpolymath.srdfg.nodes.inputH¿õß·P∞»¶·
+¿189output""Ä"":
+write_count¿:
+type_modifier2output¿:,
+uid%2 81289eaec97e47838e9a5916a4f1f7fc¿:
+	root_name2189¿Bpolymath.srdfg.nodes.outputHêûß·P∞»¶·
+§ d2b824cc922944f687c837c1c05af0bcindex2¿2¿:6
 domain,b'
-%2 b75dcb15d7bc48148e279fa8b800b396∏∏#Bpolymath.srdfg.index.index
-ä c40e3160713046c2a8eea497201e7ed0index2∏2ˇ∏:6
+%2 d2b824cc922944f687c837c1c05af0bc¿¿#:
+stride¿Bpolymath.srdfg.index.indexH¿ûß·P†üß·
+ß d7ebd293ef6044eab809568fce876a8dindex2¿2ˇ¿:6
 domain,b'
-%2 c40e3160713046c2a8eea497201e7ed0∏∏#Bpolymath.srdfg.index.index
-á b89c3c6e5fcf4f9ab00b21f58fbaf137index2∏2∏:6
+%2 d7ebd293ef6044eab809568fce876a8d¿¿#:
+stride¿Bpolymath.srdfg.index.indexH¿†≠·P†üß·
+§ d78b53232ee344c997339eb0253afb6cindex2¿2¿:
+stride¿:6
 domain,b'
-%2 b89c3c6e5fcf4f9ab00b21f58fbaf137∏∏#Bpolymath.srdfg.index.index
-á 193d41ecccd346d28ac58ea8a048b136index2∏2∏:6
+%2 d78b53232ee344c997339eb0253afb6c¿¿#Bpolymath.srdfg.index.indexH∞¢≠·P†üß·
+§ c70d906bd42849dbb35506f4136175f0index2¿2¿:
+stride¿:6
 domain,b'
-%2 193d41ecccd346d28ac58ea8a048b136∏∏#Bpolymath.srdfg.index.index
-â d0e59e28b6df400e8d784a8d748119f6index2∏2∏:6
+%2 c70d906bd42849dbb35506f4136175f0¿¿#Bpolymath.srdfg.index.indexH†§≠·P†üß·
+¶ 4532ca02c4b14ba0914b21a6c04b86c9index2¿2¿:6
 domain,b'
-%2 d0e59e28b6df400e8d784a8d748119f6∏∏#Bpolymath.srdfg.index.index
-â 9e51814f5f984ebc8ed6f2e632c38004index2∏2∏:6
+%2 4532ca02c4b14ba0914b21a6c04b86c9¿¿#:
+stride¿Bpolymath.srdfg.index.indexH‡ùß·P†üß·
+¶ 841160580919416db3ec7b8046eb1481index2¿2¿:
+stride¿:6
 domain,b'
-%2 9e51814f5f984ebc8ed6f2e632c38004∏∏#Bpolymath.srdfg.index.index
-Ñã188(b75dcb15d7bc48148e279fa8b800b396, c40e3160713046c2a8eea497201e7ed0, d0e59e28b6df400e8d784a8d748119f6, 9e51814f5f984ebc8ed6f2e632c38004)	var_index22188∏2èÇ b75dcb15d7bc48148e279fa8b800b396Ç c40e3160713046c2a8eea497201e7ed0Ç d0e59e28b6df400e8d784a8d748119f6Ç 9e51814f5f984ebc8ed6f2e632c38004∏":≠
+%2 841160580919416db3ec7b8046eb1481¿¿#Bpolymath.srdfg.index.indexH–ß≠·P†üß·
+êã188(d2b824cc922944f687c837c1c05af0bc, d7ebd293ef6044eab809568fce876a8d, 4532ca02c4b14ba0914b21a6c04b86c9, 841160580919416db3ec7b8046eb1481)	var_index22188¿2èÇ d2b824cc922944f687c837c1c05af0bcÇ d7ebd293ef6044eab809568fce876a8dÇ 4532ca02c4b14ba0914b21a6c04b86c9Ç 841160580919416db3ec7b8046eb1481¿":≠
 domain¢bú
-%2 b75dcb15d7bc48148e279fa8b800b396∏
-%2 c40e3160713046c2a8eea497201e7ed0∏
-%2 d0e59e28b6df400e8d784a8d748119f6∏
-%2 9e51814f5f984ebc8ed6f2e632c38004∏∏#Bpolymath.srdfg.base.var_index
-∞ d81c8dd3caf341229e476d2900c20aa5sum2IÇ d0e59e28b6df400e8d784a8d748119f6Ç 9e51814f5f984ebc8ed6f2e632c38004∏"2ë2ã188(b75dcb15d7bc48148e279fa8b800b396, c40e3160713046c2a8eea497201e7ed0, d0e59e28b6df400e8d784a8d748119f6, 9e51814f5f984ebc8ed6f2e632c38004)∏:
-axesr∏:
-target2	numpy.sum∏:]
+%2 d2b824cc922944f687c837c1c05af0bc¿
+%2 d7ebd293ef6044eab809568fce876a8d¿
+%2 4532ca02c4b14ba0914b21a6c04b86c9¿
+%2 841160580919416db3ec7b8046eb1481¿¿#Bpolymath.srdfg.base.var_indexH¿©≠·P†üß·
+º 3c81a6c911a34b7b8fe05e57e9d4cf66sum2IÇ 4532ca02c4b14ba0914b21a6c04b86c9Ç 841160580919416db3ec7b8046eb1481¿"2ë2ã188(d2b824cc922944f687c837c1c05af0bc, d7ebd293ef6044eab809568fce876a8d, 4532ca02c4b14ba0914b21a6c04b86c9, 841160580919416db3ec7b8046eb1481)¿:]
 domainSbN
-%2 b75dcb15d7bc48148e279fa8b800b396∏
-%2 c40e3160713046c2a8eea497201e7ed0∏∏#Bpolymath.srdfg.group_nodes.sum
-≈ db380caefa014baa9ad3fa3b7bcad36c	slice_mul"" b75dcb15d7bc48148e279fa8b800b396"" c40e3160713046c2a8eea497201e7ed0299/ß‡Âî?∏2%2 d81c8dd3caf341229e476d2900c20aa5∏:
-target2_operator.mul∏:]
+%2 d2b824cc922944f687c837c1c05af0bc¿
+%2 d7ebd293ef6044eab809568fce876a8d¿¿#:
+target2	numpy.sum¿:
+axesr¿Bpolymath.srdfg.group_nodes.sumHê…Ê±P†üß·
+— 99467dfbd0f2411d90d5d0d3e894e403	slice_mul"" d2b824cc922944f687c837c1c05af0bc"" d7ebd293ef6044eab809568fce876a8d299/ß‡Âî?¿2%2 3c81a6c911a34b7b8fe05e57e9d4cf66¿:]
 domainSbN
-%2 b75dcb15d7bc48148e279fa8b800b396∏
-%2 c40e3160713046c2a8eea497201e7ed0∏∏#Bpolymath.srdfg.base.slice_op
-π1890write""Ä""2%2 db380caefa014baa9ad3fa3b7bcad36c∏2èÇ b75dcb15d7bc48148e279fa8b800b396Ç c40e3160713046c2a8eea497201e7ed0Ç b89c3c6e5fcf4f9ab00b21f58fbaf137Ç 193d41ecccd346d28ac58ea8a048b136∏"22189∏:Y
-write_graphJÇ!Extracted from {torch-jit-export}Ç 4bb3c279d74c4e8183551c25f662b988∏:≠
+%2 d2b824cc922944f687c837c1c05af0bc¿
+%2 d7ebd293ef6044eab809568fce876a8d¿¿#:
+target2_operator.mul¿Bpolymath.srdfg.base.slice_opHêïß·P†üß·
+≈1890write""Ä""2%2 99467dfbd0f2411d90d5d0d3e894e403¿2èÇ d2b824cc922944f687c837c1c05af0bcÇ d7ebd293ef6044eab809568fce876a8dÇ d78b53232ee344c997339eb0253afb6cÇ c70d906bd42849dbb35506f4136175f0¿"22189¿:Y
+write_graphJÇ!Extracted from {torch-jit-export}Ç 589bb97d5b204119b42b75aa42fafefb¿:≠
 domain¢bú
-%2 b75dcb15d7bc48148e279fa8b800b396∏
-%2 c40e3160713046c2a8eea497201e7ed0∏
-%2 b89c3c6e5fcf4f9ab00b21f58fbaf137∏
-%2 193d41ecccd346d28ac58ea8a048b136∏∏#:
-alias2189∏:
-type_modifier2output∏Bpolymath.srdfg.nodes.write 4bb3c279d74c4e8183551c25f662b988global_avg_pool22188∏22189∏B,polymath.srdfg.templates.dnn.global_avg_pool
-π1890write""Ä""2%2 db380caefa014baa9ad3fa3b7bcad36c∏2èÇ b75dcb15d7bc48148e279fa8b800b396Ç c40e3160713046c2a8eea497201e7ed0Ç b89c3c6e5fcf4f9ab00b21f58fbaf137Ç 193d41ecccd346d28ac58ea8a048b136∏"22189∏:≠
+%2 d2b824cc922944f687c837c1c05af0bc¿
+%2 d7ebd293ef6044eab809568fce876a8d¿
+%2 d78b53232ee344c997339eb0253afb6c¿
+%2 c70d906bd42849dbb35506f4136175f0¿¿#:
+type_modifier2output¿:
+alias2189¿Bpolymath.srdfg.nodes.writeH∞óß·P∞»¶· 589bb97d5b204119b42b75aa42fafefbglobal_avg_pool22188¿22189¿B,polymath.srdfg.templates.dnn.global_avg_poolH†üß·P∞»¶·
+≈1890write""Ä""2%2 99467dfbd0f2411d90d5d0d3e894e403¿2èÇ d2b824cc922944f687c837c1c05af0bcÇ d7ebd293ef6044eab809568fce876a8dÇ d78b53232ee344c997339eb0253afb6cÇ c70d906bd42849dbb35506f4136175f0¿"22189¿:
+alias2189¿:≠
 domain¢bú
-%2 b75dcb15d7bc48148e279fa8b800b396∏
-%2 c40e3160713046c2a8eea497201e7ed0∏
-%2 b89c3c6e5fcf4f9ab00b21f58fbaf137∏
-%2 193d41ecccd346d28ac58ea8a048b136∏∏#:
-alias2189∏:Y
-write_graphJÇ!Extracted from {torch-jit-export}Ç 4bb3c279d74c4e8183551c25f662b988∏:
-type_modifier2output∏Bpolymath.srdfg.nodes.writeresnet18_globalaveragepool!Extracted from {torch-jit-export}Bpolymath.srdfg.base.Node
+%2 d2b824cc922944f687c837c1c05af0bc¿
+%2 d7ebd293ef6044eab809568fce876a8d¿
+%2 d78b53232ee344c997339eb0253afb6c¿
+%2 c70d906bd42849dbb35506f4136175f0¿¿#:
+type_modifier2output¿:Y
+write_graphJÇ!Extracted from {torch-jit-export}Ç 589bb97d5b204119b42b75aa42fafefb¿Bpolymath.srdfg.nodes.writeH∞óß·P∞»¶·resnet18_globalaveragepool!Extracted from {torch-jit-export}Bpolymath.srdfg.base.NodeH∞»¶·Pˇˇˇˇˇˇˇˇˇ

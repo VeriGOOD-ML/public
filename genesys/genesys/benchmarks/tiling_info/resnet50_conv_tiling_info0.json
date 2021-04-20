@@ -1,0 +1,31 @@
+{
+    "conv_bias1": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 112,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 112,
+            "loop0": 2
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 7,
+            "loop4": 7,
+            "loop6": 1,
+            "loop0": 1
+        }
+    }
+}

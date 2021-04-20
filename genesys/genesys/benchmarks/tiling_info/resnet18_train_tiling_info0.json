@@ -1,0 +1,1552 @@
+{
+    "conv1": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 1,
+            "loop6": 1,
+            "loop4": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 112,
+            "loop6": 112,
+            "loop4": 1,
+            "loop0": 2
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 7,
+            "loop5": 1,
+            "loop6": 1,
+            "loop4": 7,
+            "loop0": 1
+        }
+    },
+    "batch_norm2": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop2": 112,
+            "loop3": 112
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu3": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop2": 112,
+            "loop3": 112
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "max_pool4": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop4": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop4": 56,
+            "loop2": 1,
+            "loop5": 56,
+            "loop3": 1
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop4": 1,
+            "loop2": 3,
+            "loop5": 1,
+            "loop3": 3
+        }
+    },
+    "conv5": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 1,
+            "loop6": 1,
+            "loop4": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 56,
+            "loop6": 56,
+            "loop4": 1,
+            "loop0": 2
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 2,
+            "loop3": 3,
+            "loop5": 1,
+            "loop6": 1,
+            "loop4": 3,
+            "loop0": 1
+        }
+    },
+    "batch_norm6": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop2": 56,
+            "loop3": 56
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu7": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop2": 56,
+            "loop3": 56
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv8": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 1,
+            "loop6": 1,
+            "loop4": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 56,
+            "loop6": 56,
+            "loop4": 1,
+            "loop0": 2
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 2,
+            "loop3": 3,
+            "loop5": 1,
+            "loop6": 1,
+            "loop4": 3,
+            "loop0": 1
+        }
+    },
+    "batch_norm9": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop2": 56,
+            "loop3": 56
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "elem_add10": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop2": 56,
+            "loop3": 56
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu11": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop2": 56,
+            "loop3": 56
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv12": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 1,
+            "loop6": 1,
+            "loop4": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 56,
+            "loop6": 56,
+            "loop4": 1,
+            "loop0": 2
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 2,
+            "loop3": 3,
+            "loop5": 1,
+            "loop6": 1,
+            "loop4": 3,
+            "loop0": 1
+        }
+    },
+    "batch_norm13": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop2": 56,
+            "loop3": 56
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu14": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop2": 56,
+            "loop3": 56
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv15": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 1,
+            "loop6": 1,
+            "loop4": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 56,
+            "loop6": 56,
+            "loop4": 1,
+            "loop0": 2
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 2,
+            "loop3": 3,
+            "loop5": 1,
+            "loop6": 1,
+            "loop4": 3,
+            "loop0": 1
+        }
+    },
+    "batch_norm16": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop2": 56,
+            "loop3": 56
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "elem_add17": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop2": 56,
+            "loop3": 56
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu18": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop2": 56,
+            "loop3": 56
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv19": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 1,
+            "loop6": 1,
+            "loop4": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 28,
+            "loop6": 28,
+            "loop4": 1,
+            "loop0": 4
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 2,
+            "loop3": 3,
+            "loop5": 1,
+            "loop6": 1,
+            "loop4": 3,
+            "loop0": 1
+        }
+    },
+    "batch_norm20": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 4,
+            "loop2": 28,
+            "loop3": 28
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu21": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 4,
+            "loop2": 28,
+            "loop3": 28
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv22": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 1,
+            "loop6": 1,
+            "loop4": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 28,
+            "loop6": 28,
+            "loop4": 1,
+            "loop0": 4
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 4,
+            "loop3": 3,
+            "loop5": 1,
+            "loop6": 1,
+            "loop4": 3,
+            "loop0": 1
+        }
+    },
+    "batch_norm23": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 4,
+            "loop2": 28,
+            "loop3": 28
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv24": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 1,
+            "loop6": 1,
+            "loop4": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 28,
+            "loop6": 28,
+            "loop4": 1,
+            "loop0": 4
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 2,
+            "loop3": 1,
+            "loop5": 1,
+            "loop6": 1,
+            "loop4": 1,
+            "loop0": 1
+        }
+    },
+    "batch_norm25": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 4,
+            "loop2": 28,
+            "loop3": 28
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "elem_add26": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 4,
+            "loop2": 28,
+            "loop3": 28
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu27": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 4,
+            "loop2": 28,
+            "loop3": 28
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv28": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 1,
+            "loop6": 1,
+            "loop4": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 28,
+            "loop6": 28,
+            "loop4": 1,
+            "loop0": 4
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 4,
+            "loop3": 3,
+            "loop5": 1,
+            "loop6": 1,
+            "loop4": 3,
+            "loop0": 1
+        }
+    },
+    "batch_norm29": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 4,
+            "loop2": 28,
+            "loop3": 28
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu30": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 4,
+            "loop2": 28,
+            "loop3": 28
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv31": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 1,
+            "loop6": 1,
+            "loop4": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 28,
+            "loop6": 28,
+            "loop4": 1,
+            "loop0": 4
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 4,
+            "loop3": 3,
+            "loop5": 1,
+            "loop6": 1,
+            "loop4": 3,
+            "loop0": 1
+        }
+    },
+    "batch_norm32": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 4,
+            "loop2": 28,
+            "loop3": 28
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "elem_add33": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 4,
+            "loop2": 28,
+            "loop3": 28
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu34": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 4,
+            "loop2": 28,
+            "loop3": 28
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv35": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 1,
+            "loop6": 1,
+            "loop4": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 14,
+            "loop6": 14,
+            "loop4": 1,
+            "loop0": 8
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 4,
+            "loop3": 3,
+            "loop5": 1,
+            "loop6": 1,
+            "loop4": 3,
+            "loop0": 1
+        }
+    },
+    "batch_norm36": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 8,
+            "loop2": 14,
+            "loop3": 14
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu37": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 8,
+            "loop2": 14,
+            "loop3": 14
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv38": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 1,
+            "loop6": 1,
+            "loop4": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 14,
+            "loop6": 14,
+            "loop4": 1,
+            "loop0": 8
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 8,
+            "loop3": 3,
+            "loop5": 1,
+            "loop6": 1,
+            "loop4": 3,
+            "loop0": 1
+        }
+    },
+    "batch_norm39": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 8,
+            "loop2": 14,
+            "loop3": 14
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv40": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 1,
+            "loop6": 1,
+            "loop4": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 14,
+            "loop6": 14,
+            "loop4": 1,
+            "loop0": 8
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 4,
+            "loop3": 1,
+            "loop5": 1,
+            "loop6": 1,
+            "loop4": 1,
+            "loop0": 1
+        }
+    },
+    "batch_norm41": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 8,
+            "loop2": 14,
+            "loop3": 14
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "elem_add42": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 8,
+            "loop2": 14,
+            "loop3": 14
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu43": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 8,
+            "loop2": 14,
+            "loop3": 14
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv44": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 1,
+            "loop6": 1,
+            "loop4": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 14,
+            "loop6": 14,
+            "loop4": 1,
+            "loop0": 8
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 8,
+            "loop3": 3,
+            "loop5": 1,
+            "loop6": 1,
+            "loop4": 3,
+            "loop0": 1
+        }
+    },
+    "batch_norm45": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 8,
+            "loop2": 14,
+            "loop3": 14
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu46": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 8,
+            "loop2": 14,
+            "loop3": 14
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv47": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 1,
+            "loop6": 1,
+            "loop4": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 14,
+            "loop6": 14,
+            "loop4": 1,
+            "loop0": 8
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 8,
+            "loop3": 3,
+            "loop5": 1,
+            "loop6": 1,
+            "loop4": 3,
+            "loop0": 1
+        }
+    },
+    "batch_norm48": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 8,
+            "loop2": 14,
+            "loop3": 14
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "elem_add49": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 8,
+            "loop2": 14,
+            "loop3": 14
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu50": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 8,
+            "loop2": 14,
+            "loop3": 14
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv51": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 1,
+            "loop6": 1,
+            "loop4": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 7,
+            "loop6": 7,
+            "loop4": 1,
+            "loop0": 16
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 8,
+            "loop3": 3,
+            "loop5": 1,
+            "loop6": 1,
+            "loop4": 3,
+            "loop0": 1
+        }
+    },
+    "batch_norm52": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 16,
+            "loop2": 7,
+            "loop3": 7
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu53": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 16,
+            "loop2": 7,
+            "loop3": 7
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv54": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 1,
+            "loop6": 1,
+            "loop4": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 7,
+            "loop6": 7,
+            "loop4": 1,
+            "loop0": 16
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 16,
+            "loop3": 3,
+            "loop5": 1,
+            "loop6": 1,
+            "loop4": 3,
+            "loop0": 1
+        }
+    },
+    "batch_norm55": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 16,
+            "loop2": 7,
+            "loop3": 7
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv56": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 1,
+            "loop6": 1,
+            "loop4": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 7,
+            "loop6": 7,
+            "loop4": 1,
+            "loop0": 16
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 8,
+            "loop3": 1,
+            "loop5": 1,
+            "loop6": 1,
+            "loop4": 1,
+            "loop0": 1
+        }
+    },
+    "batch_norm57": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 16,
+            "loop2": 7,
+            "loop3": 7
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "elem_add58": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 16,
+            "loop2": 7,
+            "loop3": 7
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu59": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 16,
+            "loop2": 7,
+            "loop3": 7
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv60": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 1,
+            "loop6": 1,
+            "loop4": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 7,
+            "loop6": 7,
+            "loop4": 1,
+            "loop0": 16
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 16,
+            "loop3": 3,
+            "loop5": 1,
+            "loop6": 1,
+            "loop4": 3,
+            "loop0": 1
+        }
+    },
+    "batch_norm61": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 16,
+            "loop2": 7,
+            "loop3": 7
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu62": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 16,
+            "loop2": 7,
+            "loop3": 7
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv63": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 1,
+            "loop6": 1,
+            "loop4": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 7,
+            "loop6": 7,
+            "loop4": 1,
+            "loop0": 16
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 16,
+            "loop3": 3,
+            "loop5": 1,
+            "loop6": 1,
+            "loop4": 3,
+            "loop0": 1
+        }
+    },
+    "batch_norm64": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 16,
+            "loop2": 7,
+            "loop3": 7
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "elem_add65": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 16,
+            "loop2": 7,
+            "loop3": 7
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu66": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 16,
+            "loop2": 7,
+            "loop3": 7
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "global_avg_pool67": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop4": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 16,
+            "loop4": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop4": 1,
+            "loop2": 7,
+            "loop5": 1,
+            "loop3": 7
+        }
+    },
+    "coarse_flatten68": {},
+    "gemm69": {
+        "0": {
+            "loop2": 1,
+            "loop1": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop2": 1,
+            "loop1": 1,
+            "loop0": 32
+        },
+        "2": {
+            "loop2": 1,
+            "loop1": 16,
+            "loop0": 1
+        }
+    }
+}

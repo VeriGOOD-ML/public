@@ -187,6 +187,8 @@ class Loop(Operation):
             return self.param_symbols[self.op_str] * other
         elif isinstance(other, Operation) and other.op_type == "loop":
             return self.param_symbols[self.op_str] * other.param_symbols[other.op_str]
+        elif isinstance(other, str) and other in self.param_symbols:
+            return self.param_symbols[self.op_str]*self.param_symbols[other]
         else:
             assert isinstance(other, int)
             return self.param_symbols[self.op_str] * other

@@ -90,6 +90,10 @@ class StorageNode(ArchitectureNode):
         return self.depth*self.width*self.banks
 
     @property
+    def num_elements(self):
+        return self.depth*self.banks
+
+    @property
     def size_bytes(self):
         return self.size // 8
 

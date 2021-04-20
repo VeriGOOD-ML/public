@@ -1,0 +1,4164 @@
+{
+    "conv1": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 112,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 112,
+            "loop0": 2
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 7,
+            "loop4": 7,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "batch_norm2": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop2": 112,
+            "loop3": 112
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu3": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 7,
+            "loop2": 56,
+            "loop3": 64
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "max_pool4": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop4": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop4": 56,
+            "loop2": 1,
+            "loop5": 56,
+            "loop3": 1
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop4": 1,
+            "loop2": 3,
+            "loop5": 1,
+            "loop3": 3
+        }
+    },
+    "conv5": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 56,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 56,
+            "loop0": 2
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 2,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "batch_norm6": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop2": 56,
+            "loop3": 56
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu7": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 7,
+            "loop2": 14,
+            "loop3": 64
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv8": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 56,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 56,
+            "loop0": 2
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 2,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "batch_norm9": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop2": 56,
+            "loop3": 56
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "elem_add10": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop2": 56,
+            "loop3": 56
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu11": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 7,
+            "loop2": 14,
+            "loop3": 64
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv12": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 56,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 56,
+            "loop0": 2
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 2,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "batch_norm13": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop2": 56,
+            "loop3": 56
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu14": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 7,
+            "loop2": 14,
+            "loop3": 64
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv15": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 56,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 56,
+            "loop0": 2
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 2,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "batch_norm16": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop2": 56,
+            "loop3": 56
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "elem_add17": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop2": 56,
+            "loop3": 56
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu18": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 7,
+            "loop2": 14,
+            "loop3": 64
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv19": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 28,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 28,
+            "loop0": 4
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 2,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "batch_norm20": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 4,
+            "loop2": 28,
+            "loop3": 28
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu21": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 7,
+            "loop2": 7,
+            "loop3": 64
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv22": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 28,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 28,
+            "loop0": 4
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 4,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "batch_norm23": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 4,
+            "loop2": 28,
+            "loop3": 28
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv24": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 28,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 28,
+            "loop0": 4
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 2,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "batch_norm25": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 4,
+            "loop2": 28,
+            "loop3": 28
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "elem_add26": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 4,
+            "loop2": 28,
+            "loop3": 28
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu27": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 7,
+            "loop2": 7,
+            "loop3": 64
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv28": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 28,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 28,
+            "loop0": 4
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 4,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "batch_norm29": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 4,
+            "loop2": 28,
+            "loop3": 28
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu30": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 7,
+            "loop2": 7,
+            "loop3": 64
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv31": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 28,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 28,
+            "loop0": 4
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 4,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "batch_norm32": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 4,
+            "loop2": 28,
+            "loop3": 28
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "elem_add33": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 4,
+            "loop2": 28,
+            "loop3": 28
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu34": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 7,
+            "loop2": 7,
+            "loop3": 64
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv35": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 14,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 14,
+            "loop0": 8
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 4,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "batch_norm36": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 8,
+            "loop2": 14,
+            "loop3": 14
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu37": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 7,
+            "loop2": 7,
+            "loop3": 32
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv38": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 14,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 14,
+            "loop0": 8
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 8,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "batch_norm39": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 8,
+            "loop2": 14,
+            "loop3": 14
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv40": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 14,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 14,
+            "loop0": 8
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 4,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "batch_norm41": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 8,
+            "loop2": 14,
+            "loop3": 14
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "elem_add42": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 8,
+            "loop2": 14,
+            "loop3": 14
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu43": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 7,
+            "loop2": 7,
+            "loop3": 32
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv44": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 14,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 14,
+            "loop0": 8
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 8,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "batch_norm45": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 8,
+            "loop2": 14,
+            "loop3": 14
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu46": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 7,
+            "loop2": 7,
+            "loop3": 32
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv47": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 14,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 14,
+            "loop0": 8
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 8,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "batch_norm48": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 8,
+            "loop2": 14,
+            "loop3": 14
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "elem_add49": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 8,
+            "loop2": 14,
+            "loop3": 14
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu50": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 7,
+            "loop2": 7,
+            "loop3": 32
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv51": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 7,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 7,
+            "loop0": 16
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 8,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "batch_norm52": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 16,
+            "loop2": 7,
+            "loop3": 7
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu53": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 7,
+            "loop2": 7,
+            "loop3": 16
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv54": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 7,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 7,
+            "loop0": 16
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 16,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "batch_norm55": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 16,
+            "loop2": 7,
+            "loop3": 7
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv56": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 7,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 7,
+            "loop0": 16
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 8,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "batch_norm57": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 16,
+            "loop2": 7,
+            "loop3": 7
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "elem_add58": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 16,
+            "loop2": 7,
+            "loop3": 7
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu59": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 7,
+            "loop2": 7,
+            "loop3": 16
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv60": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 7,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 7,
+            "loop0": 16
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 16,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "batch_norm61": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 16,
+            "loop2": 7,
+            "loop3": 7
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu62": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 7,
+            "loop2": 7,
+            "loop3": 16
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv63": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 7,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 7,
+            "loop0": 16
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 16,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "batch_norm64": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 16,
+            "loop2": 7,
+            "loop3": 7
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "elem_add65": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 16,
+            "loop2": 7,
+            "loop3": 7
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu66": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 7,
+            "loop2": 7,
+            "loop3": 16
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "global_avg_pool67": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop4": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 16,
+            "loop4": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop4": 1,
+            "loop2": 7,
+            "loop5": 1,
+            "loop3": 7
+        }
+    },
+    "gemm69": {
+        "0": {
+            "loop2": 1,
+            "loop1": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop2": 32,
+            "loop1": 1,
+            "loop0": 32
+        },
+        "2": {
+            "loop2": 1,
+            "loop1": 16,
+            "loop0": 1
+        }
+    },
+    "cross_entropy_loss70": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 1
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1024
+        }
+    },
+    "cross_entropy_loss_grad71": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 1024
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1
+        }
+    },
+    "gemm_no_bias72": {
+        "0": {
+            "loop2": 1,
+            "loop1": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop2": 32,
+            "loop1": 1,
+            "loop0": 16
+        },
+        "2": {
+            "loop2": 1,
+            "loop1": 32,
+            "loop0": 1
+        }
+    },
+    "gemm_no_bias73": {
+        "0": {
+            "loop2": 1,
+            "loop1": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop2": 512,
+            "loop1": 1,
+            "loop0": 32
+        },
+        "2": {
+            "loop2": 1,
+            "loop1": 1,
+            "loop0": 1
+        }
+    },
+    "sgd2d74": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1
+        },
+        "1": {
+            "loop0": 16,
+            "loop1": 1024
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1
+        }
+    },
+    "reduce_sum75": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 32
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 32
+        }
+    },
+    "sgd1d76": {
+        "0": {
+            "loop0": 1
+        },
+        "1": {
+            "loop0": 32
+        },
+        "2": {
+            "loop0": 1
+        }
+    },
+    "global_average_pool_grad78": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop5": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 16,
+            "loop2": 7,
+            "loop3": 7,
+            "loop4": 1,
+            "loop5": 1
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop5": 1
+        }
+    },
+    "relu_grad79": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 16,
+            "loop2": 7,
+            "loop3": 7
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "elem_add_grad80": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 16,
+            "loop2": 7,
+            "loop3": 7
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "batchnorm_grad81": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 16,
+            "loop2": 7,
+            "loop3": 7
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv82": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 7,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 7,
+            "loop0": 16
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 16,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "conv83": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 512,
+            "loop2": 1,
+            "loop5": 3,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 3,
+            "loop0": 16
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 7,
+            "loop4": 7,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "sgd4d84": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 16,
+            "loop1": 512,
+            "loop2": 3,
+            "loop3": 3
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu_grad85": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 16,
+            "loop2": 7,
+            "loop3": 7
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "batchnorm_grad86": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 16,
+            "loop2": 7,
+            "loop3": 7
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv87": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 7,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 7,
+            "loop0": 16
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 16,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "conv88": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 512,
+            "loop2": 1,
+            "loop5": 3,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 3,
+            "loop0": 16
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 7,
+            "loop4": 7,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "sgd4d89": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 16,
+            "loop1": 512,
+            "loop2": 3,
+            "loop3": 3
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu_grad90": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 16,
+            "loop2": 7,
+            "loop3": 7
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "elem_add_grad91": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 16,
+            "loop2": 7,
+            "loop3": 7
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "batchnorm_grad92": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 16,
+            "loop2": 7,
+            "loop3": 7
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv93": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 14,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 14,
+            "loop0": 8
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 16,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "conv94": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 256,
+            "loop2": 1,
+            "loop5": 2,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 2,
+            "loop0": 16
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 7,
+            "loop4": 7,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "sgd4d95": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 16,
+            "loop1": 256,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "batchnorm_grad96": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 16,
+            "loop2": 7,
+            "loop3": 7
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv97": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 7,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 7,
+            "loop0": 16
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 16,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "conv98": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 512,
+            "loop2": 1,
+            "loop5": 3,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 3,
+            "loop0": 16
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 7,
+            "loop4": 7,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "sgd4d99": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 16,
+            "loop1": 512,
+            "loop2": 3,
+            "loop3": 3
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu_grad100": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 16,
+            "loop2": 7,
+            "loop3": 7
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "batchnorm_grad101": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 16,
+            "loop2": 7,
+            "loop3": 7
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv102": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 14,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 14,
+            "loop0": 8
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 16,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "conv103": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 256,
+            "loop2": 1,
+            "loop5": 4,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 4,
+            "loop0": 16
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 7,
+            "loop4": 7,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "sgd4d104": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 16,
+            "loop1": 256,
+            "loop2": 3,
+            "loop3": 3
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu_grad105": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 8,
+            "loop2": 14,
+            "loop3": 14
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "elem_add_grad106": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 8,
+            "loop2": 14,
+            "loop3": 14
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "batchnorm_grad107": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 8,
+            "loop2": 14,
+            "loop3": 14
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv108": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 14,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 14,
+            "loop0": 8
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 8,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "conv109": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 256,
+            "loop2": 1,
+            "loop5": 3,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 3,
+            "loop0": 8
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 14,
+            "loop4": 14,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "sgd4d110": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 8,
+            "loop1": 256,
+            "loop2": 3,
+            "loop3": 3
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu_grad111": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 8,
+            "loop2": 14,
+            "loop3": 14
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "batchnorm_grad112": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 8,
+            "loop2": 14,
+            "loop3": 14
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv113": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 14,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 14,
+            "loop0": 8
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 8,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "conv114": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 256,
+            "loop2": 1,
+            "loop5": 3,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 3,
+            "loop0": 8
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 14,
+            "loop4": 14,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "sgd4d115": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 8,
+            "loop1": 256,
+            "loop2": 3,
+            "loop3": 3
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu_grad116": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 8,
+            "loop2": 14,
+            "loop3": 14
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "elem_add_grad117": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 8,
+            "loop2": 14,
+            "loop3": 14
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "batchnorm_grad118": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 8,
+            "loop2": 14,
+            "loop3": 14
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv119": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 28,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 28,
+            "loop0": 4
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 8,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "conv120": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 128,
+            "loop2": 1,
+            "loop5": 2,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 2,
+            "loop0": 8
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 14,
+            "loop4": 14,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "sgd4d121": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 8,
+            "loop1": 128,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "batchnorm_grad122": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 8,
+            "loop2": 14,
+            "loop3": 14
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv123": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 14,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 14,
+            "loop0": 8
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 8,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "conv124": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 256,
+            "loop2": 1,
+            "loop5": 3,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 3,
+            "loop0": 8
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 14,
+            "loop4": 14,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "sgd4d125": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 8,
+            "loop1": 256,
+            "loop2": 3,
+            "loop3": 3
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu_grad126": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 8,
+            "loop2": 14,
+            "loop3": 14
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "batchnorm_grad127": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 8,
+            "loop2": 14,
+            "loop3": 14
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv128": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 28,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 28,
+            "loop0": 4
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 8,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "conv129": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 128,
+            "loop2": 1,
+            "loop5": 4,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 4,
+            "loop0": 8
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 14,
+            "loop4": 14,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "sgd4d130": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 8,
+            "loop1": 128,
+            "loop2": 3,
+            "loop3": 3
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu_grad131": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 4,
+            "loop2": 28,
+            "loop3": 28
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "elem_add_grad132": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 4,
+            "loop2": 28,
+            "loop3": 28
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "batchnorm_grad133": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 4,
+            "loop2": 28,
+            "loop3": 28
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv134": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 28,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 28,
+            "loop0": 4
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 4,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "conv135": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 128,
+            "loop2": 1,
+            "loop5": 3,
+            "loop3": 1,
+            "loop4": 2,
+            "loop6": 3,
+            "loop0": 4
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 28,
+            "loop4": 14,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "sgd4d136": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 4,
+            "loop1": 128,
+            "loop2": 3,
+            "loop3": 3
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu_grad137": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 4,
+            "loop2": 28,
+            "loop3": 28
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "batchnorm_grad138": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 4,
+            "loop2": 28,
+            "loop3": 28
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv139": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 28,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 28,
+            "loop0": 4
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 4,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "conv140": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 128,
+            "loop2": 1,
+            "loop5": 3,
+            "loop3": 1,
+            "loop4": 2,
+            "loop6": 3,
+            "loop0": 4
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 28,
+            "loop4": 14,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "sgd4d141": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 4,
+            "loop1": 128,
+            "loop2": 3,
+            "loop3": 3
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu_grad142": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 4,
+            "loop2": 28,
+            "loop3": 28
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "elem_add_grad143": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 4,
+            "loop2": 28,
+            "loop3": 28
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "batchnorm_grad144": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 4,
+            "loop2": 28,
+            "loop3": 28
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv145": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 56,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 56,
+            "loop0": 2
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 4,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "conv146": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 64,
+            "loop2": 1,
+            "loop5": 2,
+            "loop3": 1,
+            "loop4": 2,
+            "loop6": 2,
+            "loop0": 4
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 28,
+            "loop4": 14,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "sgd4d147": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 4,
+            "loop1": 64,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "batchnorm_grad148": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 4,
+            "loop2": 28,
+            "loop3": 28
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv149": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 28,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 28,
+            "loop0": 4
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 4,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "conv150": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 128,
+            "loop2": 1,
+            "loop5": 3,
+            "loop3": 1,
+            "loop4": 2,
+            "loop6": 3,
+            "loop0": 4
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 28,
+            "loop4": 14,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "sgd4d151": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 4,
+            "loop1": 128,
+            "loop2": 3,
+            "loop3": 3
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu_grad152": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 4,
+            "loop2": 28,
+            "loop3": 28
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "batchnorm_grad153": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 4,
+            "loop2": 28,
+            "loop3": 28
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv154": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 56,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 56,
+            "loop0": 2
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 4,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "conv155": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 64,
+            "loop2": 1,
+            "loop5": 4,
+            "loop3": 1,
+            "loop4": 2,
+            "loop6": 4,
+            "loop0": 4
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 28,
+            "loop4": 14,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "sgd4d156": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 4,
+            "loop1": 64,
+            "loop2": 3,
+            "loop3": 3
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu_grad157": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop2": 56,
+            "loop3": 56
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "elem_add_grad158": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop2": 56,
+            "loop3": 56
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "batchnorm_grad159": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop2": 56,
+            "loop3": 56
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv160": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 56,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 56,
+            "loop0": 2
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 2,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "conv161": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 64,
+            "loop2": 1,
+            "loop5": 3,
+            "loop3": 1,
+            "loop4": 7,
+            "loop6": 3,
+            "loop0": 2
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 56,
+            "loop4": 8,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "sgd4d162": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 2,
+            "loop1": 64,
+            "loop2": 3,
+            "loop3": 3
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu_grad163": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop2": 56,
+            "loop3": 56
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "batchnorm_grad164": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop2": 56,
+            "loop3": 56
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv165": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 56,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 56,
+            "loop0": 2
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 2,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "conv166": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 64,
+            "loop2": 1,
+            "loop5": 3,
+            "loop3": 1,
+            "loop4": 7,
+            "loop6": 3,
+            "loop0": 2
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 56,
+            "loop4": 8,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "sgd4d167": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 2,
+            "loop1": 64,
+            "loop2": 3,
+            "loop3": 3
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu_grad168": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop2": 56,
+            "loop3": 56
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "elem_add_grad169": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop2": 56,
+            "loop3": 56
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "batchnorm_grad170": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop2": 56,
+            "loop3": 56
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv171": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 56,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 56,
+            "loop0": 2
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 2,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "conv172": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 64,
+            "loop2": 1,
+            "loop5": 3,
+            "loop3": 1,
+            "loop4": 7,
+            "loop6": 3,
+            "loop0": 2
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 56,
+            "loop4": 8,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "sgd4d173": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 2,
+            "loop1": 64,
+            "loop2": 3,
+            "loop3": 3
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu_grad174": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop2": 56,
+            "loop3": 56
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "batchnorm_grad175": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop2": 56,
+            "loop3": 56
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv176": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 56,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 56,
+            "loop0": 2
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 2,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "conv177": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 64,
+            "loop2": 1,
+            "loop5": 3,
+            "loop3": 1,
+            "loop4": 7,
+            "loop6": 3,
+            "loop0": 2
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 56,
+            "loop4": 8,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "sgd4d178": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 2,
+            "loop1": 64,
+            "loop2": 3,
+            "loop3": 3
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "max_pool_grad179": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop4": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop4": 56,
+            "loop2": 3,
+            "loop5": 56,
+            "loop3": 3
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop4": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1
+        }
+    },
+    "relu_grad180": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop2": 112,
+            "loop3": 112
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "batchnorm_grad181": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop2": 112,
+            "loop3": 112
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv182": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 224,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 224,
+            "loop0": 1
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 2,
+            "loop5": 1,
+            "loop3": 7,
+            "loop4": 7,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "conv183": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 3,
+            "loop2": 1,
+            "loop5": 8,
+            "loop3": 1,
+            "loop4": 28,
+            "loop6": 8,
+            "loop0": 2
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 112,
+            "loop4": 4,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "sgd4d184": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 2,
+            "loop1": 32,
+            "loop2": 7,
+            "loop3": 7
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    }
+}

@@ -36,7 +36,7 @@ def evaluate_offset(expr: Basic, values: Dict[str, int]):
 def size_from_offsets(cdlt, domain_offsets):
     sizes = []
 
-    for o in doamin_offsets:
+    for o in domain_offsets:
         if isinstance(o, Basic):
             indices = list(o.atoms(Idx))
             others = [i for i in list(o.free_symbols) if i not in indices]

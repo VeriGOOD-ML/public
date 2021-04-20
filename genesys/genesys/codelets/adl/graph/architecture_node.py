@@ -3,7 +3,7 @@ from codelets.graph import Node, Graph
 from .graph_algorithms import compute_node_levels
 from . import ArchitectureGraph
 from typing import List, Dict, Union, TYPE_CHECKING
-from pygraphviz import AGraph
+# from pygraphviz import AGraph
 from collections import namedtuple, deque
 from dataclasses import dataclass, field
 import itertools
@@ -210,16 +210,16 @@ class ArchitectureNode(Node):
                 return lev
         raise KeyError(f"Unable to find node level for {node_name}")
 
-    def networkx_visualize(self, filename):
-        dgraph = AGraph(strict=False, directed=True)
-
-        for n in self.subgraph.get_nodes():
-            self.subgraph._add_nx_subgraph(dgraph, n)
-
-        dgraph.add_edges_from(self.subgraph.get_viz_edge_list())
-
-        dgraph.layout("dot")
-        dgraph.draw(f"{filename}.pdf", format="pdf")
+    # def networkx_visualize(self, filename):
+    #     dgraph = AGraph(strict=False, directed=True)
+    #
+    #     for n in self.subgraph.get_nodes():
+    #         self.subgraph._add_nx_subgraph(dgraph, n)
+    #
+    #     dgraph.add_edges_from(self.subgraph.get_viz_edge_list())
+    #
+    #     dgraph.layout("dot")
+    #     dgraph.draw(f"{filename}.pdf", format="pdf")
     #
 
     def add_util_fn(self, name, arg_vars: List[str], body):

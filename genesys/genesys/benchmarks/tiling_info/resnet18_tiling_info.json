@@ -1,0 +1,1151 @@
+{
+    "conv_bias1": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 112,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 112,
+            "loop0": 2
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 7,
+            "loop4": 7,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "relu2": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop2": 112,
+            "loop3": 112
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "max_pool3": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop4": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop4": 56,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 56
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop4": 1,
+            "loop2": 3,
+            "loop3": 3,
+            "loop5": 1
+        }
+    },
+    "conv_bias4": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 56,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 56,
+            "loop0": 2
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 2,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "relu5": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop2": 56,
+            "loop3": 56
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv_bias6": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 56,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 56,
+            "loop0": 2
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 2,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "elem_add7": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop2": 56,
+            "loop3": 56
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu8": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop2": 56,
+            "loop3": 56
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv_bias9": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 56,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 56,
+            "loop0": 2
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 2,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "relu10": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop2": 56,
+            "loop3": 56
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv_bias11": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 56,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 56,
+            "loop0": 2
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 2,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "elem_add12": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop2": 56,
+            "loop3": 56
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu13": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 2,
+            "loop2": 56,
+            "loop3": 56
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv_bias14": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 28,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 28,
+            "loop0": 4
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 2,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "relu15": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 4,
+            "loop2": 28,
+            "loop3": 28
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv_bias16": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 28,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 28,
+            "loop0": 4
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 4,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "conv_bias17": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 28,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 28,
+            "loop0": 4
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 2,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "elem_add18": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 4,
+            "loop2": 28,
+            "loop3": 28
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu19": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 4,
+            "loop2": 28,
+            "loop3": 28
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv_bias20": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 28,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 28,
+            "loop0": 4
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 4,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "relu21": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 4,
+            "loop2": 28,
+            "loop3": 28
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv_bias22": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 28,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 28,
+            "loop0": 4
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 4,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "elem_add23": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 4,
+            "loop2": 28,
+            "loop3": 28
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu24": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 4,
+            "loop2": 28,
+            "loop3": 28
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv_bias25": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 14,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 14,
+            "loop0": 8
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 4,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "relu26": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 8,
+            "loop2": 14,
+            "loop3": 14
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv_bias27": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 14,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 14,
+            "loop0": 8
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 8,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "conv_bias28": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 14,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 14,
+            "loop0": 8
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 4,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "elem_add29": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 8,
+            "loop2": 14,
+            "loop3": 14
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu30": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 8,
+            "loop2": 14,
+            "loop3": 14
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv_bias31": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 14,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 14,
+            "loop0": 8
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 8,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "relu32": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 8,
+            "loop2": 14,
+            "loop3": 14
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv_bias33": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 14,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 14,
+            "loop0": 8
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 8,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "elem_add34": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 8,
+            "loop2": 14,
+            "loop3": 14
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu35": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 8,
+            "loop2": 14,
+            "loop3": 14
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv_bias36": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 7,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 7,
+            "loop0": 16
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 8,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "relu37": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 16,
+            "loop2": 7,
+            "loop3": 7
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv_bias38": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 7,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 7,
+            "loop0": 16
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 16,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "conv_bias39": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 7,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 7,
+            "loop0": 16
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 8,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "elem_add40": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 16,
+            "loop2": 7,
+            "loop3": 7
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu41": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 16,
+            "loop2": 7,
+            "loop3": 7
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv_bias42": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 7,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 7,
+            "loop0": 16
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 16,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "relu43": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 16,
+            "loop2": 7,
+            "loop3": 7
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "conv_bias44": {
+        "0": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 1,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop1": 1,
+            "loop2": 1,
+            "loop5": 7,
+            "loop3": 1,
+            "loop4": 1,
+            "loop6": 7,
+            "loop0": 16
+        },
+        "2": {
+            "loop1": 1,
+            "loop2": 16,
+            "loop5": 1,
+            "loop3": 3,
+            "loop4": 3,
+            "loop6": 1,
+            "loop0": 1
+        }
+    },
+    "elem_add45": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 16,
+            "loop2": 7,
+            "loop3": 7
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "relu46": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 16,
+            "loop2": 7,
+            "loop3": 7
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop2": 1,
+            "loop3": 1
+        }
+    },
+    "global_avg_pool47": {
+        "0": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop4": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 1
+        },
+        "1": {
+            "loop0": 1,
+            "loop1": 16,
+            "loop4": 1,
+            "loop2": 1,
+            "loop3": 1,
+            "loop5": 1
+        },
+        "2": {
+            "loop0": 1,
+            "loop1": 1,
+            "loop4": 1,
+            "loop2": 7,
+            "loop3": 7,
+            "loop5": 1
+        }
+    },
+    "gemm48": {
+        "0": {
+            "loop2": 1,
+            "loop1": 1,
+            "loop0": 1
+        },
+        "1": {
+            "loop2": 1,
+            "loop1": 1,
+            "loop0": 32
+        },
+        "2": {
+            "loop2": 1,
+            "loop1": 16,
+            "loop0": 1
+        }
+    }
+}

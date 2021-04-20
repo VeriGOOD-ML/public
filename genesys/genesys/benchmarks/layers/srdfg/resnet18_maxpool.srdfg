@@ -1,146 +1,162 @@
 
-≥126output""@"8"8:
-	root_name2126∏:
-type_modifier2output∏:,
-uid%2 44dcf51006924f28b063342007f0835c∏:
-write_count∏Bpolymath.srdfg.nodes.output
-ö125input""@"p"p:
-	root_name2125∏:,
-uid%2 68f048049fed44e89fe446f7d71c82f7∏:
+ø126output""@"8"8:
+type_modifier2output¿:
+write_count¿:,
+uid%2 ef9304b12a3641eb8aa20f7cc0989b25¿:
+	root_name2126¿Bpolymath.srdfg.nodes.outputH‡¬¶·Pê…Ê±
+¶125input""@"p"p:
 type_modifier
-2input∏Bpolymath.srdfg.nodes.input
-™ 
-ö125input""@"p"p:,
-uid%2 68f048049fed44e89fe446f7d71c82f7∏:
-	root_name2125∏:
+2input¿:,
+uid%2 d8803776e5014562864397b509b4745d¿:
+	root_name2125¿Bpolymath.srdfg.nodes.inputH∞À¶·Pê…Ê±
+Ú$
+¶125input""@"p"p:,
+uid%2 d8803776e5014562864397b509b4745d¿:
+	root_name2125¿:
 type_modifier
-2input∏Bpolymath.srdfg.nodes.input
-≥126output""@"8"8:
-write_count∏:
-type_modifier2output∏:
-	root_name2126∏:,
-uid%2 44dcf51006924f28b063342007f0835c∏Bpolymath.srdfg.nodes.output
-Kyindex2∏27∏:
+2input¿Bpolymath.srdfg.nodes.inputH∞À¶·Pê…Ê±
+ø126output""@"8"8:
+type_modifier2output¿:,
+uid%2 ef9304b12a3641eb8aa20f7cc0989b25¿:
+	root_name2126¿:
+write_count¿Bpolymath.srdfg.nodes.outputH‡¬¶·Pê…Ê±
+hyindex2¿27¿:
 domainb
-2y∏∏#Bpolymath.srdfg.index.index
-Kxindex2∏27∏:
+2y¿¿#:
+stride¿Bpolymath.srdfg.index.indexHÄ¬¶·P–«¶·
+hxindex2¿27¿:
+stride¿:
 domainb
-2x∏∏#Bpolymath.srdfg.index.index
-Kmindex2∏2∏:
+2x¿¿#Bpolymath.srdfg.index.indexH†Õ¶·P–«¶·
+hmindex2¿2¿:
 domainb
-2m∏∏#Bpolymath.srdfg.index.index
-Mn_index2∏2∏:
+2m¿¿#:
+stride¿Bpolymath.srdfg.index.indexHêÃ¶·P–«¶·
+jn_index2¿2¿:
 domainb	
-2n_∏∏#Bpolymath.srdfg.index.index
-Oihpindex2∏2q∏:
+2n_¿¿#:
+stride¿Bpolymath.srdfg.index.indexH† ¶·P–«¶·
+lihpindex2¿2q¿:
 domainb
 
-2ihp∏∏#Bpolymath.srdfg.index.index
-Oiwpindex2∏2q∏:
+2ihp¿¿#:
+stride¿Bpolymath.srdfg.index.indexH√¶·P–«¶·
+liwpindex2¿2q¿:
 domainb
 
-2iwp∏∏#Bpolymath.srdfg.index.index
-Miyindex2∏2o∏:
+2iwp¿¿#:
+stride¿Bpolymath.srdfg.index.indexH†ƒ¶·P–«¶·
+jiyindex2¿2o¿:
 domainb	
-2iy∏∏#Bpolymath.srdfg.index.index
-Mixindex2∏2o∏:
+2iy¿¿#:
+stride¿Bpolymath.srdfg.index.indexH–¡¶·P–«¶·
+jixindex2¿2o¿:
 domainb	
-2ix∏∏#Bpolymath.srdfg.index.index
-Ibindex2∏2∏:
+2ix¿¿#:
+stride¿Bpolymath.srdfg.index.indexH––¶·P–«¶·
+fbindex2¿2¿:
+stride¿:
 domainb
-2b∏∏#Bpolymath.srdfg.index.index
-Kcindex2∏2?∏:
+2b¿¿#Bpolymath.srdfg.index.indexH¿“¶·P–«¶·
+hcindex2¿2?¿:
+stride¿:
 domainb
-2c∏∏#Bpolymath.srdfg.index.index
-≥paddedtemp""@"r"r:
-write_count∏:,
-uid%2 ffa3f4d4dd61406d9afb055bac25324b∏:
-	root_name2padded∏:
-type_modifier	2temp∏Bpolymath.srdfg.nodes.temp
-©padded0write""@"r"r2∏2ÇbÇcÇihpÇiwp∏"22padded∏:
-type_modifier	2temp∏:3
+2c¿¿#Bpolymath.srdfg.index.indexH∞‘¶·P–«¶·
+øpaddedtemp""@"r"r:
+write_count¿:
+	root_name2padded¿:
+type_modifier	2temp¿:,
+uid%2 1e9887a099514c4bbd71930e881a2369¿Bpolymath.srdfg.nodes.tempH†÷¶·P–«¶·
+µpadded0write""@"r"r2¿2ÇbÇcÇihpÇiwp¿"22padded¿:3
 domain)b$
-2b∏
-2c∏
-2ihp∏
-2iwp∏∏#:
-alias2padded∏:Y
-write_graphJÇ!Extracted from {torch-jit-export}Ç 70b7584e12ec4197a3f6e4fa22997a81∏Bpolymath.srdfg.nodes.write
-ë125(b, c, iy, ix)	var_index22125∏2ÇbÇcÇiyÇix∏":1
+2b¿
+2c¿
+2ihp¿
+2iwp¿¿#:Y
+write_graphJÇ!Extracted from {torch-jit-export}Ç 8f8009e7d98b4390b3d73f68228f7aa1¿:
+type_modifier	2temp¿:
+alias2padded¿Bpolymath.srdfg.nodes.writeHÿ¶·P–«¶·
+ù125(b, c, iy, ix)	var_index22125¿2ÇbÇcÇiyÇix¿":1
 domain'b"
-2b∏
-2c∏
-2iy∏
-2ix∏∏#Bpolymath.srdfg.base.var_index
-î ddfd5f52caf74ee488cd1e16dc12bc97	index_add22iy∏2∏:
+2b¿
+2c¿
+2iy¿
+2ix¿¿#Bpolymath.srdfg.base.var_indexHÄ⁄¶·P–«¶·
+± 180404ec7f744c9c9f714d501874a7e1	index_add22iy¿2¿:
+target2_operator.add¿:
 domainb	
-2iy∏∏#:
-target2_operator.add∏Bpolymath.srdfg.index.index_op
-î 99cd7d82f0d84be497721b0caeae1626	index_add22ix∏2∏:
-target2_operator.add∏:
+2iy¿¿#:
+stride¿Bpolymath.srdfg.index.index_opH–Ÿ¶·P–«¶·
+± 86bbf2f264ca499caacdb6ad8c8b5590	index_add22ix¿2¿:
 domainb	
-2ix∏∏#Bpolymath.srdfg.index.index_op
-ıpadded1write""@"r"r22125(b, c, iy, ix)∏2QÇbÇcÇ ddfd5f52caf74ee488cd1e16dc12bc97Ç 99cd7d82f0d84be497721b0caeae1626∏"22padded0∏:Y
-write_graphJÇ!Extracted from {torch-jit-export}Ç 70b7584e12ec4197a3f6e4fa22997a81∏:
-alias2padded∏:
-type_modifier	2temp∏:1
+2ix¿¿#:
+stride¿:
+target2_operator.add¿Bpolymath.srdfg.index.index_opHêÿ¶·P–«¶·
+Åpadded1write""@"r"r22125(b, c, iy, ix)¿2QÇbÇcÇ 180404ec7f744c9c9f714d501874a7e1Ç 86bbf2f264ca499caacdb6ad8c8b5590¿"22padded0¿:1
 domain'b"
-2b∏
-2c∏
-2iy∏
-2ix∏∏#Bpolymath.srdfg.nodes.write
-í 47ece09f70c64820a4c70b0071bf9fe6	index_mul2∏22y∏:
-target2_operator.mul∏:
+2b¿
+2c¿
+2iy¿
+2ix¿¿#:
+alias2padded¿:Y
+write_graphJÇ!Extracted from {torch-jit-export}Ç 8f8009e7d98b4390b3d73f68228f7aa1¿:
+type_modifier	2temp¿Bpolymath.srdfg.nodes.writeH‡⁄¶·P–«¶·
+Ø 71de654bbaf74911b8656c9632d3a4c0	index_mul2¿22y¿:
+stride¿:
+target2_operator.mul¿:
 domainb
-2y∏∏#Bpolymath.srdfg.index.index_op
-∫ fde6b102113b456981175999e8a8195f	index_add2%2 47ece09f70c64820a4c70b0071bf9fe6∏22m∏:
+2y¿¿#Bpolymath.srdfg.index.index_opHêÉß·P–«¶·
+◊ 22d4dbfc0ed24e3d91297c8b28170e37	index_add2%2 71de654bbaf74911b8656c9632d3a4c0¿22m¿:
 domainb
-2y∏
-2m∏∏#:
-target2_operator.add∏Bpolymath.srdfg.index.index_op
-í b05646b6c8834bc4aa3262449c837d5a	index_mul2∏22x∏:
-target2_operator.mul∏:
+2y¿
+2m¿¿#:
+target2_operator.add¿:
+stride¿Bpolymath.srdfg.index.index_opH‡Çß·P–«¶·
+Ø 232660361ce7485f968bcf4830ca0675	index_mul2¿22x¿:
 domainb
-2x∏∏#Bpolymath.srdfg.index.index_op
-º 2e79921f3d8c431ca4db23513621c26e	index_add2%2 b05646b6c8834bc4aa3262449c837d5a∏22n_∏: 
+2x¿¿#:
+target2_operator.mul¿:
+stride¿Bpolymath.srdfg.index.index_opHÄß·P–«¶·
+Ÿ 2e74b9ff28e246d1bc6ff5e8eac359fc	index_add2%2 232660361ce7485f968bcf4830ca0675¿22n_¿:
+target2_operator.add¿: 
 domainb
-2x∏
-2n_∏∏#:
-target2_operator.add∏Bpolymath.srdfg.index.index_op
-†Qpadded1(b, c, fde6b102113b456981175999e8a8195f, 2e79921f3d8c431ca4db23513621c26e)	var_index22padded1∏2QÇbÇcÇ fde6b102113b456981175999e8a8195fÇ 2e79921f3d8c431ca4db23513621c26e∏":@
+2x¿
+2n_¿¿#:
+stride¿Bpolymath.srdfg.index.index_opH∞Öß·P–«¶·
+¨Qpadded1(b, c, 22d4dbfc0ed24e3d91297c8b28170e37, 2e74b9ff28e246d1bc6ff5e8eac359fc)	var_index22padded1¿2QÇbÇcÇ 22d4dbfc0ed24e3d91297c8b28170e37Ç 2e74b9ff28e246d1bc6ff5e8eac359fc¿":@
 domain6b1
-2b∏
-2c∏
-2y∏
-2m∏
-2x∏
-2n_∏∏#Bpolymath.srdfg.base.var_index
-ä 67da10cfdc724221bb7a21371eb740f6max2ÇmÇn_∏"2V2Qpadded1(b, c, fde6b102113b456981175999e8a8195f, 2e79921f3d8c431ca4db23513621c26e)∏:/
+2b¿
+2c¿
+2y¿
+2m¿
+2x¿
+2n_¿¿#Bpolymath.srdfg.base.var_indexH–áß·P–«¶·
+ñ e938cfe526ce4e098d31363ba49287c2max2ÇmÇn_¿"2V2Qpadded1(b, c, 22d4dbfc0ed24e3d91297c8b28170e37, 2e74b9ff28e246d1bc6ff5e8eac359fc)¿:/
 domain%b 
-2b∏
-2c∏
-2y∏
-2x∏∏#:
+2b¿
+2c¿
+2y¿
+2x¿¿#:
+axesr¿:
 target2
-numpy.amax∏:
-axesr∏Bpolymath.srdfg.group_nodes.max
-º1260write""@"8"82%2 67da10cfdc724221bb7a21371eb740f6∏2ÇbÇcÇyÇx∏"22126∏:
-type_modifier2output∏:
-alias2126∏:/
+numpy.amax¿Bpolymath.srdfg.group_nodes.maxHêåß·P–«¶·
+»1260write""@"8"82%2 e938cfe526ce4e098d31363ba49287c2¿2ÇbÇcÇyÇx¿"22126¿:/
 domain%b 
-2b∏
-2c∏
-2y∏
-2x∏∏#:Y
-write_graphJÇ!Extracted from {torch-jit-export}Ç 70b7584e12ec4197a3f6e4fa22997a81∏Bpolymath.srdfg.nodes.write 70b7584e12ec4197a3f6e4fa22997a81max_pool22125∏22126∏2∏2∏:
-padr∏:
-strider∏B%polymath.srdfg.templates.dnn.max_pool
-º1260write""@"8"82%2 67da10cfdc724221bb7a21371eb740f6∏2ÇbÇcÇyÇx∏"22126∏:
-type_modifier2output∏:Y
-write_graphJÇ!Extracted from {torch-jit-export}Ç 70b7584e12ec4197a3f6e4fa22997a81∏:
-alias2126∏:/
+2b¿
+2c¿
+2y¿
+2x¿¿#:Y
+write_graphJÇ!Extracted from {torch-jit-export}Ç 8f8009e7d98b4390b3d73f68228f7aa1¿:
+alias2126¿:
+type_modifier2output¿Bpolymath.srdfg.nodes.writeH–êß·Pê…Ê± 8f8009e7d98b4390b3d73f68228f7aa1max_pool22125¿22126¿2¿2¿:
+strider¿:
+padr¿B%polymath.srdfg.templates.dnn.max_poolH–«¶·Pê…Ê±
+»1260write""@"8"82%2 e938cfe526ce4e098d31363ba49287c2¿2ÇbÇcÇyÇx¿"22126¿:
+alias2126¿:
+type_modifier2output¿:Y
+write_graphJÇ!Extracted from {torch-jit-export}Ç 8f8009e7d98b4390b3d73f68228f7aa1¿:/
 domain%b 
-2b∏
-2c∏
-2y∏
-2x∏∏#Bpolymath.srdfg.nodes.writeresnet18_maxpool!Extracted from {torch-jit-export}Bpolymath.srdfg.base.Node
+2b¿
+2c¿
+2y¿
+2x¿¿#Bpolymath.srdfg.nodes.writeH–êß·Pê…Ê±resnet18_maxpool!Extracted from {torch-jit-export}Bpolymath.srdfg.base.NodeHê…Ê±Pˇˇˇˇˇˇˇˇˇ

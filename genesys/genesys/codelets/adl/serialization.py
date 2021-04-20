@@ -222,16 +222,6 @@ def validate_schema(json_graph):
     validate(json_graph, schema=schema)
 
 
-class CodeletJSONEncoder(json.JSONEncoder):
-    def default(self, o: Any) -> Any:
-        if isinstance(o, np.integer):
-            return int(o)
-        elif isinstance(o, np.floating):
-            return float(o)
-        elif isinstance(o, sympy.Basic):
-            return str(o)
-        return json.JSONEncoder.default(self, o)
-
 
 NODE_INITIALIZERS = {
     "ComputeNode": ComputeNode,

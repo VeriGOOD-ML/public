@@ -6,7 +6,7 @@ import polymath as pm
 
 TileConstraint = Dict[Tuple[str, str], Tuple[int, int]]
 
-def initialize_program(program_graph, hag: ArchitectureNode):
-    program = CodeletProgram(program_graph, hag)
+def initialize_program(program_graph, hag: ArchitectureNode, mode="inference"):
+    program = CodeletProgram(program_graph, hag, program_mode=mode)
     return program
 

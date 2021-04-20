@@ -26,6 +26,9 @@ class Relocation:
     def get_absolute_address(self, item):
         return self.bases[item]
 
+    def item_names(self):
+        return list(self.bases.keys())
+
 
 
 class RelocationTable(object):
@@ -42,6 +45,8 @@ class RelocationTable(object):
                               'STATE': self.state,
                               'INTERMEDIATE': self.intermediate,
                               'SCRATCH': self.scratch}
+    def __repr__(self):
+        return str([(k, list(v.item_names())) for k, v in self.relocatables.items()])
 
     @property
     def instr_mem(self):
@@ -66,6 +71,12 @@ class RelocationTable(object):
     @property
     def relocatables(self):
         return self._relocatables
+
+    def get_relocation_by_name(self, name):
+        for k, v in self.relocatables.items():
+            if name in v.item_names():
+                return v[name]
+        raise KeyError(f"Unable to find relocation for {name}")
 
     def update_relocation_offset(self, offset_type, offset_id, size):
         current_offset = self.relocatables[offset_type].total_length

@@ -1,16 +1,22 @@
 from typing import Callable, Any, List, Dict, Optional, Tuple, Set, Union, ClassVar
 from collections import namedtuple
 from functools import partial
-from pytools import memoize
+
+from pytools import memoize, memoize_method
 from collections import defaultdict
 import numpy as np
 from . import pairwise
 import polymath as pm
 from numbers import Integral
 from copy import deepcopy
-from sympy import Basic, Idx, symbols, Integer
+from sympy import Basic, Idx, symbols, Integer, lambdify
 from codelets.adl import util
 from dataclasses import dataclass, field
+
+@memoize
+def sympy_as_str(o):
+    return str(o)
+
 
 @dataclass(frozen=True)
 class Offset:
@@ -72,6 +78,32 @@ class DataMovement:
     offset_map: Dict[str, List[Union[int, str, Basic]]] = field(default_factory=dict)
     evaluated_offsets: Dict[str, List[Union[int, str, Basic]]] = field(default_factory=dict)
     evaluated_domain_offsets: Dict[str, List[Union[int, str, Basic, Offset]]] = field(default_factory=dict)
+    lambdified_expr: Dict[str, Any] = field(default_factory=dict)
+    symbol_str_map: Dict[Basic, str] = field(default_factory=dict)
+    symbol_atoms_map: Dict[Basic, str] = field(default_factory=dict)
+
+    def __post_init__(self):
+        self.set_symbol_maps()
+
+    def set_symbol_maps(self):
+        for o in self.offset_map.values():
+            if isinstance(o, Basic):
+                self.symbol_str_map[o] = str(o)
+                self.symbol_atoms_map[o] = list(o.atoms(Idx))
+                others = [i for i in list(o.free_symbols) if i not in self.symbol_atoms_map[o]]
+
+                for idx in self.symbol_atoms_map[o]:
+                    self.symbol_str_map[idx] = str(idx)
+
+                for oth in others:
+                    self.symbol_str_map[oth] = str(oth)
+
+    @memoize_method
+    def get_symbol_str(self, obj):
+        return self.symbol_str_map[obj]
+
+    def get_symbol_atoms(self, obj):
+        return self.symbol_atoms_map[obj]
 
     def __str__(self):
         path = f"PATH: {self.src_node}->{self.dst_node}"
@@ -109,37 +141,47 @@ class DataMovement:
                           deepcopy(self.shape_map),
                           deepcopy(self.offset_map),
                           deepcopy(self.evaluated_offsets),
-                          deepcopy(self.evaluated_domain_offsets)
+                          deepcopy(self.evaluated_domain_offsets),
                           )
+
     def substitute_offset_symbols(self, cdlt, dep_map, replacements):
         new_offset_map = {}
         for name, o in self.offset_map.items():
             if isinstance(o, Basic):
-                indices = list(o.atoms(Idx))
+                indices = self.get_symbol_atoms(o)
                 for idx, i in enumerate(indices):
-                    if str(i) in replacements and str(i) in dep_map:
+                    i_str = self.get_symbol_str(i)
+                    if i_str in replacements and i_str in dep_map:
                         replacement_op = cdlt.op_map[dep_map[str(i)]]
                         assert replacement_op.op_type == "loop"
                         o.subs(i, replacement_op.get_symbol())
                 new_offset_map[name] = o
             else:
                 new_offset_map[name] = 0
-        self.offset_map = new_offset_map
+        self.reinit_offset_map(new_offset_map)
         self.set_size_from_splits(cdlt, cdlt.domain_tiling)
         self.set_offset_map(cdlt, cdlt.domain_loop_map, dep_map)
+
+    def update_offset_map(self, key, update_val):
+        self.offset_map[key] = update_val
+        self.set_symbol_maps()
+
+    def reinit_offset_map(self, new_offset_map):
+        self.offset_map = new_offset_map
+        self.set_symbol_maps()
 
     def get_size_from_splits(self, cdlt, splits):
         sizes = {}
         for name, o in self.offset_map.items():
             if isinstance(o, Basic):
-                indices = list(o.atoms(Idx))
+                indices = self.get_symbol_atoms(o)
                 others = [i for i in list(o.free_symbols) if i not in indices]
                 max_vals = {}
                 for idx, i in enumerate(indices):
-                    assert cdlt.op_map[str(i)].end % splits[str(i)] == 0
-                    max_vals[str(i)] = cdlt.op_map[str(i)].end // splits[str(i)] - 1
-                max_vals.update({str(i): cdlt.required_params[str(i)].value for i in others})
-
+                    i_as_str = self.get_symbol_str(i)
+                    assert cdlt.op_map[i_as_str].end % splits[i_as_str] == 0
+                    max_vals[i] = cdlt.op_map[i_as_str].end // splits[i_as_str] - 1
+                max_vals.update({i: cdlt.required_params[self.get_symbol_str(i)].value for i in others})
                 size = self.resolve_offset(o, max_vals) + 1
                 # TODO: Add logic here to check for zero values
             else:
@@ -151,23 +193,23 @@ class DataMovement:
 
     def get_size_from_loops(self, cdlt, loops):
         sizes = {}
-
         for name, o in self.offset_map.items():
             if isinstance(o, Basic):
-                indices = list(o.atoms(Idx))
+                # indices = list(o.atoms(Idx))
+                indices = self.get_symbol_atoms(o)
                 others = [i for i in list(o.free_symbols) if i not in indices]
                 max_vals = {}
                 for idx, i in enumerate(indices):
-                    assert str(i) in loops
-                    max_vals[str(i)] = loops[str(i)] - 1
+                    i_as_str = self.get_symbol_str(i)
+                    assert i_as_str in loops, f"Index is not in loops: {i}: {loops}, Codelet: {cdlt.op_name}"
+                    max_vals[i] = loops[i_as_str] - 1
 
-                max_vals.update({str(i): cdlt.required_params[str(i)].value for i in others})
+                max_vals.update({i: cdlt.required_params[str(i)].value for i in others})
                 size = self.resolve_offset(o, max_vals) + 1
                 # TODO: Add logic here to check for zero values
             else:
                 size = o
             sizes[name] = size
-
         return sizes
 
     def set_size_from_splits(self, cdlt, split_levels):
@@ -230,22 +272,27 @@ class DataMovement:
             if isinstance(o, Basic):
                 indices = list(o.atoms(Idx))
                 others = [i for i in list(o.free_symbols) if i not in indices]
-                max_vals = {str(i): cdlt.op_map[str(i)].end - 1 for i in indices}
-                max_vals.update({str(i): cdlt.required_params[str(i)].value for i in others})
+                max_vals = {i: cdlt.op_map[str(i)].end - 1 for i in indices}
+                max_vals.update({i: cdlt.required_params[str(i)].value for i in others})
                 size = self.resolve_offset(o, max_vals) + 1
             else:
                 size = o
             self.evaluated_offsets[name] = size
 
     def resolve_offset(self, expr: Basic, values: Dict[str, int]):
-        for f_sym in list(expr.free_symbols):
-            if str(f_sym) in values:
-                expr = expr.subs(f_sym, values[str(f_sym)])
-        if not isinstance(expr, (Integer, Integral)):
+        if expr in self.lambdified_expr:
+            f = self.lambdified_expr[expr]
+        else:
+            free_symbs = list(expr.free_symbols)
+            f = lambdify(free_symbs, expr, "numpy")
+            self.lambdified_expr[expr] = f
+        args = tuple([values[f] for f in list(expr.free_symbols) if f in values])
+        res = f(*args)
+        if not isinstance(res, (Integer, Integral)):
             raise TypeError(f"Unable to compute domain domain_offsets because offset is not an integer:"
                             f"Offset: {expr}\tType: {type(expr)}")
-        return int(expr)
 
+        return int(res)
 
 
 
@@ -265,6 +312,7 @@ class OperandTemplate:
     required_params: List[str] = field(default_factory=list)
     current_codelet: ClassVar = field(default=None)
     compute_pad_dim: int = field(default=-1)
+    permutation: tuple = field(default=tuple([]))
     static_padding: Dict[str, int] = field(default_factory=dict)
     dynamic_padding: Dict[str, int] = field(default_factory=dict)
     dim_order: List[int] = field(default=None)
@@ -303,7 +351,9 @@ class OperandTemplate:
             dm.shape_symbols = self.shape_list
             for dim in dm.shape_symbols:
                 val = dm.offset_map.pop(dim)
-                dm.offset_map[dim] = val
+                dm.update_offset_map(dim, val)
+
+
 
     @property
     def current_location(self):
@@ -387,6 +437,7 @@ class OperandTemplate:
             assert not isinstance(item, list)
             item = (item,)
         offsets = []
+
         for idx in item:
             if isinstance(idx, Basic):
                 off = idx
@@ -409,7 +460,13 @@ class OperandTemplate:
 
     def get_access_offsets(self, offsets):
         if len(offsets) == 0 and len(self.data_moves) > 0:
-            a_offsets = {self.shape_list[i]: list(self.data_moves[-1].offset_map.values())[i].copy() for i in range(len(self.shape_list))}
+            a_offsets = {}
+            for i in range(len(self.shape_list)):
+                omap_val = list(self.data_moves[-1].offset_map.values())[i]
+                if isinstance(omap_val, int):
+                    a_offsets[self.shape_list[i]] = omap_val
+                else:
+                    a_offsets[self.shape_list[i]] = omap_val.copy()
         elif len(offsets) == 0:
             a_offsets = {self.shape_list[i]: 0 for i in range(len(self.shape_list))}
         else:
@@ -449,8 +506,7 @@ class OperandTemplate:
                         self.data_moves[-1].dst_node = src
 
                     if self.data_moves[-1].unset_offsets:
-                        self.data_moves[-1].offset_map = self.get_access_offsets(offsets)
-
+                        self.data_moves[-1].reinit_offset_map(self.get_access_offsets(offsets))
 
             dm_offsets = self.get_access_offsets(offsets)
             shape = self.get_shape_map(sizes[i])
@@ -690,6 +746,7 @@ class OperandTemplate:
                                   data_path=self.data_path.copy(),
                                   dtype=self.dtype,
                                   node_name=self.node_name,
+                                  permutation=self.permutation,
                                   data_moves=deepcopy(self.data_moves),
                                   operand_type=self.operand_type)
         op_temp.evaluated_tiling = deepcopy(self.evaluated_tiling)
@@ -700,6 +757,7 @@ class OperandTemplate:
         if output_type == "json":
 
             blob = {"name": self.name,
+                    "unique_name": self.node_name,
                     "dtype": str(self.dtype),
                     "shape_symbols": {k: v for k, v in self.shape_symbols.items()},
                     "data_path": self.data_path,
