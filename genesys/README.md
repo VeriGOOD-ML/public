@@ -52,7 +52,7 @@ Examples of the hardware .json file format can be found in `genesys/simulation/H
 #### Simulator Outputs:
 (1) a .csv file containing the layer-wise breakdown of the performance statistics of a benchmark DNN (stored in the working directory) and
 (2) a .csv file containing the performance statistics for the full DNN benchmark.
-The output results (2) from simulation are stored in `genesys/simulation/Results_Inference/` and `genesys/simulation/Results_Training/` directories.
+The output results (2) from simulation get stored in `genesys/simulation/Results_Inference/` and `genesys/simulation/Results_Training/` directories.
 
 #### Performance statistics provided by the simulator (for training the statistics are for a single iteration):
 (i) #of accesses for all the on-chip buffers for all the datatypes (in KB);
