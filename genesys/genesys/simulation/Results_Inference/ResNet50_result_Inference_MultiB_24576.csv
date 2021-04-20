@@ -1,0 +1,2 @@
+Configuration name,WBUF access,IBUF access,OBUF access,BUBF access,VMEM access,IMM access,InsMem access,DARM access filter,DRAM access ifmap,DRAM access psum,DRAM access ofmap,DRAM access bias,total DRAM access,SA compute cycles,SA stall cycles,SIMD compute cycles,SIMD stall cycles,total cycles
+ResNet50_Inference_MultiB_Design01,55207133184.0,3450445824.0,54140093952.0,1067039232.0,3265529856.0,922435584.0,102835200.0,281949168.0,5625274368.0,144506880.0,1790870016.0,107.6875,7842600539.6875,988517548032.0,14864412391.0,497401724928.0,192354189312.0,1693137874663.0
