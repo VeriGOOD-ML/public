@@ -55,12 +55,12 @@ Examples of the hardware .json file format can be found in `genesys/simulation/H
 The output results (2) from simulation get stored in `genesys/simulation/Results_Inference/` and `genesys/simulation/Results_Training/` directories.
 
 #### Performance statistics provided by the simulator (for training the statistics are for a single iteration):
-(i) #of accesses for all the on-chip buffers for all the datatypes (in KB);
+(i) #of accesses for all the on-chip buffers for all the data types (in KB);
 (ii) #of accesses for the off-chip DRAM for all the data types (in KB);
 (iii) #of various arithmetic operations;
 (iv) #of compute cycles; (v) #of stall cycles; (vi) total cycle counts.
 
-Use the following command to run simulation.
+Use the following command to run simulation:
 ```console
  python3 genesys/simulation/MainSimulator.py
 ```
