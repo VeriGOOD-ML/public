@@ -5,10 +5,10 @@ import math
 import numpy as np
 from Data_Objects import HardwareObject
 
-class LayerObject(object): 
+class LayerObject(object):
     # This object stores all the parameters associated to a layer. This includes layer dimension, tiling info, fusion status etc
-    # This object takes compiler output associated with each layer and the hardware object as input arguments and extract the tiling, loop ordering etc. information
-    def __init__(self, Hardware_param, CompOut_layer, next_layer):
+    # This object takes compiler output associated with each layer and the hardware object as input arguments
+    def __init__(self, Hardware_param, CompOut_layer, next_layer, Optimal_WS_loop):
         # Ecah type of layer is read under seperate if condition. the dictionary keys and number of variables for different kind of layer is diferent in compiler output
         layer_op = CompOut_layer['operation']
         print("layer operation:", layer_op)
@@ -66,15 +66,18 @@ class LayerObject(object):
             self.Stile_ih = CompOut_layer['inputs'][0]['tiling']['pe_array']['IH']
 
             #### Extracting loop order
-            #print(CompOut_layer['iterable_dimensions'].keys())
-            loop_keys = list(CompOut_layer['iterable_dimensions'].keys())
-            loop_keys.reverse()     # in my code, the first one in the list is the innermost loop (opposite to the compiler output)
-            #print(loop_keys)
-            loop_keys_lower = [key.lower() for key in loop_keys]   # in my code, all the loop keys are lower case (compiler output is upper case)
-            self.Loop_order = loop_keys_lower
+            #print("Optimal_WS_loop:", Optimal_WS_loop)
+            if Optimal_WS_loop == False:
+                #print(CompOut_layer['iterable_dimensions'].keys())
+                loop_keys = list(CompOut_layer['iterable_dimensions'].keys())
+                loop_keys.reverse()     # in simulator code, the first one in the list is the innermost loop (opposite to the compiler output)
+                #print(loop_keys)
+                loop_keys_lower = [key.lower() for key in loop_keys]   # in simulator code, all the loop keys are lower case (compiler output is upper case)
+                self.Loop_order = loop_keys_lower
+                #self.Loop_order = ['ow', 'oh', 'kw', 'kh', 'ic', 'n', 'oc']   # the first one, i.e., ow is the inner most loop and the last one i.e., oc is the outermost loop
+            elif Optimal_WS_loop == True:
+                self.Loop_order = ['ow', 'oh', 'n', 'kw', 'kh', 'ic', 'oc']
             #print("Loop order:", self.Loop_order)
-            #self.Loop_order = ['ow', 'oh', 'kw', 'kh', 'ic', 'n', 'oc']   # the first one, i.e., ow is the inner most loop and the last one i.e., oc is the outermost loop
-            #self.Loop_order = ['ow', 'oh', 'n', 'kw', 'kh', 'ic', 'oc']
 
             #### Extracting fusion info. 
             #print(CompOut_layer['inputs'][0]['data_path'][0])
@@ -85,7 +88,7 @@ class LayerObject(object):
             if initial_ifmap_storage == "DRAM" and final_ofmap_storage == "DRAM":
                 self.fusion_status = "NoFusion"
 
-            ### extracting the execution hardware based on the end location of first input 
+            ### extracting the execution hardware based on the end location of first input
             input_end_location = CompOut_layer['inputs'][0]['data_path'][-1]  # end location of first input
             if input_end_location == "pe_array":
                 self.Exe_Hardware = "Systolic"    
@@ -136,7 +139,7 @@ class LayerObject(object):
             self.DTile_iw = (self.DTile_ow - 1) * self.Stride + self.DTile_kw
             self.DTile_ih = (self.DTile_oh - 1) * self.Stride + self.DTile_kh
 
-            #Tiling parameters from SRAM to PE level 
+            #Tiling parameters from SRAM to PE level
             #print("ifmap:", CompOut_layer['inputs'][0]['tiling']['pe_array'])    # index 0 is ifmap in the list under inputs
             #print("weight:", CompOut_layer['inputs'][1]['tiling']['pe_array'])    # index 1 is weight in the list under inputs
             #print("ofmap:", CompOut_layer['outputs'][0]['tiling']['pe_array'])    # index 0 is ofmap in the list under outputs
@@ -153,7 +156,7 @@ class LayerObject(object):
             #### Extracting loop order 
             #print(CompOut_layer['iterable_dimensions'].keys())
             loop_keys = list(CompOut_layer['iterable_dimensions'].keys())
-            loop_keys.reverse()     # in my code, the first one in the list is the innermost loop (opposite to the compiler output)
+            loop_keys.reverse()     # in simulator code, the first one in the list is the innermost loop (opposite to the compiler output)
             #print(loop_keys)
             key_conversion_dict = {'P':'oc', 'N':'ic', 'M':'n'}
             conv_loop_keys = []  
@@ -186,7 +189,7 @@ class LayerObject(object):
             self.bw_ifmap = int(''.join(filter(str.isdigit, CompOut_layer['inputs'][0]['dtype'])))
             self.bw_filter = int(''.join(filter(str.isdigit, CompOut_layer['inputs'][1]['dtype'])))
             self.bw_ofmap = int(''.join(filter(str.isdigit, CompOut_layer['outputs'][0]['dtype'])))
-            self.bw_psum = self.bw_ofmap  
+            self.bw_psum = self.bw_ofmap 
             if layer_op == "gemm":
                 self.bw_bias = int(''.join(filter(str.isdigit, CompOut_layer['inputs'][2]['dtype'])))
             else:
@@ -237,7 +240,7 @@ class LayerObject(object):
             #### Extracting loop order: loop order does not matter for ReLU layer
             #print(CompOut_layer['iterable_dimensions'].keys())
             loop_keys = list(CompOut_layer['iterable_dimensions'].keys())
-            loop_keys.reverse()     # in my code, the first one in the list is the innermost loop (opposite to the compiler output)
+            loop_keys.reverse()     # in simulator code, the first one in the list is the innermost loop (opposite to the compiler output)
             #print(loop_keys)
             key_conversion_dict = {'H':'oh', 'W':'ow', 'C':'oc', 'N':'n'}
             conv_loop_keys = []  
@@ -320,7 +323,7 @@ class LayerObject(object):
             #### Extracting loop order: loop order does not matter for Elem-Add layer
             #print(CompOut_layer['iterable_dimensions'].keys())
             loop_keys = list(CompOut_layer['iterable_dimensions'].keys())
-            loop_keys.reverse()     # in my code, the first one in the list is the innermost loop (opposite to the compiler output)
+            loop_keys.reverse()     # in simulator code, the first one in the list is the innermost loop (opposite to the compiler output)
             #print(loop_keys)
             key_conversion_dict = {'H':'oh', 'W':'ow', 'C':'oc', 'N':'n'}
             conv_loop_keys = []  
@@ -329,7 +332,7 @@ class LayerObject(object):
             self.Loop_order = conv_loop_keys  #converted loop key
             #print("Loop order:", self.Loop_order)
 
-            #### Extracting fusion info. 
+            #### Extracting fusion info.
             #print(CompOut_layer['inputs'][0]['data_path'][0])
             #print(CompOut_layer['inputs'][1]['data_path'][0])
             #print(CompOut_layer['outputs'][0]['data_path'][-1])
@@ -340,7 +343,7 @@ class LayerObject(object):
             if initial_ifmap1_storage == "DRAM" and initial_ifmap2_storage == "DRAM" and final_ofmap_storage == "DRAM":
                 self.fusion_status = "NoFusion"
 
-            ### extracting the execution hardware based on the end location of first input 
+            ### extracting the execution hardware based on the end location of first input CHECK THE VALIDITY OF THIS EXTRCATION FOR FUSION
             input_end_location = CompOut_layer['inputs'][0]['data_path'][-1]  # end location of first input
             if input_end_location == "pe_array":
                 self.Exe_Hardware = "Systolic"    
@@ -390,17 +393,17 @@ class LayerObject(object):
             
             ######Tiling parameters from DRAM to SRAM level 
             #print("ofmap:", CompOut_layer['outputs'][0]['tiling']['VMEM1'])    # index 0 is ofmap in the list under outputs
-            self.DTile_ow = CompOut_layer['outputs'][0]['tiling']['VMEM1']['OW']
-            self.DTile_oh = CompOut_layer['outputs'][0]['tiling']['VMEM1']['OH']
-            self.DTile_oc = CompOut_layer['outputs'][0]['tiling']['VMEM1']['C']
+            self.DTile_ow = CompOut_layer['outputs'][0]['tiling']['VMEM2']['OW']
+            self.DTile_oh = CompOut_layer['outputs'][0]['tiling']['VMEM2']['OH']
+            self.DTile_oc = CompOut_layer['outputs'][0]['tiling']['VMEM2']['C']
             self.DTile_kw = self.KW  # this has to be true for global_avg_pool as well cause OW = 1, hence the only valid tiling is DTile_kw = KW = IW = DTtile_iw
             self.DTile_kh = self.KH  # to maintain the relationship between OW and IW
             self.DTile_ic = "None"
-            self.DTile_batch = CompOut_layer['outputs'][0]['tiling']['VMEM1']['N']
+            self.DTile_batch = CompOut_layer['outputs'][0]['tiling']['VMEM2']['N']
             self.DTile_iw = (self.DTile_ow - 1) * self.Stride + self.DTile_kw
             self.DTile_ih = (self.DTile_oh - 1) * self.Stride + self.DTile_kh
 
-            #Tiling parameters from SRAM to SIMD level 
+            #Tiling parameters from SRAM to SIMD level
             #print("ifmap:", CompOut_layer['inputs'][0]['tiling']['SIMD'])    # index 0 is ifmap in the list under inputs
             #print("ofmap:", CompOut_layer['outputs'][0]['tiling']['SIMD'])    # index 0 is ofmap in the list under outputs
             self.Stile_ow = CompOut_layer['outputs'][0]['tiling']['SIMD']['OW']
@@ -416,7 +419,7 @@ class LayerObject(object):
             #### Extracting loop order: 
             #print(CompOut_layer['iterable_dimensions'].keys())
             loop_keys = list(CompOut_layer['iterable_dimensions'].keys())
-            loop_keys.reverse()     # in my code, the first one in the list is the innermost loop (opposite to the compiler output)
+            loop_keys.reverse()     # in simulator code, the first one in the list is the innermost loop (opposite to the compiler output)
             #print(loop_keys)
             key_conversion_dict = {'OH':'oh', 'OW':'ow', 'C':'oc', 'N':'n', 'IH':'kh', 'IW': 'kw', 'KH':'kh', 'KW':'kw'}
             conv_loop_keys = []  
@@ -524,7 +527,7 @@ class LayerObject(object):
             self.bw_ofmap = 8
             self.bw_psum = 32  
 
-        ########################################################### ROIAlign Layer ################## (compiler output not integrated yet for RoIAlign)
+        ########################################################### ROIAlign Layer ##################  (compiler output not integrated yet for RoIAlign)
         elif layer_op == "roialign":
             self.Layer_name = "ROIAlignPool"
             ## the Level projection part specific for FPN backbone is omitting now, later will add that either in the same function or as a seperate operation

@@ -36,7 +36,7 @@ import csv
 Simulation_Phase =  "Inference" 
 #Simulation_Phase =  "Training"
 
-DNN_benchmark = "ResNet50_"  #the current compiler output directories contain example of compiler outputs for ResNet50 for the example hardware configuration points
+DNN_benchmark = "ResNet50_"    #the current compiler output directories contain example of compiler outputs for ResNet50 for the example hardware configuration points
 
 hardware_directory_name = "Hardware_Json_" + Simulation_Phase + "/"
 comp_out_dicrectory_name = "Compiler_Output_" + Simulation_Phase + "/"
@@ -50,14 +50,16 @@ Result_directory = Path("genesys/simulation/" + result_directory_name)
 
 Result_header = ['Configuration name', 'WBUF access', 'IBUF access', 'OBUF access', 'BUBF access', 'VMEM access', 'IMM access', 'InsMem access', \
 									   'DARM access filter', 'DRAM access ifmap', 'DRAM access psum', 'DRAM access ofmap', 'DRAM access bias', 'total DRAM access', \
-									   'SA compute cycles', 'SA stall cycles', 'SIMD compute cycles', 'SIMD stall cycles', 'total cycles']
+									   'SA compute cycles', 'SA stall cycles', 'SIMD compute cycles', 'SIMD stall cycles', 'total cycles', 'Op count']
+
+Optimal_WS_loop = True  # this variable is to bypass compiler loop order and to perform simulation using optimal weight stationary loop order for the convolution layers
 
 
 if Simulation_Phase == "Inference":
 	Compute_Phase =  "Inference_"
-	#list of example hrd_design_no in Hardware_Json_Inference directory:['01', '02', '03', '04', '05', '06', '07', '08', '09', '11', '12', '13', '14'] 
+	#list of example hrd_design_no in Hardware_Json_Inference directory:['01', '02', '03', '04', '05', '06', '07', '08', '09', '11', '12', '13', '14']
 	hrd_design_no = '01'
-	
+
 	Batch_size = 1  #the example compiler outputs are for either a Batch_size of 1 or Batch size of 24576 during inference
 
 	if Batch_size == 1:
@@ -69,10 +71,10 @@ if Simulation_Phase == "Inference":
 	Result_file_name = DNN_benchmark + "result_Inference_" + Batching +  str(Batch_size) +".csv"
 	#print(Result_file_name)
 
-	with open(Result_directory/Result_file_name, "w") as csvFile:  
+	with open(Result_directory/Result_file_name, "w") as csvFile:   
 		writer = csv.writer(csvFile)
 		writer.writerow(Result_header) 
-
+		
 		HD_json_name = "genesys_params_design" + hrd_design_no + '.json'
 		CompOutput_file_name = DNN_benchmark + Compute_Phase + Batching + "Design" + hrd_design_no
 		#print(CompOutput_file_name)
@@ -89,7 +91,7 @@ if Simulation_Phase == "Inference":
 		#print(json.dumps(CompilerOutput, indent = 4))
 
 		## All DATA Access Results are in KB
-		Final_result = simulate(CompilerOutput, Hardware_config)
+		Final_result = simulate(CompilerOutput, Hardware_config, Optimal_WS_loop)
 		print("Final_result:", Final_result)
 
 		# name of the design point in the result file
@@ -107,15 +109,15 @@ if Simulation_Phase == "Inference":
 
 elif Simulation_Phase == "Training":
 	Compute_Phase =  "Train_"
-	#list of example hrd_design_no in Hardware_Json_Training directory:['01', '02', '05', '06', '08', '09', '11', '12'] 
+	#list of example hrd_design_no in Hardware_Json_Training directory:['01', '02', '05', '06', '08', '09', '11', '12']
 	hrd_design_no = '01'
-
+	
 	Batching = "MultiB_"   # the example compiler output is for a minibatch of 256 for training
 
 	#name of the stored result file for all training design points
 	Result_file_name = DNN_benchmark + "result_Training_single_iteration.csv"
 
-	with open(Result_directory/Result_file_name, "w") as csvFile:  
+	with open(Result_directory/Result_file_name, "w") as csvFile: 
 		writer = csv.writer(csvFile)
 		writer.writerow(Result_header) 
 
@@ -135,7 +137,7 @@ elif Simulation_Phase == "Training":
 		#print(json.dumps(CompilerOutput, indent = 4))
 
 		## All DATA Access Results are in KB
-		Final_result = simulate(CompilerOutput, Hardware_config)
+		Final_result = simulate(CompilerOutput, Hardware_config, Optimal_WS_loop)
 		print("Final_result:", Final_result)
 
 		# name of the design point in the result file

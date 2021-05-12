@@ -39,7 +39,7 @@ def models_inference_high(Hardware_param, LayerObj):
                 gemm_access_model(Hardware_param, LayerObj, SysResult_inflayer)
                 gemm_cycle_model(Hardware_param, LayerObj, SysResult_inflayer)
             else:
-                print("Model do not exist yet for this layer, Layer_name:", Layer_name)
+                print("model do not exist now for layers other than convolution and gemm")
 
         else:
             print("Model do not exist for SA non double buffer scheme now")
@@ -104,7 +104,7 @@ def models_training_high(Hardware_param, LayerObj):
                 gemm_access_model(Hardware_param, LayerObj, SysResult_inflayer)
                 gemm_cycle_model(Hardware_param, LayerObj, SysResult_inflayer)
             else:
-                print("Model do not exist yet for this layer, Layer_name:", Layer_name)
+                print("model do not exist now for layers other than convolution and gemm")
 
         else:
             print("Model do not exist for SA non double buffer scheme now")

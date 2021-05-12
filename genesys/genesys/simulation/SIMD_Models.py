@@ -26,7 +26,7 @@ def other_access_SIMDhigh(Hardware_param, LayerObj, SIMDResult_inflayer, comp_cy
     #Access for IF/ID pipeline register
     IFID_reg_access = SIMD_Ins_size * Nos_of_IF * 2  # 2 for read and write
 
-    #NOTE: FOR SOFTMAX STEP1 IS ONE OPERAND WHILE STEP2,3 IS TWO OPERAND, STILL KEEPING THIS IN TWO OP CATEGORY FOR SIMPLICITY, 
+    #NOTE: FOR SOFTMAX STEP1 IS ONE OPERAND WHILE STEP2,3 IS TWO OPERAND, STILL KEEPING THIS IN TWO OP CATEGORY FOR SIMPLICITY
     # determining layer category
     two_op_layer = ["ReLU", "ElemAdd", "MaxPool", "AvgPool", "Softmax", "ROIAlignPool"]  # layers for which there are two operands in the instruction
     one_op_layer = ["Sigmoid"]                                # layers for which there are one operand in the instruction
@@ -47,7 +47,7 @@ def other_access_SIMDhigh(Hardware_param, LayerObj, SIMDResult_inflayer, comp_cy
 
     #print("operand_no:", operand_no)
 
-    # determining whether tha layer reads one operand from IMM or not, 
+    # determining whether tha layer reads one operand from IMM or not,  
     immop_no = 0   #of operand read from imm, by default set to zero
     for layername in imm_read_layer:
         if Layer_name == layername:
@@ -58,6 +58,7 @@ def other_access_SIMDhigh(Hardware_param, LayerObj, SIMDResult_inflayer, comp_cy
     #Access for the Index tables (index tables are implemented as registers in GeneSys)
     offset_size = SIMD_address
     stride_size = SIMD_address
+    
     IT_read_access = (operand_no + 1) * (offset_size + stride_size) * Nos_of_IF
     IT_write_access = (operand_no + 1) * offset_size * Nos_of_IF
     indextable_access = IT_read_access + IT_write_access
@@ -65,13 +66,13 @@ def other_access_SIMDhigh(Hardware_param, LayerObj, SIMDResult_inflayer, comp_cy
     #Access for ID/AG pipeline register
     IDAG_reg_access = (SIMD_Ins_size + (operand_no + 1) * (offset_size + stride_size)) * Nos_of_IF * 2   # 2 for read and write
 
-    # Addition operation for address generation 
+    # Addition operation for address generation
     addrgen_add = (operand_no + 1) * Nos_of_IF   #of addition operation to generate the address
 
     #Access for AG/RD pipeline register 
     AGRD_reg_access = (SIMD_Ins_size + (operand_no + 1) * SIMD_address) * Nos_of_IF * 2  # 2 for read and write
 
-    #Access for RD/Ex pipeline register, for the first ALU 
+    #Access for RD/Ex pipeline register, for the first ALU
     RDExR1_reg_access = ((operand_no + 1 - immop_no) * SIMD_address + (3 + 3 + 3 + 4 + 4)) * Nos_of_IF * 2
 
     #Access for the R2 to Rn pipeline registers, for ALU2 to ALU last-1 
@@ -165,7 +166,7 @@ def relu_access_model(Hardware_param, LayerObj, SIMDResult_inflayer):
     #print("ifmap_access_IMM:", ifmap_access_IMM)
     SIMDResult_inflayer.SRAM_access['IMM'] = ifmap_access_IMM
 
-    ## Number of max operations
+    ## Number of max operations, 
     Nos_of_max = (Stile_oh * Stile_ow * Stile_oc * Stile_batch) * (DTile_oh/Stile_oh) * (DTile_ow/Stile_ow) * (DTile_oc/Stile_oc) * (DTile_batch/Stile_batch) \
                                         * (OH/DTile_oh) * (OW/DTile_ow) * (OC/DTile_oc) * (Batch/DTile_batch)
     SIMDResult_inflayer.arithmetic["max"] = Nos_of_max
@@ -199,17 +200,16 @@ def relu_cycle_model(Hardware_param, LayerObj, SIMDResult_inflayer):
     fusion_status = LayerObj.fusion_status
 
     # #of cycles to compute one tile, k operations per cycle, compute cycles do not depend on loop order or fusion
-    #cycle_oneTile = (Stile_oh * Stile_ow * Stile_batch) * (DTile_oh/Stile_oh) * (DTile_ow/Stile_ow) * math.ceil((DTile_oc/Stile_oc)) * (DTile_batch/Stile_batch)
     cycle_oneTile = ((Stile_oh * Stile_ow * Stile_oc * Stile_batch) / SysArray_col)  * (DTile_oh/Stile_oh) * (DTile_ow/Stile_ow) * (DTile_oc/Stile_oc) * (DTile_batch/Stile_batch) 
     #print("cycle_oneTile:", cycle_oneTile)
 
     #of cycles to fill the pipeline for a tile, there are 6 pipeline stages
-    pipe_overhead_tile = (6 - 1) + (SysArray_col - 1)  #using PE col
+    pipe_overhead_tile = (6 - 1) + (SysArray_col - 1)  #using PE col, 
 
     #of cycles to compute one tile including the pipeline setup operhead, need this variable to compute DRAM stall cycles
     ComputeTile_cycles = cycle_oneTile + pipe_overhead_tile
 
-    #for now omitting the use of any ceil since DRAM tile size will be integer multiple of loops,
+    #for now omitting the use of any ceil since DRAM tile size will be integer multiple of loops, 
     Number_of_Tile = (OH/DTile_oh) * (OW/DTile_ow) * (OC/DTile_oc) * (Batch/DTile_batch)
     compute_cycles = math.ceil((cycle_oneTile + pipe_overhead_tile) * Number_of_Tile)   # giving the outer ceil to avoid fraction cycle numbers
 
@@ -245,7 +245,6 @@ def relu_cycle_model(Hardware_param, LayerObj, SIMDResult_inflayer):
 def elemadd_access_model(Hardware_param, LayerObj, SIMDResult_inflayer):
     # data access model for element wise addition layer
 
-    #unpacking the parameters
     bw_ifmap = LayerObj.bw_ifmap 
     bw_ofmap = LayerObj.bw_ofmap 
 
@@ -316,7 +315,6 @@ def elemadd_access_model(Hardware_param, LayerObj, SIMDResult_inflayer):
 def elemadd_cycle_model(Hardware_param, LayerObj, SIMDResult_inflayer):
     #compute cycle and DRAM stall cycle count model for the ElemAdd (element wise addition of two tensors) layer
 
-    #unpacking the parameters
     bw_ifmap = LayerObj.bw_ifmap 
     bw_ofmap = LayerObj.bw_ofmap 
 
@@ -388,7 +386,6 @@ def elemadd_cycle_model(Hardware_param, LayerObj, SIMDResult_inflayer):
 def pool_access_model(Hardware_param, LayerObj, SIMDResult_inflayer):
     # this is the data access model for Average pool, Max pool, and global average pool layers
 
-    # unpacking the parameters
     bw_ifmap = LayerObj.bw_ifmap 
     bw_psum = LayerObj.bw_psum
     bw_ofmap = LayerObj.bw_ofmap  
@@ -475,7 +472,7 @@ def pool_access_model(Hardware_param, LayerObj, SIMDResult_inflayer):
     else:
         print("model for fusion do not exist yet")
 
-    # Nos of arithmetic operations: 
+    # Nos of arithmetic operations:
     if Layer_name == "MaxPool":
         Nos_of_max = (Stile_oh * Stile_ow * Stile_oc * Stile_batch) * (DTile_oh/Stile_oh) * (DTile_ow/Stile_ow) * (DTile_oc/Stile_oc) * (DTile_batch/Stile_batch) \
                                                                            * (DTile_kh/Stile_kh) * (DTile_kw/Stile_kw) * DRAM_loop_multiplier
@@ -495,7 +492,6 @@ def pool_access_model(Hardware_param, LayerObj, SIMDResult_inflayer):
 def pool_cycle_model(Hardware_param, LayerObj, SIMDResult_inflayer):
     #compute cycle and DRAM stall cycle count model for Max Pool, Average Pool (also Global Average Pool) Layer
 
-    # unpacking the parameters
     bw_ifmap = LayerObj.bw_ifmap 
     bw_ofmap = LayerObj.bw_ofmap 
     Layer_name = LayerObj.Layer_name
@@ -540,7 +536,7 @@ def pool_cycle_model(Hardware_param, LayerObj, SIMDResult_inflayer):
         return
 
     ### Placing conditions where stall will be trigered due to not having the data forwarding scheme in the SIMD pipeline of GeneSys. Not modeling this limitation, 
-    # can be avoided such situations by scheduling, Hence placing warning
+    # can be avoided such situations by scheduling/tiling, Hence placing warning
     if Loop_order[0] == 'kw' or Loop_order[0] == 'kh':
         print("WARNING: Model for additional SIMD stall cycles due to data dependency in GeneSys do not exist for the input loop order for the pool layer")
 
@@ -565,7 +561,6 @@ def pool_cycle_model(Hardware_param, LayerObj, SIMDResult_inflayer):
 
 
     ########## compute cycle model
-    #of cycles to compute one tile, k operations per cycle, compute cycles do not depend on loop order or fusion
     cycle_oneTile_cmn = ((Stile_oh * Stile_ow * Stile_oc * Stile_batch) / SysArray_col) * (DTile_oh/Stile_oh) * (DTile_ow/Stile_ow) * (DTile_oc/Stile_oc) * (DTile_batch/Stile_batch) \
                                                                            * (DTile_kh/Stile_kh) * (DTile_kw/Stile_kw) 
 
@@ -579,7 +574,7 @@ def pool_cycle_model(Hardware_param, LayerObj, SIMDResult_inflayer):
     #print("cycle_oneTile:", cycle_oneTile)
 
     #of cycles to fill the pipeline for a tile, there are 6 pipeline stages
-    pipe_overhead_tile = (6 - 1) + (SysArray_col - 1)  #using PE col,
+    pipe_overhead_tile = (6 - 1) + (SysArray_col - 1)  #using PE col, 
 
     #of cycles to compute one tile including the pipeline setup operhead, need this variable to compute DRAM stall cycles
     ComputeTile_cycles = cycle_oneTile + pipe_overhead_tile
@@ -613,7 +608,7 @@ def pool_cycle_model(Hardware_param, LayerObj, SIMDResult_inflayer):
 
     # other accesses which happens at every compute cycle
     # using a common function for all SIMD class high layers to calculate the access from pipeline registers, instruction memory, and index tables
-    #of total compute cycles without pipeline overhead and counting one cycle for each div. IF should happen once for each div operation, 
+    #of total compute cycles without pipeline overhead and counting one cycle for each div. IF should happen once for each div operation 
     comp_cycles_ideal = math.ceil((cycle_oneTile_cmn + cy_oneTile_div) * Number_of_Tile) 
     #print("comp_cycles_ideal:", comp_cycles_ideal)
     other_access_SIMDhigh(Hardware_param, LayerObj, SIMDResult_inflayer, comp_cycles_ideal)
@@ -650,7 +645,7 @@ def softmax_access_model(Hardware_param, LayerObj, SIMDResult_inflayer):
         ifmap_access_DRAM = (DTile_oh * DTile_ow * DTile_oc * DTile_batch) * (OH/DTile_oh) * (OW/DTile_ow) * (OC/DTile_oc) * (Batch/DTile_batch) * bw_ifmap
         psum_access_DRAM1 = (DTile_oh * DTile_ow * DTile_oc * DTile_batch) * (OH/DTile_oh) * (OW/DTile_ow) * (OC/DTile_oc) * (Batch/DTile_batch) * bw_psum
 
-        # There is no DRAM access for step2: reduction, in my currect scheduling
+        # There is no DRAM access for step2: reduction, in my currect scheduling, 
 
         #This access is for step3: division; psum access is read access, and ofmap access is write access
         psum_access_DRAM2 = (DTile_oh * DTile_ow * DTile_oc * DTile_batch) * (OH/DTile_oh) * (OW/DTile_ow) * (OC/DTile_oc) * (Batch/DTile_batch) * bw_psum
@@ -788,7 +783,7 @@ def softmax_cycle_model(Hardware_param, LayerObj, SIMDResult_inflayer):
 
     # other accesses which happens at every compute cycle
     # using a common function for all SIMD class high layers to calculate the access from pipeline registers, instruction memory, and index tables
-    #of total compute cycles without pipeline overhead and counting one cycle for each div & exp. IF should happen once for each div/exp operation,
+    #of total compute cycles without pipeline overhead and counting one cycle for each div & exp. IF should happen once for each div/exp operation, 
     comp_cycles_ideal = math.ceil(cycle_oneTile_eqn * 3 * Number_of_Tile)  # 3 for the three steps, #of total compute cycles without pipeline overhead
     #print("comp_cycles_ideal:", comp_cycles_ideal)
     other_access_SIMDhigh(Hardware_param, LayerObj, SIMDResult_inflayer, comp_cycles_ideal)
@@ -801,7 +796,7 @@ def roialignpool_access_model(Hardware_param, LayerObj, SIMDResult_inflayer):
 
     bw_ifmap = LayerObj.bw_ifmap 
     bw_psum = LayerObj.bw_psum
-    bw_ofmap = LayerObj.bw_ofmap 
+    bw_ofmap = LayerObj.bw_ofmap  
 
     OW = LayerObj.OW
     OH = LayerObj.OH
@@ -904,7 +899,7 @@ def roialignpool_cycle_model(Hardware_param, LayerObj, SIMDResult_inflayer):
 
     bw_ifmap = LayerObj.bw_ifmap 
     bw_psum = LayerObj.bw_psum
-    bw_ofmap = LayerObj.bw_ofmap 
+    bw_ofmap = LayerObj.bw_ofmap  
 
     SysArray_col = Hardware_param.SysArray_col
     RBw_DRAM_to_VMEM = Hardware_param.RBw_DRAM_to_VMEM
@@ -967,7 +962,7 @@ def roialignpool_cycle_model(Hardware_param, LayerObj, SIMDResult_inflayer):
     #print("cycle_oneTile_step568:", cycle_oneTile_step568)
 
     #of cycles to fill the pipeline for a tile, there are 6 pipeline stages
-    pipe_overhead_tile = (6 - 1) + (SysArray_col - 1)  #for now using PE col, after Sean knows how to handle the corner cases will veriy this
+    pipe_overhead_tile = (6 - 1) + (SysArray_col - 1)  #using PE col, 
 
     #of cycles to compute one tile including the pipeline setup operhead
     ComputeTile_cycles_step568 = cycle_oneTile_step568 + pipe_overhead_tile

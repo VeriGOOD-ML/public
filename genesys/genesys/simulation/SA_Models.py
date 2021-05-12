@@ -11,7 +11,7 @@ def conv_access_model(Hardware_param, LayerObj, SysResult_inflayer):
     # data access model for convolution layer
 
     #unpacking the parameters. Doing this unpacking at the beginning of each function
-    # Although repetition of code, doping this since some parameters such bit-width fusion etc may come from a different object
+    # Although repetition of code, doing this since some parameters such bit-width fusion etc may come from a different object
     # In future to address such changes, only this unpacking part will need to be modified and the main body of the function will be untouched
     bw_filter = LayerObj.bw_filter; bw_ifmap = LayerObj.bw_ifmap; bw_ofmap = LayerObj.bw_ofmap
     bw_psum = LayerObj.bw_psum; bw_bias = LayerObj.bw_bias
@@ -69,7 +69,6 @@ def conv_access_model(Hardware_param, LayerObj, SysResult_inflayer):
     ######### Model for DRAM accesses
     if (fusion_status == "NoFusion"):
         if dataflow == "weight_stationary":
-            #######will verify the ceiling later
 
             #imap access
             ifmap_access_DRAM = (DTile_iw * DTile_ih * DTile_ic * DTile_batch) * (OW/DTile_ow) * (OH/DTile_oh) * (Batch/DTile_batch) \
@@ -157,14 +156,15 @@ def conv_access_model(Hardware_param, LayerObj, SysResult_inflayer):
             #print("bias_access_DRAM:", bias_access_DRAM)
 
         elif dataflow == "output_stationary":
-            print("will add model")
+            print("will do")
         elif dataflow == "input_stationary":
-            print("will add model")
+            print("will do")
         else:
             print("Invalid dataflow")
 
     else:
         print("model for fusion do not exist yet")
+
 
     ##### Model for SRAM accesses (Original SRAM access do not depend on fusion)
     SRAM_stationary_flag = "NoStationary"  # current genesys systolic PE hardware does not support any stationary logic for SRAM accesses
@@ -180,6 +180,7 @@ def conv_access_model(Hardware_param, LayerObj, SysResult_inflayer):
     SysResult_inflayer.DRAM_access['ofmap'] = ofmap_access_DRAM
     SysResult_inflayer.DRAM_access['psum'] = psum_access_DRAM
     SysResult_inflayer.DRAM_access['bias'] = bias_access_DRAM
+
 
 
 def conv_SRAM_access_NoStationary(Hardware_param, LayerObj, SysResult_inflayer):
@@ -235,6 +236,7 @@ def conv_SRAM_access_NoStationary(Hardware_param, LayerObj, SysResult_inflayer):
                         * math.ceil((DTile_ow/Stile_ow)) * math.ceil((DTile_oh/Stile_oh)) * math.ceil((DTile_batch/Stile_batch)) \
                         * filter_DRAM_loop_mul * bw_filter # in bit
 
+
     # psum access
     pDRAM_loop_mula = math.ceil(IC/DTile_ic) * math.ceil(KW/DTile_kw) * math.ceil(KH/DTile_kh)
     pDRAM_loop_mulb = (OW/DTile_ow) * (OH/DTile_oh) * (Batch/DTile_batch) * (OC/DTile_oc)
@@ -244,7 +246,7 @@ def conv_SRAM_access_NoStationary(Hardware_param, LayerObj, SysResult_inflayer):
                       * pDRAM_loop_mulb * bw_psum  # in bit
     
 
-    # bias access, for each ofmap location, bias term need to be added once
+    # bias access, for each ofmap location, bias term need to be added once,
     bias_DRAM_loop_mul = (OW/DTile_ow) * (OH/DTile_oh) * (Batch/DTile_batch) * (OC/DTile_oc)
     bias_access_SRAM = (Stile_oc) * DTile_ow * DTile_oh * DTile_batch * (DTile_oc/Stile_oc) * bias_DRAM_loop_mul * bw_bias  # in bit
 
@@ -303,9 +305,9 @@ def conv_cycle_model(Hardware_param, LayerObj, SysResult_inflayer):
     #print(cycle_oneTile)
 
     #pipeline overhead for each DRAM tile
-    pipe_overhead_tile = (SysArray_row - 1) + (SysArray_col - 1)  #using PE row and col, 
+    pipe_overhead_tile = (SysArray_row - 1) + (SysArray_col - 1)  #using PE row and col
 
-    #for now omitting the use of any ceil since DRAM tile size will be integer multiple of loops,
+    #for now omitting the use of any ceil since DRAM tile size will be integer multiple of loops
     Number_of_Tile =  (OW/DTile_ow) * (OH/DTile_oh) * (Batch/DTile_batch) * (IC/DTile_ic) * (KW/DTile_kw) * (KH/DTile_kh) * (OC/DTile_oc)
 
     compute_cycles = math.ceil((cycle_oneTile + pipe_overhead_tile) * Number_of_Tile)   # giving the outer ceil to avoid fraction cycle numbers
@@ -324,6 +326,15 @@ def conv_cycle_model(Hardware_param, LayerObj, SysResult_inflayer):
         print("model for fusion do not exist yet")
 
     SysResult_inflayer.cycles['total'] = compute_cycles + DRAM_stall_cycles
+
+    ####### Counting number of MAC operations: writing in a generic way for future extension (ceiling affects cycle count and #of MAC differently)
+    PE_tile_mac = (Stile_ow * Stile_oh * Stile_oc * Stile_batch) * (Stile_ic * Stile_kw * Stile_kh)
+    SRAM_tile_mac = PE_tile_mac * (DTile_ow/Stile_ow) * (DTile_oh/Stile_oh) * (DTile_kw/Stile_kw) * (DTile_kh/Stile_kh) * (DTile_batch/Stile_batch) \
+                                                                                    * (DTile_ic/Stile_ic) * (DTile_oc/Stile_oc)
+    Nos_of_mac = SRAM_tile_mac * (OW/DTile_ow) * (OH/DTile_oh) * (Batch/DTile_batch) * (IC/DTile_ic) * (KW/DTile_kw) * (KH/DTile_kh) * (OC/DTile_oc)
+
+    print("Nos of MAC:", Nos_of_mac)
+    SysResult_inflayer.arithmetic['mac'] = Nos_of_mac
 
 
 def conv_stall_model_nofu(Hardware_param, LayerObj, ComputeTile_cycles, SysResult_inflayer):
@@ -388,8 +399,19 @@ def conv_stall_model_nofu(Hardware_param, LayerObj, ComputeTile_cycles, SysResul
         
         Loop_order1 = ['ow', 'oh', 'kw', 'kh', 'ic', 'n', 'oc'] # current GeneSys Loop order
         Loop_order2 = ['ow', 'oh', 'n', 'kw', 'kh', 'ic', 'oc'] # an optimal WS loop order, there are equivalent varients of these loop order, WILL ADD LATER IN CODE
-        
+
         if (Loop_order == Loop_order1 and (OW/DTile_ow * OH/DTile_oh) > 2) or (Loop_order == Loop_order2 and (OW/DTile_ow * OH/DTile_oh * Batch/DTile_batch) > 2):
+            # The tiling condition ensures that the numbers of WS tiles is at least 3 to be able to normally execute the 3 stage double-buffered DRAM pipeline
+            No_Warning = "True"
+        else:
+            print("WARNING: Number of WS tile is less than 3")
+            print("Nos of WS tile:", (OW/DTile_ow * OH/DTile_oh * Batch/DTile_batch))
+            print("Nos of DRAM WS + OS tiles:", (OW/DTile_ow) * (OH/DTile_oh) * (Batch/DTile_batch) * (IC/DTile_ic) * (KW/DTile_kw) * (KH/DTile_kh))
+            print("Nos of total DRAM tiles:", (OW/DTile_ow) * (OH/DTile_oh) * (Batch/DTile_batch) * (IC/DTile_ic) * (KW/DTile_kw) * (KH/DTile_kh) * (OC/DTile_oc))
+
+        #print("OH:", OH, "OW:", OW, "DTile_oh:", DTile_oh, "DTile_ow:", DTile_ow)
+        
+        if (Loop_order == Loop_order1) or (Loop_order == Loop_order2):
             if Loop_order == Loop_order1:
                 filter_multiplier = Batch/DTile_batch
             elif Loop_order == Loop_order2:
@@ -430,7 +452,7 @@ def conv_stall_model_nofu(Hardware_param, LayerObj, ComputeTile_cycles, SysResul
                 NT_case2 = 0
                 NT_case4 = 0
 
-            #print("NT_case1:", NT_case1, "NT_case2:", NT_case2, "NT_case4:", NT_case4, "NT_case5:", NT_case5)
+            print("NT_case1:", NT_case1, "NT_case2:", NT_case2, "NT_case4:", NT_case4, "NT_case5:", NT_case5)
 
             #The following two tiles are placing as seperate cases for future exception code when WS tiles can be < 3. There it is possible for these cases to be zero 
             NT_case7 = 1   # The second tile
@@ -442,7 +464,7 @@ def conv_stall_model_nofu(Hardware_param, LayerObj, ComputeTile_cycles, SysResul
             ifmapTile_load_cycles = math.ceil((DTile_iw * DTile_ih * DTile_ic * DTile_batch * bw_ifmap) / RBW_DRAM_to_IBUF)
             psumTile_load_cycles = math.ceil((DTile_ow * DTile_oh * DTile_oc * DTile_batch * bw_psum) / RBW_DRAM_to_OBUF)
             psumTile_store_cycles = math.ceil((DTile_ow * DTile_oh * DTile_oc * DTile_batch * bw_psum) / WBW_OBUF_to_DRAM)
-            #do not need to use 8-bit ofmap, not for the non-fused version as well. Since SIMD operations are 32 bit and there is always at least a ReLU layer after each
+            #do not need to use 8-bit ofmap, not for the no-fusion version as well. Since SIMD operations are 32 bit and there is always at least a ReLU layer after each
             #Conv layer, the output of conv will go to SIMD and the quantization of 32 to 8 bit happens at SIMD. Hence the ofmap from a conv will be 32 bit
 
             #print("computeTile_cycles:", ComputeTile_cycles)
@@ -460,13 +482,13 @@ def conv_stall_model_nofu(Hardware_param, LayerObj, ComputeTile_cycles, SysResul
 
             #Case2
             L21 = ifmapTile_load_cycles - ComputeTile_cycles
-            L22 = (psumTile_load_cycles + psumTile_store_cycles - ComputeTile_cycles) ####### one AXI for both read and write of psum. 
+            L22 = (psumTile_load_cycles + psumTile_store_cycles - ComputeTile_cycles) #one AXI for both read and write of psum.
             stall_case2 = max(0, L21, L22) * NT_case2
 
             #Case4
             L41 = ifmapTile_load_cycles - ComputeTile_cycles
             L42 = WgtTile_load_cycles - ComputeTile_cycles
-            L43 = (psumTile_load_cycles + psumTile_store_cycles - ComputeTile_cycles) ###### one AXI for both read and write of psum. 
+            L43 = (psumTile_load_cycles + psumTile_store_cycles - ComputeTile_cycles) #one AXI for both read and write of psum.
             stall_case4 = max(0, L41, L42, L43) * NT_case4
 
             #Case5
@@ -475,7 +497,7 @@ def conv_stall_model_nofu(Hardware_param, LayerObj, ComputeTile_cycles, SysResul
             L53 = (WgtTile_load_cycles + BiasTile_load_cycles) - ComputeTile_cycles
             stall_case5 = max(0, L51, L52, L53) * NT_case5
 
-            #print("stall_case1:", stall_case1, "; stall_case2:", stall_case2, "; stall_case4:", stall_case4, "; stall_case5:", stall_case5)
+            print("stall_case1:", stall_case1, "; stall_case2:", stall_case2, "; stall_case4:", stall_case4, "; stall_case5:", stall_case5)
 
             #First tile
             Lf1 = ifmapTile_load_cycles
@@ -493,7 +515,7 @@ def conv_stall_model_nofu(Hardware_param, LayerObj, ComputeTile_cycles, SysResul
             L81 = psumTile_store_cycles - ComputeTile_cycles
             stall_case8 = max(0, L81)
 
-            #print("stall_first:", stall_first, "; stall_last:", stall_last, "; stall_case7:", stall_case7, "; stall_case8:", stall_case8)
+            print("stall_first:", stall_first, "; stall_last:", stall_last, "; stall_case7:", stall_case7, "; stall_case8:", stall_case8)
 
             #of total DRAM stall cycles
             DRAM_stall_cycles = stall_case1 + stall_case2 + stall_case4 + stall_case5 + stall_case7 + stall_case8 + stall_first + stall_last
@@ -502,9 +524,7 @@ def conv_stall_model_nofu(Hardware_param, LayerObj, ComputeTile_cycles, SysResul
             SysResult_inflayer.cycles['DRAM_Stall'] = DRAM_stall_cycles
 
         else:
-            print("WS DRAM stall model estimate for #of WS tiles <3, may need update to improve accuracy")
-            DRAM_stall_cycles = 0
-            SysResult_inflayer.cycles['DRAM_Stall'] = DRAM_stall_cycles
+            print("WS DRAM stall model do not exist for the input loop order")
 
     elif dataflow == "output_stationary":
         print("DARM stall model do not exist yet")
@@ -631,7 +651,7 @@ def gemm_cycle_model(Hardware_param, LayerObj, SysResult_inflayer):
                     * math.ceil(DTile_ic/Stile_ic) * math.ceil(DTile_oc/Stile_oc)
         #print("cycle_oneTile:", cycle_oneTile)
         #pipeline overhead for each DRAM tile
-        pipe_overhead_tile = (SysArray_row - 1) + (SysArray_col - 1)  # for now using PE row and col, after Sean knows how to handle the corner cases will veriy this
+        pipe_overhead_tile = (SysArray_row - 1) + (SysArray_col - 1)  #using PE row and col, 
         #for now omitting the use of any ceil since DRAM tile size will be integer multiple of loops, 
         Number_of_Tile =  (OW/DTile_ow) * (OH/DTile_oh) * (Batch/DTile_batch) * (IC/DTile_ic) * (KW/DTile_kw) * (KH/DTile_kh) * (OC/DTile_oc)
 
@@ -651,9 +671,18 @@ def gemm_cycle_model(Hardware_param, LayerObj, SysResult_inflayer):
 
         SysResult_inflayer.cycles['total'] = compute_cycles + DRAM_stall_cycles
 
+        ####### Counting number of MAC operations: using the convolution equations cause that works (ceiling affects cycle count and #of MAC differently)
+        PE_tile_mac = (Stile_ow * Stile_oh * Stile_oc * Stile_batch) * (Stile_ic * Stile_kw * Stile_kh)
+        SRAM_tile_mac = PE_tile_mac * (DTile_ow/Stile_ow) * (DTile_oh/Stile_oh) * (DTile_kw/Stile_kw) * (DTile_kh/Stile_kh) * (DTile_batch/Stile_batch) \
+                                                                                        * (DTile_ic/Stile_ic) * (DTile_oc/Stile_oc)
+        Nos_of_mac = SRAM_tile_mac * (OW/DTile_ow) * (OH/DTile_oh) * (Batch/DTile_batch) * (IC/DTile_ic) * (KW/DTile_kw) * (KH/DTile_kh) * (OC/DTile_oc)
+
+        print("Nos of MAC:", Nos_of_mac)
+        SysResult_inflayer.arithmetic['mac'] = Nos_of_mac
+
     else:
         print("The input loop order is not optimal and not supported")
-    
+
 
 def gemmb1_stall_model_nofu(Hardware_param, LayerObj, ComputeTile_cycles, SysResult_inflayer):
     #DRAM stall cycle count model for the gemm layer when there is no fusion, batch size = 1, output stationary
@@ -678,7 +707,7 @@ def gemmb1_stall_model_nofu(Hardware_param, LayerObj, ComputeTile_cycles, SysRes
     BiasTile_load_cycles = math.ceil((DTile_oc * bw_bias) / RBW_DRAM_to_WBUF)
     ifmapTile_load_cycles = math.ceil((DTile_ic * bw_ifmap) / RBW_DRAM_to_IBUF)
     ofmapTile_store_cycles = math.ceil((DTile_oc * bw_ofmap) / WBW_OBUF_to_DRAM)
-    #do not need to use 8-bit ofmap, not for the naive version as well. Since SIMD operations are 32 bit and there is always at least a ReLU layer after each
+    #do not need to use 8-bit ofmap, not for the no-fusion version as well. Since SIMD operations are 32 bit and there is always at least a ReLU layer after each
     #Conv layer, the output of conv will go to SIMD and the quantization of 32 to 8 bit happens at SIMD. Hence the ofmap from a conv will be 32 bit
 
     #print("ComputeTile_cycles:", ComputeTile_cycles)
