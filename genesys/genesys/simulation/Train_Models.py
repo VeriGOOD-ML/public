@@ -3,8 +3,8 @@
 import logging
 import math
 import numpy as np
-from Data_Objects import HardwareObject, SAResult_Inflayer, SIMDResult_Inflayer
-from Layer_Object import LayerObject
+from data_objects import HardwareObject, SAResult_Inflayer, SIMDResult_Inflayer
+from layer_object import LayerObject
 
 
 def common_SIMD_backward_model(Hardware_param, LayerObj, SIMDResult_inflayer):

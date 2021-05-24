@@ -3,7 +3,7 @@
 import logging
 import math
 import numpy as np
-from Data_Objects import HardwareObject
+from data_objects import HardwareObject
 
 class LayerObject(object):
     # This object stores all the parameters associated to a layer. This includes layer dimension, tiling info, fusion status etc

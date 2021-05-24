@@ -3,13 +3,13 @@
 import logging
 import math
 import numpy as np
-from SimulationModels import models_inference_high, models_training_high
+from simulation_models import models_inference_high, models_training_high
 #from GenerateTiling import Generate_tiling
 import csv
 import json
 from pprint import pprint
-from Data_Objects import HardwareObject, SAResult_Inflayer, SIMDResult_Inflayer
-from Layer_Object import LayerObject
+from data_objects import HardwareObject, SAResult_Inflayer, SIMDResult_Inflayer
+from layer_object import LayerObject
 
 def simulate(CompilerOutput, Hardware_config, Optimal_WS_loop):
     #Inputs:
