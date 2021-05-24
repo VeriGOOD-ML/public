@@ -1,12 +1,12 @@
 import logging
 import math
 import numpy as np
-from Data_Objects import HardwareObject, SAResult_Inflayer, SIMDResult_Inflayer
-from Layer_Object import LayerObject
-from SA_Models import conv_access_model, conv_cycle_model, gemm_access_model, gemm_cycle_model
-from SIMD_Models import relu_access_model, relu_cycle_model, elemadd_access_model, elemadd_cycle_model, pool_access_model, pool_cycle_model
-from SIMD_Models import softmax_access_model, softmax_cycle_model, roialignpool_access_model, roialignpool_cycle_model
-from Train_Models import common_SIMD_backward_model, batch_norm_forward_estimate, batch_norm_backward_estimate
+from data_objects import HardwareObject, SAResult_Inflayer, SIMDResult_Inflayer
+from layer_object import LayerObject
+from sysarray_models import conv_access_model, conv_cycle_model, gemm_access_model, gemm_cycle_model
+from simd_models import relu_access_model, relu_cycle_model, elemadd_access_model, elemadd_cycle_model, pool_access_model, pool_cycle_model
+from simd_models import softmax_access_model, softmax_cycle_model, roialignpool_access_model, roialignpool_cycle_model
+from train_models import common_SIMD_backward_model, batch_norm_forward_estimate, batch_norm_backward_estimate
 
 
 def models_inference_high(Hardware_param, LayerObj):
@@ -39,7 +39,7 @@ def models_inference_high(Hardware_param, LayerObj):
                 gemm_access_model(Hardware_param, LayerObj, SysResult_inflayer)
                 gemm_cycle_model(Hardware_param, LayerObj, SysResult_inflayer)
             else:
-                print("Model do not exist yet for this layer, Layer_name:", Layer_name)
+                print("model do not exist now for layers other than convolution and gemm")
 
         else:
             print("Model do not exist for SA non double buffer scheme now")
@@ -104,7 +104,7 @@ def models_training_high(Hardware_param, LayerObj):
                 gemm_access_model(Hardware_param, LayerObj, SysResult_inflayer)
                 gemm_cycle_model(Hardware_param, LayerObj, SysResult_inflayer)
             else:
-                print("Model do not exist yet for this layer, Layer_name:", Layer_name)
+                print("model do not exist now for layers other than convolution and gemm")
 
         else:
             print("Model do not exist for SA non double buffer scheme now")

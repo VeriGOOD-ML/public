@@ -3,8 +3,8 @@
 import logging
 import math
 import numpy as np
-from Data_Objects import HardwareObject, SAResult_Inflayer, SIMDResult_Inflayer
-from Layer_Object import LayerObject
+from data_objects import HardwareObject, SAResult_Inflayer, SIMDResult_Inflayer
+from layer_object import LayerObject
 
 
 def common_SIMD_backward_model(Hardware_param, LayerObj, SIMDResult_inflayer):
@@ -13,9 +13,10 @@ def common_SIMD_backward_model(Hardware_param, LayerObj, SIMDResult_inflayer):
     #unpacking the parameters
     CompilerOut_layer = LayerObj.CompilerOut_layer  # the full compiler output for the layer
     #print(CompilerOut_layer)
+    # may need a quantization parameter to know the bitwidth of ofmap?
     bw_ifmap = LayerObj.bw_ifmap 
     bw_psum = LayerObj.bw_psum
-    bw_ofmap = LayerObj.bw_ofmap 
+    bw_ofmap = LayerObj.bw_ofmap  
 
     SysArray_col = Hardware_param.SysArray_col
     SIMD_Ins_size = Hardware_param.SIMD_Ins_size
@@ -24,6 +25,7 @@ def common_SIMD_backward_model(Hardware_param, LayerObj, SIMDResult_inflayer):
 
     layer_op = CompilerOut_layer['operation']
     #print("operation_name:", layer_op)
+
 
     ##################Computing DRAM access
     #### INPUT-1
@@ -74,7 +76,7 @@ def common_SIMD_backward_model(Hardware_param, LayerObj, SIMDResult_inflayer):
     SIMDResult_inflayer.DRAM_access['ofmap'] = ofmap_access_DRAM
 
 
-    ################## Computing VMEM access: omitting fusion status condition now, default: no fusion (will add condition for fusion later)
+    ################## Computing VMEM access: omitting fusion status condition now, default: no fusion
     # dictionary to hold the number of computation step within each tile of a layer to produce an output, add more layer as you move forward
     comp_step_rsum = "None"
     if layer_op == "reduce_sum":
@@ -117,7 +119,7 @@ def common_SIMD_backward_model(Hardware_param, LayerObj, SIMDResult_inflayer):
     #print("cycle_oneTile:", cycle_oneTile)
 
     #of cycles to fill the pipeline for a tile, there are 6 pipeline stages
-    pipe_overhead_tile = (6 - 1) + (SysArray_col - 1)  #for now using PE col, after Sean knows how to handle the corner cases will veriy this
+    pipe_overhead_tile = (6 - 1) + (SysArray_col - 1)  #using PE col, 
     
     Number_of_Tile = 1
     for key in out_keys:
@@ -185,6 +187,12 @@ def common_SIMD_backward_model(Hardware_param, LayerObj, SIMDResult_inflayer):
 
     SIMDResult_inflayer.SRAM_access['InsMem'] = InsMem_access
 
+    #################### Conputing number of arithmetic Ops for each kind of layer
+    Nos_of_op_tile = VMEM_vol_out * comp_step_dict[layer_op]
+    Nos_of_op = Nos_of_op_tile * Number_of_Tile
+
+    #print("Nos_of_op_tile:", Nos_of_op_tile, "Nos_of_op:", Nos_of_op)
+    SIMDResult_inflayer.arithmetic['op_ScmnBN'] = Nos_of_op
 
 
 def batch_norm_forward_estimate(Hardware_param, LayerObj, SIMDResult_inflayer):
@@ -214,27 +222,32 @@ def batch_norm_forward_estimate(Hardware_param, LayerObj, SIMDResult_inflayer):
     #print("effective_mini_batch:", effective_mini_batch)
 
     #DRAM access count
-    DRAM_access_1 = (2 + 1) * IC * (2 * effective_mini_batch + 4)
+    DRAM_access_1 = (2 + 1) * IC * (effective_mini_batch + 2) + (IC * effective_mini_batch * 8) + IC    # updated equation
     DRAM_access_2 = (IC + IC * effective_mini_batch * 2) * 4
     total_DRAM_access = (DRAM_access_1 + DRAM_access_2) * bw_ifmap
     #print("total_DRAM_access:", total_DRAM_access)
 
     #SRAM access count
-    VMEM_access_1 = (2 + 1) * IC * (2 * effective_mini_batch + 4)
+    VMEM_access_1 = (2 + 1) * IC * (4 * effective_mini_batch + 2)   # updated equation
     VMEM_access_2 = ((2 + 1) * IC * effective_mini_batch) * 4
     total_VMEM_access = (VMEM_access_1 + VMEM_access_2) * bw_ifmap
     #print("total_VMEM_access:", total_VMEM_access)
 
-    comp_cycle_1 = (IC * (2 * effective_mini_batch + 3) + (IC * inv_sqrt_cycles)) / SysArray_col   #omitting pipeline overhead
-    comp_cycle_2 = (IC * effective_mini_batch * 4) / SysArray_col
-    compute_cycles = comp_cycle_1 + comp_cycle_2
+    #Cycle count
+    comp_cycle_1 = (IC * (4 * effective_mini_batch + 1) + (IC * inv_sqrt_cycles)) / SysArray_col    #updated equation  
+    comp_cycle_2 = (IC * effective_mini_batch * 4) / SysArray_col   
+    compute_cycles = comp_cycle_1 + comp_cycle_2        #omitting pipeline overhead
     #print("compute_cycles:", compute_cycles)
 
     DRAM_stall_cycles = total_DRAM_access/RBw_DRAM_to_VMEM
     #print("DRAM_stall_cycles:", DRAM_stall_cycles)
 
+    # Nos of Op count: SysArray_col op per cycle (all ops are add, sub, or multiplication, there is also inverse sqrt, assuming op per inv sqrt = inv_sqrt_cycles)
+    Nos_of_op = compute_cycles * SysArray_col
+    SIMDResult_inflayer.arithmetic['op_ScmnBN'] = Nos_of_op
+
     # Access to instruction memory
-    Nos_of_IF = compute_cycles  #number of instruction fetched
+    Nos_of_IF = compute_cycles  #number of instruction fetched 
     InsMem_access = Nos_of_IF * SIMD_Ins_size    # in bit
 
     SIMDResult_inflayer.SRAM_access['InsMem'] = InsMem_access
@@ -271,7 +284,7 @@ def batch_norm_backward_estimate(Hardware_param, LayerObj, SIMDResult_inflayer):
     #print("effective_mini_batch:", effective_mini_batch)
 
     #DRAM access count
-    total_DRAM_access = (2 + 1) * IC * (10 * effective_mini_batch + 2) * bw_ifmap # using 32 bit for all access
+    total_DRAM_access = (2 + 1) * IC * (10 * effective_mini_batch + 2) * bw_ifmap 
     #print("total_DRAM_access:", total_DRAM_access)
 
     #SRAM access count
@@ -284,6 +297,10 @@ def batch_norm_backward_estimate(Hardware_param, LayerObj, SIMDResult_inflayer):
 
     DRAM_stall_cycles = total_DRAM_access/RBw_DRAM_to_VMEM
     #print("DRAM_stall_cycles:", DRAM_stall_cycles)
+
+    # Nos of Op count: SysArray_col op per cycle (all ops are either add, sub, or multiplication)
+    Nos_of_op = IC * (10 * effective_mini_batch + 2)
+    SIMDResult_inflayer.arithmetic['op_ScmnBN'] = Nos_of_op
 
     # Access to instruction memory
     Nos_of_IF = compute_cycles  #number of instruction fetched

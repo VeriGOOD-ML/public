@@ -58,7 +58,7 @@ class HardwareObject(object):
 
         ################################## Latency parameters for some of the SIMD arithmetic operation which take more than one cycle
         #all other arithmatic operations except the ones below require a single cycle to complete
-        #The number of cycles for these operations are obtained from DesignWare IPs for the target clock period (800 ps)
+        #The number of cycles for these operations are obtained from DesignWare IPs for the target clock period
         if Mode == "inference":
             # 32 bit fixed point implementation for inference
             self.div_cycles = 9   
@@ -72,7 +72,7 @@ class HardwareObject(object):
 
 
 
-# All access results are in bits in this object
+# All access results are in bits
 class SAResult_Inflayer(object):
     # This object stores the simulation outputs for the layers which are executed on the systolic array
     # The result is for each layer
@@ -97,13 +97,15 @@ class SAResult_Inflayer(object):
         self.cycles['total'] = 0
 
         self.pipe_register_access = 0
-        self.MAC_operations = 0
 
-        # later on will create a technology parameter object and using that will convert the access numbers to energy values
+        self.arithmetic = {}
+        self.arithmetic['mac'] = 0
+
+        
 
 # All access results are in bits
 class SIMDResult_Inflayer(object):
-    # This object stores the simulation outputs for the layers which are executed on the SIMD array for inference phase
+    # This object stores the simulation outputs for the layers which are executed on the SIMD array
     # The result is for each layer
     def __init__(self):
         # initializing all the result of a layer with zeros
@@ -111,7 +113,7 @@ class SIMDResult_Inflayer(object):
         # for systolic array, there is dedicated buffer for each data type. Hence for SA using buffer-wise or data type wise parameterization is same
         # For SIMD array, put buffer wise parameterization instead of data-wise since there is not dedicated buffer for each data type
         # Besides depending on fusion, input data can come from VMEM or OBUF
-        # The parameterization may grow as I implement new layers depending on the need
+        # The parameterization may grow as new layers are implemented depending on the need
         self.SRAM_access = {}
         self.SRAM_access['VMEM'] = 0
         self.SRAM_access['IMM'] = 0
@@ -139,8 +141,12 @@ class SIMDResult_Inflayer(object):
         self.arithmetic = {}
         self.arithmetic['max'] = 0
         self.arithmetic['add'] = 0
+        #self.arithmetic['sub'] = 0
+        #self.arithmetic['mul'] = 0
         self.arithmetic['div'] = 0
-        self.arithmetic['exp'] = 0       
+        self.arithmetic['exp'] = 0 
+        self.arithmetic['inv_sqrt'] = 0  
+        self.arithmetic['op_ScmnBN'] = 0   #this is for the SIMD common function & Batch Norm functions during training; the output is given directly as op count (may modify later)
         
 
 

@@ -3,7 +3,7 @@
     "program": [
         {
             "operation": "conv_bias",
-            "instance_id": 245,
+            "instance_id": 367,
             "iterable_dimensions": {
                 "OC": 64,
                 "N": 24576,
@@ -41,8 +41,8 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 7,
-                            "IW": 7,
+                            "IH": 229,
+                            "IW": 9,
                             "IC": 16
                         },
                         "pe_array": {
@@ -78,7 +78,7 @@
                         "WBUF": {
                             "KH": 7,
                             "KW": 7,
-                            "OC": 16,
+                            "OC": 64,
                             "IC": 16
                         },
                         "pe_array": {
@@ -106,7 +106,7 @@
                             "OC": 64
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 64
                         },
                         "pe_array": {
                             "OC": 16
@@ -141,9 +141,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 112,
+                            "OW": 2,
+                            "OC": 64
                         },
                         "pe_array": {
                             "N": 1,
@@ -157,7 +157,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 246,
+            "instance_id": 368,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 112,
@@ -189,8 +189,8 @@
                             "W": 64
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -205,7 +205,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_1_323Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -221,8 +221,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -244,7 +244,7 @@
         },
         {
             "operation": "max_pool",
-            "instance_id": 247,
+            "instance_id": 369,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 64,
@@ -281,10 +281,10 @@
                             "C": 64
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "IH": 3,
-                            "IW": 3,
-                            "C": 1
+                            "N": 24576,
+                            "IH": 1,
+                            "IW": 1,
+                            "C": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -307,22 +307,30 @@
                         "C": 64
                     },
                     "data_path": [
+                        "DRAM",
+                        "VMEM2",
                         "SIMD",
                         "VMEM1",
                         "DRAM"
                     ],
                     "tiling": {
-                        "VMEM1": {
-                            "N": 16,
-                            "OH": 1,
-                            "OW": 1,
-                            "C": 1
-                        },
                         "DRAM": {
                             "N": 24576,
                             "OH": 56,
                             "OW": 56,
                             "C": 64
+                        },
+                        "VMEM2": {
+                            "N": 24576,
+                            "OH": 1,
+                            "OW": 1,
+                            "C": 2
+                        },
+                        "VMEM1": {
+                            "N": 24576,
+                            "OH": 1,
+                            "OW": 1,
+                            "C": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -336,7 +344,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 248,
+            "instance_id": 370,
             "iterable_dimensions": {
                 "OC": 64,
                 "N": 24576,
@@ -374,8 +382,8 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 1,
-                            "IW": 1,
+                            "IH": 56,
+                            "IW": 4,
                             "IC": 64
                         },
                         "pe_array": {
@@ -411,7 +419,7 @@
                         "WBUF": {
                             "KH": 1,
                             "KW": 1,
-                            "OC": 16,
+                            "OC": 64,
                             "IC": 64
                         },
                         "pe_array": {
@@ -439,7 +447,7 @@
                             "OC": 64
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 64
                         },
                         "pe_array": {
                             "OC": 16
@@ -474,9 +482,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 56,
+                            "OW": 4,
+                            "OC": 64
                         },
                         "pe_array": {
                             "N": 1,
@@ -490,7 +498,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 249,
+            "instance_id": 371,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 56,
@@ -522,8 +530,8 @@
                             "W": 64
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -538,7 +546,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_4_327Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -554,8 +562,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -577,7 +585,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 250,
+            "instance_id": 372,
             "iterable_dimensions": {
                 "OC": 64,
                 "N": 24576,
@@ -615,8 +623,8 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 3,
-                            "IW": 3,
+                            "IH": 58,
+                            "IW": 6,
                             "IC": 64
                         },
                         "pe_array": {
@@ -652,7 +660,7 @@
                         "WBUF": {
                             "KH": 3,
                             "KW": 3,
-                            "OC": 16,
+                            "OC": 64,
                             "IC": 64
                         },
                         "pe_array": {
@@ -680,7 +688,7 @@
                             "OC": 64
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 64
                         },
                         "pe_array": {
                             "OC": 16
@@ -715,9 +723,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 56,
+                            "OW": 4,
+                            "OC": 64
                         },
                         "pe_array": {
                             "N": 1,
@@ -731,7 +739,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 251,
+            "instance_id": 373,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 56,
@@ -763,8 +771,8 @@
                             "W": 64
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -779,7 +787,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_6_330Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -795,8 +803,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -818,7 +826,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 252,
+            "instance_id": 374,
             "iterable_dimensions": {
                 "OC": 256,
                 "N": 24576,
@@ -856,8 +864,8 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 1,
-                            "IW": 1,
+                            "IH": 56,
+                            "IW": 2,
                             "IC": 64
                         },
                         "pe_array": {
@@ -893,7 +901,7 @@
                         "WBUF": {
                             "KH": 1,
                             "KW": 1,
-                            "OC": 16,
+                            "OC": 128,
                             "IC": 64
                         },
                         "pe_array": {
@@ -921,7 +929,7 @@
                             "OC": 256
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -956,9 +964,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 56,
+                            "OW": 2,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -972,7 +980,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 253,
+            "instance_id": 375,
             "iterable_dimensions": {
                 "OC": 256,
                 "N": 24576,
@@ -1010,8 +1018,8 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 1,
-                            "IW": 1,
+                            "IH": 56,
+                            "IW": 2,
                             "IC": 64
                         },
                         "pe_array": {
@@ -1047,7 +1055,7 @@
                         "WBUF": {
                             "KH": 1,
                             "KW": 1,
-                            "OC": 16,
+                            "OC": 128,
                             "IC": 64
                         },
                         "pe_array": {
@@ -1075,7 +1083,7 @@
                             "OC": 256
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -1110,9 +1118,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 56,
+                            "OW": 2,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -1126,7 +1134,7 @@
         },
         {
             "operation": "elem_add",
-            "instance_id": 254,
+            "instance_id": 376,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 256,
@@ -1158,10 +1166,10 @@
                             "C": 256
                         },
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -1194,10 +1202,10 @@
                             "C": 256
                         },
                         "VMEM2": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -1226,10 +1234,10 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "DRAM": {
                             "N": 24576,
@@ -1249,7 +1257,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 255,
+            "instance_id": 377,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 56,
@@ -1281,8 +1289,8 @@
                             "W": 256
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -1297,7 +1305,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_10_336Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -1313,8 +1321,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -1336,7 +1344,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 256,
+            "instance_id": 378,
             "iterable_dimensions": {
                 "OC": 64,
                 "N": 24576,
@@ -1374,8 +1382,8 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 1,
-                            "IW": 1,
+                            "IH": 56,
+                            "IW": 4,
                             "IC": 256
                         },
                         "pe_array": {
@@ -1411,7 +1419,7 @@
                         "WBUF": {
                             "KH": 1,
                             "KW": 1,
-                            "OC": 16,
+                            "OC": 64,
                             "IC": 256
                         },
                         "pe_array": {
@@ -1439,7 +1447,7 @@
                             "OC": 64
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 64
                         },
                         "pe_array": {
                             "OC": 16
@@ -1474,9 +1482,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 56,
+                            "OW": 4,
+                            "OC": 64
                         },
                         "pe_array": {
                             "N": 1,
@@ -1490,7 +1498,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 257,
+            "instance_id": 379,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 56,
@@ -1522,8 +1530,8 @@
                             "W": 64
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -1538,7 +1546,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_12_339Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -1554,8 +1562,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -1577,7 +1585,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 258,
+            "instance_id": 380,
             "iterable_dimensions": {
                 "OC": 64,
                 "N": 24576,
@@ -1615,8 +1623,8 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 3,
-                            "IW": 3,
+                            "IH": 58,
+                            "IW": 6,
                             "IC": 64
                         },
                         "pe_array": {
@@ -1652,7 +1660,7 @@
                         "WBUF": {
                             "KH": 3,
                             "KW": 3,
-                            "OC": 16,
+                            "OC": 64,
                             "IC": 64
                         },
                         "pe_array": {
@@ -1680,7 +1688,7 @@
                             "OC": 64
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 64
                         },
                         "pe_array": {
                             "OC": 16
@@ -1715,9 +1723,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 56,
+                            "OW": 4,
+                            "OC": 64
                         },
                         "pe_array": {
                             "N": 1,
@@ -1731,7 +1739,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 259,
+            "instance_id": 381,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 56,
@@ -1763,8 +1771,8 @@
                             "W": 64
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -1779,7 +1787,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_14_342Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -1795,8 +1803,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -1818,7 +1826,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 260,
+            "instance_id": 382,
             "iterable_dimensions": {
                 "OC": 256,
                 "N": 24576,
@@ -1856,8 +1864,8 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 1,
-                            "IW": 1,
+                            "IH": 56,
+                            "IW": 2,
                             "IC": 64
                         },
                         "pe_array": {
@@ -1893,7 +1901,7 @@
                         "WBUF": {
                             "KH": 1,
                             "KW": 1,
-                            "OC": 16,
+                            "OC": 128,
                             "IC": 64
                         },
                         "pe_array": {
@@ -1921,7 +1929,7 @@
                             "OC": 256
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -1956,9 +1964,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 56,
+                            "OW": 2,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -1972,7 +1980,7 @@
         },
         {
             "operation": "elem_add",
-            "instance_id": 261,
+            "instance_id": 383,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 256,
@@ -2004,10 +2012,10 @@
                             "C": 256
                         },
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -2040,10 +2048,10 @@
                             "C": 256
                         },
                         "VMEM2": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -2072,10 +2080,10 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "DRAM": {
                             "N": 24576,
@@ -2095,7 +2103,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 262,
+            "instance_id": 384,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 56,
@@ -2127,8 +2135,8 @@
                             "W": 256
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -2143,7 +2151,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_17_346Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -2159,8 +2167,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -2182,7 +2190,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 263,
+            "instance_id": 385,
             "iterable_dimensions": {
                 "OC": 64,
                 "N": 24576,
@@ -2220,8 +2228,8 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 1,
-                            "IW": 1,
+                            "IH": 56,
+                            "IW": 4,
                             "IC": 256
                         },
                         "pe_array": {
@@ -2257,7 +2265,7 @@
                         "WBUF": {
                             "KH": 1,
                             "KW": 1,
-                            "OC": 16,
+                            "OC": 64,
                             "IC": 256
                         },
                         "pe_array": {
@@ -2285,7 +2293,7 @@
                             "OC": 64
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 64
                         },
                         "pe_array": {
                             "OC": 16
@@ -2320,9 +2328,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 56,
+                            "OW": 4,
+                            "OC": 64
                         },
                         "pe_array": {
                             "N": 1,
@@ -2336,7 +2344,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 264,
+            "instance_id": 386,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 56,
@@ -2368,8 +2376,8 @@
                             "W": 64
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -2384,7 +2392,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_19_349Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -2400,8 +2408,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -2423,7 +2431,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 265,
+            "instance_id": 387,
             "iterable_dimensions": {
                 "OC": 64,
                 "N": 24576,
@@ -2461,8 +2469,8 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 3,
-                            "IW": 3,
+                            "IH": 58,
+                            "IW": 6,
                             "IC": 64
                         },
                         "pe_array": {
@@ -2498,7 +2506,7 @@
                         "WBUF": {
                             "KH": 3,
                             "KW": 3,
-                            "OC": 16,
+                            "OC": 64,
                             "IC": 64
                         },
                         "pe_array": {
@@ -2526,7 +2534,7 @@
                             "OC": 64
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 64
                         },
                         "pe_array": {
                             "OC": 16
@@ -2561,9 +2569,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 56,
+                            "OW": 4,
+                            "OC": 64
                         },
                         "pe_array": {
                             "N": 1,
@@ -2577,7 +2585,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 266,
+            "instance_id": 388,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 56,
@@ -2609,8 +2617,8 @@
                             "W": 64
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -2625,7 +2633,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_21_352Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -2641,8 +2649,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -2664,7 +2672,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 267,
+            "instance_id": 389,
             "iterable_dimensions": {
                 "OC": 256,
                 "N": 24576,
@@ -2702,8 +2710,8 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 1,
-                            "IW": 1,
+                            "IH": 56,
+                            "IW": 2,
                             "IC": 64
                         },
                         "pe_array": {
@@ -2739,7 +2747,7 @@
                         "WBUF": {
                             "KH": 1,
                             "KW": 1,
-                            "OC": 16,
+                            "OC": 128,
                             "IC": 64
                         },
                         "pe_array": {
@@ -2767,7 +2775,7 @@
                             "OC": 256
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -2802,9 +2810,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 56,
+                            "OW": 2,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -2818,7 +2826,7 @@
         },
         {
             "operation": "elem_add",
-            "instance_id": 268,
+            "instance_id": 390,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 256,
@@ -2850,10 +2858,10 @@
                             "C": 256
                         },
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -2886,10 +2894,10 @@
                             "C": 256
                         },
                         "VMEM2": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -2918,10 +2926,10 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "DRAM": {
                             "N": 24576,
@@ -2941,7 +2949,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 269,
+            "instance_id": 391,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 56,
@@ -2973,8 +2981,8 @@
                             "W": 256
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -2989,7 +2997,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_24_356Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -3005,8 +3013,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -3028,7 +3036,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 270,
+            "instance_id": 392,
             "iterable_dimensions": {
                 "OC": 128,
                 "N": 24576,
@@ -3066,8 +3074,8 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 1,
-                            "IW": 1,
+                            "IH": 56,
+                            "IW": 2,
                             "IC": 256
                         },
                         "pe_array": {
@@ -3103,7 +3111,7 @@
                         "WBUF": {
                             "KH": 1,
                             "KW": 1,
-                            "OC": 16,
+                            "OC": 128,
                             "IC": 256
                         },
                         "pe_array": {
@@ -3131,7 +3139,7 @@
                             "OC": 128
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -3166,9 +3174,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 56,
+                            "OW": 2,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -3182,7 +3190,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 271,
+            "instance_id": 393,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 56,
@@ -3214,8 +3222,8 @@
                             "W": 128
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -3230,7 +3238,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_26_359Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -3246,8 +3254,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -3269,7 +3277,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 272,
+            "instance_id": 394,
             "iterable_dimensions": {
                 "OC": 128,
                 "N": 24576,
@@ -3307,8 +3315,8 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 3,
-                            "IW": 3,
+                            "IH": 57,
+                            "IW": 7,
                             "IC": 128
                         },
                         "pe_array": {
@@ -3343,8 +3351,8 @@
                         },
                         "WBUF": {
                             "KH": 3,
-                            "KW": 3,
-                            "OC": 16,
+                            "KW": 1,
+                            "OC": 128,
                             "IC": 128
                         },
                         "pe_array": {
@@ -3372,7 +3380,7 @@
                             "OC": 128
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -3407,9 +3415,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 28,
+                            "OW": 4,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -3423,7 +3431,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 273,
+            "instance_id": 395,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 28,
@@ -3455,8 +3463,8 @@
                             "W": 128
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -3471,7 +3479,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_28_362Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -3487,8 +3495,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -3510,7 +3518,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 274,
+            "instance_id": 396,
             "iterable_dimensions": {
                 "OC": 512,
                 "N": 24576,
@@ -3548,8 +3556,8 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 1,
-                            "IW": 1,
+                            "IH": 28,
+                            "IW": 4,
                             "IC": 128
                         },
                         "pe_array": {
@@ -3585,7 +3593,7 @@
                         "WBUF": {
                             "KH": 1,
                             "KW": 1,
-                            "OC": 16,
+                            "OC": 128,
                             "IC": 128
                         },
                         "pe_array": {
@@ -3613,7 +3621,7 @@
                             "OC": 512
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -3648,9 +3656,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 28,
+                            "OW": 4,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -3664,7 +3672,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 275,
+            "instance_id": 397,
             "iterable_dimensions": {
                 "OC": 512,
                 "N": 24576,
@@ -3702,8 +3710,8 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 1,
-                            "IW": 1,
+                            "IH": 55,
+                            "IW": 3,
                             "IC": 256
                         },
                         "pe_array": {
@@ -3739,7 +3747,7 @@
                         "WBUF": {
                             "KH": 1,
                             "KW": 1,
-                            "OC": 16,
+                            "OC": 128,
                             "IC": 256
                         },
                         "pe_array": {
@@ -3767,7 +3775,7 @@
                             "OC": 512
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -3802,9 +3810,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 28,
+                            "OW": 2,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -3818,7 +3826,7 @@
         },
         {
             "operation": "elem_add",
-            "instance_id": 276,
+            "instance_id": 398,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 512,
@@ -3850,10 +3858,10 @@
                             "C": 512
                         },
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -3886,10 +3894,10 @@
                             "C": 512
                         },
                         "VMEM2": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -3918,10 +3926,10 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "DRAM": {
                             "N": 24576,
@@ -3941,7 +3949,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 277,
+            "instance_id": 399,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 28,
@@ -3973,8 +3981,8 @@
                             "W": 512
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -3989,7 +3997,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_32_368Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -4005,8 +4013,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -4028,7 +4036,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 278,
+            "instance_id": 400,
             "iterable_dimensions": {
                 "OC": 128,
                 "N": 24576,
@@ -4066,8 +4074,8 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 1,
-                            "IW": 1,
+                            "IH": 28,
+                            "IW": 4,
                             "IC": 512
                         },
                         "pe_array": {
@@ -4103,7 +4111,7 @@
                         "WBUF": {
                             "KH": 1,
                             "KW": 1,
-                            "OC": 16,
+                            "OC": 128,
                             "IC": 512
                         },
                         "pe_array": {
@@ -4131,7 +4139,7 @@
                             "OC": 128
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -4166,9 +4174,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 28,
+                            "OW": 4,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -4182,7 +4190,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 279,
+            "instance_id": 401,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 28,
@@ -4214,8 +4222,8 @@
                             "W": 128
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -4230,7 +4238,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_34_371Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -4246,8 +4254,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -4269,7 +4277,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 280,
+            "instance_id": 402,
             "iterable_dimensions": {
                 "OC": 128,
                 "N": 24576,
@@ -4307,8 +4315,8 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 3,
-                            "IW": 3,
+                            "IH": 30,
+                            "IW": 4,
                             "IC": 128
                         },
                         "pe_array": {
@@ -4343,8 +4351,8 @@
                         },
                         "WBUF": {
                             "KH": 3,
-                            "KW": 3,
-                            "OC": 16,
+                            "KW": 1,
+                            "OC": 128,
                             "IC": 128
                         },
                         "pe_array": {
@@ -4372,7 +4380,7 @@
                             "OC": 128
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -4407,9 +4415,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 28,
+                            "OW": 4,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -4423,7 +4431,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 281,
+            "instance_id": 403,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 28,
@@ -4455,8 +4463,8 @@
                             "W": 128
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -4471,7 +4479,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_36_374Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -4487,8 +4495,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -4510,7 +4518,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 282,
+            "instance_id": 404,
             "iterable_dimensions": {
                 "OC": 512,
                 "N": 24576,
@@ -4548,8 +4556,8 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 1,
-                            "IW": 1,
+                            "IH": 28,
+                            "IW": 4,
                             "IC": 128
                         },
                         "pe_array": {
@@ -4585,7 +4593,7 @@
                         "WBUF": {
                             "KH": 1,
                             "KW": 1,
-                            "OC": 16,
+                            "OC": 128,
                             "IC": 128
                         },
                         "pe_array": {
@@ -4613,7 +4621,7 @@
                             "OC": 512
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -4648,9 +4656,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 28,
+                            "OW": 4,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -4664,7 +4672,7 @@
         },
         {
             "operation": "elem_add",
-            "instance_id": 283,
+            "instance_id": 405,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 512,
@@ -4696,10 +4704,10 @@
                             "C": 512
                         },
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -4732,10 +4740,10 @@
                             "C": 512
                         },
                         "VMEM2": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -4764,10 +4772,10 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "DRAM": {
                             "N": 24576,
@@ -4787,7 +4795,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 284,
+            "instance_id": 406,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 28,
@@ -4819,8 +4827,8 @@
                             "W": 512
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -4835,7 +4843,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_39_378Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -4851,8 +4859,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -4874,7 +4882,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 285,
+            "instance_id": 407,
             "iterable_dimensions": {
                 "OC": 128,
                 "N": 24576,
@@ -4912,8 +4920,8 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 1,
-                            "IW": 1,
+                            "IH": 28,
+                            "IW": 4,
                             "IC": 512
                         },
                         "pe_array": {
@@ -4949,7 +4957,7 @@
                         "WBUF": {
                             "KH": 1,
                             "KW": 1,
-                            "OC": 16,
+                            "OC": 128,
                             "IC": 512
                         },
                         "pe_array": {
@@ -4977,7 +4985,7 @@
                             "OC": 128
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -5012,9 +5020,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 28,
+                            "OW": 4,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -5028,7 +5036,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 286,
+            "instance_id": 408,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 28,
@@ -5060,8 +5068,8 @@
                             "W": 128
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -5076,7 +5084,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_41_381Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -5092,8 +5100,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -5115,7 +5123,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 287,
+            "instance_id": 409,
             "iterable_dimensions": {
                 "OC": 128,
                 "N": 24576,
@@ -5153,8 +5161,8 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 3,
-                            "IW": 3,
+                            "IH": 30,
+                            "IW": 4,
                             "IC": 128
                         },
                         "pe_array": {
@@ -5189,8 +5197,8 @@
                         },
                         "WBUF": {
                             "KH": 3,
-                            "KW": 3,
-                            "OC": 16,
+                            "KW": 1,
+                            "OC": 128,
                             "IC": 128
                         },
                         "pe_array": {
@@ -5218,7 +5226,7 @@
                             "OC": 128
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -5253,9 +5261,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 28,
+                            "OW": 4,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -5269,7 +5277,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 288,
+            "instance_id": 410,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 28,
@@ -5301,8 +5309,8 @@
                             "W": 128
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -5317,7 +5325,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_43_384Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -5333,8 +5341,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -5356,7 +5364,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 289,
+            "instance_id": 411,
             "iterable_dimensions": {
                 "OC": 512,
                 "N": 24576,
@@ -5394,8 +5402,8 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 1,
-                            "IW": 1,
+                            "IH": 28,
+                            "IW": 4,
                             "IC": 128
                         },
                         "pe_array": {
@@ -5431,7 +5439,7 @@
                         "WBUF": {
                             "KH": 1,
                             "KW": 1,
-                            "OC": 16,
+                            "OC": 128,
                             "IC": 128
                         },
                         "pe_array": {
@@ -5459,7 +5467,7 @@
                             "OC": 512
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -5494,9 +5502,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 28,
+                            "OW": 4,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -5510,7 +5518,7 @@
         },
         {
             "operation": "elem_add",
-            "instance_id": 290,
+            "instance_id": 412,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 512,
@@ -5542,10 +5550,10 @@
                             "C": 512
                         },
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -5578,10 +5586,10 @@
                             "C": 512
                         },
                         "VMEM2": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -5610,10 +5618,10 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "DRAM": {
                             "N": 24576,
@@ -5633,7 +5641,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 291,
+            "instance_id": 413,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 28,
@@ -5665,8 +5673,8 @@
                             "W": 512
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -5681,7 +5689,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_46_388Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -5697,8 +5705,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -5720,7 +5728,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 292,
+            "instance_id": 414,
             "iterable_dimensions": {
                 "OC": 128,
                 "N": 24576,
@@ -5758,8 +5766,8 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 1,
-                            "IW": 1,
+                            "IH": 28,
+                            "IW": 4,
                             "IC": 512
                         },
                         "pe_array": {
@@ -5795,7 +5803,7 @@
                         "WBUF": {
                             "KH": 1,
                             "KW": 1,
-                            "OC": 16,
+                            "OC": 128,
                             "IC": 512
                         },
                         "pe_array": {
@@ -5823,7 +5831,7 @@
                             "OC": 128
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -5858,9 +5866,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 28,
+                            "OW": 4,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -5874,7 +5882,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 293,
+            "instance_id": 415,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 28,
@@ -5906,8 +5914,8 @@
                             "W": 128
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -5922,7 +5930,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_48_391Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -5938,8 +5946,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -5961,7 +5969,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 294,
+            "instance_id": 416,
             "iterable_dimensions": {
                 "OC": 128,
                 "N": 24576,
@@ -5999,8 +6007,8 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 3,
-                            "IW": 3,
+                            "IH": 30,
+                            "IW": 4,
                             "IC": 128
                         },
                         "pe_array": {
@@ -6035,8 +6043,8 @@
                         },
                         "WBUF": {
                             "KH": 3,
-                            "KW": 3,
-                            "OC": 16,
+                            "KW": 1,
+                            "OC": 128,
                             "IC": 128
                         },
                         "pe_array": {
@@ -6064,7 +6072,7 @@
                             "OC": 128
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -6099,9 +6107,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 28,
+                            "OW": 4,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -6115,7 +6123,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 295,
+            "instance_id": 417,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 28,
@@ -6147,8 +6155,8 @@
                             "W": 128
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -6163,7 +6171,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_50_394Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -6179,8 +6187,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -6202,7 +6210,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 296,
+            "instance_id": 418,
             "iterable_dimensions": {
                 "OC": 512,
                 "N": 24576,
@@ -6240,8 +6248,8 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 1,
-                            "IW": 1,
+                            "IH": 28,
+                            "IW": 4,
                             "IC": 128
                         },
                         "pe_array": {
@@ -6277,7 +6285,7 @@
                         "WBUF": {
                             "KH": 1,
                             "KW": 1,
-                            "OC": 16,
+                            "OC": 128,
                             "IC": 128
                         },
                         "pe_array": {
@@ -6305,7 +6313,7 @@
                             "OC": 512
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -6340,9 +6348,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 28,
+                            "OW": 4,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -6356,7 +6364,7 @@
         },
         {
             "operation": "elem_add",
-            "instance_id": 297,
+            "instance_id": 419,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 512,
@@ -6388,10 +6396,10 @@
                             "C": 512
                         },
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -6424,10 +6432,10 @@
                             "C": 512
                         },
                         "VMEM2": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -6456,10 +6464,10 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "DRAM": {
                             "N": 24576,
@@ -6479,7 +6487,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 298,
+            "instance_id": 420,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 28,
@@ -6511,8 +6519,8 @@
                             "W": 512
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -6527,7 +6535,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_53_398Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -6543,8 +6551,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -6566,7 +6574,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 299,
+            "instance_id": 421,
             "iterable_dimensions": {
                 "OC": 256,
                 "N": 24576,
@@ -6604,8 +6612,8 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 1,
-                            "IW": 1,
+                            "IH": 28,
+                            "IW": 4,
                             "IC": 512
                         },
                         "pe_array": {
@@ -6641,7 +6649,7 @@
                         "WBUF": {
                             "KH": 1,
                             "KW": 1,
-                            "OC": 16,
+                            "OC": 128,
                             "IC": 512
                         },
                         "pe_array": {
@@ -6669,7 +6677,7 @@
                             "OC": 256
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -6704,9 +6712,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 28,
+                            "OW": 4,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -6720,7 +6728,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 300,
+            "instance_id": 422,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 28,
@@ -6752,8 +6760,8 @@
                             "W": 256
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -6768,7 +6776,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_55_401Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -6784,8 +6792,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -6807,7 +6815,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 301,
+            "instance_id": 423,
             "iterable_dimensions": {
                 "OC": 256,
                 "N": 24576,
@@ -6844,8 +6852,8 @@
                             "IC": 256
                         },
                         "IBUF": {
-                            "N": 1,
-                            "IH": 3,
+                            "N": 2,
+                            "IH": 27,
                             "IW": 3,
                             "IC": 256
                         },
@@ -6880,9 +6888,9 @@
                             "IC": 256
                         },
                         "WBUF": {
-                            "KH": 3,
-                            "KW": 3,
-                            "OC": 16,
+                            "KH": 1,
+                            "KW": 1,
+                            "OC": 128,
                             "IC": 256
                         },
                         "pe_array": {
@@ -6910,7 +6918,7 @@
                             "OC": 256
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -6944,10 +6952,10 @@
                             "OC": 256
                         },
                         "OBUF": {
-                            "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "N": 2,
+                            "OH": 14,
+                            "OW": 2,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -6961,7 +6969,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 302,
+            "instance_id": 424,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 14,
@@ -6993,8 +7001,8 @@
                             "W": 256
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -7009,7 +7017,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_57_404Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -7025,8 +7033,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -7048,7 +7056,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 303,
+            "instance_id": 425,
             "iterable_dimensions": {
                 "OC": 1024,
                 "N": 24576,
@@ -7086,8 +7094,8 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 1,
-                            "IW": 1,
+                            "IH": 14,
+                            "IW": 7,
                             "IC": 256
                         },
                         "pe_array": {
@@ -7123,7 +7131,7 @@
                         "WBUF": {
                             "KH": 1,
                             "KW": 1,
-                            "OC": 16,
+                            "OC": 128,
                             "IC": 256
                         },
                         "pe_array": {
@@ -7151,7 +7159,7 @@
                             "OC": 1024
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -7186,9 +7194,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 14,
+                            "OW": 7,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -7202,7 +7210,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 304,
+            "instance_id": 426,
             "iterable_dimensions": {
                 "OC": 1024,
                 "N": 24576,
@@ -7240,8 +7248,8 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 1,
-                            "IW": 1,
+                            "IH": 27,
+                            "IW": 3,
                             "IC": 512
                         },
                         "pe_array": {
@@ -7277,7 +7285,7 @@
                         "WBUF": {
                             "KH": 1,
                             "KW": 1,
-                            "OC": 16,
+                            "OC": 128,
                             "IC": 512
                         },
                         "pe_array": {
@@ -7305,7 +7313,7 @@
                             "OC": 1024
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -7340,9 +7348,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 14,
+                            "OW": 2,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -7356,7 +7364,7 @@
         },
         {
             "operation": "elem_add",
-            "instance_id": 305,
+            "instance_id": 427,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 1024,
@@ -7388,10 +7396,10 @@
                             "C": 1024
                         },
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -7424,10 +7432,10 @@
                             "C": 1024
                         },
                         "VMEM2": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -7456,10 +7464,10 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "DRAM": {
                             "N": 24576,
@@ -7479,7 +7487,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 306,
+            "instance_id": 428,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 14,
@@ -7511,8 +7519,8 @@
                             "W": 1024
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -7527,7 +7535,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_61_410Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -7543,8 +7551,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -7566,7 +7574,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 307,
+            "instance_id": 429,
             "iterable_dimensions": {
                 "OC": 256,
                 "N": 24576,
@@ -7604,9 +7612,9 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 1,
-                            "IW": 1,
-                            "IC": 1024
+                            "IH": 14,
+                            "IW": 7,
+                            "IC": 512
                         },
                         "pe_array": {
                             "N": 1,
@@ -7641,8 +7649,8 @@
                         "WBUF": {
                             "KH": 1,
                             "KW": 1,
-                            "OC": 16,
-                            "IC": 1024
+                            "OC": 128,
+                            "IC": 512
                         },
                         "pe_array": {
                             "KH": 1,
@@ -7669,7 +7677,7 @@
                             "OC": 256
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -7704,9 +7712,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 14,
+                            "OW": 7,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -7720,7 +7728,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 308,
+            "instance_id": 430,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 14,
@@ -7752,8 +7760,8 @@
                             "W": 256
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -7768,7 +7776,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_63_413Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -7784,8 +7792,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -7807,7 +7815,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 309,
+            "instance_id": 431,
             "iterable_dimensions": {
                 "OC": 256,
                 "N": 24576,
@@ -7845,8 +7853,8 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 3,
-                            "IW": 3,
+                            "IH": 14,
+                            "IW": 7,
                             "IC": 256
                         },
                         "pe_array": {
@@ -7880,9 +7888,9 @@
                             "IC": 256
                         },
                         "WBUF": {
-                            "KH": 3,
-                            "KW": 3,
-                            "OC": 16,
+                            "KH": 1,
+                            "KW": 1,
+                            "OC": 128,
                             "IC": 256
                         },
                         "pe_array": {
@@ -7910,7 +7918,7 @@
                             "OC": 256
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -7945,9 +7953,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 14,
+                            "OW": 7,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -7961,7 +7969,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 310,
+            "instance_id": 432,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 14,
@@ -7993,8 +8001,8 @@
                             "W": 256
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -8009,7 +8017,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_65_416Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -8025,8 +8033,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -8048,7 +8056,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 311,
+            "instance_id": 433,
             "iterable_dimensions": {
                 "OC": 1024,
                 "N": 24576,
@@ -8086,8 +8094,8 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 1,
-                            "IW": 1,
+                            "IH": 14,
+                            "IW": 7,
                             "IC": 256
                         },
                         "pe_array": {
@@ -8123,7 +8131,7 @@
                         "WBUF": {
                             "KH": 1,
                             "KW": 1,
-                            "OC": 16,
+                            "OC": 128,
                             "IC": 256
                         },
                         "pe_array": {
@@ -8151,7 +8159,7 @@
                             "OC": 1024
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -8186,9 +8194,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 14,
+                            "OW": 7,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -8202,7 +8210,7 @@
         },
         {
             "operation": "elem_add",
-            "instance_id": 312,
+            "instance_id": 434,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 1024,
@@ -8234,10 +8242,10 @@
                             "C": 1024
                         },
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -8270,10 +8278,10 @@
                             "C": 1024
                         },
                         "VMEM2": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -8302,10 +8310,10 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "DRAM": {
                             "N": 24576,
@@ -8325,7 +8333,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 313,
+            "instance_id": 435,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 14,
@@ -8357,8 +8365,8 @@
                             "W": 1024
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -8373,7 +8381,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_68_420Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -8389,8 +8397,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -8412,7 +8420,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 314,
+            "instance_id": 436,
             "iterable_dimensions": {
                 "OC": 256,
                 "N": 24576,
@@ -8450,9 +8458,9 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 1,
-                            "IW": 1,
-                            "IC": 1024
+                            "IH": 14,
+                            "IW": 7,
+                            "IC": 512
                         },
                         "pe_array": {
                             "N": 1,
@@ -8487,8 +8495,8 @@
                         "WBUF": {
                             "KH": 1,
                             "KW": 1,
-                            "OC": 16,
-                            "IC": 1024
+                            "OC": 128,
+                            "IC": 512
                         },
                         "pe_array": {
                             "KH": 1,
@@ -8515,7 +8523,7 @@
                             "OC": 256
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -8550,9 +8558,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 14,
+                            "OW": 7,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -8566,7 +8574,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 315,
+            "instance_id": 437,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 14,
@@ -8598,8 +8606,8 @@
                             "W": 256
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -8614,7 +8622,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_70_423Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -8630,8 +8638,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -8653,7 +8661,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 316,
+            "instance_id": 438,
             "iterable_dimensions": {
                 "OC": 256,
                 "N": 24576,
@@ -8691,8 +8699,8 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 3,
-                            "IW": 3,
+                            "IH": 14,
+                            "IW": 7,
                             "IC": 256
                         },
                         "pe_array": {
@@ -8726,9 +8734,9 @@
                             "IC": 256
                         },
                         "WBUF": {
-                            "KH": 3,
-                            "KW": 3,
-                            "OC": 16,
+                            "KH": 1,
+                            "KW": 1,
+                            "OC": 128,
                             "IC": 256
                         },
                         "pe_array": {
@@ -8756,7 +8764,7 @@
                             "OC": 256
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -8791,9 +8799,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 14,
+                            "OW": 7,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -8807,7 +8815,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 317,
+            "instance_id": 439,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 14,
@@ -8839,8 +8847,8 @@
                             "W": 256
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -8855,7 +8863,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_72_426Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -8871,8 +8879,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -8894,7 +8902,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 318,
+            "instance_id": 440,
             "iterable_dimensions": {
                 "OC": 1024,
                 "N": 24576,
@@ -8932,8 +8940,8 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 1,
-                            "IW": 1,
+                            "IH": 14,
+                            "IW": 7,
                             "IC": 256
                         },
                         "pe_array": {
@@ -8969,7 +8977,7 @@
                         "WBUF": {
                             "KH": 1,
                             "KW": 1,
-                            "OC": 16,
+                            "OC": 128,
                             "IC": 256
                         },
                         "pe_array": {
@@ -8997,7 +9005,7 @@
                             "OC": 1024
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -9032,9 +9040,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 14,
+                            "OW": 7,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -9048,7 +9056,7 @@
         },
         {
             "operation": "elem_add",
-            "instance_id": 319,
+            "instance_id": 441,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 1024,
@@ -9080,10 +9088,10 @@
                             "C": 1024
                         },
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -9116,10 +9124,10 @@
                             "C": 1024
                         },
                         "VMEM2": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -9148,10 +9156,10 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "DRAM": {
                             "N": 24576,
@@ -9171,7 +9179,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 320,
+            "instance_id": 442,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 14,
@@ -9203,8 +9211,8 @@
                             "W": 1024
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -9219,7 +9227,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_75_430Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -9235,8 +9243,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -9258,7 +9266,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 321,
+            "instance_id": 443,
             "iterable_dimensions": {
                 "OC": 256,
                 "N": 24576,
@@ -9296,9 +9304,9 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 1,
-                            "IW": 1,
-                            "IC": 1024
+                            "IH": 14,
+                            "IW": 7,
+                            "IC": 512
                         },
                         "pe_array": {
                             "N": 1,
@@ -9333,8 +9341,8 @@
                         "WBUF": {
                             "KH": 1,
                             "KW": 1,
-                            "OC": 16,
-                            "IC": 1024
+                            "OC": 128,
+                            "IC": 512
                         },
                         "pe_array": {
                             "KH": 1,
@@ -9361,7 +9369,7 @@
                             "OC": 256
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -9396,9 +9404,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 14,
+                            "OW": 7,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -9412,7 +9420,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 322,
+            "instance_id": 444,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 14,
@@ -9444,8 +9452,8 @@
                             "W": 256
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -9460,7 +9468,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_77_433Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -9476,8 +9484,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -9499,7 +9507,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 323,
+            "instance_id": 445,
             "iterable_dimensions": {
                 "OC": 256,
                 "N": 24576,
@@ -9537,8 +9545,8 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 3,
-                            "IW": 3,
+                            "IH": 14,
+                            "IW": 7,
                             "IC": 256
                         },
                         "pe_array": {
@@ -9572,9 +9580,9 @@
                             "IC": 256
                         },
                         "WBUF": {
-                            "KH": 3,
-                            "KW": 3,
-                            "OC": 16,
+                            "KH": 1,
+                            "KW": 1,
+                            "OC": 128,
                             "IC": 256
                         },
                         "pe_array": {
@@ -9602,7 +9610,7 @@
                             "OC": 256
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -9637,9 +9645,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 14,
+                            "OW": 7,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -9653,7 +9661,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 324,
+            "instance_id": 446,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 14,
@@ -9685,8 +9693,8 @@
                             "W": 256
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -9701,7 +9709,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_79_436Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -9717,8 +9725,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -9740,7 +9748,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 325,
+            "instance_id": 447,
             "iterable_dimensions": {
                 "OC": 1024,
                 "N": 24576,
@@ -9778,8 +9786,8 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 1,
-                            "IW": 1,
+                            "IH": 14,
+                            "IW": 7,
                             "IC": 256
                         },
                         "pe_array": {
@@ -9815,7 +9823,7 @@
                         "WBUF": {
                             "KH": 1,
                             "KW": 1,
-                            "OC": 16,
+                            "OC": 128,
                             "IC": 256
                         },
                         "pe_array": {
@@ -9843,7 +9851,7 @@
                             "OC": 1024
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -9878,9 +9886,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 14,
+                            "OW": 7,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -9894,7 +9902,7 @@
         },
         {
             "operation": "elem_add",
-            "instance_id": 326,
+            "instance_id": 448,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 1024,
@@ -9926,10 +9934,10 @@
                             "C": 1024
                         },
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -9962,10 +9970,10 @@
                             "C": 1024
                         },
                         "VMEM2": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -9994,10 +10002,10 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "DRAM": {
                             "N": 24576,
@@ -10017,7 +10025,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 327,
+            "instance_id": 449,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 14,
@@ -10049,8 +10057,8 @@
                             "W": 1024
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -10065,7 +10073,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_82_440Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -10081,8 +10089,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -10104,7 +10112,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 328,
+            "instance_id": 450,
             "iterable_dimensions": {
                 "OC": 256,
                 "N": 24576,
@@ -10142,9 +10150,9 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 1,
-                            "IW": 1,
-                            "IC": 1024
+                            "IH": 14,
+                            "IW": 7,
+                            "IC": 512
                         },
                         "pe_array": {
                             "N": 1,
@@ -10179,8 +10187,8 @@
                         "WBUF": {
                             "KH": 1,
                             "KW": 1,
-                            "OC": 16,
-                            "IC": 1024
+                            "OC": 128,
+                            "IC": 512
                         },
                         "pe_array": {
                             "KH": 1,
@@ -10207,7 +10215,7 @@
                             "OC": 256
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -10242,9 +10250,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 14,
+                            "OW": 7,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -10258,7 +10266,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 329,
+            "instance_id": 451,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 14,
@@ -10290,8 +10298,8 @@
                             "W": 256
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -10306,7 +10314,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_84_443Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -10322,8 +10330,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -10345,7 +10353,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 330,
+            "instance_id": 452,
             "iterable_dimensions": {
                 "OC": 256,
                 "N": 24576,
@@ -10383,8 +10391,8 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 3,
-                            "IW": 3,
+                            "IH": 14,
+                            "IW": 7,
                             "IC": 256
                         },
                         "pe_array": {
@@ -10418,9 +10426,9 @@
                             "IC": 256
                         },
                         "WBUF": {
-                            "KH": 3,
-                            "KW": 3,
-                            "OC": 16,
+                            "KH": 1,
+                            "KW": 1,
+                            "OC": 128,
                             "IC": 256
                         },
                         "pe_array": {
@@ -10448,7 +10456,7 @@
                             "OC": 256
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -10483,9 +10491,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 14,
+                            "OW": 7,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -10499,7 +10507,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 331,
+            "instance_id": 453,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 14,
@@ -10531,8 +10539,8 @@
                             "W": 256
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -10547,7 +10555,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_86_446Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -10563,8 +10571,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -10586,7 +10594,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 332,
+            "instance_id": 454,
             "iterable_dimensions": {
                 "OC": 1024,
                 "N": 24576,
@@ -10624,8 +10632,8 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 1,
-                            "IW": 1,
+                            "IH": 14,
+                            "IW": 7,
                             "IC": 256
                         },
                         "pe_array": {
@@ -10661,7 +10669,7 @@
                         "WBUF": {
                             "KH": 1,
                             "KW": 1,
-                            "OC": 16,
+                            "OC": 128,
                             "IC": 256
                         },
                         "pe_array": {
@@ -10689,7 +10697,7 @@
                             "OC": 1024
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -10724,9 +10732,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 14,
+                            "OW": 7,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -10740,7 +10748,7 @@
         },
         {
             "operation": "elem_add",
-            "instance_id": 333,
+            "instance_id": 455,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 1024,
@@ -10772,10 +10780,10 @@
                             "C": 1024
                         },
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -10808,10 +10816,10 @@
                             "C": 1024
                         },
                         "VMEM2": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -10840,10 +10848,10 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "DRAM": {
                             "N": 24576,
@@ -10863,7 +10871,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 334,
+            "instance_id": 456,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 14,
@@ -10895,8 +10903,8 @@
                             "W": 1024
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -10911,7 +10919,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_89_450Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -10927,8 +10935,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -10950,7 +10958,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 335,
+            "instance_id": 457,
             "iterable_dimensions": {
                 "OC": 256,
                 "N": 24576,
@@ -10988,9 +10996,9 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 1,
-                            "IW": 1,
-                            "IC": 1024
+                            "IH": 14,
+                            "IW": 7,
+                            "IC": 512
                         },
                         "pe_array": {
                             "N": 1,
@@ -11025,8 +11033,8 @@
                         "WBUF": {
                             "KH": 1,
                             "KW": 1,
-                            "OC": 16,
-                            "IC": 1024
+                            "OC": 128,
+                            "IC": 512
                         },
                         "pe_array": {
                             "KH": 1,
@@ -11053,7 +11061,7 @@
                             "OC": 256
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -11088,9 +11096,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 14,
+                            "OW": 7,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -11104,7 +11112,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 336,
+            "instance_id": 458,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 14,
@@ -11136,8 +11144,8 @@
                             "W": 256
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -11152,7 +11160,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_91_453Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -11168,8 +11176,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -11191,7 +11199,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 337,
+            "instance_id": 459,
             "iterable_dimensions": {
                 "OC": 256,
                 "N": 24576,
@@ -11229,8 +11237,8 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 3,
-                            "IW": 3,
+                            "IH": 14,
+                            "IW": 7,
                             "IC": 256
                         },
                         "pe_array": {
@@ -11264,9 +11272,9 @@
                             "IC": 256
                         },
                         "WBUF": {
-                            "KH": 3,
-                            "KW": 3,
-                            "OC": 16,
+                            "KH": 1,
+                            "KW": 1,
+                            "OC": 128,
                             "IC": 256
                         },
                         "pe_array": {
@@ -11294,7 +11302,7 @@
                             "OC": 256
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -11329,9 +11337,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 14,
+                            "OW": 7,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -11345,7 +11353,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 338,
+            "instance_id": 460,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 14,
@@ -11377,8 +11385,8 @@
                             "W": 256
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -11393,7 +11401,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_93_456Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -11409,8 +11417,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -11432,7 +11440,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 339,
+            "instance_id": 461,
             "iterable_dimensions": {
                 "OC": 1024,
                 "N": 24576,
@@ -11470,8 +11478,8 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 1,
-                            "IW": 1,
+                            "IH": 14,
+                            "IW": 7,
                             "IC": 256
                         },
                         "pe_array": {
@@ -11507,7 +11515,7 @@
                         "WBUF": {
                             "KH": 1,
                             "KW": 1,
-                            "OC": 16,
+                            "OC": 128,
                             "IC": 256
                         },
                         "pe_array": {
@@ -11535,7 +11543,7 @@
                             "OC": 1024
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -11570,9 +11578,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 14,
+                            "OW": 7,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -11586,7 +11594,7 @@
         },
         {
             "operation": "elem_add",
-            "instance_id": 340,
+            "instance_id": 462,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 1024,
@@ -11618,10 +11626,10 @@
                             "C": 1024
                         },
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -11654,10 +11662,10 @@
                             "C": 1024
                         },
                         "VMEM2": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -11686,10 +11694,10 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "DRAM": {
                             "N": 24576,
@@ -11709,7 +11717,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 341,
+            "instance_id": 463,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 14,
@@ -11741,8 +11749,8 @@
                             "W": 1024
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -11757,7 +11765,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_96_460Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -11773,8 +11781,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -11796,7 +11804,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 342,
+            "instance_id": 464,
             "iterable_dimensions": {
                 "OC": 512,
                 "N": 24576,
@@ -11834,9 +11842,9 @@
                         },
                         "IBUF": {
                             "N": 1,
-                            "IH": 1,
-                            "IW": 1,
-                            "IC": 1024
+                            "IH": 14,
+                            "IW": 7,
+                            "IC": 512
                         },
                         "pe_array": {
                             "N": 1,
@@ -11871,8 +11879,8 @@
                         "WBUF": {
                             "KH": 1,
                             "KW": 1,
-                            "OC": 16,
-                            "IC": 1024
+                            "OC": 128,
+                            "IC": 512
                         },
                         "pe_array": {
                             "KH": 1,
@@ -11899,7 +11907,7 @@
                             "OC": 512
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -11934,9 +11942,9 @@
                         },
                         "OBUF": {
                             "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "OH": 14,
+                            "OW": 7,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -11950,7 +11958,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 343,
+            "instance_id": 465,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 14,
@@ -11982,8 +11990,8 @@
                             "W": 512
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -11998,7 +12006,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_98_463Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -12014,8 +12022,8 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
-                            "C": 1,
+                            "N": 24576,
+                            "C": 2,
                             "H": 1,
                             "W": 1
                         },
@@ -12037,7 +12045,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 344,
+            "instance_id": 466,
             "iterable_dimensions": {
                 "OC": 512,
                 "N": 24576,
@@ -12074,8 +12082,8 @@
                             "IC": 512
                         },
                         "IBUF": {
-                            "N": 1,
-                            "IH": 3,
+                            "N": 8,
+                            "IH": 13,
                             "IW": 1,
                             "IC": 512
                         },
@@ -12110,9 +12118,9 @@
                             "IC": 512
                         },
                         "WBUF": {
-                            "KH": 3,
+                            "KH": 1,
                             "KW": 1,
-                            "OC": 16,
+                            "OC": 128,
                             "IC": 512
                         },
                         "pe_array": {
@@ -12140,7 +12148,7 @@
                             "OC": 512
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -12174,10 +12182,10 @@
                             "OC": 512
                         },
                         "OBUF": {
-                            "N": 1,
-                            "OH": 1,
+                            "N": 8,
+                            "OH": 7,
                             "OW": 1,
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -12191,7 +12199,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 345,
+            "instance_id": 467,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 7,
@@ -12223,10 +12231,10 @@
                             "W": 512
                         },
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "C": 1,
                             "H": 1,
-                            "W": 1
+                            "W": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -12239,7 +12247,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_100_466Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -12255,10 +12263,10 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "C": 1,
                             "H": 1,
-                            "W": 1
+                            "W": 2
                         },
                         "DRAM": {
                             "N": 24576,
@@ -12278,7 +12286,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 346,
+            "instance_id": 468,
             "iterable_dimensions": {
                 "OC": 2048,
                 "N": 24576,
@@ -12315,9 +12323,9 @@
                             "IC": 512
                         },
                         "IBUF": {
-                            "N": 1,
-                            "IH": 1,
-                            "IW": 1,
+                            "N": 2,
+                            "IH": 7,
+                            "IW": 7,
                             "IC": 512
                         },
                         "pe_array": {
@@ -12353,7 +12361,7 @@
                         "WBUF": {
                             "KH": 1,
                             "KW": 1,
-                            "OC": 16,
+                            "OC": 128,
                             "IC": 512
                         },
                         "pe_array": {
@@ -12381,7 +12389,7 @@
                             "OC": 2048
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -12415,10 +12423,10 @@
                             "OC": 2048
                         },
                         "OBUF": {
-                            "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "N": 2,
+                            "OH": 7,
+                            "OW": 7,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -12432,7 +12440,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 347,
+            "instance_id": 469,
             "iterable_dimensions": {
                 "OC": 2048,
                 "N": 24576,
@@ -12469,10 +12477,10 @@
                             "IC": 1024
                         },
                         "IBUF": {
-                            "N": 1,
-                            "IH": 1,
+                            "N": 8,
+                            "IH": 13,
                             "IW": 1,
-                            "IC": 1024
+                            "IC": 512
                         },
                         "pe_array": {
                             "N": 1,
@@ -12507,8 +12515,8 @@
                         "WBUF": {
                             "KH": 1,
                             "KW": 1,
-                            "OC": 16,
-                            "IC": 1024
+                            "OC": 128,
+                            "IC": 512
                         },
                         "pe_array": {
                             "KH": 1,
@@ -12535,7 +12543,7 @@
                             "OC": 2048
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -12569,10 +12577,10 @@
                             "OC": 2048
                         },
                         "OBUF": {
-                            "N": 1,
-                            "OH": 1,
+                            "N": 8,
+                            "OH": 7,
                             "OW": 1,
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -12586,7 +12594,7 @@
         },
         {
             "operation": "elem_add",
-            "instance_id": 348,
+            "instance_id": 470,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 2048,
@@ -12618,10 +12626,10 @@
                             "C": 2048
                         },
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -12654,10 +12662,10 @@
                             "C": 2048
                         },
                         "VMEM2": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -12686,10 +12694,10 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "DRAM": {
                             "N": 24576,
@@ -12709,7 +12717,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 349,
+            "instance_id": 471,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 7,
@@ -12741,10 +12749,10 @@
                             "W": 2048
                         },
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "C": 1,
                             "H": 1,
-                            "W": 1
+                            "W": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -12757,7 +12765,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_104_472Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -12773,10 +12781,10 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "C": 1,
                             "H": 1,
-                            "W": 1
+                            "W": 2
                         },
                         "DRAM": {
                             "N": 24576,
@@ -12796,7 +12804,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 350,
+            "instance_id": 472,
             "iterable_dimensions": {
                 "OC": 512,
                 "N": 24576,
@@ -12833,10 +12841,10 @@
                             "IC": 2048
                         },
                         "IBUF": {
-                            "N": 1,
-                            "IH": 1,
-                            "IW": 1,
-                            "IC": 2048
+                            "N": 2,
+                            "IH": 7,
+                            "IW": 7,
+                            "IC": 512
                         },
                         "pe_array": {
                             "N": 1,
@@ -12871,8 +12879,8 @@
                         "WBUF": {
                             "KH": 1,
                             "KW": 1,
-                            "OC": 16,
-                            "IC": 2048
+                            "OC": 128,
+                            "IC": 512
                         },
                         "pe_array": {
                             "KH": 1,
@@ -12899,7 +12907,7 @@
                             "OC": 512
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -12933,10 +12941,10 @@
                             "OC": 512
                         },
                         "OBUF": {
-                            "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "N": 2,
+                            "OH": 7,
+                            "OW": 7,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -12950,7 +12958,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 351,
+            "instance_id": 473,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 7,
@@ -12982,10 +12990,10 @@
                             "W": 512
                         },
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "C": 1,
                             "H": 1,
-                            "W": 1
+                            "W": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -12998,7 +13006,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_106_475Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -13014,10 +13022,10 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "C": 1,
                             "H": 1,
-                            "W": 1
+                            "W": 2
                         },
                         "DRAM": {
                             "N": 24576,
@@ -13037,7 +13045,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 352,
+            "instance_id": 474,
             "iterable_dimensions": {
                 "OC": 512,
                 "N": 24576,
@@ -13074,9 +13082,9 @@
                             "IC": 512
                         },
                         "IBUF": {
-                            "N": 1,
-                            "IH": 3,
-                            "IW": 1,
+                            "N": 2,
+                            "IH": 7,
+                            "IW": 7,
                             "IC": 512
                         },
                         "pe_array": {
@@ -13110,9 +13118,9 @@
                             "IC": 512
                         },
                         "WBUF": {
-                            "KH": 3,
+                            "KH": 1,
                             "KW": 1,
-                            "OC": 16,
+                            "OC": 128,
                             "IC": 512
                         },
                         "pe_array": {
@@ -13140,7 +13148,7 @@
                             "OC": 512
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -13174,10 +13182,10 @@
                             "OC": 512
                         },
                         "OBUF": {
-                            "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "N": 2,
+                            "OH": 7,
+                            "OW": 7,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -13191,7 +13199,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 353,
+            "instance_id": 475,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 7,
@@ -13223,10 +13231,10 @@
                             "W": 512
                         },
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "C": 1,
                             "H": 1,
-                            "W": 1
+                            "W": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -13239,7 +13247,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_108_478Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -13255,10 +13263,10 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "C": 1,
                             "H": 1,
-                            "W": 1
+                            "W": 2
                         },
                         "DRAM": {
                             "N": 24576,
@@ -13278,7 +13286,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 354,
+            "instance_id": 476,
             "iterable_dimensions": {
                 "OC": 2048,
                 "N": 24576,
@@ -13315,9 +13323,9 @@
                             "IC": 512
                         },
                         "IBUF": {
-                            "N": 1,
-                            "IH": 1,
-                            "IW": 1,
+                            "N": 2,
+                            "IH": 7,
+                            "IW": 7,
                             "IC": 512
                         },
                         "pe_array": {
@@ -13353,7 +13361,7 @@
                         "WBUF": {
                             "KH": 1,
                             "KW": 1,
-                            "OC": 16,
+                            "OC": 128,
                             "IC": 512
                         },
                         "pe_array": {
@@ -13381,7 +13389,7 @@
                             "OC": 2048
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -13415,10 +13423,10 @@
                             "OC": 2048
                         },
                         "OBUF": {
-                            "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "N": 2,
+                            "OH": 7,
+                            "OW": 7,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -13432,7 +13440,7 @@
         },
         {
             "operation": "elem_add",
-            "instance_id": 355,
+            "instance_id": 477,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 2048,
@@ -13464,10 +13472,10 @@
                             "C": 2048
                         },
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -13500,10 +13508,10 @@
                             "C": 2048
                         },
                         "VMEM2": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -13532,10 +13540,10 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "DRAM": {
                             "N": 24576,
@@ -13555,7 +13563,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 356,
+            "instance_id": 478,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 7,
@@ -13587,10 +13595,10 @@
                             "W": 2048
                         },
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "C": 1,
                             "H": 1,
-                            "W": 1
+                            "W": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -13603,7 +13611,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_111_482Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -13619,10 +13627,10 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "C": 1,
                             "H": 1,
-                            "W": 1
+                            "W": 2
                         },
                         "DRAM": {
                             "N": 24576,
@@ -13642,7 +13650,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 357,
+            "instance_id": 479,
             "iterable_dimensions": {
                 "OC": 512,
                 "N": 24576,
@@ -13679,10 +13687,10 @@
                             "IC": 2048
                         },
                         "IBUF": {
-                            "N": 1,
-                            "IH": 1,
-                            "IW": 1,
-                            "IC": 2048
+                            "N": 2,
+                            "IH": 7,
+                            "IW": 7,
+                            "IC": 512
                         },
                         "pe_array": {
                             "N": 1,
@@ -13717,8 +13725,8 @@
                         "WBUF": {
                             "KH": 1,
                             "KW": 1,
-                            "OC": 16,
-                            "IC": 2048
+                            "OC": 128,
+                            "IC": 512
                         },
                         "pe_array": {
                             "KH": 1,
@@ -13745,7 +13753,7 @@
                             "OC": 512
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -13779,10 +13787,10 @@
                             "OC": 512
                         },
                         "OBUF": {
-                            "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "N": 2,
+                            "OH": 7,
+                            "OW": 7,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -13796,7 +13804,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 358,
+            "instance_id": 480,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 7,
@@ -13828,10 +13836,10 @@
                             "W": 512
                         },
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "C": 1,
                             "H": 1,
-                            "W": 1
+                            "W": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -13844,7 +13852,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_113_485Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -13860,10 +13868,10 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "C": 1,
                             "H": 1,
-                            "W": 1
+                            "W": 2
                         },
                         "DRAM": {
                             "N": 24576,
@@ -13883,7 +13891,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 359,
+            "instance_id": 481,
             "iterable_dimensions": {
                 "OC": 512,
                 "N": 24576,
@@ -13920,9 +13928,9 @@
                             "IC": 512
                         },
                         "IBUF": {
-                            "N": 1,
-                            "IH": 3,
-                            "IW": 1,
+                            "N": 2,
+                            "IH": 7,
+                            "IW": 7,
                             "IC": 512
                         },
                         "pe_array": {
@@ -13956,9 +13964,9 @@
                             "IC": 512
                         },
                         "WBUF": {
-                            "KH": 3,
+                            "KH": 1,
                             "KW": 1,
-                            "OC": 16,
+                            "OC": 128,
                             "IC": 512
                         },
                         "pe_array": {
@@ -13986,7 +13994,7 @@
                             "OC": 512
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -14020,10 +14028,10 @@
                             "OC": 512
                         },
                         "OBUF": {
-                            "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "N": 2,
+                            "OH": 7,
+                            "OW": 7,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -14037,7 +14045,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 360,
+            "instance_id": 482,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 7,
@@ -14069,10 +14077,10 @@
                             "W": 512
                         },
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "C": 1,
                             "H": 1,
-                            "W": 1
+                            "W": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -14085,7 +14093,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_115_488Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -14101,10 +14109,10 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "C": 1,
                             "H": 1,
-                            "W": 1
+                            "W": 2
                         },
                         "DRAM": {
                             "N": 24576,
@@ -14124,7 +14132,7 @@
         },
         {
             "operation": "conv_bias",
-            "instance_id": 361,
+            "instance_id": 483,
             "iterable_dimensions": {
                 "OC": 2048,
                 "N": 24576,
@@ -14161,9 +14169,9 @@
                             "IC": 512
                         },
                         "IBUF": {
-                            "N": 1,
-                            "IH": 1,
-                            "IW": 1,
+                            "N": 2,
+                            "IH": 7,
+                            "IW": 7,
                             "IC": 512
                         },
                         "pe_array": {
@@ -14199,7 +14207,7 @@
                         "WBUF": {
                             "KH": 1,
                             "KW": 1,
-                            "OC": 16,
+                            "OC": 128,
                             "IC": 512
                         },
                         "pe_array": {
@@ -14227,7 +14235,7 @@
                             "OC": 2048
                         },
                         "BBUF": {
-                            "OC": 16
+                            "OC": 128
                         },
                         "pe_array": {
                             "OC": 16
@@ -14261,10 +14269,10 @@
                             "OC": 2048
                         },
                         "OBUF": {
-                            "N": 1,
-                            "OH": 1,
-                            "OW": 1,
-                            "OC": 16
+                            "N": 2,
+                            "OH": 7,
+                            "OW": 7,
+                            "OC": 128
                         },
                         "pe_array": {
                             "N": 1,
@@ -14278,7 +14286,7 @@
         },
         {
             "operation": "elem_add",
-            "instance_id": 362,
+            "instance_id": 484,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 2048,
@@ -14310,10 +14318,10 @@
                             "C": 2048
                         },
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -14346,10 +14354,10 @@
                             "C": 2048
                         },
                         "VMEM2": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -14378,10 +14386,10 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "H": 1,
                             "W": 1,
-                            "C": 1
+                            "C": 2
                         },
                         "DRAM": {
                             "N": 24576,
@@ -14401,7 +14409,7 @@
         },
         {
             "operation": "relu",
-            "instance_id": 363,
+            "instance_id": 485,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 7,
@@ -14433,10 +14441,10 @@
                             "W": 2048
                         },
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "C": 1,
                             "H": 1,
-                            "W": 1
+                            "W": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -14449,7 +14457,7 @@
             ],
             "outputs": [
                 {
-                    "name": "out",
+                    "name": "out_relu",
                     "unique_name": "relu_118_492Y",
                     "dtype": "FXP32",
                     "shape_symbols": {
@@ -14465,10 +14473,10 @@
                     ],
                     "tiling": {
                         "VMEM1": {
-                            "N": 16,
+                            "N": 24576,
                             "C": 1,
                             "H": 1,
-                            "W": 1
+                            "W": 2
                         },
                         "DRAM": {
                             "N": 24576,
@@ -14488,7 +14496,7 @@
         },
         {
             "operation": "global_avg_pool",
-            "instance_id": 364,
+            "instance_id": 486,
             "iterable_dimensions": {
                 "N": 24576,
                 "C": 2048,
@@ -14497,7 +14505,9 @@
                 "OH": 1,
                 "OW": 1
             },
-            "operation_parameters": {},
+            "operation_parameters": {
+                "immediate_value": 49
+            },
             "inputs": [
                 {
                     "name": "data",
@@ -14522,10 +14532,10 @@
                             "C": 2048
                         },
                         "VMEM1": {
-                            "N": 16,
-                            "IH": 7,
-                            "IW": 7,
-                            "C": 1
+                            "N": 24576,
+                            "IH": 1,
+                            "IW": 1,
+                            "C": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -14548,22 +14558,26 @@
                         "C": 2048
                     },
                     "data_path": [
+                        "DRAM",
+                        "VMEM2",
                         "SIMD",
-                        "VMEM1",
+                        "VMEM2",
+                        "SIMD",
+                        "VMEM2",
                         "DRAM"
                     ],
                     "tiling": {
-                        "VMEM1": {
-                            "N": 16,
-                            "OH": 1,
-                            "OW": 1,
-                            "C": 1
-                        },
                         "DRAM": {
                             "N": 24576,
                             "OH": 1,
                             "OW": 1,
                             "C": 2048
+                        },
+                        "VMEM2": {
+                            "N": 24576,
+                            "OH": 1,
+                            "OW": 1,
+                            "C": 2
                         },
                         "SIMD": {
                             "N": 16,
@@ -14577,7 +14591,7 @@
         },
         {
             "operation": "coarse_flatten",
-            "instance_id": 365,
+            "instance_id": 487,
             "iterable_dimensions": {},
             "operation_parameters": {},
             "inputs": [],
@@ -14585,7 +14599,7 @@
         },
         {
             "operation": "gemm",
-            "instance_id": 366,
+            "instance_id": 488,
             "iterable_dimensions": {
                 "P": 1008,
                 "N": 2048,
@@ -14612,8 +14626,8 @@
                             "N": 2048
                         },
                         "IBUF": {
-                            "M": 1,
-                            "N": 2048
+                            "M": 1024,
+                            "N": 64
                         },
                         "pe_array": {
                             "M": 1,
@@ -14640,7 +14654,7 @@
                             "P": 1008
                         },
                         "WBUF": {
-                            "N": 2048,
+                            "N": 64,
                             "P": 16
                         },
                         "pe_array": {
@@ -14696,7 +14710,7 @@
                             "P": 1008
                         },
                         "OBUF": {
-                            "M": 1,
+                            "M": 1024,
                             "P": 16
                         },
                         "pe_array": {
