@@ -35,5 +35,5 @@ Installation and usage instructions are found in the following links:
 If you use this work, please cite one of our papers, PolyMath, published in the 2021 IEEE International Symposium on High Performance Computer Architecture (HPCA).
 
 ```
-S. Kinzer, J.K. Kim, S. Ghodrati, B. Yatham, A. Althoff, D. Mahajan, S. Lerner, and H. Esmailzadeh, "From High-Level Deep Neural Models to FPGAs", in the IEEE International Symposium on High Performance Computer Architecture (HPCA), 2021.
+S. Kinzer, J.K. Kim, S. Ghodrati, B. Yatham, A. Althoff, D. Mahajan, S. Lerner, and H. Esmailzadeh, "A Computational Stack for Cross-Domain Acceleration", in the IEEE International Symposium on High Performance Computer Architecture (HPCA), 2021.
 ```
