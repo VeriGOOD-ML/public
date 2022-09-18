@@ -1,7 +1,10 @@
 import json
 from typing import Union, Any
-from . import ArchitectureNode, ComputeNode, CommunicationNode, StorageNode, \
-    OperandTemplate, Datatype, Instruction
+
+from codelets import Datatype
+import dill
+from codelets.adl.graph import ComputeNode, StorageNode, CommunicationNode, ArchitectureNode
+from codelets.adl.flex_template import Instruction
 from codelets.codelet_impl import Codelet
 import linecache
 from typing import List, Dict
@@ -237,3 +240,49 @@ DTYPE_MAP = {
     "FP32": Datatype(type="FP", bitwidth=32),
 
 }
+
+def init_arch_node(blob, id_node_map={}):
+    if blob['node_type'] == "ComputeNode":
+        node = ComputeNode(name=blob['field_name'], dimensions=blob['attributes']['dimensions'])
+    elif blob['node_type'] == "StorageNode":
+        node = StorageNode(name=blob['field_name'])
+    elif blob['node_type'] == "CommunicationNode":
+        node = CommunicationNode(name=blob['field_name'])
+    else:
+        raise RuntimeError(f"Invalid node_type field {blob['node_type']} in json file")
+    node.from_json(blob)
+    if blob['instruction_length'] != -1:
+        node.instr_length = blob['instruction_length']
+    if 'codelets' in blob:
+        with open(blob['codelets'], "rb") as f:
+            codelets = dill.load(f)
+        for k, v in codelets.items():
+            node.add_codelet(v)
+    with open(blob['utility_funcs'], "rb") as f:
+        utility_funcs = dill.load(f)
+    node.util_fns = utility_funcs
+    with open(blob['operation_mappings'], "rb") as f:
+        node.operation_mappings = dill.load(f)
+    id_node_map[blob['node_id']] = node
+    for subgraph_node in blob['subgraph']['nodes']:
+        subgraph_node_id = subgraph_node['node_id']
+        id_node_map[subgraph_node_id] = init_arch_node(subgraph_node, id_node_map)
+        node.add_subgraph_node(id_node_map[subgraph_node_id])
+    for edge in blob['subgraph']['edges']:
+        node.add_subgraph_edge(id_node_map[edge['src']].name, id_node_map[edge['dest']].name,
+                               bandwidth=edge['bandwidth'], attributes=edge['attributes'])
+    if 'primitives' in blob:
+        with open(blob['primitives'], "rb") as f:
+            primitives = dill.load(f)
+        for k, v in primitives.items():
+            node.add_primitive(v, set_all_instr_lengths = False)
+    return node
+
+
+def deserialize_hag(filename):
+    with open(filename, "r") as f:
+        blob = json.load(f)
+    id_node_map = {}
+    parent = init_arch_node(blob, id_node_map)
+    parent.set_node_depths()
+    return parent

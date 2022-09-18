@@ -33,12 +33,13 @@ $ pip install -e .
 ```
 
 ### Step 4: Compile a benchmark using GeneSys
-You can compile a GeneSys benchmark by running the following commands, where <benchmark_name> is one of  `resnet18`, `resnet50`, or `maskrcnn` and <output_type> is either "simulation" or "instructions", depending on whether or not the goal is to simulate the compiled output or generate executable instructions:
+You can compile a GeneSys benchmark by running the following commands, where <model_name> is one of  `resnet18`, or `resnet50` (you can try compiling with other onnx models you find as well!)  and <config_name> is the name of one of the configs located in `genesys/examples/genesys/configs`:
 ```console
-$ python genesys/benchmarks/run_benchmark.py --benchmark <benchmark_name> --output_type <output_type>
+$ cd genesys
+$ python tools/benchmark_compilation.py --model <model_name> --config <config_file>
 ```
 
-Compiled output will be stored in the `genesys/benchmarks/compilation_output/` directory.
+Compiled output will be stored in the `genesys/tools/compilation_output/` directory.
 
 ### Step 5: Simulate a benchmark using GeneSys
 After compiling the benchmark, you can run a software simulation of the benchmark. The directory `genesys/simulation/` contains the source code of the simulator. 

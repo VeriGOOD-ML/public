@@ -1,19 +1,21 @@
-from . import Operation, OperandTemplate, IndexedOperandTemplate
+from . import Operation, Operand, IndexedOperandTemplate
 from typing import List, Union
 
 
 class Compute(Operation):
 
     def __init__(self, op_name: str,
-                 sources: List[Union[OperandTemplate, IndexedOperandTemplate]],
-                 dests: List[Union[OperandTemplate, IndexedOperandTemplate]],
+                 sources: List[Union[Operand, IndexedOperandTemplate]],
+                 dests: List[Union[Operand, IndexedOperandTemplate]],
                  target: str=None,
                  add_codelet=True,
                  **kwargs):
         self._op_name = op_name
         self._sources = []
         self._dests = []
-        req_params = []
+        self._operand_indices = []
+        self.oploc_memo = {}
+        req_params = {}
         assert target is not None
 
         # TODO: Need to figure out if these need to be added
@@ -26,16 +28,35 @@ class Compute(Operation):
                                       add_codelet=add_codelet,
                                       dependencies=dependencies,
                                       **kwargs)
+
         for s_call in sources:
+            if isinstance(s_call, IndexedOperandTemplate):
+                self._operand_indices += s_call.atomic_loop_offsets
             s = s_call.add_compute_access(target, self.op_str, "source")
-            self._dependencies += [dep for dep in s.dependencies if dep not in dependencies]
+
+            self._dependencies += [dep for dep in s.dependencies if dep not in dependencies and dep != self.op_str]
             self._sources.append(s)
 
+
         for d_call in dests:
+            if isinstance(d_call, IndexedOperandTemplate):
+                self._operand_indices += d_call.atomic_loop_offsets
             d = d_call.add_compute_access(target, self.op_str, "dest")
-            self._dependencies += [dep for dep in d.dependencies if dep not in dependencies]
+            self._dependencies += [dep for dep in d.dependencies if dep not in dependencies and dep != self.op_str]
             d.dependencies.append(self.op_str)
             self._dests.append(d)
+
+            if "temp" in d.name and all("transfer" not in dep for dep in d.dependencies):
+                for s in self.sources:
+                    if s.shape_list == d.shape_list:
+                        loop_deps = [dep for dep in s.dependencies if "loop" in dep]
+                        d.dependencies = list(set(d.dependencies + loop_deps))
+                        break
+        self._operand_indices = list(set(self._operand_indices))
+
+    @property
+    def operand_indices(self) -> List[str]:
+        return self._operand_indices
 
     def source_names(self):
         return [s.name for s in self.sources]
@@ -56,6 +77,14 @@ class Compute(Operation):
         return self._sources + self._dests
 
     @property
+    def unique_operands(self):
+        ops = []
+        for o in self.operands:
+            if o not in ops:
+                ops.append(o)
+        return ops
+
+    @property
     def op_name(self):
         return self._op_name
 
@@ -67,6 +96,33 @@ class Compute(Operation):
                 count += 1
         return count
 
+
+    @property
+    def unique_operand_locations(self) -> List[str]:
+        return list(sorted(list(set([self.get_operand_location(o.name) for o in self.operands]))))
+
+    @property
+    def operands_by_unique_location(self):
+        keys = []
+        operands = []
+        for i, o in enumerate(self.operands):
+            loc = self.get_operand_location(o.name)
+            idx = o.get_mem_index(loc)
+            key = (loc, idx)
+            if key not in keys:
+                keys.append(key)
+                operands.append(o)
+        return operands
+
+    @property
+    def source_locations(self):
+        return list(sorted(list(set([self.get_operand_location(o.name) for o in self.sources]))))
+
+    def update_operand_indices(self, dep_map):
+        for i, idx in enumerate(self.operand_indices):
+            if idx in dep_map:
+                self._operand_indices[i] = dep_map[idx]
+
     def get_operand(self, name):
         op = None
         for o in self.operands:
@@ -76,7 +132,9 @@ class Compute(Operation):
         assert op is not None
         return op
 
-    def get_operand_location(self, operand_name):
+
+    def get_operand_location(self, operand_name: str) -> str:
+
         op = self.get_operand(operand_name)
         location = None
         for a in op.data_moves:
@@ -165,7 +223,6 @@ class Compute(Operation):
         # for d in self.dests:
         #     path_key = (self.target)
         #     src_shape, dst_shape = get_transfer_dim_sizes(d, path_key)
-
 
     def emit(self, output_type):
         # TODO: Add template

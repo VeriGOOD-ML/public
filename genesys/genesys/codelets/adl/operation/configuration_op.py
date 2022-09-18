@@ -11,23 +11,37 @@ class Configure(Operation):
                  ):
         self._target_name = target
         self._start_or_finish = start_or_finish
-        required_params = []
+        required_params = {}
         resolved_params = {}
         for k, v in kwargs.items():
-            if v is None:
-                required_params.append(k)
+            if v is None or isinstance(v, FlexParam):
+                required_params[k] = v
             else:
                 resolved_params[k] = FlexParam(k)
                 resolved_params[k].value = v
 
+        config_params = {}
         for k in list(kwargs.keys()):
             if k not in Operation.BASE_KWARG_NAMES:
-                kwargs.pop(k)
+                config_params[k] = kwargs.pop(k)
 
         super(Configure, self).__init__('config', required_params,
                                         target=target,
                                         resolved_params=resolved_params,
                                         add_codelet=add_codelet, **kwargs)
+        # codelet = Operation.current_codelet
+
+        # for k, v in config_params.items():
+        #     if v is None or isinstance(v, FlexParam):
+        #         self._required_params[k] = v
+        #         name = f"{self.op_str}{k}"
+        #         if name not in codelet.required_params:
+        #             codelet.add_required_param(name, value=v)
+        #     else:
+        #         self._resolved_params[k] = FlexParam(k)
+        #         self._resolved_params[k].value = v
+
+
     @property
     def target_name(self):
         return self._target_name

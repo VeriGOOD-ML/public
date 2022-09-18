@@ -158,5 +158,16 @@ def compute_node_levels(nodes: dict, use_tarjan=True):
 
     return node_levels
 
+def get_shortest_paths(nodes: dict, src: str, dst: str):
+    graph = nx.MultiDiGraph()
+
+    for name, node in nodes.items():
+        for v in node._succs.values():
+            graph.add_edge(name, v.name)
+
+    return nx.all_shortest_paths(graph, src, dst)
+
+
+
 
 

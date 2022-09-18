@@ -15,18 +15,37 @@ FIELD_TEMPLATE = """
     % if 
 </%def>
 """
+# field_name: str
+# bitwidth: int
+# field_id: int = field(default_factory=lambda: next(field_cnt))
+# value: int = field(default=None)
+# value_names: Dict[str, int] = field(default_factory=dict)
+# value_str: str = field(default=None)
+# param_fn: FlexParam = field(default=None, init=False)
+# param_fn_type: str = field(default="int")
+# lazy_eval: bool = field(default=False)
+# required: bool = field(default=False)
 
-@dataclass
-class Field:
-    field_name: str
-    bitwidth: int
-    field_id: int = field(default_factory=lambda: next(field_cnt))
-    value: int = field(default=None)
-    value_names: Dict[str, int] = field(default_factory=dict)
-    value_str: str = field(default=None)
-    param_fn: FlexParam = field(default=None, init=False)
-    param_fn_type: str = field(default="int")
-
+class Field(object):
+    def __init__(self, field_name, bitwidth,
+                 field_id=None,
+                 value=None,
+                 value_names=None,
+                 value_str=None,
+                 param_fn = None,
+                 param_fn_type="int",
+                 lazy_eval = False,
+                 required = False):
+        self.field_name: str = field_name
+        self.field_id: int = field_id or next(field_cnt)
+        self.bitwidth: int = bitwidth
+        self._value: int = value
+        self.value_names: Dict[str, int] = value_names or {}
+        self.value_str: str = value_str
+        self.param_fn: FlexParam = param_fn
+        self.param_fn_type: str = param_fn_type
+        self.lazy_eval: bool = lazy_eval
+        self.required: bool = required
 
     @property
     def isset(self) -> bool:
@@ -35,6 +54,21 @@ class Field:
     @property
     def value_name_list(self) -> List[str]:
         return list(self.value_names.keys())
+
+    @property
+    def value(self):
+        return self._value
+
+    @value.setter
+    def value(self, val):
+        bin_rep = np.binary_repr(val, self.bitwidth)
+        if len(bin_rep) != self.bitwidth:
+            raise RuntimeError(f"Field {self.field_name} with name {self.param_fn.name} has too many bits:\n"
+                               f"Value: {val}\n"
+                               f"Required bits: {len(bin_rep)}\n"
+                               f"Field bits: {self.bitwidth}\n"
+                               f"Function: {self.param_fn.fn_body_str}")
+        self._value = val
 
     def set_param_fn(self, fn: FlexParam, eval_type="int"):
         assert isinstance(fn, FlexParam)
@@ -62,26 +96,39 @@ class Field:
             return self.value_str
         return str(self.value)
 
-
     def set_value_from_param_fn(self, *args, **iter_args):
         param_fn_args = list(args)
+
         for k, v in iter_args.items():
             if k not in self.param_fn.fn_args:
                 self.param_fn.add_fn_arg(k)
                 param_fn_args.append(v)
+
         param_fn_args = tuple(param_fn_args)
+
         result = self.param_fn.evaluate_fn(*param_fn_args)
+
 
         if isinstance(result, str) and result in self.value_names:
             self.value = self.value_names[result]
             self.value_str = result
-        elif not isinstance(result, Integral):
-            raise RuntimeError(f"Non-integer result value which is not found in value names:\n"
-                               f"Value: {result}, Type: {type(result)}\n"
-                               f"Possible string values: {list(self.value_names.keys())}"
-                  f"Arg name: {self.field_name}")
+        elif isinstance(result, Integral):
+            assert result >= 0, "Integer result for instruction field must be positive:\n" \
+                                f"Field name: {self.field_name}\n" \
+                                f"Param fn: {self.param_fn.fn_body_str}\n" \
+                                f"Value: {result}"
+            self.value = result
+        elif self.param_fn_type == "int":
+            err_msg = f"Non-integer result value which is not found in value names:\n" \
+                      f"Value: {result}, Type: {type(result)}\n" \
+                      f"Possible string values: {list(self.value_names.keys())}" \
+                      f"Arg name: {self.field_name}"
+            return err_msg
+
         else:
             self.value = result
+
+        return None
 
     def template_header(self):
         return FIELD_HEADER.format(field_name=self.field_name)
@@ -94,19 +141,24 @@ class Field:
                 return f"${{{self.param_fn}}}"
         elif output_type == "string_placeholders":
             return f"$({self.field_name})"
-        elif output_type == "decimal":
-            assert self.isset
-            return f"{self.value}"
         else:
-            assert output_type == "binary"
+            assert output_type in ["binary", "decimal"]
             assert self.isset
             bin_rep = np.binary_repr(self.value, self.bitwidth)
+            # assert len(bin_rep) == self.bitwidth
             return f"{bin_rep}"
 
     def copy(self):
-        field = Field(self.field_name, self.bitwidth, self.field_id, self.value, self.value_names.copy(),
-                     self.value_str)
+
 
         flex_param = None if not self.param_fn else self.param_fn.copy()
-        field.param_fn = flex_param
+
+        field = Field(self.field_name, self.bitwidth, field_id=self.field_id, value=self.value, value_names=self.value_names.copy(),
+                     value_str=self.value_str, param_fn_type=self.param_fn_type, lazy_eval=self.lazy_eval, param_fn=flex_param)
+
+
         return field
+
+    def update_fn_arg_names(self, old_args, new_args):
+        if self.param_fn is not None:
+            self.param_fn.reset_base_fn_args(old_args, new_args)

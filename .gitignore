@@ -116,3 +116,6 @@ Dockerfile
 # Data for examples
 # Numpy serialized files
 *.npz
+
+# Compilation outputs
+genesys/genesys/tools/compilation_output/*

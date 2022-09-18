@@ -22,7 +22,7 @@ class Operation(object):
 
 
     def __init__(self, operation_type: str,
-                 required_params: List[str],
+                 required_params: Dict[str, Union[FlexParam, int, None]],
                  codelet=None,
                  target: str = None,
                  instructions: List[FlexTemplate] = None,
@@ -55,9 +55,18 @@ class Operation(object):
         if add_codelet:
             codelet.add_op(self)
 
-        for r in self.required_params:
+        for r, v in self.required_params.items():
             if r not in codelet.required_params:
-                codelet.add_required_param(r)
+                codelet.add_required_param(r, value=v)
+
+    @staticmethod
+    def reset():
+        Operation.id_counter = 0
+        Operation.op_id_counters = defaultdict(int)
+        Operation.loop_ctx_dependencies = deque()
+        Operation.loop_ctxt_level = 0
+        Operation.loop_stack = deque()
+        Operation.current_codelet = None
 
     @property
     def loop_id(self) -> int:
@@ -68,7 +77,7 @@ class Operation(object):
         self._loop_id = loop_id
 
     @property
-    def required_params(self) -> List[str]:
+    def required_params(self) -> Dict[str, Union[FlexParam, int, None]]:
         return self._required_params
 
     @property
@@ -138,6 +147,35 @@ class Operation(object):
     @dependencies.setter
     def dependencies(self, dependencies):
         self._dependencies = dependencies
+
+    def loop_dependencies(self):
+        deps = []
+        for d in self.dependencies:
+            if d[:4] == "loop":
+                deps.append(d)
+        return deps
+
+    def compute_dependencies(self):
+        deps = []
+        for d in self.dependencies:
+            if d[:7] == "compute":
+                deps.append(d)
+        return deps
+
+    def transfer_dependencies(self):
+        deps = []
+        for d in self.dependencies:
+            if d[:8] == "transfer":
+                deps.append(d)
+        return deps
+
+    def unique_param_name(self, local_param_name):
+        return f"{self.op_str}{local_param_name}"
+
+    def update_dependencies(self, new_deps):
+        for d in new_deps:
+            if d not in self.dependencies:
+                self._dependencies.append(d)
 
 
     def __str__(self):

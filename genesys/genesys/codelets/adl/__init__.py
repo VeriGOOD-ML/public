@@ -2,7 +2,7 @@
 # from .flex_template import FlexTemplate, Instruction
 # from .graph import ArchitectureGraph, ArchitectureNode, ComputeNode, StorageNode, CommunicationNode
 # from .operation import Operation, Loop, Transfer, Compute, Configure, \
-#     OperandTemplate, Datatype
+#     Operand, Datatype
 from . import flex_param, flex_template
 from . import graph
 from . import operation

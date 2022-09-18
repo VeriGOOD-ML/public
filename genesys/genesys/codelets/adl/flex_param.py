@@ -6,14 +6,14 @@ import re
 
 from types import FunctionType, LambdaType, CodeType
 import inspect
-from numbers import Integral
+from numbers import Integral, Number
 from dataclasses import dataclass, field
 
 # IMPORTANT: The following modules are imported here to enable use in runtime compilation using globals()
 import numpy as np
 # END Module imports
 
-IMPORT_VALS = ["import numpy as np"]
+IMPORT_VALS = ["import numpy as np", "from fxpmath import Fxp"]
 flex_param_cnt = count()
 
 @dataclass
@@ -25,11 +25,14 @@ class FlexParam:
     fn: LambdaType = field(default=None)
     fn_code: CodeType = field(default=None, init=False)
     value_type: str = field(default='NA', init=False)
+    dtype_cast_func: FunctionType = field(default=int)
     _value: Union[str, int] = field(default=None, init=False)
     flex_id: int = field(default_factory=lambda: next(flex_param_cnt))
 
     def __post_init__(self):
+
         if len(self.fn_args) > 0:
+
             self.value_type = "function"
             if self.fn_body_str is not None:
                 assert self.fn_body_str is not None
@@ -42,6 +45,7 @@ class FlexParam:
                 self.fn_code_str, self.fn_body_str = get_lambda_source(self.fn)
 
         elif self.fn is not None and isinstance(self.fn, LambdaType):
+
             self.value_type = "function"
             assert self.fn_body_str is None
             self.fn_args = list(self.fn.__code__.co_varnames)
@@ -49,6 +53,12 @@ class FlexParam:
             self.fn_code_str, self.fn_body_str = get_lambda_source(self.fn)
         else:
             self.value_type = "static"
+
+    def create_static_from_str(self, fn_body):
+        self.fn_code_str = f"lambda: {fn_body}"
+        self.fn_code = compile(self.fn_code_str, "<string>", "exec")
+        assert 'np' in globals()
+        self.fn = LambdaType(self.fn_code.co_consts[0], globals())
 
     def create_function_from_str(self, arg_names, fn_body):
         self.fn_code_str = f"lambda {','.join(arg_names)}: {fn_body}"
@@ -59,6 +69,9 @@ class FlexParam:
     @property
     def value(self):
         return self._value
+
+    def reset(self):
+        self._value = None
 
     @value.setter
     def value(self, value):
@@ -71,8 +84,29 @@ class FlexParam:
         self.fn_args.append(arg)
         self.create_function_from_str(self.fn_args, self.fn_body_str)
 
+    def reset_base_fn_args(self, old_args, new_args):
+        assert old_args == self.fn_args[:len(old_args)], "Invalid default args"
+        new_args = new_args + self.fn_args[len(old_args):]
+        self.reset_fn_args(new_args)
+
+    def reset_fn_args(self, args):
+        self.fn_args = args
+        self.create_function_from_str(self.fn_args, self.fn_body_str)
+
+    def update_fn_code(self, new_fn_code):
+        self.fn_body_str = new_fn_code
+        self.create_function_from_str(self.fn_args, self.fn_body_str)
+
+    def update_fn_code_args(self, args, new_fn_code):
+        self.fn_args = args
+        self.fn_body_str = new_fn_code
+        self.create_function_from_str(self.fn_args, self.fn_body_str)
+
     def evaluate_fn(self, *fn_args, force_evaluate=False):
-        assert len(fn_args) == len(self.fn_args)
+        if len(fn_args) != len(self.fn_args):
+            raise RuntimeError(f"Unequal arguments for FlexParam {self.name}\n"
+                               f"FlexParam Args: {self.fn_args}\n"
+                               f"Input argument types: {[type(ia) for ia in fn_args]}")
 
         # TODO: Important--> this assumes that iter_args are iterated over in the correct order
         try:
@@ -82,15 +116,17 @@ class FlexParam:
             raise RuntimeError(f"Error while trying to execute param func:\n"
                                f"Func: {self.name}: {self.fn_body_str}\n"
                                f"Arg names: {self.fn_args}\n"
-                               f"Args: {fn_args}\n"
+                               # f"Args: {fn_args}\n"
                                f"Error: {e}\n"
                                f"")
 
-        if isinstance(result, (int, np.float)):
-            assert (result - int(result)) == 0, f"Invalid conversion between float and integer: " \
-                                                f"Func: {self.name}: {self.fn_body_str}\n Arg names: {self.fn_args}\n " \
-                                                f"Args: {fn_args}\n"
-            result = int(result)
+        if isinstance(result, Number):
+            result = self.dtype_cast_func(result)
+        # if isinstance(result, (int, np.float)):
+        #     assert (result - int(result)) == 0, f"Invalid conversion between float and integer: " \
+        #                                         f"Func: {self.name}: {self.fn_body_str}\n Arg names: {self.fn_args}\n " \
+        #                                         f"Args: {fn_args}\n"
+        #     result = int(result)
 
         if not self.is_set() or force_evaluate:
             self.value = result
@@ -127,6 +163,11 @@ class FlexParam:
         return True
 
     __copy__ = copy
+
+    def to_json(self):
+        blob = dict(name=self.name, args=self.fn_args, body=self.fn_body_str, value_type=self.value_type,
+                    id=self.flex_id)
+        return blob
 
 
 
