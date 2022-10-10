@@ -4,7 +4,7 @@ from os.path import isfile, join
 design_list = ["05", "06"]
 
 for design in design_list:
-    mypath = "./design" + design + "/invs_script"
+    mypath = "./design" + design + "/script"
     onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 
     for tcl_file in onlyfiles:

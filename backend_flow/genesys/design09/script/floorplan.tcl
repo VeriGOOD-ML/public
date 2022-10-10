@@ -1,0 +1,17 @@
+#########################
+# floorplan
+setOptMode -powerEffort high -leakageToDynamicRatio 0.5
+
+setGenerateViaMode -auto true
+generateVias
+
+createBasicPathGroups -expanded
+
+floorPlan -site $site -s  2862.432 6268.928 5.0 5.0 5.0 5.0
+
+source place_macro.tcl
+source place_pin.tcl
+
+checkPlace
+
+
