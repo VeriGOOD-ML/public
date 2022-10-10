@@ -1,3 +1,5 @@
+# This script was written and developed by ABKGroup students at UCSD. However, the underlying commands and reports are copyrighted by Cadence.
+# We thank Cadence for granting permission to share our research to help promote and foster the next generation of innovators.
 clearGlobalNets
 globalNetConnect VDD -type pgpin -pin VDD -inst *   -override
 globalNetConnect VSS -type pgpin -pin VSS -inst *   -override

@@ -1,3 +1,5 @@
+# This script was written and developed by ABKGroup students at UCSD. However, the underlying commands and reports are copyrighted by Cadence.
+# We thank Cadence for granting permission to share our research to help promote and foster the next generation of innovators.
 setObjFPlanBox Instance systolic_array_inst/genblk1_0__genblk1_0__pe_inst/weight_scratchpad 502.63 10.0 525.47 48.98 
 dbSet [dbGet top.insts.name -p systolic_array_inst/genblk1_0__genblk1_0__pe_inst/weight_scratchpad].orient  R180  
 createPlaceBlockage -type hard -box  499.63 7.0 528.47 51.98 -inst systolic_array_inst/genblk1_0__genblk1_0__pe_inst/weight_scratchpad 

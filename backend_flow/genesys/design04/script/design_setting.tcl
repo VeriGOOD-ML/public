@@ -1,3 +1,5 @@
+# This script was written and developed by ABKGroup students at UCSD. However, the underlying commands and reports are copyrighted by Cadence.
+# We thank Cadence for granting permission to share our research to help promote and foster the next generation of innovators.
 setMultiCpuUsage -localCpu 16 
 set design genesys_top_module
 set libdir "/oasis/tscc/scratch/zhw033/RTML/gf12lp"

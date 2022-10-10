@@ -1,3 +1,5 @@
+# This script was written and developed by ABKGroup students at UCSD. However, the underlying commands and reports are copyrighted by Cadence.
+# We thank Cadence for granting permission to share our research to help promote and foster the next generation of innovators.
 set halo_width 11.0
 set site_width 0.084
 set ver_halo_width [expr $halo_width / 5.0]

@@ -1,3 +1,5 @@
+# This script was written and developed by ABKGroup students at UCSD. However, the underlying commands and reports are copyrighted by Cadence.
+# We thank Cadence for granting permission to share our research to help promote and foster the next generation of innovators.
 setPinAssignMode -pinEditInBatch true
 set input_terms [dbGet [dbGet -p1 top.terms.direction input].name]
 set output_terms [dbGet [dbGet -p1 top.terms.direction output].name]

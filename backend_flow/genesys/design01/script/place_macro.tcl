@@ -1,3 +1,5 @@
+# This script was written and developed by ABKGroup students at UCSD. However, the underlying commands and reports are copyrighted by Cadence.
+# We thank Cadence for granting permission to share our research to help promote and foster the next generation of innovators.
 puts systolic_array_inst/genblk1_0__genblk1_0__pe_inst/weight_scratchpad
 setObjFPlanBox Instance systolic_array_inst/genblk1_0__genblk1_0__pe_inst/weight_scratchpad 239.89 10.0 262.74 48.98 
 dbSet [dbGet top.insts.name -p systolic_array_inst/genblk1_0__genblk1_0__pe_inst/weight_scratchpad].orient  R180  

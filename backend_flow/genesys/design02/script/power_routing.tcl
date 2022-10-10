@@ -1,3 +1,5 @@
+# This script was written and developed by ABKGroup students at UCSD. However, the underlying commands and reports are copyrighted by Cadence.
+# We thank Cadence for granting permission to share our research to help promote and foster the next generation of innovators.
 setAddStripeMode -route_over_rows_only true
 setAddStripeMode -stacked_via_bottom_layer M1 -stacked_via_top_layer C5
 setAddStripeMode -over_row_extension true
