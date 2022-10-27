@@ -1,0 +1,90 @@
+{
+  "templates": [
+    {
+      "name": "osip",
+      "level": 2,
+      "operation": [
+        "slice_mul",
+        "sum"
+      ]
+    },
+    {
+      "name": "sigmoid",
+      "level": 0,
+      "operation": [
+        "sigmoid"
+      ]
+    },
+    {
+      "name": "sub",
+      "level": 0,
+      "operation": [
+        "sub"
+      ]
+    },
+    {
+      "name": "slice_sub",
+      "level": 1,
+      "operation": [
+        "slice_sub"
+      ]
+    },
+    {
+      "name": "add",
+      "level": 0,
+      "operation": [
+        "add"
+      ]
+    },
+    {
+      "name": "mul",
+      "level": 0,
+      "operation": [
+        "mul"
+      ]
+    },
+    {
+      "name": "slice_mul",
+      "level": 1,
+      "operation": [
+        "slice_mul"
+      ]
+    },
+    {
+      "name": "gt",
+      "level": 0,
+      "operation": [
+        "gt"
+      ]
+    },
+    {
+      "name": "pipe",
+      "level": 0,
+      "operation": [
+        "pipe"
+      ]
+    },
+    {
+      "name": "sgd",
+      "level": 2,
+      "operation": [
+        "slice_mul",
+        "slice_mul",
+        "slice_sub"
+      ]
+    }
+  ],
+  "op_templates": [
+    {"name": "op_sgd",
+      "level": 2,
+      "operation": [
+        "slice_mul",
+        "slice_sub"
+      ]
+    }
+  ],
+    "parameters": {
+        "sub/x:0":0,
+        "Const:0":2
+    }
+}

@@ -1,0 +1,32 @@
+{
+        "rtl_param": {
+                "algo": "linear",
+                "weight_bitwidth": 8,
+                "activation_bitwidth": 8,
+                "bias_bitwidth": 8,
+                "param_bitwidth": 8,
+                "non_embedded_template_path": "./non_embedded_temp.sv",
+                "embedded_template_path": "./embedded_temp.sv",
+                "param_list": [
+                        "mu"
+                ],
+                "variable_list": [
+                        "Activation",
+                        "Weight",
+                        "Bias",
+                        "Output"
+                ],
+                "mu": 1,
+                "m": 1
+        },
+        "embedded_param": {
+                "weight": [
+                        2,
+                        3,
+                        4
+                ],
+                "bias": [
+                        1
+                ]
+        }
+}
