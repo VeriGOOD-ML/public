@@ -3,7 +3,25 @@
 
 The GeneSys compiler uses an embedded architecture description language to create a Hierarchical Architecture Graph for flexibly compiling _mg_-DFGs to different architectures. The GeneSys architecture uses a systolic array centric approach that forms the core convolution engine for implementing DNN algorithms, and can be customized to  run a range of standard DNN topologies.
 
-This document will help you get up and running.  
+GeneSys has three components: 
+1.) RTL
+2.) Compiler
+3.) Software Simulator
+
+This document will help you get up and running. 
+
+## RTL
+
+To generate hardware for RTL simulation or FPGA, please follow the below instructions
+
+### Steps
+```
+$ cd public/genesys/GeneSys-RTL/ (This is a git submodule that links the Genesys RTL repo (https://github.com/actlab-genesys/GeneSys.git)).
+$ Follow the steps in the repo to either run tests on RTL simulation or FPGA.
+```
+
+
+## COMPILER AND SOFTWARE SIMULATOR
 
 ### Step 0: Check prerequisites
 The following dependencies must be met by your system:
@@ -66,3 +84,4 @@ Use the following command to run simulation:
  python3 genesys/simulation/MainSimulator.py
 ```
 Please follow the specific instructions in the genesys/simulation/MainSimulator.py to simulate Inference or Training for a DNN benchmark.
+
