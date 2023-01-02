@@ -63,6 +63,6 @@ The output results (2) from simulation get stored in `genesys/simulation/Results
 
 Use the following command to run simulation:
 ```console
- python3 genesys/simulation/MainSimulator.py
+ python3 genesys/simulation/main_simulator.py
 ```
-Please follow the specific instructions in the genesys/simulation/MainSimulator.py to simulate Inference or Training for a DNN benchmark.
+Please follow the specific instructions in the genesys/simulation/main_simulator.py to simulate Inference or Training for a DNN benchmark.
