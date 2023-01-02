@@ -15,6 +15,7 @@ This document will help you get up and running.
 To generate hardware for RTL simulation or FPGA, please follow the below instructions
 
 ### Steps
+
 ```
 $ cd public/genesys/GeneSys-RTL/ (This is a git submodule that links the Genesys RTL repo (https://github.com/actlab-genesys/GeneSys.git)).
 $ Follow the steps in the repo to either run tests on RTL simulation or FPGA.
