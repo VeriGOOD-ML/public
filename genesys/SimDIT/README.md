@@ -12,7 +12,7 @@ Using SimDIT, you can run a software simulation of a DNN benchmark. This directo
 For a DNN benchmark, SimDIT takes two files as input: 
 (1) a .json file containing the hardware specifications and
 (2) a .json file containing the DNN specifications.
-Examples of the hardware .json file format can be found in `genesys/SimDIT/Hardware_Json_Inference/` and `genesys/SimDIT/Hardware_Json_Training/` directories. Examples of the compiler output .json file format can be found in `genesys/SimDIT/DNN_Spec_Inference/` and `genesys/SimDIT/DNN_Spec_Training/` directories.
+Examples of the hardware .json file format can be found in `genesys/SimDIT/Hardware_Json_Inference/` and `genesys/SimDIT/Hardware_Json_Training/` directories. Examples of the DNN specifications .json file format can be found in `genesys/SimDIT/DNN_Spec_Inference/` and `genesys/SimDIT/DNN_Spec_Training/` directories.
 
 #### Outputs of SimDIT:
 (1) a .csv file containing the layer-wise breakdown of the performance statistics of a benchmark DNN (stored in the working directory) and
