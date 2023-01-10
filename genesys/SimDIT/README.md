@@ -1,5 +1,8 @@
 # SimDIT: A Simulation Framework for DNN Inference and Training on ASIC Accelerator Platforms
 
+* A comprehensive simulation framework for fast performance analysis of DNN hardware
+* Models convolution and a diverse set of non-convolution operations
+
 ### Simulate a benchmark using SimDIT
 Using SimDIT, you can run a software simulation of a DNN benchmark. This directory contains all the source code of SimDIT. 
 
