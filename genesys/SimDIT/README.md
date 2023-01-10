@@ -1,7 +1,7 @@
 # SimDIT: A Simulation Framework for DNN Inference and Training on ASIC Accelerator Platforms
 
 * A comprehensive simulation framework for fast performance analysis of DNN hardware
-* Models convolution and a diverse set of non-convolution operations to cover DNN infference and training
+* Models convolution and a diverse set of non-convolution operations to cover DNN inference and training
 
 If you use any part of SimDIT for your work please cite: https://github.com/VeriGOOD-ML/public/tree/main/genesys/SimDIT
 
