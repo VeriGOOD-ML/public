@@ -41,28 +41,3 @@ $ python tools/benchmark_compilation.py --model <model_name> --config <config_fi
 
 Compiled output will be stored in the `genesys/tools/compilation_output/` directory.
 
-### Step 5: Simulate a benchmark using GeneSys
-After compiling the benchmark, you can run a software simulation of the benchmark. The directory `genesys/simulation/` contains the source code of the simulator. 
-
-#### Simulator Inputs:
-For a DNN benchmark, the simulator takes two files as input: 
-(1) a .json file containing the GeneSys hardware parameterization and
-(2) a .json file containing the compiler output generated at the specified hardware configuration.
-Examples of the hardware .json file format can be found in `genesys/simulation/Hardware_Json_Inference/` and `genesys/simulation/Hardware_Json_Training/` directories. Examples of the compiler output .json file format can be found in `genesys/simulation/Compiler_Output_Inference/` and `genesys/simulation/Compiler_Output_Training/` directories.
-
-#### Simulator Outputs:
-(1) a .csv file containing the layer-wise breakdown of the performance statistics of a benchmark DNN (stored in the working directory) and
-(2) a .csv file containing the performance statistics for the full DNN benchmark.
-The output results (2) from simulation get stored in `genesys/simulation/Results_Inference/` and `genesys/simulation/Results_Training/` directories.
-
-#### Performance statistics provided by the simulator (for training the statistics are for a single iteration):
-(i) #of accesses for all the on-chip buffers for all the data types (in KB);
-(ii) #of accesses for the off-chip DRAM for all the data types (in KB);
-(iii) #of various arithmetic operations;
-(iv) #of compute cycles; (v) #of stall cycles; (vi) total cycle counts.
-
-Use the following command to run simulation:
-```console
- python3 genesys/simulation/main_simulator.py
-```
-Please follow the specific instructions in the genesys/simulation/main_simulator.py to simulate Inference or Training for a DNN benchmark.
