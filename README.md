@@ -32,7 +32,7 @@ Installation and usage instructions are found in the following links:
 * [Axiline](axiline)
 
 ## Citing us
-If you use this work, please cite one of our papers:
+If you use any part of this project, please cite one of our papers:
 
 
 * H. Esmaeilzadeh, S. Ghodrati, J. Gu, S. Guo, A. B. Kahng, J. K. Kim, S. Kinzer, R. Mahapatra, S. D. Manasi, E. Mascarenhas, S. S. Sapatnekar, R. Varadarajan, Z. Wang, H. Xu, B. R. Yatham, and Z. Zeng, "VeriGOOD-ML: An Open-Source Flow for Automated ML Hardware Synthesis," IEEE/ACM International Conference On Computer Aided Design (ICCAD), 2021. DOI: 10.1109/ICCAD51958.2021.9643449.
