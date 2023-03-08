@@ -13,7 +13,7 @@ The following dependencies must be met by your system:
 ### Step 1: Clone the VeriGOOD-ML source code
   ```console
   $ git clone --recurse-submodules https://github.com/VeriGOOD-ML/public
-  $ cd public/genesys
+  $ cd public
   ```
 
 
@@ -21,23 +21,23 @@ The following dependencies must be met by your system:
 Note: You may choose to skip this step if you are doing a system-wide install for multiple users.
       Please DO NOT skip this step if you are installing for personal use and/or you are a developer.
 ```console
-$ python -m venv general
-$ source general/bin/activate
-$ python -m pip install pip --upgrade
+$ python -m venv ~/.venv/verigood_ml
+$ source ~/.venv/verigood_ml/bin/activate
+$ python -m pip install pip setuptools wheel --upgrade
 ```
 
-### Step 3: Install GeneSys
-If you already have a working installation of Python 3.7 or Python 3.8, the easiest way to install GeneSys is:
+### Step 3: Install PolyMath and the Codelets Compiler
+If you already have a working installation of Python 3.7 or Python 3.8, the easiest way to install PolyMath and the Codelets compiler is:
 ```console
-$ pip install -e .
+$ cd polymath && python -m pip install -r requirements.txt && python setup.py build install
+$ cd ../codelets.src && python -m pip install -r requirements.txt && python setup.py build install && cd ..
 ```
 
 ### Step 4: Compile a benchmark using GeneSys
 You can compile a GeneSys benchmark by running the following commands, where <model_name> is one of  `resnet18`, or `resnet50` (you can try compiling with other onnx models you find as well!)  and <config_name> is the name of one of the configs located in `genesys/examples/genesys/configs`:
 ```console
-$ cd genesys
-$ python tools/benchmark_compilation.py --model <model_name> --config <config_file>
+$ python compile_benchmark.py --model <model_name> --config <config_file>
 ```
 
-Compiled output will be stored in the `genesys/tools/compilation_output/` directory.
+Compiled output will be stored in the `compilation_output/` directory.
 

@@ -4,3 +4,6 @@
 [submodule "genesys/GeneSys-RTL"]
 	path = genesys/GeneSys-RTL
 	url = https://github.com/actlab-genesys/GeneSys.git
+[submodule "codelets.src"]
+	path = codelets.src
+	url = https://github.com/he-actlab/codelets.src
