@@ -32,8 +32,12 @@ Installation and usage instructions are found in the following links:
 * [Axiline](axiline)
 
 ## Citing us
-If you use this work, please cite one of our papers, PolyMath, published in the 2021 IEEE International Symposium on High Performance Computer Architecture (HPCA).
+If you use any part of this project, please cite one of our papers:
 
-```
-S. Kinzer, J.K. Kim, S. Ghodrati, B. Yatham, A. Althoff, D. Mahajan, S. Lerner, and H. Esmailzadeh, "A Computational Stack for Cross-Domain Acceleration", in the IEEE International Symposium on High Performance Computer Architecture (HPCA), 2021.
-```
+
+* H. Esmaeilzadeh, S. Ghodrati, J. Gu, S. Guo, A. B. Kahng, J. K. Kim, S. Kinzer, R. Mahapatra, S. D. Manasi, E. Mascarenhas, S. S. Sapatnekar, R. Varadarajan, Z. Wang, H. Xu, B. R. Yatham, and Z. Zeng, "VeriGOOD-ML: An Open-Source Flow for Automated ML Hardware Synthesis," IEEE/ACM International Conference On Computer Aided Design (ICCAD), 2021. DOI: 10.1109/ICCAD51958.2021.9643449.
+* S. Kinzer, J.K. Kim, S. Ghodrati, B. Yatham, A. Althoff, D. Mahajan, S. Lerner, and H. Esmailzadeh, "A Computational Stack for Cross-Domain Acceleration", in the IEEE International Symposium on High Performance Computer Architecture (HPCA), 2021.
+* A. B. Kahng, R. Varadarajan and Z. Wang, “RTL-MP: Toward Practical, Human-Quality Chip Planning and Macro Placement", Proceedings of the ACM/IEEE International Symposium on Physical Design, 2022. DOI: 10.1145/3505170.3506731.
+* H. Esmaeilzadeh, S. Ghodrati, A. B. Kahng, J. K. Kim, S. Kinzer, S. Kundu, R. Mahapatra, S. D. Manasi, S. S. Sapatnekar, Z. Wang, Z. Zeng, “Physically Accurate Learning-based Performance Prediction of Hardware-accelerated ML Algorithms,” Proceedings of the ACM/IEEE Workshop on Machine Learning for CAD (MLCAD), 2022. DOI: 10.1109/MLCAD55463.2022.9900090.
+* Z. Zeng and S. S. Sapatnekar, "Energy-efficient Hardware Acceleration of Shallow Machine Learning Applications," Proceedings of the Design, Automation & Test in Europe Conference & Exhibition (DATE), 2023 [accepted, to appear].
+
