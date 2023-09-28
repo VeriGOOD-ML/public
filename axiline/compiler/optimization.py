@@ -4,7 +4,7 @@ from axiline.compiler.compiler_template import PrePipeline
 from axiline.compiler.compiler_pipeline import PrintNodes, AddSuccessors
 from pathlib import Path
 import json
-import polymath as pm
+import polymath.polymath as pm
 
 
 class Optimization():

@@ -1,5 +1,5 @@
 import itertools
-import polymath as pm
+import polymath.polymath as pm
 
 class ImplNode():
     id_iter = itertools.count()

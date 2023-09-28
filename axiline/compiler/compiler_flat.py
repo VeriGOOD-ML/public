@@ -1,7 +1,7 @@
-from polymath.mgdfg.passes import register_pass, Pass
-from polymath.mgdfg.util import _flatten_iterable, is_iterable, extend_indices, squeeze_indices, get_indices
-from polymath import func_op, DEFAULT_SHAPES, UNSET_SHAPE, SCALAR_IDX
-import polymath as pm
+from polymath.polymath.srdfg.passes import register_pass, Pass
+# from polymath.mgdfg.util import _flatten_iterable, is_iterable, extend_indices, squeeze_indices, get_indices
+# from polymath import func_op, DEFAULT_SHAPES, UNSET_SHAPE, SCALAR_IDX
+import polymath.ploymath as pm
 from numbers import Integral
 from collections import defaultdict
 from itertools import product

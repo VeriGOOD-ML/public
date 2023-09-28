@@ -3,7 +3,7 @@ from sklearn import tree
 from axiline.compiler.decision_tree.DecisionTree import DecisionTree
 from axiline.compiler.decision_tree.MappingNode import MappingNode
 from axiline.compiler.decision_tree.BinaryTreeImpl import BinaryTreeImpl
-from sklearn.datasets import load_boston, load_digits
+from sklearn.datasets import load_digits
 import argparse
 
 def axiline_dt_compiler(decision_tree, num_unit, output_path, debug=False):

@@ -7,7 +7,7 @@ from axiline.compiler.generate_verilog import generate_verilog
 from axiline.compiler.generate_vh import generate_vh
 from axiline.compiler.axiline_compiler import axiline_compiler
 from pathlib import Path
-import polymath as pm
+import polymath.polymath as pm
 
 def test():
     cwd = Path(f"{__file__}").parent.parent.parent

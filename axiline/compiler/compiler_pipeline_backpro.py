@@ -1,7 +1,11 @@
-from polymath.mgdfg.passes import register_pass, Pass
-from polymath.mgdfg.util import _flatten_iterable, is_iterable, extend_indices, squeeze_indices, get_indices
-from polymath import func_op, DEFAULT_SHAPES, UNSET_SHAPE, SCALAR_IDX
-import polymath as pm
+# old version
+# from polymath.mgdfg.passes import register_pass, Pass
+# from polymath.mgdfg.util import _flatten_iterable, is_iterable, extend_indices, squeeze_indices, get_indices
+# from polymath import func_op, DEFAULT_SHAPES, UNSET_SHAPE, SCALAR_IDX
+
+from polymath.polymath.srdfg.passes.compiler_passes import NormalizeGraph, Lower
+import polymath.polymath as pm
+import pprint
 from numbers import Integral
 from collections import defaultdict
 from itertools import product
@@ -44,7 +48,9 @@ class PipelineBackpro(Pass):
     # check dimension (svm,logi,linear=1, reco=n)
     def check_stage_1(self, node):
         args = node.args
-        if isinstance(node,pm.mgdfg.from_onnx.node_definitions.matmul):
+        # polymath old version
+        # if isinstance(node,pm.mgdfg.from_onnx.node_definitions.matmul):
+        if isinstance(node, pm.matmul):
             print(f"\n {node.name},{len(node.args)}")
             for i in range (len(args)-1):
                 if args[i].op_name == 'state':
@@ -59,7 +65,9 @@ class PipelineBackpro(Pass):
     # check dimension before sgd (svm,logi,linear=1, reco=n)
     def check_stage_2(self, node):
         args = node.args
-        if isinstance(node, pm.mgdfg.from_onnx.node_definitions.matmul):
+        # polymath old version
+        # if isinstance(node, pm.mgdfg.from_onnx.node_definitions.matmul):
+        if isinstance(node, pm.matmul):
             print(f"\n {node.name},{len(node.args)}")
             for i in range(len(args) - 1):
                 if args[i].op_name == 'state':

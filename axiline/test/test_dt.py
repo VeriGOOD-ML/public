@@ -1,5 +1,4 @@
-from sklearn.datasets import load_boston, load_digits
-from sklearn.datasets import load_iris
+from sklearn.datasets import load_digits,load_iris
 from pathlib import Path
 from sklearn import tree
 from axiline.compiler.decision_tree.DecisionTree import DecisionTree

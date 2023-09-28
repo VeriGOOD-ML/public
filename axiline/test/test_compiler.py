@@ -1,10 +1,11 @@
 from axiline.compiler.compiler_flat import VerilogGenerateFlexBitwidth, VerilogCreateGraphBitwidth
-from polymath.mgdfg.passes.compiler_passes import NormalizeGraph, Lower, VerilogGenerateFlexBitwidth, TestGraph, VerilogCreateGraphBitwidth
+from polymath.polymath.srdfg.passes import register_pass, Pass
+from polymath.polymath.srdfg.passes.compiler_passes import NormalizeGraph, Lower, VerilogGenerateFlexBitwidth, TestGraph, VerilogCreateGraphBitwidth
 import polymath as pm
 import pprint
 import numpy as np
 from pathlib import Path
-from tests.util import count_nodes, linear, reco
+from polymath.polymath.tests.util import count_nodes, linear, reco
 import warnings
 
 def test_linear_reg():
