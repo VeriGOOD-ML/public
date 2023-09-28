@@ -21,7 +21,11 @@ $ source general/bin/activate
 $ python -m pip install pip --upgrade
 ```
 
-### Step 3A: Run Axiline for Matrix/vector multiplication-based  ML algorithm
+### Step 3: Install [PolyMath](https://github.com/he-actlab/polymath/)
+As a framework comprised of both a high-level language and an embedded Python language for compilation on heterogenous hardware, PolyMath is used for generating the DFG from ONNX in Axiline compiler.
+
+
+### Step 4A: Run Axiline for Matrix/vector multiplication-based  ML algorithm
 Axiline has three mode of transferring small matrix/vector multiplication-based  ML algorithm into Verilog:
 Typical small matrix/vector multiplication-based ML algorithms include `logistic regression`, `linear regression`,`SVM`, `recommender systems`, `backpropagations`(less or equivalent to 2 FC layer) 
 1. Directly transfer DFG into combinational Verilog
@@ -32,7 +36,7 @@ Call "axiline_compiler" to initiate Verilog generation and select one mode out o
  ```console
   axiline_compiler(<mode>, <onnx_path>, <bandwidth>, <template_path>, <output_path>)
   or
-  python3 axiline_compiler.py -m mode -o <onnx_path> -b <bandwidth> -tp <template_path> -op <output_path>
+  python3 axiline_compiler.py -m mode -op <onnx_path> -b <bandwidth> -tp <template_path> -o <output_path>
 ```
 
 `<mode>` should be a integer 1,2,3 corresponding to 3 listed modes
@@ -40,7 +44,7 @@ Call "axiline_compiler" to initiate Verilog generation and select one mode out o
 `<template_path>` should be a string of path to the folder containing Verilog for all template, only optional for template design. If not specified, compiler will use default templates.
 `<output_path>` should be a string of path for output files.
 
-### Step 3B: Run Axiline for Decision tree algorithm
+### Step 4B: Run Axiline for Decision tree algorithm
 Axiline is able to transfer decision tree inference algorithms into pipelined designs, supporting user-defined parallelism and number of pipeline stages.
 Call "axiline_dt_compiler" to run the scheduling for decision tree.
  ```console
@@ -57,3 +61,9 @@ In current version, Axiline decision tree compiler only support an interface to 
 * Some testing examples are in `/axiline/test/test_compiler*` and `/axiline/test/test_dt`
 * Generated Verilog for `logistic regression`, `linear regression`,`SVM`, `recommender systems` are in `/axiline/hardware` 
 * Some script used to generate RTL are in `/axiline/tools`. E.g, sigmoid.py are used to generate Verilog module (Fixed-point, LUT-based) for sigmoid function.
+
+### How to Cite
+If you use this work, please cite our paper. 
+```
+Z. Zeng and S. S. Sapatnekar, "Energy-efficient Hardware Acceleration of Shallow Machine Learning Applications," 2023 Design, Automation & Test in Europe Conference & Exhibition (DATE), 2023, pp. 1-6, doi: 10.23919/DATE56975.2023.10137232.
+```
