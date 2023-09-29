@@ -289,14 +289,17 @@ class LayerObject(object):
             
             #### Extracting loop order 
             #print(CompOut_layer['iterable_dimensions'].keys())
-            loop_keys = list(CompOut_layer['iterable_dimensions'].keys())
-            loop_keys.reverse()     # in simulator code, the first one in the list is the innermost loop (opposite to the DNN spec file)
-            #print(loop_keys)
-            key_conversion_dict = {'P':'oc', 'N':'ic', 'M':'n'}
-            conv_loop_keys = []  
-            for key in loop_keys:
-                conv_loop_keys.append(key_conversion_dict[key])
-            self.Loop_order = conv_loop_keys  #converted loop key
+            if Optimal_WS_loop == False:
+                loop_keys = list(CompOut_layer['iterable_dimensions'].keys())
+                loop_keys.reverse()     # in simulator code, the first one in the list is the innermost loop (opposite to the DNN spec file)
+                #print(loop_keys)
+                key_conversion_dict = {'P':'oc', 'N':'ic', 'M':'n'}
+                conv_loop_keys = []  
+                for key in loop_keys:
+                    conv_loop_keys.append(key_conversion_dict[key])
+                self.Loop_order = conv_loop_keys  #converted loop key
+            elif Optimal_WS_loop == True:
+                self.Loop_order = ['n', 'ic', 'oc']
             #print("Loop order:", self.Loop_order)
 
             #### Extracting fusion info. 

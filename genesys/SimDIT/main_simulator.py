@@ -37,7 +37,8 @@ from layer_object import TilingFlags
 Simulation_Phase =  "Inference" 
 #Simulation_Phase =  "Training"
 
-DNN_benchmark = "ResNet50_"    #current DNN Spec directories contain example of DNN specification for ResNet50
+DNN_benchmark = "ResNet50_"    #current DNN Spec directories contain example of DNN specification for ResNet50 and ResNet18
+#DNN_benchmark = "ResNet18_"
 
 hardware_directory_name = "Hardware_Json_" + Simulation_Phase + "/"
 dnn_spec_dicrectory_name = "DNN_Spec_" + Simulation_Phase + "/"
@@ -98,7 +99,7 @@ elif Simulation_Phase == "Training":
 
 
 ####### Executing simulator for inference or training (single iteration)
-with open(Result_directory/Result_file_name, "w") as csvFile1, open(SA_SIMD_file_name, "w") as csvFile2: 
+with open(Result_directory/Result_file_name, "w") as csvFile1, open(Result_directory/SA_SIMD_file_name, "w") as csvFile2: 
 	writer1 = csv.writer(csvFile1)
 	writer1.writerow(Result_header) 
 
@@ -110,9 +111,9 @@ with open(Result_directory/Result_file_name, "w") as csvFile1, open(SA_SIMD_file
 
 		if TGflagAll == True:    #Using the internal tiling generator
 			if Simulation_Phase == "Inference":
-				dnn_spec_file_name = "ResNet50_inference_Spec_Locked.json"  
+				dnn_spec_file_name = DNN_benchmark + "inference_Spec_Locked.json"  
 			elif Simulation_Phase == "Training":
-				dnn_spec_file_name = "ResNet50_training_Spec_Locked.json"
+				dnn_spec_file_name = DNN_benchmark + "training_Spec_Locked.json"
 		elif TGflagAll == False:
 			print("provide external dnn spec and tiling in the DNN specifications .json file format")
 			DNNSpec_file_name = DNN_benchmark + Compute_Phase + Batching + "Design" + hrd_design_no
