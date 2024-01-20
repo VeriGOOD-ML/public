@@ -64,7 +64,7 @@ Optimal_WS_loop = True  # this flag is to bypass the loop order in the DNN spec 
 
 ######### Set the TGflagAll = True to use the internal tiling generator. For more detail see the TilingFlags object in layer_object.py
 # set the batch size to use. This batch size is used by the internal tiling generator. Training should be run with a batch size greater than 1
-set_batch_size = 32  
+set_batch_size = 1  
 TGflagAll = True  
 TGflag = TilingFlags(TGflagAll, set_batch_size)
 FusionChoice = False    # True = Do fusion when possible, False = Do not do fusion for any layer
@@ -80,7 +80,7 @@ elif Batch_size > 1:
 if Simulation_Phase == "Inference":
 	Compute_Phase =  "Inference_"
 	#hardware_list = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '11', '12', '13', '14']  #list of design hardware for inference
-	hardware_list = ['09ReduceBW'] # to run one hardware design point
+	hardware_list = ['01'] # to run one hardware design point
 
 	#name of the stored result file for all inference design points with the same batch size
 	Result_file_name = DNN_benchmark + "result_Inference_" + Batching +  str(Batch_size) +".csv"
@@ -89,8 +89,8 @@ if Simulation_Phase == "Inference":
 
 elif Simulation_Phase == "Training":
 	Compute_Phase =  "Train_"
-	#hardware_list = ['01', '02', '05', '06', '08']  #list of design hardware for Training
-	hardware_list = ['08ReduceBW']  #to run one hardware design point
+	#hardware_list = ['01', '02', '05', '06', '08', '09', '11', '12']  #list of design hardware for Training
+	hardware_list = ['01']  #to run one hardware design point
 	
 	#name of the stored result file for all training design points
 	Result_file_name = DNN_benchmark + "result_Training_single_iteration.csv"

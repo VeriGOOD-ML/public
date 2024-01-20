@@ -153,7 +153,7 @@ def conv_access_model(Hardware_param, LayerObj, SysResult_inflayer):
             #print("filter_access_DRAM:", filter_access_DRAM)
             #print("ofpsm_access_DRAM:", ofpsm_access_DRAM)
             #print("psum_access_DRAM:", psum_access_DRAM)
-            print("ofmap_access_DRAM:", ofmap_access_DRAM)         
+            #print("ofmap_access_DRAM:", ofmap_access_DRAM)         
             #print("bias_access_DRAM:", bias_access_DRAM)
 
         elif dataflow == "output_stationary":
@@ -520,7 +520,7 @@ def conv_stall_model_nofu(Hardware_param, LayerObj, ComputeTile_cycles, SysResul
 
             #of total DRAM stall cycles
             DRAM_stall_cycles = stall_case1 + stall_case2 + stall_case4 + stall_case5 + stall_case7 + stall_case8 + stall_first + stall_last
-            print("DRAM_stall_cycles nofusion:", DRAM_stall_cycles)
+            #print("DRAM_stall_cycles nofusion:", DRAM_stall_cycles)
 
 
             ####### incorporating fusion:
@@ -546,9 +546,9 @@ def conv_stall_model_nofu(Hardware_param, LayerObj, ComputeTile_cycles, SysResul
 
                 DRAM_stall_cycles = DRAM_stall_cycles - fusion_reduced_stall
 
-                print("nos_of_ofmap_tile:", nos_of_ofmap_tile)
-                print("fusion_reduced_stall:", fusion_reduced_stall)
-                print("DRAM_stall_cycles with fusion:", DRAM_stall_cycles)
+                #print("nos_of_ofmap_tile:", nos_of_ofmap_tile)
+                #print("fusion_reduced_stall:", fusion_reduced_stall)
+                #print("DRAM_stall_cycles with fusion:", DRAM_stall_cycles)
                 assert (DRAM_stall_cycles >= 0)
 
 
