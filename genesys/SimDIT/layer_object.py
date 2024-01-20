@@ -50,7 +50,7 @@ class TilingFlags(object):
 class LayerObject(object): 
     # This object stores all the parameters associated to a layer. This includes layer dimension, tiling info, fusion status etc
     # This object takes DNN spec associated with each layer and the hardware object as input arguments
-    def __init__(self, Hardware_param, CompOut_layer, next_layer, Optimal_WS_loop, TGflag, Mode):
+    def __init__(self, Hardware_param, CompOut_layer, next_layer, Optimal_WS_loop, TGflag, fusion_flag, Mode):
         # Ecah type of layer is read under seperate if condition. the dictionary keys and number of variables for different kind of layers are diferent in DNN spec
         layer_op = CompOut_layer['operation']
         print("layer operation:", layer_op)
@@ -62,6 +62,8 @@ class LayerObject(object):
         #for SIMD, psum means intermediate data and using it for intermediate DARM access if any, for example for softmax
         #for pooling do not use ic in the loop order, use only oc
         #use Conv/FC activation bitwidth from Hardware Object as SIMD ofmap bitwidth depending on whether the SIMD layer is before a conv or not
+
+        self.fusion_flag = fusion_flag
 
         ########################################################################### Convolution Layer ######################################################
         if layer_op == "conv_bias" or layer_op == "conv":

@@ -49,7 +49,6 @@ Hardware_directory = Path("/genesys/SimDIT/" + hardware_directory_name)
 DNNSpec_directory = Path("/genesys/SimDIT/" + dnn_spec_dicrectory_name)
 Result_directory = Path("/genesys/SimDIT/" + result_directory_name)
 
-
 Result_header = ['Configuration name', 'WBUF access', 'IBUF access', 'OBUF access', 'BBUF access', 'VMEM access', 'IMM access', 'InsMem access', \
 									   'DRAM access filter', 'DRAM access ifmap', 'DRAM access psum', 'DRAM access ofmap', 'DRAM access bias', 'total DRAM access', \
 									   'SA compute cycles', 'SA stall cycles', 'SIMD compute cycles', 'SIMD stall cycles', 'total cycles', 'Op count']
@@ -65,9 +64,10 @@ Optimal_WS_loop = True  # this flag is to bypass the loop order in the DNN spec 
 
 ######### Set the TGflagAll = True to use the internal tiling generator. For more detail see the TilingFlags object in layer_object.py
 # set the batch size to use. This batch size is used by the internal tiling generator. Training should be run with a batch size greater than 1
-set_batch_size = 1  
+set_batch_size = 32  
 TGflagAll = True  
 TGflag = TilingFlags(TGflagAll, set_batch_size)
+FusionChoice = False    # True = Do fusion when possible, False = Do not do fusion for any layer
 
 Batch_size = set_batch_size  
 
@@ -76,12 +76,11 @@ if Batch_size == 1:
 elif Batch_size > 1:
 		Batching = "MultiB_"
 
-
 #######Formatting depending on the simulation phase
 if Simulation_Phase == "Inference":
 	Compute_Phase =  "Inference_"
 	#hardware_list = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '11', '12', '13', '14']  #list of design hardware for inference
-	hardware_list = ['01'] # to run one hardware design point
+	hardware_list = ['09ReduceBW'] # to run one hardware design point
 
 	#name of the stored result file for all inference design points with the same batch size
 	Result_file_name = DNN_benchmark + "result_Inference_" + Batching +  str(Batch_size) +".csv"
@@ -90,15 +89,15 @@ if Simulation_Phase == "Inference":
 
 elif Simulation_Phase == "Training":
 	Compute_Phase =  "Train_"
-	#hardware_list = ['01', '02', '05', '06', '08', '09', '11', '12']  #list of design hardware for Training
-	hardware_list = ['01']  #to run one hardware design point
+	#hardware_list = ['01', '02', '05', '06', '08']  #list of design hardware for Training
+	hardware_list = ['08ReduceBW']  #to run one hardware design point
 	
 	#name of the stored result file for all training design points
 	Result_file_name = DNN_benchmark + "result_Training_single_iteration.csv"
 	SA_SIMD_file_name = DNN_benchmark + "SA_SIMD_Training_single_iteration.csv"
 
 
-####### Executing simulator for inference or training (single iteration)
+####### Executing simulator for inference or training (single iteration) 
 with open(Result_directory/Result_file_name, "w") as csvFile1, open(Result_directory/SA_SIMD_file_name, "w") as csvFile2: 
 	writer1 = csv.writer(csvFile1)
 	writer1.writerow(Result_header) 
@@ -111,7 +110,7 @@ with open(Result_directory/Result_file_name, "w") as csvFile1, open(Result_direc
 
 		if TGflagAll == True:    #Using the internal tiling generator
 			if Simulation_Phase == "Inference":
-				dnn_spec_file_name = DNN_benchmark + "inference_Spec_Locked.json"  
+				dnn_spec_file_name = DNN_benchmark + "inference_Spec_Locked.json" 
 			elif Simulation_Phase == "Training":
 				dnn_spec_file_name = DNN_benchmark + "training_Spec_Locked.json"
 		elif TGflagAll == False:
@@ -131,7 +130,7 @@ with open(Result_directory/Result_file_name, "w") as csvFile1, open(Result_direc
 		#print(json.dumps(DNNSpecNet, indent = 4))
 
 		## All DATA Access Results are in KB
-		Final_result, SA_SIMD_result_net = simulate(DNNSpecNet, Hardware_config, Optimal_WS_loop, TGflag)
+		Final_result, SA_SIMD_result_net = simulate(DNNSpecNet, Hardware_config, Optimal_WS_loop, TGflag, FusionChoice)
 		print("Final_result:", Final_result)
 
 		# name of the design point in the result file
@@ -149,14 +148,5 @@ with open(Result_directory/Result_file_name, "w") as csvFile1, open(Result_direc
 		#writing the SA-SIMD breakdown results
 		DNN_result_SA_SIMD = np.hstack([ DNN_mode_hardware , SA_SIMD_result_net])
 		writer2.writerow(DNN_result_SA_SIMD)
-
-
-
-
-
-
-		
-
-
 
 

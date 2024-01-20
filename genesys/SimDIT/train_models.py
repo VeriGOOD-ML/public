@@ -23,6 +23,7 @@ def common_SIMD_backward_model(Hardware_param, LayerObj, SIMDResult_inflayer):
 
     layer_op = CompilerOut_layer['operation']
     #print("operation_name:", layer_op)
+    fusion_flag = LayerObj.fusion_flag
 
 
     ##################Computing DRAM access
@@ -37,6 +38,10 @@ def common_SIMD_backward_model(Hardware_param, LayerObj, SIMDResult_inflayer):
         DRAM_access_num_in1 = DRAM_access_num_in1 * DRAM_in1[key]
     #print("DRAM_access_num_in1:", DRAM_access_num_in1)
     DRAM_access_in1 = DRAM_access_num_in1 * bw_ifmap
+
+    if fusion_flag == True:
+        DRAM_access_in1 = 0
+        print(f"{layer_op} DRAM_access_in1: {DRAM_access_in1}")
 
 
     ##### INPUT-2 (if any)
@@ -167,6 +172,10 @@ def common_SIMD_backward_model(Hardware_param, LayerObj, SIMDResult_inflayer):
 
     # VMEM is single buffered, so there is no overlap with computation.
     ifmap_stall_cycles_1 = ifmapTile_load_cycles_1 * Number_of_Tile
+    if fusion_flag == True:
+        ifmap_stall_cycles_1 = 0
+        print(f"{layer_op} ifmap_stall_cycles_1: {ifmap_stall_cycles_1}")
+
     ifmap_stall_cycles_2 = ifmapTile_load_cycles_2 * Number_of_Tile
     ofmap_stall_cycles = ofmapTile_store_cycles * Number_of_Tile
     DRAM_stall_cycles = ifmap_stall_cycles_1 + ifmap_stall_cycles_2 + ofmap_stall_cycles
@@ -350,6 +359,7 @@ def mean_istd_model(Hardware_param, LayerObj, SIMDResult_inflayer):
 
     Loop_order = LayerObj.Loop_order
     fusion_status = LayerObj.fusion_status
+    fusion_flag = LayerObj.fusion_flag      # fusion_flag overwrites fusion_status
 
     assert Loop_order[-1] == 'oc'   # the model works for a loop order where channels are at the outer most loop
     assert fusion_status == "NoFusion"  #the model works for the no fusion case
@@ -360,6 +370,9 @@ def mean_istd_model(Hardware_param, LayerObj, SIMDResult_inflayer):
 
     ############ DRAM Access
     ifmap_access_DRAM = (DTile_ih * DTile_iw * DTile_oc * DTile_batch) * (IH/DTile_ih) * (IW/DTile_iw) * (OC/DTile_oc) * (Batch/DTile_batch) * bw_ifmap
+    if fusion_flag == True:
+        ifmap_access_DRAM = 0
+
     mean_access_DRAM = DTile_oc * (OC/DTile_oc) * bw_ofmap
     istd_access_DRAM = DTile_oc * (OC/DTile_oc) * bw_ofmap
     ofmap_access_DRAM = mean_access_DRAM + istd_access_DRAM
@@ -448,6 +461,10 @@ def mean_istd_model(Hardware_param, LayerObj, SIMDResult_inflayer):
 
         # VMEM is single buffered, so there is no overlap with computation.
         ifmap_stall_cycles = ifmapTile_load_cycles * Nos_of_inner_tile * Nos_of_outer_tile
+        if fusion_flag == True:
+            ifmap_stall_cycles = 0
+            print("mean_var ifmap_stall_cycles:", ifmap_stall_cycles)
+
         MeanIstd_stall_cycles = (meanTile_store_cycles + istdTile_store_cycles) * Nos_of_outer_tile
         DRAM_stall_cycles = ifmap_stall_cycles + MeanIstd_stall_cycles
     else:

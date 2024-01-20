@@ -125,12 +125,16 @@ def relu_access_model(Hardware_param, LayerObj, SIMDResult_inflayer):
     Stile_batch = LayerObj.Stile_batch
 
     fusion_status = LayerObj.fusion_status
+    fusion_flag = LayerObj.fusion_flag      # fusion_flag overwrites fusion_status
 
     #Loop order does not matter for ReLU layer
     ############ DRAM Access
     if (fusion_status == "NoFusion"):
         ifmap_access_DRAM = (DTile_oh * DTile_ow * DTile_oc * DTile_batch) * (OH/DTile_oh) * (OW/DTile_ow) * (OC/DTile_oc) * (Batch/DTile_batch) * bw_ifmap
         ofmap_access_DRAM = (DTile_oh * DTile_ow * DTile_oc * DTile_batch) * (OH/DTile_oh) * (OW/DTile_ow) * (OC/DTile_oc) * (Batch/DTile_batch) * bw_ofmap
+
+        if fusion_flag == True:
+            ifmap_access_DRAM = 0
 
         #print("ifmap_access_DRAM:", ifmap_access_DRAM)
         #print("ofmap_access_DRAM:", ofmap_access_DRAM)
@@ -198,6 +202,7 @@ def relu_cycle_model(Hardware_param, LayerObj, SIMDResult_inflayer):
     Stile_batch = LayerObj.Stile_batch
 
     fusion_status = LayerObj.fusion_status
+    fusion_flag = LayerObj.fusion_flag      # fusion_flag overwrites fusion_status
 
     # #of cycles to compute one tile, k operations per cycle, compute cycles do not depend on loop order or fusion
     #cycle_oneTile = (Stile_oh * Stile_ow * Stile_batch) * (DTile_oh/Stile_oh) * (DTile_ow/Stile_ow) * math.ceil((DTile_oc/Stile_oc)) * (DTile_batch/Stile_batch)
@@ -223,6 +228,11 @@ def relu_cycle_model(Hardware_param, LayerObj, SIMDResult_inflayer):
 
             # VMEM is single buffered, so there is no overlap with computation.
             ifmap_stall_cycles = ifmapTile_load_cycles * Number_of_Tile
+            
+            if fusion_flag == True:
+                ifmap_stall_cycles = 0
+                print("relu ifmap_stall_cycles:", ifmap_stall_cycles)
+
             ofmap_stall_cycles = ofmapTile_store_cycles * Number_of_Tile
             DRAM_stall_cycles = ifmap_stall_cycles + ofmap_stall_cycles
         else:
@@ -265,13 +275,18 @@ def elemadd_access_model(Hardware_param, LayerObj, SIMDResult_inflayer):
     Stile_batch = LayerObj.Stile_batch
 
     fusion_status = LayerObj.fusion_status
+    fusion_flag = LayerObj.fusion_flag      # fusion_flag overwrites fusion_status
 
     #Loop order does not matter for ElemAdd layer
     ############ DRAM Access
     if (fusion_status == "NoFusion"):
         ifmap_access_DRAM_1 = (DTile_oh * DTile_ow * DTile_oc * DTile_batch) * (OH/DTile_oh) * (OW/DTile_ow) * (OC/DTile_oc) * (Batch/DTile_batch) * bw_ifmap
         ifmap_access_DRAM_2 = (DTile_oh * DTile_ow * DTile_oc * DTile_batch) * (OH/DTile_oh) * (OW/DTile_ow) * (OC/DTile_oc) * (Batch/DTile_batch) * bw_ifmap
-        # readig both tensor from the DRAM
+        
+        if fusion_flag == True:
+            ifmap_access_DRAM_2 = 0
+            print("elem-add ifmap_access_DRAM_2:", ifmap_access_DRAM_2)
+
         ifmap_access_DRAM = ifmap_access_DRAM_1 + ifmap_access_DRAM_2
 
         ofmap_access_DRAM = (DTile_oh * DTile_ow * DTile_oc * DTile_batch) * (OH/DTile_oh) * (OW/DTile_ow) * (OC/DTile_oc) * (Batch/DTile_batch) * bw_ofmap
@@ -340,6 +355,7 @@ def elemadd_cycle_model(Hardware_param, LayerObj, SIMDResult_inflayer):
     Stile_batch = LayerObj.Stile_batch
 
     fusion_status = LayerObj.fusion_status
+    fusion_flag = LayerObj.fusion_flag      # fusion_flag overwrites fusion_status
 
     # #of cycles to compute one tile, k operations per cycle, compute cycles do not depend on loop order or fusion
     #cycle_oneTile = (Stile_oh * Stile_ow * Stile_batch) * (DTile_oh/Stile_oh) * (DTile_ow/Stile_ow) * math.ceil((DTile_oc/Stile_oc)) * (DTile_batch/Stile_batch)
@@ -366,6 +382,11 @@ def elemadd_cycle_model(Hardware_param, LayerObj, SIMDResult_inflayer):
             # VMEM is single buffered, so there is no overlap with computation.
             ifmap_stall_cycles_1 = ifmapTile_load_cycles_1 * Number_of_Tile
             ifmap_stall_cycles_2 = ifmapTile_load_cycles_2 * Number_of_Tile
+
+            if fusion_flag == True:
+                ifmap_stall_cycles_2 = 0
+                print("elem-add ifmap_stall_cycles_2:", ifmap_stall_cycles_2)
+
             ofmap_stall_cycles = ofmapTile_store_cycles * Number_of_Tile
             DRAM_stall_cycles = ifmap_stall_cycles_1 + ifmap_stall_cycles_2 + ofmap_stall_cycles
         else:

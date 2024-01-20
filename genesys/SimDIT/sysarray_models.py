@@ -36,6 +36,7 @@ def conv_access_model(Hardware_param, LayerObj, SysResult_inflayer):
 
     Loop_order = LayerObj.Loop_order
     fusion_status = LayerObj.fusion_status
+    fusion_flag = LayerObj.fusion_flag      # fusion_flag overwrites fusion_status
 
     #print(Size_IBUF)
     #print(Loop_order)
@@ -142,6 +143,8 @@ def conv_access_model(Hardware_param, LayerObj, SysResult_inflayer):
 
             #ofmap access
             ofmap_access_DRAM = OW * OH * OC * Batch * bw_ofmap  # in bit
+            if fusion_flag == True:
+                ofmap_access_DRAM = 0
 
             #bias access (oc at the outermost loop)
             bias_access_DRAM = DTile_oc * (OC/DTile_oc) * bw_bias
@@ -150,7 +153,7 @@ def conv_access_model(Hardware_param, LayerObj, SysResult_inflayer):
             #print("filter_access_DRAM:", filter_access_DRAM)
             #print("ofpsm_access_DRAM:", ofpsm_access_DRAM)
             #print("psum_access_DRAM:", psum_access_DRAM)
-            #print("ofmap_access_DRAM:", ofmap_access_DRAM)         
+            print("ofmap_access_DRAM:", ofmap_access_DRAM)         
             #print("bias_access_DRAM:", bias_access_DRAM)
 
         elif dataflow == "output_stationary":
@@ -366,6 +369,7 @@ def conv_stall_model_nofu(Hardware_param, LayerObj, ComputeTile_cycles, SysResul
     DTile_batch = LayerObj.DTile_batch
 
     Loop_order = LayerObj.Loop_order
+    fusion_flag = LayerObj.fusion_flag      
 
     # Determining which dataflow out of the three dataflow class form the input loop order
     WS_key = ['ow', 'oh', 'n']
@@ -516,7 +520,37 @@ def conv_stall_model_nofu(Hardware_param, LayerObj, ComputeTile_cycles, SysResul
 
             #of total DRAM stall cycles
             DRAM_stall_cycles = stall_case1 + stall_case2 + stall_case4 + stall_case5 + stall_case7 + stall_case8 + stall_first + stall_last
-            #print("DRAM_stall_cycles:", DRAM_stall_cycles)
+            print("DRAM_stall_cycles nofusion:", DRAM_stall_cycles)
+
+
+            ####### incorporating fusion:
+            if fusion_flag == True:
+                # taking the weighted average stall per tile. Some cases occur more frequencty than the others. Hence weighted average is a better estimate
+                if (NT_case1 + NT_case2 + NT_case4 + NT_case5) <= 0:
+                    avg_pertile_stall = 0
+                else:
+                    avg_pertile_stall = math.ceil((stall_case1 + stall_case2 + stall_case4 + stall_case5) / (NT_case1 + NT_case2 + NT_case4 + NT_case5))
+                print("avg_pertile_stall:", avg_pertile_stall)
+
+                nos_of_ofmap_tile = (OW/DTile_ow) * (OH/DTile_oh) * (Batch/DTile_batch) * (OC/DTile_oc)
+
+                stall_four_cases = stall_case1 + stall_case2 + stall_case4 + stall_case5
+                reduction_four_cases = math.ceil(avg_pertile_stall * (nos_of_ofmap_tile - 2))   # excluding last two tiles
+
+                if reduction_four_cases > stall_four_cases:  #handling corner situation due to averaging: reduction from four cases need to be <= stall from all four cases
+                    net_reduction = stall_four_cases
+                else:
+                    net_reduction = reduction_four_cases
+
+                fusion_reduced_stall = net_reduction + stall_case8 + stall_last        # last two tiles are always ofmap write
+
+                DRAM_stall_cycles = DRAM_stall_cycles - fusion_reduced_stall
+
+                print("nos_of_ofmap_tile:", nos_of_ofmap_tile)
+                print("fusion_reduced_stall:", fusion_reduced_stall)
+                print("DRAM_stall_cycles with fusion:", DRAM_stall_cycles)
+                assert (DRAM_stall_cycles >= 0)
+
 
             SysResult_inflayer.cycles['DRAM_Stall'] = DRAM_stall_cycles
 
@@ -550,6 +584,7 @@ def gemm_access_model(Hardware_param, LayerObj, SysResult_inflayer):
 
     Loop_order = LayerObj.Loop_order
     fusion_status = LayerObj.fusion_status
+    fusion_flag = LayerObj.fusion_flag      # fusion_flag overwrites fusion_status
 
     # Current implementation is for one loop order only, this is sort of the most optimal loop order for gemm analytically.
     # So no need to implement the support for any loop order for gemm
@@ -571,8 +606,12 @@ def gemm_access_model(Hardware_param, LayerObj, SysResult_inflayer):
 
             # filter access
             filter_access_DRAM = (DTile_ic * DTile_oc) * (IC/DTile_ic) * (OC/DTile_oc) * bw_filter  # in bit
+            
             # ofmap access, no pusm DRAM access since output stationary
             ofmap_access_DRAM = (DTile_oc) * (OC/DTile_oc) * bw_ofmap
+            if fusion_flag == True:
+                ofmap_access_DRAM = 0
+
             # bias access
             bias_access_DRAM = (DTile_oc) * (OC/DTile_oc) * bw_bias           
         else:
@@ -699,6 +738,8 @@ def gemmb1_stall_model_nofu(Hardware_param, LayerObj, ComputeTile_cycles, SysRes
     DTile_ic = LayerObj.DTile_ic
     DTile_batch = LayerObj.DTile_batch
 
+    fusion_flag = LayerObj.fusion_flag      # fusion_flag overwrites fusion_status
+
     #of cycles required to load/store each tile of each kind of data
     WgtTile_load_cycles = math.ceil((DTile_ic * DTile_oc * bw_filter) / RBW_DRAM_to_WBUF)
     BiasTile_load_cycles = math.ceil((DTile_oc * bw_bias) / RBW_DRAM_to_WBUF)
@@ -706,6 +747,10 @@ def gemmb1_stall_model_nofu(Hardware_param, LayerObj, ComputeTile_cycles, SysRes
     ofmapTile_store_cycles = math.ceil((DTile_oc * bw_ofmap) / WBW_OBUF_to_DRAM)
     #do not need to use 8-bit ofmap. Since SIMD operations are 32 bit and there is always at least a ReLU layer after each
     #Conv layer, the output of conv will go to SIMD and the quantization of 32 to 8 bit happens at SIMD. Hence the ofmap from a conv will be 32 bit
+
+    if fusion_flag == True:
+        ofmapTile_store_cycles = 0   #for gemm no pusm, all DRAM write is ofmap. Hence setting ofmapTile_store_cycles = 0 will autometically give stall cycles for fusion
+        print("ofmapTile_store_cycles:", ofmapTile_store_cycles)
 
     #print("ComputeTile_cycles:", ComputeTile_cycles)
     #print("WgtTile_load_cycles:", WgtTile_load_cycles)
