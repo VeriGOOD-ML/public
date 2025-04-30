@@ -3,7 +3,9 @@
 * A comprehensive simulation framework for fast performance analysis of DNN hardware
 * Models convolution and a diverse set of non-convolution operations to cover DNN inference and training
 
-If you use any part of SimDIT for your work please cite: https://github.com/VeriGOOD-ML/public/tree/main/genesys/SimDIT
+If you use any part of SimDIT for your work please cite: 
+* https://github.com/VeriGOOD-ML/public/tree/main/genesys/SimDIT
+* H. Esmaeilzadeh, S. Ghodrati, A. B. Kahng, S. Kinzer, S. D. Manasi, S. S. Sapatnekar, and Z. Wang, "Performance Analysis of CNN Inference/Training with Convolution and Non-Convolution Operations on ASIC Accelerators", ACM Transactions on Design Automation of Electronic Systems (TODAES). vol. 30, no. 1, 34 pages, Nov. 2024. https://doi.org/10.1145/3696665.
 
 ### Simulate a DNN benchmark using SimDIT
 Using SimDIT, you can run a software simulation of a DNN benchmark. This directory contains all the source code of SimDIT. 
